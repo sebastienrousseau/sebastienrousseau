@@ -13,15 +13,10 @@ lede = [
 ]
 
 [numbers]
+# Values come live from crates.io, PyPI, npm and GitHub (tools/metrics.py).
 eyebrow = "Proof"
 headline = "By the numbers."
-note = "Figures as of September 2026."
-stats = [
-  { value = "45.7M", label = "Open-source downloads" },
-  { value = "672", label = "GitHub stars" },
-  { value = "237", label = "Public repositories" },
-  { value = "19", label = "Years in payments and banking" },
-]
+note = "Live from crates.io, PyPI (via ClickPy), npm and GitHub. Downloads cover all three registries. Refreshed daily."
 
 [[pillars]]
 key = "payments"

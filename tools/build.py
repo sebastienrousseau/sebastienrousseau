@@ -13,6 +13,7 @@ import tomllib
 from collections.abc import Callable
 from pathlib import Path
 
+import metrics
 import panels
 from svg import Doc
 from theme import THEMES
@@ -45,11 +46,11 @@ def articles(site: str) -> list[dict]:
     ]
 
 
-def jobs(cfg: dict, latest: list[dict]) -> dict[str, Callable[[dict], Doc]]:
+def jobs(cfg: dict, latest: list[dict], stats: list[dict]) -> dict[str, Callable[[dict], Doc]]:
     """Every asset name mapped to the panel that draws it for a theme."""
     out: dict[str, Callable[[dict], Doc]] = {
         "hero": lambda t: panels.hero(t, cfg["hero"]),
-        "numbers": lambda t: panels.numbers(t, cfg["numbers"]),
+        "numbers": lambda t: panels.numbers(t, {**cfg["numbers"], "stats": stats}),
         "paper": lambda t: panels.paper(t, cfg["paper"]),
         "desk": lambda t: panels.header(t, "Latest", "From the desk."),
         "finale": lambda t: panels.finale(t, cfg["finale"]),
@@ -114,8 +115,9 @@ def page(cfg: dict, alts: dict[str, str], latest: list[dict]) -> str:
 def main() -> None:
     cfg = tomllib.loads((ROOT / "profile.toml").read_text())
     latest = articles(cfg["site"])
+    stats = metrics.collect()
     ASSETS.mkdir(exist_ok=True)
-    alts = render(jobs(cfg, latest))
+    alts = render(jobs(cfg, latest, stats))
     (ROOT / "README.md").write_text(page(cfg, alts, latest))
 
 

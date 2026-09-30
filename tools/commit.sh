@@ -23,6 +23,6 @@ jq -n \
     variables: {i: {
       branch: {repositoryNameWithOwner: $repo, branchName: $branch},
       expectedHeadOid: $head,
-      message: {headline: "docs: refresh latest articles"},
+      message: {headline: "docs: refresh articles and live numbers"},
       fileChanges: {additions: $additions}}}}' |
   gh api graphql --input - --jq .data.createCommitOnBranch.commit.url
