@@ -47,144 +47,88 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
 
 
-# An original wall clock drawn as a frosted-glass quantum chip plate: a
-# translucent plate the hero's glow shows through, whose flange carries 12
-# glass connector rings as hour markers (solid blue cores at the quarters)
-# and faint bolt holes at the half hours, 60 vias for the minutes, hairline
-# traces fanning out from a glass die with a 3x3 grid of glowing qubits,
-# LONDON etched below it, slim ink hands and a blue second hand with a
-# tail counterweight. Statically it shows 10:09:30. The /api/clock/ Worker
-# route on sebastienrousseau.com replaces CLOCK_MARKER with the London time
-# and starts the hands.
+# The lattice clock. The hero's ML-KEM point lattice is the dial: two
+# lattice basis vectors are the hour and minute hands, a faint third one
+# sweeps the seconds, and a badge at each tip rolls through the hour
+# (12, 1 .. 11) or the minute (00 .. 59) like an odometer. Badges
+# counter-rotate about their tip so the digits stay upright. Everything is
+# CSS animation; statically it shows 10:09:30. The /api/clock/ Worker
+# route on sebastienrousseau.com replaces CLOCK_MARKER with CSS that sets
+# the .hh/.mm/.ss delays to the London time and starts .hand elements.
 CLOCK_MARKER = "/*clock*/"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
+HOUR_LEN, MINUTE_LEN, SECOND_LEN = 126, 184, 168
+# Badge radius and the spacing between digits in a strip. MINUTE_LEN -
+# HOUR_LEN exceeds 2 * BADGE, so the badges never overlap even when the
+# hands align, and MINUTE_LEN + BADGE keeps clear of the headline and edge.
+BADGE, ROW = 28, 54
 CLOCK_CSS = (
     ".hand{{transform-box:view-box;transform-origin:{x}px {y}px;animation-name:spin;"
     "animation-timing-function:linear;animation-iteration-count:infinite;animation-play-state:paused}}"
     "@keyframes spin{{to{{transform:rotate(360deg)}}}}"
+    "@keyframes unspin{{to{{transform:rotate(-360deg)}}}}"
+    "@keyframes rollh{{to{{transform:translateY(-{rh}px)}}}}"
+    "@keyframes rollm{{to{{transform:translateY(-{rm}px)}}}}"
     ".hh{{animation-duration:43200s;animation-delay:-{h}s}}"
     ".mm{{animation-duration:3600s;animation-delay:-{m}s}}"
     ".ss{{animation-duration:60s;animation-timing-function:steps(60);animation-delay:-{s}s}}"
-)
-DIAL, FLANGE, CHIP = 194, 158, 40
-GLASS_DEFS = (
-    '<filter id="lift" x="-25%" y="-25%" width="150%" height="150%">'
-    '<feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="{accent}" flood-opacity=".18"/></filter>'
-    '<filter id="bloom" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>'
-    '<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">'
-    '<stop offset="0" stop-color="#fff" stop-opacity="{edge}"/>'
-    '<stop offset=".55" stop-color="#fff" stop-opacity=".08"/>'
-    '<stop offset="1" stop-color="{accent}" stop-opacity=".35"/>'
-    "</linearGradient>"
-    '<radialGradient id="frost" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity="{fill_hi}"/>'
-    '<stop offset="1" stop-color="#fff" stop-opacity="{fill}"/></radialGradient>'
-    '<radialGradient id="sheen" cx=".3" cy=".2" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".55"/>'
-    '<stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>'
+    ".un{{animation-name:unspin}}"
+    ".hh.roll{{animation-name:rollh;animation-timing-function:steps(12)}}"
+    ".mm.roll{{animation-name:rollm;animation-timing-function:steps(60)}}"
 )
 
 
-def _at(cx: float, cy: float, r: float, deg: float) -> tuple[float, float]:
-    a = math.radians(deg)
-    return cx + r * math.sin(a), cy - r * math.cos(a)
+def _badge(doc: Doc, t: dict, tip: tuple[float, float], unit: str) -> None:
+    """A badge at a hand's tip: a clipped strip of numbers rolled by CSS.
+
+    The outer group rotates with the hand about the clock centre (class
+    `hand <unit>`); the inner one counter-rotates about the tip, so the
+    badge rides the hand but stays upright.
+    """
+    tx, ty = tip
+    labels = ["12", *map(str, range(1, 12))] if unit == "hh" else [f"{m:02d}" for m in range(60)]
+    cid = f"clip-{unit}"
+    doc.defs.append(f'<clipPath id="{cid}"><circle cx="{tx}" cy="{ty}" r="{BADGE - 3}"/></clipPath>')
+    doc.add(f'<g class="hand {unit}"><g class="hand {unit} un" style="transform-origin:{tx}px {ty}px">')
+    doc.add(f'<circle cx="{tx}" cy="{ty}" r="{BADGE}" fill="{t["panel"]}" stroke="{t["accent"]}" stroke-width="2"/>')
+    doc.add(f'<g clip-path="url(#{cid})"><g class="hand {unit} roll">')
+    for n, label in enumerate(labels):
+        doc.text(tx, ty + 8.5 + n * ROW, label, (SEMI, 24, t["ink"]), anchor="middle", tracking=-0.02)
+    doc.add("</g></g></g></g>")
 
 
-def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, float]) -> str:
-    """A slim, tapered hand pointing at 12, as polygon points."""
-    wb, wt = widths[0] / 2, widths[1] / 2
-    return f"{cx - wb},{cy + back} {cx + wb},{cy + back} {cx + wt},{cy - front} {cx - wt},{cy - front}"
-
-
-def _flange(cx: float, cy: float, t: dict) -> str:
-    """Glass connector rings at the hours, faint bolt holes at the half hours."""
-    a, line = t["accent"], t["glass_line"]
-    parts = [f'<circle cx="{cx}" cy="{cy}" r="{FLANGE}" fill="none" stroke="{a}" stroke-opacity="{line}"/>']
-    for hour in range(12):
-        x, y = _at(cx, cy, 176, hour * 30)
-        core = 1 if hour % 3 == 0 else 0.45
-        parts.append(
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9.5" fill="#fff" fill-opacity="{t["glass_fill"] + 0.25}"'
-            f' stroke="url(#edge)" stroke-width="1.6"/>'
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.4" fill="{a}" fill-opacity="{core}"/>'
-        )
-        hx, hy = _at(cx, cy, 176, hour * 30 + 15)
-        parts.append(f'<circle cx="{hx:.1f}" cy="{hy:.1f}" r="3" fill="none" stroke="{a}" stroke-opacity="{line}"/>')
-    return "".join(parts)
-
-
-def _plate(cx: float, cy: float, t: dict) -> str:
-    """Minute vias, and hairline traces fanning out from the die."""
-    parts = []
-    for n in range(60):
-        x, y = _at(cx, cy, FLANGE - 10, n * 6)
-        r = 2.2 if n % 5 == 0 else 1.2
-        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}"/>')
-    for n in range(48):
-        deg = n * 7.5
-        x1, y1 = _at(cx, cy, CHIP * 1.3, deg)
-        x2, y2 = _at(cx, cy, 104 + (n % 2) * 14, deg)
-        parts.append(f'<path d="M{x1:.1f} {y1:.1f}L{x2:.1f} {y2:.1f}"/><circle cx="{x2:.1f}" cy="{y2:.1f}" r="1.5"/>')
-    return (
-        f'<g stroke="{t["accent"]}" stroke-width=".7" fill="{t["accent"]}" opacity="{t["glass_line"]}">'
-        f"{''.join(parts)}</g>"
-    )
-
-
-def _chip(doc: Doc, cx: float, cy: float, t: dict) -> None:
-    """A glass die with a 3x3 grid of glowing qubits."""
-    side, a = 2 * CHIP, t["accent"]
-    doc.add(
-        f'<rect x="{cx - CHIP}" y="{cy - CHIP}" width="{side}" height="{side}" rx="10" fill="#fff"'
-        f' fill-opacity="{t["glass_fill"] + 0.2}" stroke="url(#edge)" stroke-width="1.6"/>'
-    )
-    qubits = []
-    for i in (-1, 0, 1):
-        for j in (-1, 0, 1):
-            qx, qy = cx + i * 22, cy + j * 22
-            qubits.append(
-                f'<circle cx="{qx}" cy="{qy}" r="5" filter="url(#bloom)"/><circle cx="{qx}" cy="{qy}" r="2.6"/>'
-            )
-    doc.add(f'<g fill="{a}" opacity=".85">{"".join(qubits)}</g>')
-    doc.text(cx, cy + CHIP + 30, "London", (SEMI, 10, t["glass_ink"]), anchor="middle", tracking=0.34, upper=True)
-
-
-def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
-    """The glass quantum-plate clock; hands are driven by CSS animation."""
+def _lattice_clock(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
+    """Hands as lattice basis vectors, with rolling number badges."""
     cx, cy = centre
-    doc.css.append(CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60))
+    doc.css.append(
+        CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60, rh=12 * ROW, rm=60 * ROW)
+    )
     doc.css.append(CLOCK_MARKER)
-    fill = t["glass_fill"]
-    doc.defs.append(GLASS_DEFS.format(accent=t["accent"], edge=t["glass_edge"], fill=fill, fill_hi=fill + 0.25))
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="url(#frost)" filter="url(#lift)"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL - 0.8}" fill="none" stroke="url(#edge)" stroke-width="2.2"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL - 7}" fill="none" stroke="#fff" stroke-opacity=".35"/>')
-    doc.add(_flange(cx, cy, t))
-    doc.add(_plate(cx, cy, t))
-    _chip(doc, cx, cy, t)
-    ink = t["glass_ink"]
-    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 26, 108, (8, 5))}" fill="{ink}"/>')
-    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 26, 150, (6, 3.5))}" fill="{ink}"/>')
+    a = t["accent"]
+    line = f'stroke="{a}" stroke-linecap="round"'
     doc.add(
-        f'<g class="hand ss" fill="{t["accent"]}"><path d="M{cx} {cy + 44}V{cy - 156}"'
-        f' stroke="{t["accent"]}" stroke-width="1.6" stroke-linecap="round"/>'
-        f'<circle cx="{cx}" cy="{cy + 34}" r="6"/></g>'
+        f'<g class="hand ss"><path d="M{cx} {cy + 22}V{cy - SECOND_LEN}" {line} stroke-width="1.2" opacity=".45"/>'
+        f'<circle cx="{cx}" cy="{cy - SECOND_LEN}" r="3.5" fill="{a}" opacity=".6"/></g>'
     )
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="#fff" stroke="url(#edge)" stroke-width="1.4"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="2.8" fill="{t["accent"]}"/>')
-    doc.add(
-        f'<ellipse cx="{cx - 40}" cy="{cy - 70}" rx="120" ry="80" fill="url(#sheen)" opacity="{t["glass_sheen"]}"/>'
-    )
+    doc.add(f'<path class="hand hh" d="M{cx} {cy}V{cy - HOUR_LEN + BADGE}" {line} stroke-width="3"/>')
+    doc.add(f'<path class="hand mm" d="M{cx} {cy}V{cy - MINUTE_LEN + BADGE}" {line} stroke-width="3"/>')
+    _badge(doc, t, (cx, cy - HOUR_LEN), "hh")
+    _badge(doc, t, (cx, cy - MINUTE_LEN), "mm")
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{a}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="2.6" fill="{t["panel"]}"/>')
 
 
 def hero(t: dict, c: dict) -> Doc:
     doc = Doc(
         W,
         600,
-        f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A station clock shows the time in London.",
+        f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}"
+        " A clock drawn on the lattice shows the time in London.",
     )
     _panel(doc, t["panel"])
     _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
-    _lattice(doc, t, (1066, 300))
-    _watch(doc, t, (1066, 300))
+    _lattice(doc, t, (1038, 300))
+    _lattice_clock(doc, t, (1038, 300))
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
     for n, line in enumerate(c["headline"]):
         doc.text(84, 268 + n * 88, line, (BOLD, 80, t["ink"]), tracking=-0.032)
