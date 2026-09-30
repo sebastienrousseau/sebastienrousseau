@@ -104,7 +104,7 @@ def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
 
 
 def hero(t: dict, c: dict) -> Doc:
-    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A watch shows London time.")
+    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A station clock shows the time in London.")
     _panel(doc, t["panel"])
     _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
     _lattice(doc, t, (1060, 290))
