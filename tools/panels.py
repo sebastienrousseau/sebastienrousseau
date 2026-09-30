@@ -47,13 +47,14 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
 
 
-# An original wall clock: a lattice dial. Each hour is a radial trio of
-# dots shrinking toward the centre (the ML-KEM lattice of the hero
-# background), quarters in the site's blue, inside a ring of minute dots;
-# aluminium rim and hands, a glass sheen, and a slim blue second hand with
-# a counterweight disc on its tail. Statically it shows 10:09:30. The
-# /api/clock/ Worker route on sebastienrousseau.com replaces CLOCK_MARKER
-# with the London time and starts the hands.
+# An original wall clock drawn as a superconducting qubit mounting plate:
+# a gold plate whose flange carries 12 coax connectors as hour markers
+# (blue cores at the quarters) with bolt holes at the half hours, a ring of
+# 60 vias for the minutes, wire-bond traces fanning out from a square chip
+# etched LONDON, graphite hands, and a slim blue second hand with a tail
+# counterweight. Statically it shows 10:09:30. The /api/clock/ Worker route
+# on sebastienrousseau.com replaces CLOCK_MARKER with the London time and
+# starts the hands.
 CLOCK_MARKER = "/*clock*/"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
 CLOCK_CSS = (
@@ -64,8 +65,28 @@ CLOCK_CSS = (
     ".mm{{animation-duration:3600s;animation-delay:-{m}s}}"
     ".ss{{animation-duration:60s;animation-timing-function:steps(60);animation-delay:-{s}s}}"
 )
-DIAL = 194
-TRIO = ((24, 6.2), (40, 4.6), (54, 3.2))  # (inset from the rim, dot radius)
+DIAL, FLANGE, CHIP = 194, 158, 42
+GOLD_DEFS = (
+    '<filter id="lift" x="-20%" y="-20%" width="140%" height="140%">'
+    '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-opacity=".25"/></filter>'
+    '<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dd92"/>'
+    '<stop offset=".5" stop-color="#a97d1f"/><stop offset="1" stop-color="#e8c565"/></linearGradient>'
+    '<radialGradient id="plate" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#f3d98e"/>'
+    '<stop offset=".6" stop-color="#d9b458"/><stop offset="1" stop-color="#b98f2e"/></radialGradient>'
+    '<radialGradient id="pin" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff3c4"/>'
+    '<stop offset=".55" stop-color="#d8b04f"/><stop offset="1" stop-color="#8a6516"/></radialGradient>'
+    '<linearGradient id="die" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a7f9e"/>'
+    '<stop offset=".5" stop-color="#14546d"/><stop offset="1" stop-color="#0a3040"/></linearGradient>'
+    '<linearGradient id="graphite" x1="0" x2="1"><stop offset="0" stop-color="#3a3a3e"/>'
+    '<stop offset=".5" stop-color="#18181b"/><stop offset="1" stop-color="#2e2e32"/></linearGradient>'
+    '<radialGradient id="glass" cx=".32" cy=".24" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".28"/>'
+    '<stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient>'
+)
+
+
+def _at(cx: float, cy: float, r: float, deg: float) -> tuple[float, float]:
+    a = math.radians(deg)
+    return cx + r * math.sin(a), cy - r * math.cos(a)
 
 
 def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, float]) -> str:
@@ -74,51 +95,80 @@ def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, f
     return f"{cx - wb},{cy + back} {cx + wb},{cy + back} {cx + wt},{cy - front} {cx - wt},{cy - front}"
 
 
-def _lattice_dial(cx: float, cy: float, t: dict) -> str:
-    """Minute dots, and a radial trio of shrinking dots at each hour."""
-    dots = []
-    for n in range(60):
-        if n % 5:
-            a = math.radians(n * 6)
-            x, y = cx + (DIAL - 12) * math.sin(a), cy - (DIAL - 12) * math.cos(a)
-            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.6" fill="{t["clock_ink"]}" opacity=".55"/>')
+def _flange(cx: float, cy: float, t: dict) -> str:
+    """Coax connectors at the hours, bolt holes at the half hours."""
+    parts = [f'<circle cx="{cx}" cy="{cy}" r="{FLANGE}" fill="none" stroke="#9a7424" stroke-width="1.4"/>']
     for hour in range(12):
-        a = math.radians(hour * 30)
-        fill = t["clock_accent"] if hour % 3 == 0 else t["clock_ink"]
-        for inset, r in TRIO:
-            x, y = cx + (DIAL - inset) * math.sin(a), cy - (DIAL - inset) * math.cos(a)
-            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{fill}"/>')
-    return f"<g>{''.join(dots)}</g>"
+        x, y = _at(cx, cy, 176, hour * 30)
+        core = t["clock_accent"] if hour % 3 == 0 else "#3b2a08"
+        parts.append(
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10.5" fill="#8a6516"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="url(#pin)"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.6" fill="{core}"/>'
+        )
+        hx, hy = _at(cx, cy, 176, hour * 30 + 15)
+        parts.append(
+            f'<circle cx="{hx:.1f}" cy="{hy:.1f}" r="4.4" fill="#5c430e"/>'
+            f'<circle cx="{hx:.1f}" cy="{hy + 0.8:.1f}" r="3.2" fill="#2a1d05"/>'
+        )
+    return "".join(parts)
+
+
+def _plate(cx: float, cy: float) -> str:
+    """Minute vias, and wire-bond traces fanning out from the chip."""
+    parts = []
+    for n in range(60):
+        x, y = _at(cx, cy, FLANGE - 10, n * 6)
+        r = 2.4 if n % 5 == 0 else 1.3
+        parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="#7a5a14"/>')
+    for n in range(48):
+        deg = n * 7.5
+        x1, y1 = _at(cx, cy, CHIP * 1.25, deg)
+        x2, y2 = _at(cx, cy, 104 + (n % 2) * 14, deg)
+        parts.append(f'<path d="M{x1:.1f} {y1:.1f}L{x2:.1f} {y2:.1f}"/><circle cx="{x2:.1f}" cy="{y2:.1f}" r="1.6"/>')
+    return f'<g stroke="#a47c22" stroke-width=".8" fill="#a47c22">{"".join(parts)}</g>'
+
+
+def _chip(doc: Doc, cx: float, cy: float) -> None:
+    pads = []
+    for k in range(7):
+        o = -CHIP + 8 + k * (2 * CHIP - 16) / 6
+        for x, y in (
+            (cx + o, cy - CHIP - 4),
+            (cx + o, cy + CHIP + 4),
+            (cx - CHIP - 4, cy + o),
+            (cx + CHIP + 4, cy + o),
+        ):
+            pads.append(f'<rect x="{x - 2.2:.1f}" y="{y - 2.2:.1f}" width="4.4" height="4.4"/>')
+    doc.add(f'<g fill="#7a5a14">{"".join(pads)}</g>')
+    side = 2 * CHIP
+    doc.add(
+        f'<rect x="{cx - CHIP}" y="{cy - CHIP}" width="{side}" height="{side}" rx="3" fill="url(#die)"'
+        ' stroke="#e3c46a" stroke-width="1.2"/>'
+    )
+    doc.text(cx, cy + CHIP + 30, "London", (SEMI, 10, "#6b4e10"), anchor="middle", tracking=0.34, upper=True)
 
 
 def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
-    """The wall clock; hands are driven by CSS animation."""
+    """The quantum-plate clock; hands are driven by CSS animation."""
     cx, cy = centre
     doc.css.append(CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60))
     doc.css.append(CLOCK_MARKER)
-    doc.defs.append(
-        '<filter id="lift" x="-20%" y="-20%" width="140%" height="140%">'
-        '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-opacity=".22"/></filter>'
-        '<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f4f6"/>'
-        '<stop offset=".5" stop-color="#a7a9ad"/><stop offset="1" stop-color="#e3e4e7"/></linearGradient>'
-        '<linearGradient id="alu" x1="0" x2="1"><stop offset="0" stop-color="#c9cbcf"/>'
-        '<stop offset=".5" stop-color="#8d9096"/><stop offset="1" stop-color="#b9bbc0"/></linearGradient>'
-        '<radialGradient id="glass" cx=".32" cy=".24" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".3"/>'
-        '<stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient>'
-    )
+    doc.defs.append(GOLD_DEFS)
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL + 5}" fill="url(#rim)" filter="url(#lift)"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="{t["clock_face"]}"/>')
-    doc.add(_lattice_dial(cx, cy, t))
-    doc.text(cx, cy - 78, "London", (MED, 11, t["clock_ink"]), anchor="middle", tracking=0.3, upper=True)
-    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 32, 118, (10, 6.5))}" fill="url(#alu)"/>')
-    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 32, 176, (7.5, 4.5))}" fill="url(#alu)"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="url(#plate)"/>')
+    doc.add(_flange(cx, cy, t))
+    doc.add(_plate(cx, cy))
+    _chip(doc, cx, cy)
+    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 30, 112, (10, 6.5))}" fill="url(#graphite)"/>')
+    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 30, 150, (7.5, 4.5))}" fill="url(#graphite)"/>')
     doc.add(
-        f'<g class="hand ss" fill="{t["clock_accent"]}"><path d="M{cx} {cy + 44}V{cy - 180}"'
+        f'<g class="hand ss" fill="{t["clock_accent"]}"><path d="M{cx} {cy + 44}V{cy - 156}"'
         f' stroke="{t["clock_accent"]}" stroke-width="1.8" stroke-linecap="round"/>'
         f'<circle cx="{cx}" cy="{cy + 34}" r="7"/></g>'
     )
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="11" fill="url(#alu)"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="4" fill="{t["clock_accent"]}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="9" fill="url(#pin)"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="3.4" fill="{t["clock_accent"]}"/>')
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="url(#glass)"/>')
 
 
