@@ -47,13 +47,13 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
 
 
-# A wall clock in homage to the Bankers clock (Arne Jacobsen, 1971),
-# deliberately not a replica: 11 ledger cells per hour instead of 12, the
-# filled cells step inward one per hour, the accents are the site's blue,
-# a second hand shows it is live, and the dial carries no designer names.
-# Statically it shows 10:09:30. The /api/clock/ Worker route on
-# sebastienrousseau.com replaces CLOCK_MARKER with the London time and
-# starts the hands.
+# An original wall clock: a lattice dial. Each hour is a radial trio of
+# dots shrinking toward the centre (the ML-KEM lattice of the hero
+# background), quarters in the site's blue, inside a ring of minute dots;
+# aluminium rim and hands, a glass sheen, and a slim blue second hand with
+# a counterweight disc on its tail. Statically it shows 10:09:30. The
+# /api/clock/ Worker route on sebastienrousseau.com replaces CLOCK_MARKER
+# with the London time and starts the hands.
 CLOCK_MARKER = "/*clock*/"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
 CLOCK_CSS = (
@@ -64,7 +64,8 @@ CLOCK_CSS = (
     ".mm{{animation-duration:3600s;animation-delay:-{m}s}}"
     ".ss{{animation-duration:60s;animation-timing-function:steps(60);animation-delay:-{s}s}}"
 )
-DIAL, CELLS, CELL, GAP = 194, 11, 6.9, 1.8
+DIAL = 194
+TRIO = ((24, 6.2), (40, 4.6), (54, 3.2))  # (inset from the rim, dot radius)
 
 
 def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, float]) -> str:
@@ -73,19 +74,21 @@ def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, f
     return f"{cx - wb},{cy + back} {cx + wb},{cy + back} {cx + wt},{cy - front} {cx - wt},{cy - front}"
 
 
-def _ledger(cx: float, cy: float, t: dict) -> str:
-    """Twelve radial rows of ledger cells; one filled per row, spiralling inward."""
-    cells = []
+def _lattice_dial(cx: float, cy: float, t: dict) -> str:
+    """Minute dots, and a radial trio of shrinking dots at each hour."""
+    dots = []
+    for n in range(60):
+        if n % 5:
+            a = math.radians(n * 6)
+            x, y = cx + (DIAL - 12) * math.sin(a), cy - (DIAL - 12) * math.cos(a)
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.6" fill="{t["clock_ink"]}" opacity=".55"/>')
     for hour in range(12):
-        for n in range(CELLS):
-            y = cy - DIAL + 10 + n * (CELL + GAP)
-            filled = n == min(hour, CELLS - 1)
-            paint = f'fill="{t["clock_accent"]}"' if filled else f'fill="none" stroke="{t["clock_ink"]}"'
-            cells.append(
-                f'<rect x="{cx - CELL / 2}" y="{y:.1f}" width="{CELL}" height="{CELL}" {paint}'
-                f' transform="rotate({hour * 30} {cx} {cy})"/>'
-            )
-    return f'<g stroke-width=".9">{"".join(cells)}</g>'
+        a = math.radians(hour * 30)
+        fill = t["clock_accent"] if hour % 3 == 0 else t["clock_ink"]
+        for inset, r in TRIO:
+            x, y = cx + (DIAL - inset) * math.sin(a), cy - (DIAL - inset) * math.cos(a)
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{fill}"/>')
+    return f"<g>{''.join(dots)}</g>"
 
 
 def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
@@ -100,20 +103,22 @@ def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
         '<stop offset=".5" stop-color="#a7a9ad"/><stop offset="1" stop-color="#e3e4e7"/></linearGradient>'
         '<linearGradient id="alu" x1="0" x2="1"><stop offset="0" stop-color="#c9cbcf"/>'
         '<stop offset=".5" stop-color="#8d9096"/><stop offset="1" stop-color="#b9bbc0"/></linearGradient>'
-        '<radialGradient id="glass" cx=".32" cy=".24" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/>'
+        '<radialGradient id="glass" cx=".32" cy=".24" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".3"/>'
         '<stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient>'
     )
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL + 5}" fill="url(#rim)" filter="url(#lift)"/>')
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="{t["clock_face"]}"/>')
-    doc.add(_ledger(cx, cy, t))
-    doc.text(cx, cy - 58, "London", (MED, 11, t["clock_ink"]), anchor="middle", tracking=0.3, upper=True)
+    doc.add(_lattice_dial(cx, cy, t))
+    doc.text(cx, cy - 78, "London", (MED, 11, t["clock_ink"]), anchor="middle", tracking=0.3, upper=True)
     doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 32, 118, (10, 6.5))}" fill="url(#alu)"/>')
     doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 32, 176, (7.5, 4.5))}" fill="url(#alu)"/>')
     doc.add(
-        f'<path class="hand ss" d="M{cx} {cy + 38}V{cy - 182}" stroke="{t["clock_accent"]}" stroke-width="1.6"'
-        ' stroke-linecap="round"/>'
+        f'<g class="hand ss" fill="{t["clock_accent"]}"><path d="M{cx} {cy + 44}V{cy - 180}"'
+        f' stroke="{t["clock_accent"]}" stroke-width="1.8" stroke-linecap="round"/>'
+        f'<circle cx="{cx}" cy="{cy + 34}" r="7"/></g>'
     )
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="16" fill="{t["clock_accent"]}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="11" fill="url(#alu)"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="4" fill="{t["clock_accent"]}"/>')
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="url(#glass)"/>')
 
 
