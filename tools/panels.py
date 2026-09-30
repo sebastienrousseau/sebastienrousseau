@@ -47,71 +47,89 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
 
 
-# A station clock after Hans Hilfiker's 1944 design for Swiss railways,
-# deliberately not a copy: the second hand is the site's blue and ends in a
-# ring, not SBB's red disc. Statically it shows 10:09:30. The /api/clock/
-# Worker route on sebastienrousseau.com replaces CLOCK_MARKER with the
-# London time and starts it: the minute hand jumps once a minute and the
-# second hand sweeps in 58.5 s, then waits at the top.
+# A wall clock in homage to the Bankers clock (Arne Jacobsen, 1971),
+# deliberately not a replica: 11 ledger cells per hour instead of 12, the
+# filled cells step inward one per hour, the accents are the site's blue,
+# a second hand shows it is live, and the dial carries no designer names.
+# Statically it shows 10:09:30. The /api/clock/ Worker route on
+# sebastienrousseau.com replaces CLOCK_MARKER with the London time and
+# starts the hands.
 CLOCK_MARKER = "/*clock*/"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
 CLOCK_CSS = (
-    ".hand{{transform-box:view-box;transform-origin:{x}px {y}px;animation-iteration-count:infinite;"
-    "animation-play-state:paused}}"
+    ".hand{{transform-box:view-box;transform-origin:{x}px {y}px;animation-name:spin;"
+    "animation-timing-function:linear;animation-iteration-count:infinite;animation-play-state:paused}}"
     "@keyframes spin{{to{{transform:rotate(360deg)}}}}"
-    "@keyframes sweep{{97.5%,to{{transform:rotate(360deg)}}}}"
-    ".hh{{animation-name:spin;animation-timing-function:linear;animation-duration:43200s;animation-delay:-{h}s}}"
-    ".mm{{animation-name:spin;animation-timing-function:steps(60);animation-duration:3600s;animation-delay:-{m}s}}"
-    ".ss{{animation-name:sweep;animation-timing-function:linear;animation-duration:60s;animation-delay:-{s}s}}"
+    ".hh{{animation-duration:43200s;animation-delay:-{h}s}}"
+    ".mm{{animation-duration:3600s;animation-delay:-{m}s}}"
+    ".ss{{animation-duration:60s;animation-timing-function:steps(60);animation-delay:-{s}s}}"
 )
-DIAL = 168
+DIAL, CELLS, CELL, GAP = 194, 11, 6.9, 1.8
 
 
 def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, float]) -> str:
-    """A blunt, slightly tapered hand pointing at 12, as polygon points."""
+    """A slim, tapered hand pointing at 12, as polygon points."""
     wb, wt = widths[0] / 2, widths[1] / 2
     return f"{cx - wb},{cy + back} {cx + wb},{cy + back} {cx + wt},{cy - front} {cx - wt},{cy - front}"
 
 
+def _ledger(cx: float, cy: float, t: dict) -> str:
+    """Twelve radial rows of ledger cells; one filled per row, spiralling inward."""
+    cells = []
+    for hour in range(12):
+        for n in range(CELLS):
+            y = cy - DIAL + 10 + n * (CELL + GAP)
+            filled = n == min(hour, CELLS - 1)
+            paint = f'fill="{t["clock_accent"]}"' if filled else f'fill="none" stroke="{t["clock_ink"]}"'
+            cells.append(
+                f'<rect x="{cx - CELL / 2}" y="{y:.1f}" width="{CELL}" height="{CELL}" {paint}'
+                f' transform="rotate({hour * 30} {cx} {cy})"/>'
+            )
+    return f'<g stroke-width=".9">{"".join(cells)}</g>'
+
+
 def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
-    """The station clock; hands are driven by CSS animation."""
+    """The wall clock; hands are driven by CSS animation."""
     cx, cy = centre
     doc.css.append(CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60))
     doc.css.append(CLOCK_MARKER)
     doc.defs.append(
         '<filter id="lift" x="-20%" y="-20%" width="140%" height="140%">'
-        '<feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity=".18"/></filter>'
+        '<feDropShadow dx="0" dy="12" stdDeviation="16" flood-opacity=".22"/></filter>'
+        '<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f4f6"/>'
+        '<stop offset=".5" stop-color="#a7a9ad"/><stop offset="1" stop-color="#e3e4e7"/></linearGradient>'
+        '<linearGradient id="alu" x1="0" x2="1"><stop offset="0" stop-color="#c9cbcf"/>'
+        '<stop offset=".5" stop-color="#8d9096"/><stop offset="1" stop-color="#b9bbc0"/></linearGradient>'
+        '<radialGradient id="glass" cx=".32" cy=".24" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/>'
+        '<stop offset=".45" stop-color="#fff" stop-opacity="0"/></radialGradient>'
     )
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL + 8}" fill="{t["dial_rim"]}" filter="url(#lift)"/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="{t["dial"]}"/>')
-    marks = []
-    for n in range(60):
-        major = n % 5 == 0
-        w, inner = (9, DIAL - 44) if major else (3.2, DIAL - 16)
-        marks.append(
-            f'<rect x="{cx - w / 2}" y="{cy - DIAL + 8}" width="{w}" height="{DIAL - 8 - inner}"'
-            f' transform="rotate({n * 6} {cx} {cy})"/>'
-        )
-    doc.add(f'<g fill="{t["dial_ink"]}">{"".join(marks)}</g>')
-    ink = t["dial_ink"]
-    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 34, 96, (15, 11))}" fill="{ink}"/>')
-    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 34, 148, (12, 8))}" fill="{ink}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL + 5}" fill="url(#rim)" filter="url(#lift)"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="{t["clock_face"]}"/>')
+    doc.add(_ledger(cx, cy, t))
+    doc.text(cx, cy - 58, "London", (MED, 11, t["clock_ink"]), anchor="middle", tracking=0.3, upper=True)
+    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 32, 118, (10, 6.5))}" fill="url(#alu)"/>')
+    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 32, 176, (7.5, 4.5))}" fill="url(#alu)"/>')
     doc.add(
-        f'<g class="hand ss" stroke="{t["accent"]}" stroke-width="3.5"><path d="M{cx} {cy + 46}V{cy - 94}"/>'
-        f'<circle cx="{cx}" cy="{cy - 106}" r="12" fill="none"/>'
-        f'<circle cx="{cx}" cy="{cy}" r="4" fill="{t["accent"]}"/></g>'
+        f'<path class="hand ss" d="M{cx} {cy + 38}V{cy - 182}" stroke="{t["clock_accent"]}" stroke-width="1.6"'
+        ' stroke-linecap="round"/>'
     )
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="16" fill="{t["clock_accent"]}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="url(#glass)"/>')
 
 
 def hero(t: dict, c: dict) -> Doc:
-    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A station clock shows the time in London.")
+    doc = Doc(
+        W,
+        600,
+        f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A station clock shows the time in London.",
+    )
     _panel(doc, t["panel"])
     _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
-    _lattice(doc, t, (1060, 290))
-    _watch(doc, t, (1060, 290))
+    _lattice(doc, t, (1066, 300))
+    _watch(doc, t, (1066, 300))
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
     for n, line in enumerate(c["headline"]):
-        doc.text(84, 268 + n * 92, line, (BOLD, 86, t["ink"]), tracking=-0.032)
+        doc.text(84, 268 + n * 88, line, (BOLD, 80, t["ink"]), tracking=-0.032)
     for n, line in enumerate(c["lede"]):
         doc.text(88, 450 + n * 38, line, (SANS, 25, t["mute"]), tracking=-0.01)
     return doc
@@ -130,8 +148,8 @@ def numbers(t: dict, c: dict) -> Doc:
     col = (W - 160) / len(stats)
     for n, s in enumerate(stats):
         x = 80 + col * (n + 0.5)
-        doc.text(x, 268, s["value"], (BOLD, 80, "url(#n)"), anchor="middle", tracking=-0.035)
-        for k, line in enumerate(wrap(SANS, s["label"], 19, col - 48)):
+        doc.text(x, 266, s["value"], (BOLD, 70, "url(#n)"), anchor="middle", tracking=-0.035)
+        for k, line in enumerate(wrap(SANS, s["label"], 19, col - 16)):
             doc.text(x, 308 + k * 26, line, (SANS, 19, t["mute"]), anchor="middle")
         if n:
             doc.add(f'<rect x="{80 + col * n:.1f}" y="206" width="1" height="130" fill="{t["rule"]}"/>')
