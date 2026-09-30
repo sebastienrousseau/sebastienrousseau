@@ -45,19 +45,70 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
                     f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{1.2 + 2.6 * k:.2f}" opacity="{0.15 + 0.85 * k:.2f}"/>'
                 )
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
-    ax, ay = cx + 2 * 46 + 14, cy + 18 + 44
-    bx, by = cx - 46 + 2 * 14, cy - 9 + 88
-    line = f'stroke="{t["accent"]}" stroke-width="2.5" stroke-linecap="round"'
-    doc.add(f'<path d="M{cx} {cy}L{ax} {ay}M{cx} {cy}L{bx} {by}" {line}/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{t["accent"]}"/>')
-    doc.add(f'<circle cx="{ax}" cy="{ay}" r="16" fill="none" {line}/>')
+
+
+# A station clock after Hans Hilfiker's 1944 design for Swiss railways,
+# deliberately not a copy: the second hand is the site's blue and ends in a
+# ring, not SBB's red disc. Statically it shows 10:09:30. The /api/clock/
+# Worker route on sebastienrousseau.com replaces CLOCK_MARKER with the
+# London time and starts it: the minute hand jumps once a minute and the
+# second hand sweeps in 58.5 s, then waits at the top.
+CLOCK_MARKER = "/*clock*/"
+STATIC_TIME = 10 * 3600 + 9 * 60 + 30
+CLOCK_CSS = (
+    ".hand{{transform-box:view-box;transform-origin:{x}px {y}px;animation-iteration-count:infinite;"
+    "animation-play-state:paused}}"
+    "@keyframes spin{{to{{transform:rotate(360deg)}}}}"
+    "@keyframes sweep{{97.5%,to{{transform:rotate(360deg)}}}}"
+    ".hh{{animation-name:spin;animation-timing-function:linear;animation-duration:43200s;animation-delay:-{h}s}}"
+    ".mm{{animation-name:spin;animation-timing-function:steps(60);animation-duration:3600s;animation-delay:-{m}s}}"
+    ".ss{{animation-name:sweep;animation-timing-function:linear;animation-duration:60s;animation-delay:-{s}s}}"
+)
+DIAL = 168
+
+
+def _bar(cx: float, cy: float, back: float, front: float, widths: tuple[float, float]) -> str:
+    """A blunt, slightly tapered hand pointing at 12, as polygon points."""
+    wb, wt = widths[0] / 2, widths[1] / 2
+    return f"{cx - wb},{cy + back} {cx + wb},{cy + back} {cx + wt},{cy - front} {cx - wt},{cy - front}"
+
+
+def _watch(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
+    """The station clock; hands are driven by CSS animation."""
+    cx, cy = centre
+    doc.css.append(CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60))
+    doc.css.append(CLOCK_MARKER)
+    doc.defs.append(
+        '<filter id="lift" x="-20%" y="-20%" width="140%" height="140%">'
+        '<feDropShadow dx="0" dy="10" stdDeviation="14" flood-opacity=".18"/></filter>'
+    )
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL + 8}" fill="{t["dial_rim"]}" filter="url(#lift)"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="{DIAL}" fill="{t["dial"]}"/>')
+    marks = []
+    for n in range(60):
+        major = n % 5 == 0
+        w, inner = (9, DIAL - 44) if major else (3.2, DIAL - 16)
+        marks.append(
+            f'<rect x="{cx - w / 2}" y="{cy - DIAL + 8}" width="{w}" height="{DIAL - 8 - inner}"'
+            f' transform="rotate({n * 6} {cx} {cy})"/>'
+        )
+    doc.add(f'<g fill="{t["dial_ink"]}">{"".join(marks)}</g>')
+    ink = t["dial_ink"]
+    doc.add(f'<polygon class="hand hh" points="{_bar(cx, cy, 34, 96, (15, 11))}" fill="{ink}"/>')
+    doc.add(f'<polygon class="hand mm" points="{_bar(cx, cy, 34, 148, (12, 8))}" fill="{ink}"/>')
+    doc.add(
+        f'<g class="hand ss" stroke="{t["accent"]}" stroke-width="3.5"><path d="M{cx} {cy + 46}V{cy - 94}"/>'
+        f'<circle cx="{cx}" cy="{cy - 106}" r="12" fill="none"/>'
+        f'<circle cx="{cx}" cy="{cy}" r="4" fill="{t["accent"]}"/></g>'
+    )
 
 
 def hero(t: dict, c: dict) -> Doc:
-    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}")
+    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} A watch shows London time.")
     _panel(doc, t["panel"])
     _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
     _lattice(doc, t, (1060, 290))
+    _watch(doc, t, (1060, 290))
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
     for n, line in enumerate(c["headline"]):
         doc.text(84, 268 + n * 92, line, (BOLD, 86, t["ink"]), tracking=-0.032)
