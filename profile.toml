@@ -1,0 +1,100 @@
+# Single source of truth for the profile README and every SVG in assets/.
+# Edit here, then run `make` to regenerate. Copy mirrors sebastienrousseau.com.
+
+site = "https://sebastienrousseau.com"
+github = "https://github.com/sebastienrousseau"
+
+[hero]
+eyebrow = "Sebastien Rousseau · London"
+headline = ["Securing the future", "of banking."]
+lede = [
+  "Applied AI, ISO 20022 payments and post-quantum cryptography.",
+  "Nineteen years in banking. Open source for the future of finance.",
+]
+
+[numbers]
+eyebrow = "Proof"
+headline = "By the numbers."
+note = "Figures as of September 2026."
+stats = [
+  { value = "45.7M", label = "Open-source downloads" },
+  { value = "672", label = "GitHub stars" },
+  { value = "237", label = "Public repositories" },
+  { value = "19", label = "Years in payments and banking" },
+]
+
+[[pillars]]
+key = "payments"
+eyebrow = "Payments"
+headline = "ISO 20022, end to end."
+lede = "pain.001, pacs.008, camt.053 and acmt.001. Libraries, MCP servers and language servers. Adopt one at a time."
+more = "https://sebastienrousseau.com/projects-payments/"
+repos = [
+  { name = "pain001", lang = "Python", text = "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet." },
+  { name = "pacs008", lang = "Python", text = "Generate, validate, parse and audit pacs.008 FI-to-FI credit transfers with scheme-aware rules." },
+  { name = "bankstatementparser", lang = "Python", text = "Parse CAMT, MT940, OFX, CSV and PDF bank statements into one unified transaction model." },
+  { name = "iso20022-mcp", lang = "Python", text = "One MCP gateway to search, validate, generate and parse ISO 20022 across pain, pacs, camt and acmt." },
+]
+
+[[pillars]]
+key = "security"
+eyebrow = "Security"
+headline = "Post-quantum, ready to pilot."
+lede = "ML-KEM (NIST FIPS 203), password hashing and cryptographic toolkits, shipped with signatures and provenance."
+more = "https://sebastienrousseau.com/projects-post-quantum/"
+repos = [
+  { name = "kyberlib", lang = "Rust", text = "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean." },
+  { name = "crypto-service", lang = "TypeScript", text = "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA." },
+  { name = "hsh", lang = "Rust", text = "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift." },
+  { name = "passmcp", lang = "Go", text = "Test any MCP server and learn, in plain language, whether it is ready for your agents." },
+]
+
+[[pillars]]
+key = "tooling"
+eyebrow = "Tooling"
+headline = "Audited Rust, shipped signed."
+lede = "Libraries built for regulated environments: memory-safe, documented, and released with a software bill of materials."
+more = "https://sebastienrousseau.com/projects-developer-platform/"
+repos = [
+  { name = "static-site-generator", lang = "Rust", text = "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening." },
+  { name = "noyalib", lang = "Rust", text = "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema." },
+  { name = "rlg", lang = "Rust", text = "Near-lock-free structured logging with OTLP export and a built-in MCP server." },
+  { name = "libmake", lang = "Rust", text = "A code generator that removes the repetitive work of building high-quality Rust libraries." },
+]
+
+[[pillars]]
+key = "platform"
+eyebrow = "AI & Platform"
+headline = "Agents you can trust."
+lede = "Self-hosted agents, an AI-native CDN and a workstation defined as code. Open core, zero telemetry."
+more = "https://sebastienrousseau.com/projects/"
+repos = [
+  { name = "rousseau-agent", lang = "Go", text = "Self-hosted coding agent: nine chat transports, five LLM providers, MCP and A2A, SLSA 3." },
+  { name = "cloudcdn.pro", lang = "JavaScript", text = "A multi-tenant, AI-native CDN you can read end to end and deploy yourself." },
+  { name = "dotfiles", lang = "Shell", text = "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows." },
+  { name = "password-generator", lang = "JavaScript", text = "A fast, open-source password generator built on a zero-dependency hexagonal core." },
+]
+
+[paper]
+eyebrow = "EPAA · September 2025"
+headline = "Why the payments industry must act now."
+lede = [
+  "Regulators treat harvest-now-decrypt-later as a credible present risk.",
+  "This paper, produced for the Emerging Payments Association Asia, sets out",
+  "the threat and the case for coordinated action across wholesale rails.",
+]
+cta = "Read the white paper"
+url = "https://emergingpaymentsasia.org/wp-content/uploads/2025/09/Quantum-Safe-Payments-Why-the-Payments-Industry-Must-Act-Now.pdf"
+
+[finale]
+headline = ["Open source for the future", "of banking and finance."]
+lede = "Wholesale payments strategy, ISO 20022 migration or quantum-safe cryptography. Happy to talk."
+
+links = [
+  { label = "Website", url = "https://sebastienrousseau.com" },
+  { label = "LinkedIn", url = "https://www.linkedin.com/in/sebastienrousseau/" },
+  { label = "X", url = "https://x.com/wwdseb" },
+  { label = "Medium", url = "https://medium.com/@BankingOnQuantum" },
+  { label = "YouTube", url = "https://www.youtube.com/@BankingOnQuantum" },
+  { label = "Newsletter", url = "https://news.bankingonquantum.com" },
+]
