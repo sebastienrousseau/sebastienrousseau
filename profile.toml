@@ -3,6 +3,9 @@
 
 site = "https://sebastienrousseau.com"
 github = "https://github.com/sebastienrousseau"
+# The live hero clock: the profile-clock Worker (sebastienrousseau.github.io,
+# workers/profile-clock.js) serves assets/hero-*.svg set to London time.
+clock = "https://profile-clock.team-rousseau-account.workers.dev/api/clock"
 
 [hero]
 eyebrow = "Sebastien Rousseau · London"
