@@ -45,22 +45,93 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
                     f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{1.2 + 2.6 * k:.2f}" opacity="{0.15 + 0.85 * k:.2f}"/>'
                 )
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
-    ax, ay = cx + 2 * 46 + 14, cy + 18 + 44
-    bx, by = cx - 46 + 2 * 14, cy - 9 + 88
-    line = f'stroke="{t["accent"]}" stroke-width="2.5" stroke-linecap="round"'
-    doc.add(f'<path d="M{cx} {cy}L{ax} {ay}M{cx} {cy}L{bx} {by}" {line}/>')
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{t["accent"]}"/>')
-    doc.add(f'<circle cx="{ax}" cy="{ay}" r="16" fill="none" {line}/>')
+
+
+# The lattice clock. The hero's ML-KEM point lattice is the dial: two
+# lattice basis vectors are the hour and minute hands, a faint third one
+# sweeps the seconds, and a badge at each tip rolls through the hour
+# (12, 1 .. 11) or the minute (00 .. 59) like an odometer. Badges
+# counter-rotate about their tip so the digits stay upright. Everything is
+# CSS animation; statically it shows 10:09:30. The /api/clock/ Worker
+# route on sebastienrousseau.com replaces CLOCK_MARKER with CSS that sets
+# the .hh/.mm/.ss delays to the London time and starts .hand elements.
+CLOCK_MARKER = "/*clock*/"
+STATIC_TIME = 10 * 3600 + 9 * 60 + 30
+HOUR_LEN, MINUTE_LEN, SECOND_LEN = 126, 184, 168
+# Badge radius and the spacing between digits in a strip. MINUTE_LEN -
+# HOUR_LEN exceeds 2 * BADGE, so the badges never overlap even when the
+# hands align, and MINUTE_LEN + BADGE keeps clear of the headline and edge.
+BADGE, ROW = 28, 54
+CLOCK_CSS = (
+    ".hand{{transform-box:view-box;transform-origin:{x}px {y}px;animation-name:spin;"
+    "animation-timing-function:linear;animation-iteration-count:infinite;animation-play-state:paused}}"
+    "@keyframes spin{{to{{transform:rotate(360deg)}}}}"
+    "@keyframes unspin{{to{{transform:rotate(-360deg)}}}}"
+    "@keyframes rollh{{to{{transform:translateY(-{rh}px)}}}}"
+    "@keyframes rollm{{to{{transform:translateY(-{rm}px)}}}}"
+    ".hh{{animation-duration:43200s;animation-delay:-{h}s}}"
+    ".mm{{animation-duration:3600s;animation-delay:-{m}s}}"
+    ".ss{{animation-duration:60s;animation-timing-function:steps(60);animation-delay:-{s}s}}"
+    ".un{{animation-name:unspin}}"
+    ".hh.roll{{animation-name:rollh;animation-timing-function:steps(12)}}"
+    ".mm.roll{{animation-name:rollm;animation-timing-function:steps(60)}}"
+)
+
+
+def _badge(doc: Doc, t: dict, tip: tuple[float, float], unit: str) -> None:
+    """A badge at a hand's tip: a clipped strip of numbers rolled by CSS.
+
+    The outer group rotates with the hand about the clock centre (class
+    `hand <unit>`); the inner one counter-rotates about the tip, so the
+    badge rides the hand but stays upright.
+    """
+    tx, ty = tip
+    labels = ["12", *map(str, range(1, 12))] if unit == "hh" else [f"{m:02d}" for m in range(60)]
+    cid = f"clip-{unit}"
+    doc.defs.append(f'<clipPath id="{cid}"><circle cx="{tx}" cy="{ty}" r="{BADGE - 3}"/></clipPath>')
+    doc.add(f'<g class="hand {unit}"><g class="hand {unit} un" style="transform-origin:{tx}px {ty}px">')
+    doc.add(f'<circle cx="{tx}" cy="{ty}" r="{BADGE}" fill="{t["panel"]}" stroke="{t["accent"]}" stroke-width="2"/>')
+    doc.add(f'<g clip-path="url(#{cid})"><g class="hand {unit} roll">')
+    for n, label in enumerate(labels):
+        doc.text(tx, ty + 8.5 + n * ROW, label, (SEMI, 24, t["ink"]), anchor="middle", tracking=-0.02)
+    doc.add("</g></g></g></g>")
+
+
+def _lattice_clock(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
+    """Hands as lattice basis vectors, with rolling number badges."""
+    cx, cy = centre
+    doc.css.append(
+        CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60, rh=12 * ROW, rm=60 * ROW)
+    )
+    doc.css.append(CLOCK_MARKER)
+    a = t["accent"]
+    line = f'stroke="{a}" stroke-linecap="round"'
+    doc.add(
+        f'<g class="hand ss"><path d="M{cx} {cy + 22}V{cy - SECOND_LEN}" {line} stroke-width="1.2" opacity=".45"/>'
+        f'<circle cx="{cx}" cy="{cy - SECOND_LEN}" r="3.5" fill="{a}" opacity=".6"/></g>'
+    )
+    doc.add(f'<path class="hand hh" d="M{cx} {cy}V{cy - HOUR_LEN + BADGE}" {line} stroke-width="3"/>')
+    doc.add(f'<path class="hand mm" d="M{cx} {cy}V{cy - MINUTE_LEN + BADGE}" {line} stroke-width="3"/>')
+    _badge(doc, t, (cx, cy - HOUR_LEN), "hh")
+    _badge(doc, t, (cx, cy - MINUTE_LEN), "mm")
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{a}"/>')
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="2.6" fill="{t["panel"]}"/>')
 
 
 def hero(t: dict, c: dict) -> Doc:
-    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}")
+    doc = Doc(
+        W,
+        600,
+        f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}"
+        " A clock drawn on the lattice shows the time in London.",
+    )
     _panel(doc, t["panel"])
     _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
-    _lattice(doc, t, (1060, 290))
+    _lattice(doc, t, (1038, 300))
+    _lattice_clock(doc, t, (1038, 300))
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
     for n, line in enumerate(c["headline"]):
-        doc.text(84, 268 + n * 92, line, (BOLD, 86, t["ink"]), tracking=-0.032)
+        doc.text(84, 268 + n * 88, line, (BOLD, 80, t["ink"]), tracking=-0.032)
     for n, line in enumerate(c["lede"]):
         doc.text(88, 450 + n * 38, line, (SANS, 25, t["mute"]), tracking=-0.01)
     return doc
@@ -79,8 +150,8 @@ def numbers(t: dict, c: dict) -> Doc:
     col = (W - 160) / len(stats)
     for n, s in enumerate(stats):
         x = 80 + col * (n + 0.5)
-        doc.text(x, 268, s["value"], (BOLD, 80, "url(#n)"), anchor="middle", tracking=-0.035)
-        for k, line in enumerate(wrap(SANS, s["label"], 19, col - 48)):
+        doc.text(x, 266, s["value"], (BOLD, 70, "url(#n)"), anchor="middle", tracking=-0.035)
+        for k, line in enumerate(wrap(SANS, s["label"], 19, col - 16)):
             doc.text(x, 308 + k * 26, line, (SANS, 19, t["mute"]), anchor="middle")
         if n:
             doc.add(f'<rect x="{80 + col * n:.1f}" y="206" width="1" height="130" fill="{t["rule"]}"/>')
