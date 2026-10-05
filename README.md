@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://sebastienrousseau.com">Website</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sebastienrousseau/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/wwdseb">X</a> &nbsp;·&nbsp; <a href="https://medium.com/@BankingOnQuantum">Medium</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@BankingOnQuantum">YouTube</a> &nbsp;·&nbsp; <a href="https://news.bankingonquantum.com">Newsletter</a></p>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/numbers-dark.svg"><img src="assets/numbers-light.svg" width="100%" alt="By the numbers. 50.2M All-time downloads, 3.6M Downloads, last 30 days, 677 GitHub stars, 178 Packages published"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/numbers-dark.svg"><img src="assets/numbers-light.svg" width="100%" alt="By the numbers. 50.3M All-time downloads, 3.6M Downloads, last 30 days, 679 GitHub stars, 178 Packages published"></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/section-payments-dark.svg"><img src="assets/section-payments-light.svg" width="100%" alt="01. Payments. ISO 20022, end to end. pain.001, pacs.008, camt.053 and acmt.001. Libraries, MCP servers and language servers. Adopt one at a time."></picture>
 
