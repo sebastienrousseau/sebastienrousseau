@@ -70,7 +70,7 @@ repos = [
   { name = "rousseau-agent", lang = "Go", text = "Self-hosted coding agent: nine chat transports, five LLM providers, MCP and A2A, SLSA 3." },
   { name = "cloudcdn.pro", lang = "JavaScript", text = "A multi-tenant, AI-native CDN you can read end to end and deploy yourself." },
   { name = "dotfiles", lang = "Shell", text = "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows." },
-  { name = "password-generator", lang = "JavaScript", text = "A fast, open-source password generator built on a zero-dependency hexagonal core." },
+  { name = "jspassgen", lang = "JavaScript", text = "A fast, open-source password generator built on a zero-dependency hexagonal core." },
 ]
 
 [paper]

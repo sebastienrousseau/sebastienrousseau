@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://sebastienrousseau.com">Website</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sebastienrousseau/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/wwdseb">X</a> &nbsp;·&nbsp; <a href="https://medium.com/@BankingOnQuantum">Medium</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@BankingOnQuantum">YouTube</a> &nbsp;·&nbsp; <a href="https://news.bankingonquantum.com">Newsletter</a></p>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/numbers-dark.svg"><img src="assets/numbers-light.svg" width="100%" alt="By the numbers. 51M All-time downloads, 3.8M Downloads, last 30 days, 685 GitHub stars, 178 Packages published"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/numbers-dark.svg"><img src="assets/numbers-light.svg" width="100%" alt="By the numbers. 51M All-time downloads, 3.9M Downloads, last 30 days, 685 GitHub stars, 179 Packages published"></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/section-payments-dark.svg"><img src="assets/section-payments-light.svg" width="100%" alt="01. Payments. ISO 20022, end to end. pain.001, pacs.008, camt.053 and acmt.001. Libraries, MCP servers and language servers. Adopt one at a time."></picture>
 
@@ -45,7 +45,7 @@
 <a href="https://github.com/sebastienrousseau/rousseau-agent"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-rousseau-agent-dark.svg"><img src="assets/card-rousseau-agent-light.svg" width="49%" alt="rousseau-agent: Self-hosted coding agent: nine chat transports, five LLM providers, MCP and A2A, SLSA 3. (Go)"></picture></a>
 <a href="https://github.com/sebastienrousseau/cloudcdn.pro"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-cloudcdn.pro-dark.svg"><img src="assets/card-cloudcdn.pro-light.svg" width="49%" alt="cloudcdn.pro: A multi-tenant, AI-native CDN you can read end to end and deploy yourself. (JavaScript)"></picture></a>
 <a href="https://github.com/sebastienrousseau/dotfiles"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-dotfiles-dark.svg"><img src="assets/card-dotfiles-light.svg" width="49%" alt="dotfiles: A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows. (Shell)"></picture></a>
-<a href="https://github.com/sebastienrousseau/password-generator"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-password-generator-dark.svg"><img src="assets/card-password-generator-light.svg" width="49%" alt="password-generator: A fast, open-source password generator built on a zero-dependency hexagonal core. (JavaScript)"></picture></a>
+<a href="https://github.com/sebastienrousseau/jspassgen"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jspassgen-dark.svg"><img src="assets/card-jspassgen-light.svg" width="49%" alt="jspassgen: A fast, open-source password generator built on a zero-dependency hexagonal core. (JavaScript)"></picture></a>
 </p>
 
 <p align="right"><a href="https://sebastienrousseau.com/projects/">Learn more about AI & Platform ›</a></p>
