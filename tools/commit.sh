@@ -10,19 +10,23 @@ if [ -z "$changed" ]; then
   exit 0
 fi
 
-additions=$(while IFS= read -r path; do
+# The additions go through a file: a refresh can change enough files that the
+# base64 contents exceed the argument-length limit when passed with --argjson.
+additions=$(mktemp)
+trap 'rm -f "$additions"' EXIT
+while IFS= read -r path; do
   jq -n --arg p "$path" --rawfile c <(base64 -w0 "$path") '{path: $p, contents: $c}'
-done <<<"$changed" | jq -s .)
+done <<<"$changed" | jq -s . >"$additions"
 
 jq -n \
   --arg repo "$GITHUB_REPOSITORY" \
   --arg branch "$GITHUB_REF_NAME" \
   --arg head "$(git rev-parse HEAD)" \
-  --argjson additions "$additions" \
+  --slurpfile additions "$additions" \
   '{query: "mutation($i: CreateCommitOnBranchInput!) { createCommitOnBranch(input: $i) { commit { url } } }",
     variables: {i: {
       branch: {repositoryNameWithOwner: $repo, branchName: $branch},
       expectedHeadOid: $head,
       message: {headline: "docs: refresh articles and live numbers"},
-      fileChanges: {additions: $additions}}}}' |
+      fileChanges: {additions: $additions[0]}}}}' |
   gh api graphql --input - --jq .data.createCommitOnBranch.commit.url
