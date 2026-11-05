@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://sebastienrousseau.com">Website</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sebastienrousseau/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/wwdseb">X</a> &nbsp;·&nbsp; <a href="https://medium.com/@BankingOnQuantum">Medium</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@BankingOnQuantum">YouTube</a> &nbsp;·&nbsp; <a href="https://news.bankingonquantum.com">Newsletter</a></p>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/numbers-dark.svg"><img src="assets/numbers-light.svg" width="100%" alt="By the numbers. 51.2M All-time downloads, 3.7M Downloads, last 30 days, 694 GitHub stars, 179 Packages published"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/numbers-dark.svg"><img src="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/numbers-light.svg" width="100%" alt="By the numbers: all-time downloads, downloads in the last 30 days, GitHub stars and packages published, live from crates.io, PyPI, npm and GitHub."></picture>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/section-payments-dark.svg"><img src="assets/section-payments-light.svg" width="100%" alt="01. Payments. ISO 20022, end to end. pain.001, pacs.008, camt.053 and acmt.001. Libraries, MCP servers and language servers. Adopt one at a time."></picture>
 
@@ -55,9 +55,9 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/desk-dark.svg"><img src="assets/desk-light.svg" width="100%" alt="Latest. From the desk."></picture>
 
 <p>
-<a href="https://sebastienrousseau.com/2026-08-04-data-act-cloud-switching-dora-exit-strategies-2026/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/article-1-dark.svg"><img src="assets/article-1-light.svg" width="32.6%" alt="POLICY &amp; RESILIENCE. Your DORA Exit Plan Was Priced, Not Planned. The Price Disappears in January. 4 August 2026."></picture></a>
-<a href="https://sebastienrousseau.com/2026-08-03-cyber-resilience-act-article-14-reporting-banks-2026/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/article-2-dark.svg"><img src="assets/article-2-light.svg" width="32.6%" alt="POLICY &amp; RESILIENCE. DORA Spared You From NIS2. It Will Not Spare You From the CRA. 3 August 2026."></picture></a>
-<a href="https://sebastienrousseau.com/2026-08-02-ai-act-article-50-transparency-banks-omnibus-2026/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/article-3-dark.svg"><img src="assets/article-3-light.svg" width="32.6%" alt="APPLIED AI. Your High-Risk Deadline Moved to December 2027. Your Chatbot&#x27;s Did Not. 2 August 2026."></picture></a>
+<a href="https://sebastienrousseau.com/articles/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-1-dark.svg"><img src="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-1-light.svg" width="32.6%" alt="Latest article 1 from sebastienrousseau.com."></picture></a>
+<a href="https://sebastienrousseau.com/articles/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-2-dark.svg"><img src="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-2-light.svg" width="32.6%" alt="Latest article 2 from sebastienrousseau.com."></picture></a>
+<a href="https://sebastienrousseau.com/articles/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-3-dark.svg"><img src="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets/article-3-light.svg" width="32.6%" alt="Latest article 3 from sebastienrousseau.com."></picture></a>
 </p>
 
 <p align="right"><a href="https://sebastienrousseau.com/articles/">See all articles ›</a></p>

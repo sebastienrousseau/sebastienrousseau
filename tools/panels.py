@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Callable
+from pathlib import Path
 
 from fonts import wrap
 from svg import Doc
-from theme import LANGS
+from theme import LANGS, THEMES
 
 W = 1280
 SANS, SEMI, MED, BOLD, SERIF = "inter-400", "inter-600", "inter-500", "inter-700", "news-500"
@@ -52,10 +54,14 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
 # sweeps the seconds, and a badge at each tip rolls through the hour
 # (12, 1 .. 11) or the minute (00 .. 59) like an odometer. Badges
 # counter-rotate about their tip so the digits stay upright. Everything is
-# CSS animation; statically it shows 10:09:30. The /api/clock/ Worker
-# route on sebastienrousseau.com replaces CLOCK_MARKER with CSS that sets
-# the .hh/.mm/.ss delays to the London time and starts .hand elements.
+# CSS animation; statically it shows 10:09:30. The profile-clock Worker
+# (sebastienrousseau.github.io, workers/clock.js; URL in profile.toml)
+# replaces CLOCK_MARKER with CSS that sets the .hh/.mm/.ss delays to the
+# London time and starts .hand elements. REDUCED_MOTION comes after the
+# marker, so it still wins: readers who ask for less motion get the
+# static frame.
 CLOCK_MARKER = "/*clock*/"
+REDUCED_MOTION = "@media (prefers-reduced-motion: reduce){.hand{animation:none!important}}"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
 HOUR_LEN, MINUTE_LEN, SECOND_LEN = 126, 184, 168
 # Badge radius and the spacing between digits in a strip. MINUTE_LEN -
@@ -104,6 +110,7 @@ def _lattice_clock(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
         CLOCK_CSS.format(x=cx, y=cy, h=STATIC_TIME, m=STATIC_TIME % 3600, s=STATIC_TIME % 60, rh=12 * ROW, rm=60 * ROW)
     )
     doc.css.append(CLOCK_MARKER)
+    doc.css.append(REDUCED_MOTION)
     a = t["accent"]
     line = f'stroke="{a}" stroke-linecap="round"'
     doc.add(
@@ -139,7 +146,8 @@ def hero(t: dict, c: dict) -> Doc:
 
 def numbers(t: dict, c: dict) -> Doc:
     stats = c["stats"]
-    doc = Doc(W, 430, f"{c['headline']} " + ", ".join(f"{s['value']} {s['label']}" for s in stats))
+    note = f"{c['note']} Updated {c['as_of']}."
+    doc = Doc(W, 430, f"{c['headline']} " + ", ".join(f"{s['value']} {s['label']}" for s in stats) + f". {note}")
     _panel(doc, t["panel"])
     doc.defs.append(
         f'<linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t["ink"]}"/>'
@@ -155,7 +163,7 @@ def numbers(t: dict, c: dict) -> Doc:
             doc.text(x, 308 + k * 26, line, (SANS, 19, t["mute"]), anchor="middle")
         if n:
             doc.add(f'<rect x="{80 + col * n:.1f}" y="206" width="1" height="130" fill="{t["rule"]}"/>')
-    doc.text(W / 2, 394, c["note"], (SANS, 14, t["mute"]), anchor="middle")
+    doc.text(W / 2, 394, note, (SANS, 14, t["mute"]), anchor="middle")
     return doc
 
 
@@ -242,3 +250,23 @@ def article(t: dict, a: dict) -> Doc:
         doc.text(32, 102 + n * 33, line, (SEMI, 25, t["ink"]), tracking=-0.015)
     doc.text(34, 266, a["date"], (SANS, 16, t["mute"]))
     return doc
+
+
+def write(todo: dict[str, Callable[[dict], Doc]], directory: Path) -> dict[str, str]:
+    """Write every panel in both themes into `directory`; return name -> alt text.
+
+    SVGs in `directory` that no panel drew any more are deleted, so a renamed
+    repo or a shorter desk never leaves an orphan behind.
+    """
+    directory.mkdir(parents=True, exist_ok=True)
+    alts, written = {}, set()
+    for name, draw in todo.items():
+        for mode, theme in THEMES.items():
+            doc = draw(theme)
+            path = directory / f"{name}-{mode}.svg"
+            path.write_text(doc.render())
+            written.add(path)
+        alts[name] = doc.title
+    for orphan in set(directory.glob("*.svg")) - written:
+        orphan.unlink()
+    return alts
