@@ -3,7 +3,17 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.4] - Unreleased
+## [0.0.5] - Unreleased
+
+### Fixed
+
+- `tools/commit.sh push` exited 1 after a successful commit: its cleanup
+  trap read a function-local variable at shell exit, which `set -u`
+  rejects. The refresh's first run published its state to `profile-data`
+  and then failed on this. A test now runs the script against a stubbed
+  `gh`, covering additions, deletions and the no-change path.
+
+## [0.0.4] - 2026-11-06
 
 ### Fixed
 
