@@ -1,0 +1,64 @@
+name: pages
+# Build the manual (docs/ and the root documents, through tools/manual.py)
+# with the latest ssg, and deploy it to GitHub Pages from main. It is
+# served at https://sebastienrousseau.com/sebastienrousseau/, under the user
+# site's domain. Pull requests build it, so a broken manual fails before
+# merge; only main deploys.
+on:
+  push:
+    branches: [main]
+    paths: &manual [docs/**, docs-site/**, "*.md", tools/manual.py, Makefile, .github/ssg-version, .github/workflows/pages.yml]
+  pull_request:
+    paths: *manual
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # The manual is always built with the latest ssg (workspace rule): the
+      # pin names it, and this fails as soon as a newer release ships.
+      - id: ssg
+        run: |
+          pinned="$(tr -d '[:space:]' < .github/ssg-version)"
+          latest="$(curl -fsSL -A "sebastienrousseau-profile (https://github.com/sebastienrousseau/sebastienrousseau)" \
+            https://crates.io/api/v1/crates/ssg | jq -r .crate.max_stable_version)"
+          if [ "$pinned" != "$latest" ]; then
+            echo "::error::.github/ssg-version is $pinned, but the latest ssg is $latest; move the pin up"
+            exit 1
+          fi
+          echo "version=$pinned" >>"$GITHUB_OUTPUT"
+      - uses: cargo-bins/cargo-binstall@851112458b5f28a29e5bc14a690c3f283d9dcc6f # v1.26.2
+      - run: cargo binstall --no-confirm "ssg@${SSG_VERSION}" && ssg --version
+        env:
+          SSG_VERSION: ${{ steps.ssg.outputs.version }}
+      - run: make manual
+      - if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

@@ -2,7 +2,7 @@
 # out of step with pyproject.toml. smoke needs only the standard library.
 RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke audit check lint test drift
+.PHONY: all live smoke audit manual check lint test drift
 
 all:  ## Regenerate the static assets/ and README.md from profile.toml
 	$(RUN) --group build tools/build.py
@@ -17,6 +17,11 @@ audit:  ## Check every locked dependency against known vulnerabilities (networke
 	mkdir -p .cache
 	uv export --locked --all-groups --no-emit-project --format requirements-txt --output-file .cache/requirements.txt
 	$(RUN) --group audit pip-audit --cache-dir .cache/pip-audit --strict --require-hashes --disable-pip -r .cache/requirements.txt
+
+manual:  ## Build the manual into _site/ with the latest ssg (version in .github/ssg-version)
+	python3 tools/manual.py prepare
+	ssg build -q -f docs-site/ssg.toml
+	python3 tools/manual.py finish
 
 lint:
 	$(RUN) --group lint ruff check --no-cache tools tests
