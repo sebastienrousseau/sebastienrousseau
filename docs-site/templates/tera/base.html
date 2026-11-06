@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ site.language | default('en-GB') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page is defined and page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  {% if page is defined and page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <link rel="stylesheet" href="{{ site.base_url | safe }}/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip">Skip to main content</a>
+  <header>
+    <nav aria-label="Manual">
+      {% for link in site.data.nav.links %}<a href="{{ site.base_url | safe }}{{ link.url | safe }}">{{ link.name }}</a>{% endfor %}
+    </nav>
+  </header>
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <p>&copy; {{ site.data.build.year }} <a href="https://sebastienrousseau.com/" rel="author">Sebastien Rousseau</a>. Built from <a href="https://github.com/sebastienrousseau/sebastienrousseau">the profile repository</a> with <a href="https://github.com/sebastienrousseau/static-site-generator">ssg</a>.</p>
+  </footer>
+</body>
+</html>

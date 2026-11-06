@@ -11,6 +11,10 @@ Every figure has named sources and one time window:
   (crates.io daily counts, ClickPy daily counts, npm daily counts).
 - GitHub stars: every owned, non-fork repository, all pages.
 - Packages published: crates + PyPI projects + npm packages.
+- Per project card: GitHub stars of that repo, and the all-time downloads
+  of every package whose own metadata links to it (crates.io `repository`,
+  npm `repository.url`, PyPI `project_urls`). Each value's "by" carries
+  these per package.
 
 PyPI projects are the ones the PyPI account owns or maintains, as PyPI
 itself lists them. Matching GitHub repos by language missed any package
@@ -27,6 +31,7 @@ import datetime as dt
 import html
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
 from typing import TypedDict
 from urllib.parse import quote, urlencode
 
@@ -38,8 +43,9 @@ WINDOW = 30
 CLICKPY = "https://sql-clickhouse.clickhouse.com/"
 # Names and window are typed query parameters, never spliced into the SQL.
 CLICKPY_SQL = (
-    "SELECT sum(count), sumIf(count, date > today() - {days:UInt16}) FROM pypi.pypi_downloads_per_day"
-    " WHERE lower(project) IN {names:Array(String)} FORMAT JSONCompact"
+    "SELECT lower(project), sum(count), sumIf(count, date > today() - {days:UInt16})"
+    " FROM pypi.pypi_downloads_per_day WHERE lower(project) IN {names:Array(String)}"
+    " GROUP BY lower(project) FORMAT JSONCompact"
 )
 NPM_EPOCH = dt.date(2015, 1, 10)  # npm's download counts start here
 CLICKPY_TRIES = 4  # ClickPy replicas disagree; see clickpy()
@@ -54,6 +60,8 @@ USER_PACKAGES = (
     f"<params><param><value><string>{PYPI_USER}</string></value></param></params></methodCall>"
 )
 XML_STRING = re.compile(r"<string>([^<]*)</string>")
+# A repository link to one of USER's repos, in any of the forms registries use.
+REPO_LINK = re.compile(rf"github\.com[/:]{USER}/([A-Za-z0-9_.-]+?)(?:\.git)?(?:[/#?]|$)", re.IGNORECASE)
 
 
 class Counts(TypedDict):
@@ -66,13 +74,24 @@ def utc_today() -> dt.date:
     return dt.datetime.now(dt.UTC).date()
 
 
+def repo_of(*urls: str) -> str:
+    """The name of USER's repository the first of `urls` links to, lower-cased, or ""."""
+    for url in urls:
+        if url and (m := REPO_LINK.search(url)):
+            return m[1].lower()
+    return ""
+
+
 def github() -> dict:
-    """Stars over every owned, non-fork repository."""
+    """Stars over every owned, non-fork repository, in total and per repo."""
     repos, page = [], 1
     while batch := get_json(f"https://api.github.com/users/{USER}/repos?type=owner&per_page=100&page={page}"):
         repos += [r for r in batch if not r["fork"]]
         page += 1
-    return {"stars": sum(r["stargazers_count"] for r in repos)}
+    return {
+        "stars": sum(r["stargazers_count"] for r in repos),
+        "by": {r["name"].lower(): r["stargazers_count"] for r in repos},
+    }
 
 
 def _crate_listing(uid: int) -> list[dict]:
@@ -96,7 +115,12 @@ def crates() -> Counts:
         daily = get_json(f"https://crates.io/api/v1/crates/{c['id']}/downloads")
         rows = daily["version_downloads"] + daily["meta"]["extra_downloads"]
         recent += sum(r["downloads"] for r in rows if r["date"] > since)
-    return {"packages": len(listing), "all_time": sum(c["downloads"] for c in listing), "recent": recent}
+    return {
+        "packages": len(listing),
+        "all_time": sum(c["downloads"] for c in listing),
+        "recent": recent,
+        "by": {c["name"]: {"repo": repo_of(c.get("repository") or ""), "all_time": c["downloads"]} for c in listing},
+    }
 
 
 def pypi_packages() -> list[str]:
@@ -114,26 +138,40 @@ def pypi_packages() -> list[str]:
     return names
 
 
-def clickpy(names: str) -> tuple[int, int]:
-    """(all-time, window) downloads for `names`, from the fullest of CLICKPY_TRIES answers.
+def clickpy(names: str) -> dict[str, tuple[int, int]]:
+    """Project -> (all-time, window) downloads for `names`, from the fullest of CLICKPY_TRIES answers.
 
     ClickPy sometimes answers from a replica that lacks older rows: the same
     query seconds apart returned 106,555 downloads from 2023-11-08 and
-    169,994 from 2023-03-11. All-time totals only grow, so the largest
-    answer is the complete one, and its window figure comes with it.
+    169,994 from 2023-03-11. All-time totals only grow, so the answer with
+    the largest total is the complete one, and its window figures come with
+    it. A project with no downloads yet has no row.
     """
     params = urlencode({"user": "demo", "param_names": names, "param_days": WINDOW})
-    answers = [get_json(f"{CLICKPY}?{params}", data=CLICKPY_SQL)["data"][0] for _ in range(CLICKPY_TRIES)]
-    total, recent = max((int(a), int(b)) for a, b in answers)
-    return total, recent
+    answers = [get_json(f"{CLICKPY}?{params}", data=CLICKPY_SQL)["data"] for _ in range(CLICKPY_TRIES)]
+    fullest = max(answers, key=lambda rows: sum(int(r[1]) for r in rows))
+    return {name: (int(total), int(recent)) for name, total, recent in fullest}
 
 
-def pypi() -> Counts:
-    """Downloads of every project the PyPI account owns or maintains."""
+def _pypi_repo(name: str) -> str:
+    """The repo a PyPI project links to from its home page or project URLs, or ""."""
+    info = (get_json(f"https://pypi.org/pypi/{name}/json", ok404=True) or {}).get("info") or {}
+    return repo_of(info.get("home_page") or "", *(info.get("project_urls") or {}).values())
+
+
+def pypi() -> dict:
+    """Downloads of every project the PyPI account owns or maintains, in total and per project."""
     ours = pypi_packages()
     names = "[" + ",".join("'" + n.replace("\\", "\\\\").replace("'", "\\'") + "'" for n in ours) + "]"
-    total, recent = clickpy(names)
-    return {"packages": len(ours), "all_time": total, "recent": recent}
+    counts = clickpy(names)
+    with ThreadPoolExecutor(8) as pool:
+        repos = dict(zip(ours, pool.map(_pypi_repo, ours), strict=True))
+    return {
+        "packages": len(ours),
+        "all_time": sum(total for total, _ in counts.values()),
+        "recent": sum(recent for _, recent in counts.values()),
+        "by": {n: {"repo": repos[n], "all_time": counts.get(n, (0, 0))[0]} for n in ours},
+    }
 
 
 def npm_packages() -> list[str]:
@@ -169,9 +207,8 @@ def npm_package(name: str, entry: dict, today: dt.date) -> tuple[dict, int, int]
     the first walks older history, in 540-day point queries.
     """
     pkg = quote(name, safe="@")
-    if "closed_through" not in entry:
-        created = dt.date.fromisoformat(get_json(f"https://registry.npmjs.org/{pkg}")["time"]["created"][:10])
-        entry = {"closed_through": (max(created, NPM_EPOCH) - dt.timedelta(days=1)).isoformat(), "closed": 0}
+    if "closed_through" not in entry or "repo" not in entry:
+        entry = _npm_entry(pkg, entry)
     start = dt.date.fromisoformat(entry["closed_through"]) + dt.timedelta(days=1)
     closed = entry["closed"]
     cutoff = today - dt.timedelta(days=WINDOW + NPM_SETTLE)
@@ -182,8 +219,28 @@ def npm_package(name: str, entry: dict, today: dt.date) -> tuple[dict, int, int]
     days = _npm_days(f"{start}:{today}", pkg)
     settled = max(start - dt.timedelta(days=1), cutoff)
     since = today - dt.timedelta(days=WINDOW)
-    entry = {"closed_through": settled.isoformat(), "closed": closed + sum(n for d, n in days if d <= settled)}
+    entry = {
+        "closed_through": settled.isoformat(),
+        "closed": closed + sum(n for d, n in days if d <= settled),
+        "repo": entry["repo"],
+    }
     return entry, closed + sum(n for _, n in days), sum(n for d, n in days if d > since)
+
+
+def _npm_entry(pkg: str, entry: dict) -> dict:
+    """`entry` completed from the package's registry document: its start, and its repo.
+
+    registry.npmjs.org, not the rate-limited downloads API. A new package
+    needs this once for its creation date; an entry from before repos were
+    recorded needs it once for the repo.
+    """
+    doc = get_json(f"https://registry.npmjs.org/{pkg}")
+    link = doc.get("repository") or {}
+    repo = repo_of(link.get("url", "") if isinstance(link, dict) else str(link))
+    if "closed_through" in entry:
+        return {**entry, "repo": repo}
+    created = dt.date.fromisoformat(doc["time"]["created"][:10])
+    return {"closed_through": (max(created, NPM_EPOCH) - dt.timedelta(days=1)).isoformat(), "closed": 0, "repo": repo}
 
 
 def npm(ledger: dict) -> dict:
@@ -214,6 +271,7 @@ def npm(ledger: dict) -> dict:
         "all_time": sum(r["total"] for r in rows),
         "recent": sum(r["recent"] for r in rows),
         "as_of": min(ledger[n]["as_of"] for n in names),
+        "by": {n: {"repo": ledger[n].get("repo", ""), "all_time": ledger[n]["total"]} for n in counted},
     }
 
 

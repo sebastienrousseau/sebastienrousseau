@@ -19,12 +19,13 @@ or `tools/` and regenerate. How the pieces fit is in
 | --- | --- |
 | `make` | Rebuild `README.md` and `assets/` from `profile.toml`. |
 | `make check` | The single gate CI runs: lint, tests, and a check that the committed files match a fresh build. |
-| `make lint` | ruff, ruff format, complexipy (ceiling 15), shellcheck, actionlint. |
-| `make test` | pytest. No network is used. |
+| `make lint` | ruff, ruff format, complexipy (ceiling 15), `tools/ceilings.py` (Halstead 30, 60 lines per function, 500 per file), shellcheck, actionlint. |
+| `make test` | pytest with coverage of `tools/`, failing below the floor in the `Makefile`. No network is used. |
 | `make drift` | Rebuild, then fail if `README.md` or `assets/` changed. |
 | `make live OUT=/tmp/live` | Fetch the live numbers and articles and render them into `OUT`. Hits the real registries. |
 | `make smoke` | Fetch every image `README.md` shows and fail unless each is a well-formed SVG, with no redirect from the clock Worker. Networked. |
 | `make audit` | Check every locked dependency against known vulnerabilities with pip-audit. Networked. |
+| `make manual` | Build the manual into `_site/` with ssg; needs the version in `.github/ssg-version`, which must be the latest. |
 
 `make check` needs the network only to download the two pinned font files on
 a first run. They are verified by SHA-256 and cached in `.cache/fonts/`.

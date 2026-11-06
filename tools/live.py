@@ -107,12 +107,78 @@ def as_of(src: dict) -> dt.date:
     return min(dt.date.fromisoformat(src[name]["as_of"]) for name in ("github", *REGISTRIES))
 
 
+def card_figures(src: dict, repo: str) -> tuple[int | None, int]:
+    """(stars, downloads) for one repo: stars None when unknown, downloads over every package linking to it."""
+    stars = ((src.get("github") or {}).get("value") or {}).get("by", {}).get(repo.lower())
+    downloads = sum(
+        p["all_time"]
+        for name in REGISTRIES
+        for p in ((src.get(name) or {}).get("value") or {}).get("by", {}).values()
+        if p["repo"] == repo.lower()
+    )
+    return stars, downloads
+
+
+def card_stats(src: dict, repo: str) -> str:
+    """A card's live line: the repo's stars, and the downloads of every package linking to it.
+
+    Empty when the repo's stars are unknown (state from before per-repo
+    figures). A zero is left out: it is no evidence of anything, and the
+    card then keeps just its language.
+    """
+    stars, downloads = card_figures(src, repo)
+    if stars is None:
+        return ""
+    parts = [f"{metrics.compact(stars)} {'star' if stars == 1 else 'stars'}"] if stars else []
+    parts += [f"{metrics.compact(downloads)} downloads"] if downloads else []
+    return " · ".join(parts)
+
+
+def profile_json(cfg: dict, src: dict) -> dict:
+    """The profile as data, for the site and for agents: copy from profile.toml, figures as numbers.
+
+    Published as profile.json on profile-data. `schema` changes only when a
+    field is renamed or removed; new fields may appear at any time.
+    """
+    regs = [src[name]["value"] for name in REGISTRIES]
+    pillars = []
+    for p in cfg["pillars"]:
+        repos = []
+        for r in p["repos"]:
+            stars, downloads = card_figures(src, r["name"])
+            repos.append(r | {"url": f"{cfg['github']}/{r['name']}", "stars": stars, "downloads": downloads})
+        pillars.append({k: p[k] for k in ("key", "eyebrow", "headline", "lede", "more")} | {"repos": repos})
+    return {
+        "schema": 1,
+        "name": cfg["hero"]["eyebrow"],
+        "headline": " ".join(cfg["hero"]["headline"]),
+        "site": cfg["site"],
+        "github": cfg["github"],
+        "numbers": {
+            "all_time_downloads": sum(r["all_time"] for r in regs),
+            "recent_downloads": sum(r["recent"] for r in regs),
+            "window_days": metrics.WINDOW,
+            "github_stars": src["github"]["value"]["stars"],
+            "packages": sum(r["packages"] for r in regs),
+            "as_of": as_of(src).isoformat(),
+        },
+        "pillars": pillars,
+        "articles": src["articles"]["value"]["items"],
+        "links": cfg["finale"]["links"],
+    }
+
+
 def render(cfg: dict, src: dict, out: Path) -> None:
+    """Draw every live panel into `out`/assets, and write `out`/profile.json."""
     day = f"{as_of(src):%-d %B %Y}"
     todo = {"numbers": lambda t: panels.numbers(t, {**cfg["numbers"], "stats": stats(src), "as_of": day})}
     for n, a in enumerate(src["articles"]["value"]["items"], 1):
         todo[f"article-{n}"] = lambda t, a=a: panels.article(t, a)
+    for repo in (r for p in cfg["pillars"] for r in p["repos"]):
+        line = card_stats(src, repo["name"])
+        todo[f"card-{repo['name']}"] = lambda t, r=repo, s=line: panels.card(t, r, s)
     panels.write(todo, out / "assets")
+    save(out / "profile.json", json.dumps(profile_json(cfg, src), indent=1, ensure_ascii=False) + "\n")
 
 
 def summary(src: dict, status: dict) -> str:

@@ -5,3 +5,7 @@
 __pycache__/
 .DS_Store
 .venv/
+_site/
+docs-site/content/
+docs-site/data/
+.coverage

@@ -26,6 +26,7 @@ def parse(site: str, text: str) -> list[dict]:
             "title": html.unescape(title),
             "topic": html.unescape(topic).upper(),
             "date": f"{dt.date.fromisoformat(day):%-d %B %Y}",
+            "published": day,
             "url": f"{site}{path}",
         }
         for day, path, title, topic in rows[:COUNT]

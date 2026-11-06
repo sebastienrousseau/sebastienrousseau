@@ -1,0 +1,31 @@
+name: smoke
+# Check what a visitor sees every 30 minutes, between the three-hourly
+# refreshes: every README image is a well-formed SVG, the clock Worker
+# answers without falling back to the stopped clock, and profile.json
+# parses. A failure opens or comments on the refresh issue. This job never
+# closes it: only a refresh, which checks the data as well, does that.
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: smoke
+  cancel-in-progress: true
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write # open or comment on the refresh issue
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # Standard library only: no third-party code runs beside the token.
+      - run: make smoke
+      - if: failure()
+        run: bash tools/alert.sh fail

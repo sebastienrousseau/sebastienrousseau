@@ -2,7 +2,7 @@
 # out of step with pyproject.toml. smoke needs only the standard library.
 RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke audit check lint test drift
+.PHONY: all live smoke audit manual check lint test drift
 
 all:  ## Regenerate the static assets/ and README.md from profile.toml
 	$(RUN) --group build tools/build.py
@@ -18,15 +18,24 @@ audit:  ## Check every locked dependency against known vulnerabilities (networke
 	uv export --locked --all-groups --no-emit-project --format requirements-txt --output-file .cache/requirements.txt
 	$(RUN) --group audit pip-audit --cache-dir .cache/pip-audit --strict --require-hashes --disable-pip -r .cache/requirements.txt
 
+manual:  ## Build the manual into _site/ with the latest ssg (version in .github/ssg-version)
+	python3 tools/manual.py prepare
+	ssg build -q -f docs-site/ssg.toml
+	python3 tools/manual.py finish
+
 lint:
 	$(RUN) --group lint ruff check --no-cache tools tests
 	$(RUN) --group lint ruff format --no-cache --check tools tests
 	$(RUN) --group lint complexipy tools tests --max-complexity-allowed 15
+	$(RUN) --group lint python tools/ceilings.py tools tests
 	shellcheck tools/*.sh
 	$(RUN) --group lint actionlint .github/workflows/*.yml
 
+# Coverage floor: 86.9% measured at 0.0.13, checked to one decimal
+# (pyproject.toml). It may rise, never fall.
 test:
-	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests
+	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests \
+	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=86.9
 
 drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
 	@changed="$$(git status --porcelain -- README.md assets)"; \

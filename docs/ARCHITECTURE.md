@@ -10,20 +10,21 @@ flowchart TD
   T["profile.toml"] --> B["tools/build.py"]
   B --> M["main: README.md + assets/*.svg (static panels)"]
   R["crates.io, PyPI via ClickPy, npm, GitHub, site articles"] --> L["tools/live.py"]
-  L --> D["profile-data: assets/numbers-*.svg, article-N-*.svg, state.json"]
+  L --> D["profile-data: assets/numbers, card-*, article-N SVGs, profile.json, state.json"]
   M -->|"img src"| D
   W["profile-clock Worker"] -->|"live London time"| H["hero SVG"]
   M -->|"img src"| W
 ```
 
-* **Static panels** (hero, cards, sections, paper, finale) are a pure
+* **Static panels** (hero, sections, paper, finale) are a pure
   function of `profile.toml` and `tools/`. `make` writes them to `main`.
   CI rebuilds and fails on any difference, so the committed files can
   never drift.
-* **Live panels** (the numbers and the three latest articles) change every
-  few hours. They are rendered onto the `profile-data` branch so a refresh
-  never needs a commit to the protected `main`. `README.md` points at that
-  branch's raw files.
+* **Live panels** (the numbers, the project cards with each repo's stars
+  and downloads, and the three latest articles) change every few hours.
+  They are rendered onto the `profile-data` branch so a refresh never needs
+  a commit to the protected `main`. `README.md` points at that branch's raw
+  files.
 * **The hero clock** is served by a separate Cloudflare Worker (source in
   the sebastienrousseau.github.io repository, `workers/clock.js`). It
   replaces the `/*clock*/` marker in the committed hero SVG with CSS that
@@ -38,7 +39,9 @@ flowchart TD
 | `tools/metrics.py` | One function per registry. Returns numbers, never publishes. |
 | `tools/articles.py` | Latest articles from the site's `/articles/` index. |
 | `tools/net.py` | The only network code: curl with timeouts, bounded retries, `Retry-After`, token on stdin. |
-| `tools/smoke.py` | After each publish: every image `README.md` shows is a well-formed SVG, and the clock Worker has not fallen back. |
+| `tools/smoke.py` | After each publish and every 30 minutes: every image `README.md` shows is a well-formed SVG, the clock Worker has not fallen back, and `profile.json` parses. |
+| `tools/manual.py` | The manual: the repository's documents into `docs-site/content/`, then checks ssg's output. |
+| `tools/ceilings.py` | The complexity ceilings ruff and complexipy do not check: Halstead difficulty, function and file length. |
 | `tools/panels.py` | Each panel as a function of a theme and config; `write()` also deletes orphan SVGs. |
 | `tools/fonts.py` | Pinned font sources, per-SVG subsetting, text measurement. |
 | `tools/svg.py`, `tools/theme.py` | SVG builder and colour tokens. |
@@ -60,7 +63,16 @@ touches the tools or `profile.toml`, and on demand.
 4. The numbers panel says when its oldest figure was fetched.
 5. After publishing, `tools/smoke.py` fetches every image the README shows.
    A malformed SVG, a missing file or a clock Worker that redirected to the
-   stopped clock fails the run and opens the same issue.
+   stopped clock fails the run and opens the same issue. `smoke.yml` runs
+   the same check every 30 minutes; it can open the issue but never closes
+   it, since only a refresh also vouches for the data.
+6. Each refresh writes `profile.json` beside the panels: the same figures as
+   data, described in [DATA.md](DATA.md).
+
+A project card's downloads are those of every package whose own metadata
+links to its repository: crates.io's `repository`, npm's
+`repository.url` (read once per package and kept in the ledger) and
+PyPI's `project_urls`. A zero is left off the card.
 
 The workflow has two jobs. `fetch` fetches and renders with a read-only
 token and uploads the result; `publish` commits it to `profile-data`, runs
@@ -87,8 +99,8 @@ Three sources need care:
 ## Decisions
 
 * **Live data off `main`.** `main` requires a pull request with `check`
-  and `audit` passing, which a bot pushing every few hours cannot meet. Keeping live
-  output on its own branch keeps both properties.
+  and `audit` passing, which a bot pushing every few hours cannot meet.
+  Keeping live output on its own branch keeps both properties.
 * **curl, not an HTTP library.** The site's TLS is negotiated by curl where
   urllib fails. `net.py` is the only place that shells out.
 * **The clock is a contract between two repositories.** The Worker writes

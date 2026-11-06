@@ -3,7 +3,32 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.12] - Unreleased
+## [0.0.13] - Unreleased
+
+### Added
+
+- Each project card shows its repository's GitHub stars and the all-time
+  downloads of every package whose own metadata links to it, refreshed
+  with the other live panels. A zero is left off.
+- `profile.json` on `profile-data`: the profile's figures as data, for the
+  site and for agents. The README links it; `docs/DATA.md` describes it.
+- A manual at <https://sebastienrousseau.com/sebastienrousseau/>, built
+  from the repository's documents with the latest ssg and deployed by
+  GitHub Actions.
+- The smoke check also runs every 30 minutes, and checks `profile.json`.
+- A release workflow: on a signed `v*` tag it rebuilds, then drafts the
+  release with every file and its checksum.
+- `LICENSE` (Apache-2.0 OR MIT), `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`,
+  issue forms and a pull request template.
+
+### Changed
+
+- CI enforces every complexity ceiling, tests on Linux and macOS with
+  Python 3.12 to 3.14, holds test coverage at or above 86.9%, and lints the
+  Markdown.
+- The repository declares compliance tier L2.
+
+## [0.0.12] - 2026-11-06
 
 ### Changed
 
@@ -112,7 +137,8 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - `refresh.yml` is valid YAML again. v0.0.3 shipped it with an unquoted
-  `: ` in a `run:` line, so GitHub rejected the file and no refresh ran.
+  colon and space in a `run:` line, so GitHub rejected the file and no
+  refresh ran.
 
 ### Changed
 
