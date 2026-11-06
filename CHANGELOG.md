@@ -3,7 +3,40 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.10] - Unreleased
+## [0.0.11] - Unreleased
+
+### Added
+
+- A smoke check after every refresh: `make smoke` fetches each image the
+  README shows and fails unless it is a well-formed SVG, and unless the
+  clock Worker answered directly instead of redirecting to the stopped
+  clock. A failure opens the refresh issue.
+- Tests that every committed SVG parses, and that the hero keeps the
+  selectors and marker the clock Worker relies on.
+- `make audit`: pip-audit over every locked dependency, hashes required,
+  in CI on every pull request and weekly.
+
+### Fixed
+
+- PyPI counts every package the `wwdseb` account owns, as PyPI lists
+  them. Matching GitHub repos by language missed `audioanalyser`: 37
+  packages and 409,872 all-time downloads, not 36 and 390,697.
+- A package missing from one npm search keeps its history and its count.
+  It leaves after three runs in a row without it, instead of at once,
+  which forced a full re-fetch from npm's most rate-limited endpoint.
+- `state.json` is written whole or not at all, so a run that dies
+  mid-write cannot leave a file the next run fails to parse.
+
+### Changed
+
+- The refresh runs in two jobs. The one that runs the Python render and
+  the registry calls has a read-only token; the one that commits runs no
+  third-party code.
+- Every Python library and tool (fontTools, brotli, pytest, ruff,
+  complexipy, actionlint, pip-audit) is locked with hashes in `uv.lock`,
+  and Dependabot now proposes updates for it.
+
+## [0.0.10] - 2026-11-06
 
 ### Fixed
 

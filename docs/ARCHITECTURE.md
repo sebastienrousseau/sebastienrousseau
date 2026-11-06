@@ -38,6 +38,7 @@ flowchart TD
 | `tools/metrics.py` | One function per registry. Returns numbers, never publishes. |
 | `tools/articles.py` | Latest articles from the site's `/articles/` index. |
 | `tools/net.py` | The only network code: curl with timeouts, bounded retries, `Retry-After`, token on stdin. |
+| `tools/smoke.py` | After each publish: every image `README.md` shows is a well-formed SVG, and the clock Worker has not fallen back. |
 | `tools/panels.py` | Each panel as a function of a theme and config; `write()` also deletes orphan SVGs. |
 | `tools/fonts.py` | Pinned font sources, per-SVG subsetting, text measurement. |
 | `tools/svg.py`, `tools/theme.py` | SVG builder and colour tokens. |
@@ -57,14 +58,28 @@ touches the tools or `profile.toml`, and on demand.
 3. A source older than two days fails the run. The workflow still publishes
    the panels first, then opens an issue; a healthy run closes it.
 4. The numbers panel says when its oldest figure was fetched.
+5. After publishing, `tools/smoke.py` fetches every image the README shows.
+   A malformed SVG, a missing file or a clock Worker that redirected to the
+   stopped clock fails the run and opens the same issue.
 
-Two sources need care:
+The workflow has two jobs. `fetch` fetches and renders with a read-only
+token and uploads the result; `publish` commits it to `profile-data`, runs
+the smoke check and opens or closes the issue. Only `publish` can write,
+and it runs no third-party code.
 
+Three sources need care:
+
+* **PyPI's package list** comes from PyPI itself: the XML-RPC
+  `user_packages` call lists every project the `wwdseb` account owns or
+  maintains. Matching GitHub repos by language missed packages whose repo
+  GitHub labels as another language.
 * **npm** rate-limits hard. A ledger in `state.json` keeps each package's
   settled history and last result. A normal run asks npm for one range of
   daily counts per package, oldest first, and stops at the first refusal.
   The published figure sums each package's latest result, so a throttled
-  run still publishes a complete number.
+  run still publishes a complete number. npm's search sometimes answers
+  short, so a package leaves the ledger only after three runs in a row
+  without it, and keeps its history until then.
 * **ClickPy** (PyPI downloads) sometimes answers from a replica missing
   older rows. All-time totals only grow, so the query runs four times and
   keeps the fullest answer.
@@ -76,6 +91,10 @@ Two sources need care:
   output on its own branch keeps both properties.
 * **curl, not an HTTP library.** The site's TLS is negotiated by curl where
   urllib fails. `net.py` is the only place that shells out.
+* **The clock is a contract between two repositories.** The Worker writes
+  rules for `.hand`, `.hh`, `.mm` and `.ss` in place of the `/*clock*/`
+  marker. A test pins those selectors and the single marker, because
+  renaming one would freeze the live clock without an error.
 * **Fonts embedded, subsetted per SVG.** An SVG shown through an `<img>`
   tag cannot load external resources, so each panel carries only the glyphs
   it draws, as base64 WOFF2. Panels render in the site's typefaces

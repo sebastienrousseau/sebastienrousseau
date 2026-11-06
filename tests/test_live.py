@@ -83,17 +83,35 @@ def test_stale_after_two_days():
     assert live.stale(src, TODAY) == ["late", "never"]
 
 
-def test_pypi_failure_follows_a_github_failure(monkeypatch):
+def test_pypi_no_longer_depends_on_github(monkeypatch):
     monkeypatch.setattr(metrics, "github", boom)
-    monkeypatch.setattr(metrics, "crates", lambda: PREV["value"])
-    monkeypatch.setattr(metrics, "npm", lambda ledger: PREV["value"])
+    monkeypatch.setattr(metrics, "crates", lambda: dict(PREV["value"]))
+    monkeypatch.setattr(metrics, "pypi", lambda: dict(PREV["value"]))
+    monkeypatch.setattr(metrics, "npm", lambda ledger: dict(PREV["value"]))
     monkeypatch.setattr(live.articles, "latest", lambda site: [])
     src, status = live.collect("https://example.test", {}, {}, TODAY)
-    assert src["github"] is None and src["pypi"] is None
-    assert status["crates"] == "ok" and status["npm"] == "ok"
+    assert src["github"] is None
+    assert status["pypi"] == status["crates"] == status["npm"] == "ok"
 
 
 def test_numbers_date_is_the_oldest_figure():
     day = {"value": {}, "as_of": "2026-11-05"}
     src = {"github": day, "crates": day, "pypi": {"value": {}, "as_of": "2026-11-03"}, "npm": day}
     assert live.as_of(src) == dt.date(2026, 11, 3)
+
+
+def test_state_is_replaced_whole_or_not_at_all(tmp_path, monkeypatch):
+    path = tmp_path / "state.json"
+    path.write_text('{"old": 1}\n')
+    live.save(path, '{"new": 2}\n')
+    assert path.read_text() == '{"new": 2}\n'
+    assert [p.name for p in tmp_path.iterdir()] == ["state.json"]
+
+    def crash(src, dst):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(live.os, "replace", crash)
+    with pytest.raises(OSError, match="disk full"):
+        live.save(path, '{"half": ')
+    assert path.read_text() == '{"new": 2}\n'
+    assert [p.name for p in tmp_path.iterdir()] == ["state.json"]
