@@ -23,7 +23,7 @@ ensure() {
 }
 
 push() {
-  local dir=$1 branch=$2 headline=$3 work
+  local dir=$1 branch=$2 headline=$3
   cd "$dir"
   git add -A
   if git diff --cached --quiet; then
@@ -31,6 +31,8 @@ push() {
     return
   fi
   work=$(mktemp -d)
+  # `work` is global on purpose: the trap fires at shell exit, after this
+  # function's locals are gone, and set -u would reject a local there.
   trap 'rm -rf "$work"' EXIT
   # Contents go through files: base64 of a full refresh exceeds the
   # 128 KiB limit on a single argument.
