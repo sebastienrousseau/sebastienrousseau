@@ -1,26 +1,32 @@
-DEPS := --with fonttools==4.68.0 --with brotli==1.2.1
-UV := uv run --no-project $(DEPS)
+# Every tool runs from uv.lock, hash-checked; --locked fails if the lock is
+# out of step with pyproject.toml. smoke needs only the standard library.
+RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke check lint test drift
+.PHONY: all live smoke audit check lint test drift
 
 all:  ## Regenerate the static assets/ and README.md from profile.toml
-	$(UV) tools/build.py
+	$(RUN) --group build tools/build.py
 
 live:  ## Fetch live data and render the numbers and article panels into $(OUT)
-	$(UV) tools/live.py $(OUT)
+	$(RUN) --group build tools/live.py $(OUT)
 
 smoke:  ## Fetch every image README.md shows and check each is a well-formed SVG (networked)
-	uv run --no-project tools/smoke.py
+	python3 tools/smoke.py
+
+audit:  ## Check every locked dependency against known vulnerabilities (networked)
+	mkdir -p .cache
+	uv export --locked --all-groups --no-emit-project --format requirements-txt --output-file .cache/requirements.txt
+	$(RUN) --group audit pip-audit --cache-dir .cache/pip-audit --strict --require-hashes --disable-pip -r .cache/requirements.txt
 
 lint:
-	uvx ruff@0.17.4 check --no-cache tools tests
-	uvx ruff@0.17.4 format --no-cache --check tools tests
-	uvx complexipy@8.3.0 tools tests --max-complexity-allowed 15
+	$(RUN) --group lint ruff check --no-cache tools tests
+	$(RUN) --group lint ruff format --no-cache --check tools tests
+	$(RUN) --group lint complexipy tools tests --max-complexity-allowed 15
 	shellcheck tools/*.sh
-	uvx --from actionlint-py==1.7.12.25 actionlint .github/workflows/*.yml
+	$(RUN) --group lint actionlint .github/workflows/*.yml
 
 test:
-	$(UV) --with pytest==9.2.0 python -m pytest -q -p no:cacheprovider tests
+	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests
 
 drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
 	@changed="$$(git status --porcelain -- README.md assets)"; \
