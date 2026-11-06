@@ -1,0 +1,60 @@
+name: release
+# On a v* tag: check the tag, rebuild, and open a draft release in the
+# workspace format (~/Code/AGENTS.md section 3), with README.md and every
+# asset attached and their SHA-256 listed. The maintainer writes the
+# Highlights and publishes; nothing is published unseen.
+on:
+  push:
+    tags: ["v*"]
+permissions: {}
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # create the draft release
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      # The tag must be annotated, signed (as GitHub verifies it) and named
+      # "sebastienrousseau v<version>"; the version must match pyproject.toml.
+      - name: Check the tag
+        run: |
+          sha="$(git rev-parse "refs/tags/$TAG")"
+          [ "$(git cat-file -t "$sha")" = tag ] || { echo "::error::$TAG is not annotated"; exit 1; }
+          subject="$(git tag -l --format='%(contents:subject)' "$TAG")"
+          [ "$subject" = "sebastienrousseau $TAG" ] || { echo "::error::tag message is '$subject'"; exit 1; }
+          verified="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$sha" --jq .verification.verified)"
+          [ "$verified" = true ] || { echo "::error::GitHub does not verify the signature on $TAG"; exit 1; }
+          version="$(sed -n 's/^version = "\(.*\)"$/\1/p' pyproject.toml)"
+          [ "v$version" = "$TAG" ] || { echo "::error::pyproject.toml says $version"; exit 1; }
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      # The attached files are the committed ones, so they must match a build.
+      - name: Rebuild and check for drift
+        run: make drift
+      - name: Draft the release
+        run: |
+          mkdir -p dist
+          cp README.md assets/*.svg dist/
+          (cd dist && sha256sum -- * >../SHA256SUMS)
+          prev="$(git describe --tags --abbrev=0 "$TAG^" 2>/dev/null || true)"
+          notes="$(gh api "repos/$GITHUB_REPOSITORY/releases/generate-notes" -f tag_name="$TAG" \
+            ${prev:+-f previous_tag_name="$prev"} --jq .body | grep -v '^\*\*Full Changelog')"
+          compare="https://github.com/$GITHUB_REPOSITORY/compare/$prev...$TAG"
+          [ -n "$prev" ] || compare="https://github.com/$GITHUB_REPOSITORY/commits/$TAG"
+          {
+            printf '## Highlights ⭐️\n\n* **Write the highlights before publishing**: two to four bullets, from CHANGELOG.md.\n\n'
+            printf '%s\n\n## Checksums\n\nSHA-256 of every asset attached to this release:\n\n```text\n' "$notes"
+            cat SHA256SUMS
+            printf '```\n\n**Full Changelog**: %s\n' "$compare"
+          } | cat -s >notes.md
+          gh release create "$TAG" --draft --verify-tag --title "sebastienrousseau ${TAG#v}" \
+            --notes-file notes.md dist/*
