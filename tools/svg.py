@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from xml.sax.saxutils import escape
+from xml.sax.saxutils import escape, quoteattr
 
 from fonts import Glyphs
 
@@ -38,7 +38,7 @@ class Doc:
     def render(self) -> str:
         return (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}"'
-            f' viewBox="0 0 {self.width} {self.height}" role="img" aria-label="{escape(self.title)}">'
+            f' viewBox="0 0 {self.width} {self.height}" role="img" aria-label={quoteattr(self.title)}>'
             f"<title>{escape(self.title)}</title>"
             f"<defs><style>{self.glyphs.css()}\ntext{{font-kerning:normal}}{''.join(self.css)}</style>"
             f"{''.join(self.defs)}</defs>{''.join(self.body)}</svg>\n"
