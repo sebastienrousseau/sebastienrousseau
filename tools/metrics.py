@@ -46,6 +46,7 @@ CLICKPY_TRIES = 4  # ClickPy replicas disagree; see clickpy()
 NPM_SPAN = 539  # npm point and range queries cover at most 540 days
 NPM_SETTLE = 3  # days before an npm daily count is treated as final
 NPM_PACE = 0.3  # seconds between npm requests; api.npmjs.org rate-limits hard
+NPM_GRACE = 3  # runs a package may be missing from npm search before it leaves the ledger
 # PyPI's only listing of an account's projects is the XML-RPC user_packages call.
 PYPI_RPC = "https://pypi.org/pypi"
 USER_PACKAGES = (
@@ -204,17 +205,37 @@ def npm(ledger: dict) -> dict:
             error = exc
             break
         ledger[name] = {**entry, "total": total, "recent": recent, "as_of": today.isoformat()}
-    for gone in set(ledger) - set(names):
-        del ledger[gone]
+    counted = _age_out(ledger, names)
     if missing := [n for n in names if "as_of" not in ledger.get(n, {})]:
         raise FetchError(f"{len(missing)} of {len(names)} npm packages not fetched yet: {error}")
-    rows = [ledger[n] for n in names]
+    rows = [ledger[n] for n in counted]
     return {
-        "packages": len(names),
+        "packages": len(counted),
         "all_time": sum(r["total"] for r in rows),
         "recent": sum(r["recent"] for r in rows),
-        "as_of": min(r["as_of"] for r in rows),
+        "as_of": min(ledger[n]["as_of"] for n in names),
     }
+
+
+def _age_out(ledger: dict, names: list[str]) -> list[str]:
+    """The packages to count: those npm lists, plus any it dropped fewer than NPM_GRACE runs ago.
+
+    npm's search index is eventually consistent and sometimes answers short.
+    Deleting a package's entry on one such answer would throw away its
+    settled history and force a full re-walk of the endpoint that
+    rate-limits hardest, so a package leaves only after NPM_GRACE runs in a
+    row. Until then it counts at its last result. Updates `ledger` in place.
+    """
+    listed = set(names)
+    for name in set(ledger) - listed:
+        misses = ledger[name].get("missing", 0) + 1
+        if misses >= NPM_GRACE:
+            del ledger[name]
+        else:
+            ledger[name]["missing"] = misses
+    for name in listed & set(ledger):
+        ledger[name].pop("missing", None)
+    return sorted(listed | set(ledger))
 
 
 def compact(n: int) -> str:

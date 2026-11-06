@@ -128,11 +128,35 @@ def test_rotation_reaches_every_package(registry):
     assert got == {"packages": 3, "all_time": 210, "recent": 83, "as_of": "2026-11-04"}
 
 
-def test_dropped_packages_leave_the_ledger(monkeypatch):
+def test_a_package_missing_from_one_search_keeps_its_history(monkeypatch):
+    # npm's search index is eventually consistent; one short answer must not
+    # wipe a package's settled history or drop it from the totals.
+    monkeypatch.setattr(metrics, "npm_packages", lambda: ["a"])
+    monkeypatch.setattr(metrics, "utc_today", lambda: dt.date(2026, 11, 5))
+    monkeypatch.setattr(metrics, "npm_package", lambda name, entry, today: ({"closed": 1}, 2, 1))
+    ledger = {"flaky": cached("2026-11-04")}
+    assert metrics.npm(ledger) == {"packages": 2, "all_time": 12, "recent": 4, "as_of": "2026-11-05"}
+    assert ledger["flaky"]["missing"] == 1
+    assert ledger["flaky"]["closed"] == 7
+
+
+def test_a_package_back_in_search_is_no_longer_missing(monkeypatch):
+    monkeypatch.setattr(metrics, "npm_packages", lambda: ["a"])
+    monkeypatch.setattr(metrics, "utc_today", lambda: dt.date(2026, 11, 5))
+    monkeypatch.setattr(metrics, "npm_package", lambda name, entry, today: (entry, 2, 1))
+    ledger = {"a": {**cached("2026-11-04"), "missing": 2}}
+    metrics.npm(ledger)
+    assert "missing" not in ledger["a"]
+
+
+def test_dropped_packages_leave_the_ledger_after_the_grace_runs(monkeypatch):
     monkeypatch.setattr(metrics, "npm_packages", lambda: ["a"])
     monkeypatch.setattr(metrics, "utc_today", lambda: dt.date(2026, 11, 5))
     monkeypatch.setattr(metrics, "npm_package", lambda name, entry, today: ({"closed": 1}, 2, 1))
     ledger = {"gone": cached("2026-01-01")}
+    for _ in range(metrics.NPM_GRACE - 1):
+        metrics.npm(ledger)
+        assert "gone" in ledger
     assert metrics.npm(ledger) == {"packages": 1, "all_time": 2, "recent": 1, "as_of": "2026-11-05"}
     assert list(ledger) == ["a"]
 
