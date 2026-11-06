@@ -58,10 +58,12 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
 # (sebastienrousseau.github.io, workers/clock.js; URL in profile.toml)
 # replaces CLOCK_MARKER with CSS that sets the .hh/.mm/.ss delays to the
 # London time and starts .hand elements. REDUCED_MOTION comes after the
-# marker, so it still wins: readers who ask for less motion get the
-# static frame.
+# marker, so it still wins. Readers who ask for less motion keep a working
+# clock: the hour and minute hands turn at their normal, very slow pace.
+# Only the seconds sweep and the badge digits stop, frozen at the time the
+# image loaded; the Worker's `running` rule is overridden with !important.
 CLOCK_MARKER = "/*clock*/"
-REDUCED_MOTION = "@media (prefers-reduced-motion: reduce){.hand{animation:none!important}}"
+REDUCED_MOTION = "@media (prefers-reduced-motion: reduce){.ss,.roll{animation-play-state:paused!important}}"
 STATIC_TIME = 10 * 3600 + 9 * 60 + 30
 HOUR_LEN, MINUTE_LEN, SECOND_LEN = 126, 184, 168
 # Badge radius and the spacing between digits in a strip. MINUTE_LEN -

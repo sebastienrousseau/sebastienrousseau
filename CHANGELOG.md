@@ -3,7 +3,16 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.8] - Unreleased
+## [0.0.9] - Unreleased
+
+### Fixed
+
+- The hero clock no longer freezes completely for readers with reduced
+  motion. v0.0.3 stopped every moving part; now the hour and minute hands
+  keep turning at their very slow normal pace, and only the seconds sweep
+  and the badge digits pause, frozen at the time the image loaded.
+
+## [0.0.8] - 2026-11-06
 
 ### Added
 
