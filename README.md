@@ -64,4 +64,4 @@
 
 <a href="https://sebastienrousseau.com/contact/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/finale-dark.svg"><img src="assets/finale-light.svg" width="100%" alt="Open source for the future of banking and finance. Wholesale payments strategy, ISO 20022 migration or quantum-safe cryptography. Happy to talk. Start a conversation."></picture></a>
 
-<p align="center"><sub>Built from <a href="profile.toml">profile.toml</a> in the typefaces and colours of <a href="https://sebastienrousseau.com">sebastienrousseau.com</a>.</sub></p>
+<p align="center"><sub>Built from <a href="profile.toml">profile.toml</a> in the typefaces and colours of <a href="https://sebastienrousseau.com">sebastienrousseau.com</a>. Live data: <a href="https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/profile.json">profile.json</a>.</sub></p>

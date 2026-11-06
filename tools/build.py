@@ -85,7 +85,8 @@ def page(cfg: dict, alts: dict[str, str]) -> str:
         f'<p align="right"><a href="{index}">See all articles ›</a></p>',
         pic("finale", alts["finale"], f"{site}/contact/"),
         f'<p align="center"><sub>Built from <a href="profile.toml">profile.toml</a> in the typefaces'
-        f' and colours of <a href="{site}">sebastienrousseau.com</a>.</sub></p>',
+        f' and colours of <a href="{site}">sebastienrousseau.com</a>.'
+        f' Live data: <a href="{live.removesuffix("/assets")}/profile.json">profile.json</a>.</sub></p>',
     ]
     return "\n\n".join(out) + "\n"
 

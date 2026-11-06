@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import tomllib
 from pathlib import Path
@@ -38,6 +39,7 @@ def test_articles_newest_first_and_unescaped():
         "title": "Newest & best",
         "topic": "POLICY & RESILIENCE",
         "date": "4 August 2026",
+        "published": "2026-08-04",
         "url": "https://site.test/2026-08-04-2026-08-04/",
     }
 
@@ -187,3 +189,58 @@ def test_readme_takes_cards_from_the_data_branch():
     assert f'srcset="{CFG["live"]}/card-{name}-dark.svg"' in readme
     assert f'src="assets/card-{name}' not in readme
     assert not any(k.startswith("card-") for k in build.jobs(CFG))
+
+
+def full_src() -> dict:
+    day = "2026-11-05"
+    regs = {"packages": 10, "all_time": 1_234_567, "recent": 8_900}
+    crates = regs | {"by": {"kyberlib": {"repo": "kyberlib", "all_time": 41_000}}}
+    items = [
+        {"title": "T1", "topic": "AI", "date": "5 November 2026", "url": "https://x.test/a", "published": day},
+        {"title": "T2", "topic": "AI", "date": "4 November 2026", "url": "https://x.test/b"},
+    ]
+    return {
+        "github": {"value": {"stars": 700, "by": {"kyberlib": 45}}, "as_of": day},
+        "crates": {"value": crates, "as_of": day},
+        "pypi": {"value": regs, "as_of": day},
+        "npm": {"value": regs, "as_of": "2026-11-04"},
+        "articles": {"value": {"items": items}, "as_of": day},
+    }
+
+
+def test_profile_json_carries_the_live_figures_as_numbers():
+    doc = live.profile_json(CFG, full_src())
+    assert doc["schema"] == 1
+    assert doc["site"] == CFG["site"] and doc["github"] == CFG["github"]
+    assert doc["numbers"] == {
+        "all_time_downloads": 3_703_701,
+        "recent_downloads": 26_700,
+        "window_days": 30,
+        "github_stars": 700,
+        "packages": 30,
+        "as_of": "2026-11-04",
+    }
+    repos = {r["name"]: r for p in doc["pillars"] for r in p["repos"]}
+    assert repos["kyberlib"]["stars"] == 45 and repos["kyberlib"]["downloads"] == 41_000
+    assert repos["kyberlib"]["url"] == f"{CFG['github']}/kyberlib"
+    assert repos["passmcp"]["stars"] is None and repos["passmcp"]["downloads"] == 0
+    assert [a.get("published") for a in doc["articles"]] == ["2026-11-05", None]
+
+
+def test_render_writes_profile_json_beside_the_panels(tmp_path):
+    live.render(CFG, full_src(), tmp_path)
+    doc = json.loads((tmp_path / "profile.json").read_text())
+    assert doc["numbers"]["github_stars"] == 700
+    assert len(doc["pillars"]) == len(CFG["pillars"])
+
+
+def test_articles_carry_an_iso_date_for_machines():
+    got = articles.parse(
+        "https://site.test", index(("2026-08-04", "A", "AI"), ("2026-08-03", "B", "AI"), ("2026-08-02", "C", "AI"))
+    )
+    assert got[0]["published"] == "2026-08-04" and got[0]["date"] == "4 August 2026"
+
+
+def test_readme_points_agents_at_profile_json():
+    readme = build.page(CFG, {k: k for k in build.jobs(CFG)})
+    assert f"{CFG['live'].removesuffix('/assets')}/profile.json" in readme
