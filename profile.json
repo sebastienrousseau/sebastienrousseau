@@ -1,0 +1,230 @@
+{
+ "schema": 1,
+ "name": "Sebastien Rousseau · London",
+ "headline": "Securing the future of banking.",
+ "site": "https://sebastienrousseau.com",
+ "github": "https://github.com/sebastienrousseau",
+ "numbers": {
+  "all_time_downloads": 53142951,
+  "recent_downloads": 2470219,
+  "window_days": 30,
+  "github_stars": 726,
+  "packages": 172,
+  "as_of": "2026-11-06"
+ },
+ "pillars": [
+  {
+   "key": "payments",
+   "eyebrow": "Payments",
+   "headline": "ISO 20022, end to end.",
+   "lede": "pain.001, pacs.008, camt.053 and acmt.001. Libraries, MCP servers and language servers. Adopt one at a time.",
+   "more": "https://sebastienrousseau.com/projects-payments/",
+   "repos": [
+    {
+     "name": "pain001",
+     "lang": "Python",
+     "text": "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet.",
+     "url": "https://github.com/sebastienrousseau/pain001",
+     "stars": 49,
+     "downloads": 82802
+    },
+    {
+     "name": "pacs008",
+     "lang": "Python",
+     "text": "Generate, validate, parse and audit pacs.008 FI-to-FI credit transfers with scheme-aware rules.",
+     "url": "https://github.com/sebastienrousseau/pacs008",
+     "stars": 4,
+     "downloads": 10563
+    },
+    {
+     "name": "bankstatementparser",
+     "lang": "Python",
+     "text": "Parse CAMT, MT940, OFX, CSV and PDF bank statements into one unified transaction model.",
+     "url": "https://github.com/sebastienrousseau/bankstatementparser",
+     "stars": 63,
+     "downloads": 34015
+    },
+    {
+     "name": "iso20022-mcp",
+     "lang": "Python",
+     "text": "One MCP gateway to search, validate, generate and parse ISO 20022 across pain, pacs, camt and acmt.",
+     "url": "https://github.com/sebastienrousseau/iso20022-mcp",
+     "stars": 1,
+     "downloads": 10566
+    }
+   ]
+  },
+  {
+   "key": "security",
+   "eyebrow": "Security",
+   "headline": "Post-quantum, ready to pilot.",
+   "lede": "ML-KEM (NIST FIPS 203), password hashing and cryptographic toolkits, shipped with signatures and provenance.",
+   "more": "https://sebastienrousseau.com/projects-post-quantum/",
+   "repos": [
+    {
+     "name": "kyberlib",
+     "lang": "Rust",
+     "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
+     "url": "https://github.com/sebastienrousseau/kyberlib",
+     "stars": 45,
+     "downloads": 10117
+    },
+    {
+     "name": "crypto-service",
+     "lang": "TypeScript",
+     "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
+     "url": "https://github.com/sebastienrousseau/crypto-service",
+     "stars": 9,
+     "downloads": 37415
+    },
+    {
+     "name": "hsh",
+     "lang": "Rust",
+     "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
+     "url": "https://github.com/sebastienrousseau/hsh",
+     "stars": 22,
+     "downloads": 14610
+    },
+    {
+     "name": "passmcp",
+     "lang": "Go",
+     "text": "Test any MCP server and learn, in plain language, whether it is ready for your agents.",
+     "url": "https://github.com/sebastienrousseau/passmcp",
+     "stars": 0,
+     "downloads": 0
+    }
+   ]
+  },
+  {
+   "key": "tooling",
+   "eyebrow": "Tooling",
+   "headline": "Audited Rust, shipped signed.",
+   "lede": "Libraries built for regulated environments: memory-safe, documented, and released with a software bill of materials.",
+   "more": "https://sebastienrousseau.com/projects-developer-platform/",
+   "repos": [
+    {
+     "name": "static-site-generator",
+     "lang": "Rust",
+     "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
+     "url": "https://github.com/sebastienrousseau/static-site-generator",
+     "stars": 60,
+     "downloads": 56276
+    },
+    {
+     "name": "noyalib",
+     "lang": "Rust",
+     "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
+     "url": "https://github.com/sebastienrousseau/noyalib",
+     "stars": 11,
+     "downloads": 1175821
+    },
+    {
+     "name": "rlg",
+     "lang": "Rust",
+     "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
+     "url": "https://github.com/sebastienrousseau/rlg",
+     "stars": 6,
+     "downloads": 129341
+    },
+    {
+     "name": "libmake",
+     "lang": "Rust",
+     "text": "A code generator that removes the repetitive work of building high-quality Rust libraries.",
+     "url": "https://github.com/sebastienrousseau/libmake",
+     "stars": 30,
+     "downloads": 30930
+    }
+   ]
+  },
+  {
+   "key": "platform",
+   "eyebrow": "AI & Platform",
+   "headline": "Agents you can trust.",
+   "lede": "Self-hosted agents, an AI-native CDN and a workstation defined as code. Open core, zero telemetry.",
+   "more": "https://sebastienrousseau.com/projects/",
+   "repos": [
+    {
+     "name": "rousseau-agent",
+     "lang": "Go",
+     "text": "Self-hosted coding agent: nine chat transports, five LLM providers, MCP and A2A, SLSA 3.",
+     "url": "https://github.com/sebastienrousseau/rousseau-agent",
+     "stars": 1,
+     "downloads": 0
+    },
+    {
+     "name": "cloudcdn.pro",
+     "lang": "JavaScript",
+     "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
+     "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
+     "stars": 6,
+     "downloads": 255
+    },
+    {
+     "name": "dotfiles",
+     "lang": "Shell",
+     "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
+     "url": "https://github.com/sebastienrousseau/dotfiles",
+     "stars": 82,
+     "downloads": 0
+    },
+    {
+     "name": "jspassgen",
+     "lang": "JavaScript",
+     "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
+     "url": "https://github.com/sebastienrousseau/jspassgen",
+     "stars": 26,
+     "downloads": 0
+    }
+   ]
+  }
+ ],
+ "articles": [
+  {
+   "title": "Why the FCA Is Regulating AI Without an AI Rulebook",
+   "topic": "APPLIED AI",
+   "date": "28 October 2026",
+   "published": "2026-10-28",
+   "url": "https://sebastienrousseau.com/2026-10-28-why-the-fca-is-regulating-ai-without-an-ai-rulebook/"
+  },
+  {
+   "title": "The Mystery Seeds Behind NIST's Curves Were Never Hashes, and Claude Found Out in Under Half an Hour",
+   "topic": "APPLIED AI",
+   "date": "26 October 2026",
+   "published": "2026-10-26",
+   "url": "https://sebastienrousseau.com/2026-10-26-mystery-seeds-behind-nist-curves-were-never-hashes-claude/"
+  },
+  {
+   "title": "Agentic AI breaks the assumption behind every task-exposure forecast",
+   "topic": "APPLIED AI",
+   "date": "25 October 2026",
+   "published": "2026-10-25",
+   "url": "https://sebastienrousseau.com/2026-10-25-agentic-ai-breaks-the-assumption-behind-every-task-exposure-forecast/"
+  }
+ ],
+ "links": [
+  {
+   "label": "Website",
+   "url": "https://sebastienrousseau.com"
+  },
+  {
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/sebastienrousseau/"
+  },
+  {
+   "label": "X",
+   "url": "https://x.com/wwdseb"
+  },
+  {
+   "label": "Medium",
+   "url": "https://medium.com/@BankingOnQuantum"
+  },
+  {
+   "label": "YouTube",
+   "url": "https://www.youtube.com/@BankingOnQuantum"
+  },
+  {
+   "label": "Newsletter",
+   "url": "https://news.bankingonquantum.com"
+  }
+ ]
+}
