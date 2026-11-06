@@ -1,23 +1,56 @@
 name: refresh
+# Fetch the live numbers and latest articles, render them, and commit them
+# to the profile-data branch, which README.md on main points at. main is
+# never written: it changes only through release pull requests.
 on:
   schedule:
-    - cron: "17 6 * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
-permissions:
-  contents: write
+    inputs:
+      accept:
+        description: Accept values outside the plausibility bands (read the last run's summary first)
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: [profile.toml, "tools/**", Makefile, .github/workflows/refresh.yml]
+permissions: {}
 concurrency:
   group: refresh
+  cancel-in-progress: false
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write # commit to profile-data
+      issues: write # open and close the stale-data issue
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - run: bash tools/commit.sh ensure profile-data
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: profile-data
+          path: .live
+          persist-credentials: false
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-      - run: make
+      # A stale source makes this step fail, but whatever was fetched is
+      # still rendered and published below before the job goes red.
+      - id: live
+        run: make live
+        continue-on-error: true
         env:
-          GH_TOKEN: ${{ github.token }}
-      - run: tools/commit.sh
-        env:
-          GH_TOKEN: ${{ github.token }}
+          PROFILE_ACCEPT: ${{ inputs.accept && '1' || '' }}
+      - run: bash tools/commit.sh push .live profile-data "docs: refresh live numbers and articles"
+      - if: steps.live.outcome == 'failure'
+        run: |
+          echo "::error::live data is incomplete or stale; see the summary above"
+          exit 1
+      - if: failure()
+        run: bash tools/alert.sh fail
+      - if: success()
+        run: bash tools/alert.sh ok

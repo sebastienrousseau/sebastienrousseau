@@ -1,12 +1,25 @@
-UV := uv run --no-project --with fonttools --with brotli
-.PHONY: all check lint
+DEPS := --with fonttools==4.68.0 --with brotli==1.2.1
+UV := uv run --no-project $(DEPS)
+OUT ?= .live
+.PHONY: all live check lint test drift
 
-all:  ## Regenerate assets/ and README.md from profile.toml
+all:  ## Regenerate the static assets/ and README.md from profile.toml
 	$(UV) tools/build.py
 
-lint:
-	uvx ruff check tools
-	uvx ruff format --check tools
-	uvx complexipy tools --max-complexity-allowed 15
+live:  ## Fetch live data and render the numbers and article panels into $(OUT)
+	$(UV) tools/live.py $(OUT)
 
-check: lint all  ## The single gate CI runs
+lint:
+	uvx ruff@0.17.4 check --no-cache tools tests
+	uvx ruff@0.17.4 format --no-cache --check tools tests
+	uvx complexipy@8.3.0 tools tests --max-complexity-allowed 15
+	shellcheck tools/*.sh
+
+test:
+	$(UV) --with pytest==9.2.0 python -m pytest -q -p no:cacheprovider tests
+
+drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
+	@changed="$$(git status --porcelain -- README.md assets)"; \
+	if [ -n "$$changed" ]; then echo "Out of date; run make and commit:"; echo "$$changed"; exit 1; fi
+
+check: lint test drift  ## The single gate CI runs

@@ -3,13 +3,17 @@
 The variable WOFF2 files come from sebastienrousseau.com so the profile
 renders in the same typefaces as the site (Inter, Newsreader; SIL OFL 1.1,
 which permits embedding). Each SVG embeds only the glyphs it uses.
+
+Every source file is pinned by SHA-256. When the site ships new fonts the
+build stops, and moving the pin is a deliberate change that re-renders
+every panel, instead of a silent one that happens mid-refresh.
 """
 
 from __future__ import annotations
 
 import base64
+import hashlib
 import io
-import subprocess
 from dataclasses import dataclass, field
 from functools import cache
 from pathlib import Path
@@ -18,8 +22,14 @@ from fontTools import subset
 from fontTools.ttLib import TTFont
 from fontTools.varLib import instancer
 
+from net import get
+
 CACHE = Path(__file__).resolve().parent.parent / ".cache" / "fonts"
 SOURCE = "https://sebastienrousseau.com/fonts/{}.woff2"
+PINS = {
+    "inter-latin": "0618a81c824079e978803ca05a22388ea3989c978f5b7cf14e60bf6cb5e3e58c",
+    "newsreader-latin": "11611d3e41f8b8429dc31d00eb59db4d52c91dde701769e7af1b5d1ea72f476d",
+}
 
 # face name -> (source file, axis location)
 FACES = {
@@ -32,10 +42,16 @@ FACES = {
 
 
 def _source(name: str) -> Path:
-    path = CACHE / f"{name}.woff2"
+    """The pinned source file, from the cache or the site, verified either way."""
+    pin = PINS[name]
+    path = CACHE / f"{name}-{pin[:12]}.woff2"
+    data = path.read_bytes() if path.exists() else get(SOURCE.format(name))
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != pin:
+        raise SystemExit(f"fonts: {name}.woff2 has sha256 {digest}, pinned {pin}; update PINS deliberately")
     if not path.exists():
         CACHE.mkdir(parents=True, exist_ok=True)
-        subprocess.run(["curl", "-fsSL", "-o", str(path), SOURCE.format(name)], check=True)  # noqa: S603, S607
+        path.write_bytes(data)
     return path
 
 

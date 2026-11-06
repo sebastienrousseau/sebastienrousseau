@@ -6,6 +6,9 @@ github = "https://github.com/sebastienrousseau"
 # The live hero clock: the profile-clock Worker (sebastienrousseau.github.io,
 # workers/profile-clock.js) serves assets/hero-*.svg set to London time.
 clock = "https://profile-clock.team-rousseau-account.workers.dev/api/clock"
+# The live panels (numbers, latest articles): tools/live.py renders them onto
+# the profile-data branch every few hours (.github/workflows/refresh.yml).
+live = "https://raw.githubusercontent.com/sebastienrousseau/sebastienrousseau/profile-data/assets"
 
 [hero]
 eyebrow = "Sebastien Rousseau · London"
@@ -16,10 +19,11 @@ lede = [
 ]
 
 [numbers]
-# Values come live from crates.io, PyPI, npm and GitHub (tools/metrics.py).
+# Values come live from crates.io, PyPI, npm and GitHub (tools/metrics.py);
+# tools/live.py appends "Updated <date>." to the note.
 eyebrow = "Proof"
 headline = "By the numbers."
-note = "Live from crates.io, PyPI (via ClickPy), npm and GitHub. Downloads cover all three registries. Refreshed daily."
+note = "Live from crates.io, PyPI (via ClickPy), npm and GitHub. Downloads cover all three registries."
 
 [[pillars]]
 key = "payments"

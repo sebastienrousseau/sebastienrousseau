@@ -1,10 +1,16 @@
 [tool.ruff]
 line-length = 120
 target-version = "py312"
+# tools/ modules import each other by bare name; treat them as first-party.
+src = ["tools"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "S", "C90", "PLR"]
 ignore = ["PLR2004"]
+
+[tool.ruff.lint.per-file-ignores]
+# pytest's assertion rewriting is the idiom; bandit's S101 targets asserts in shipped code.
+"tests/**" = ["S101"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
