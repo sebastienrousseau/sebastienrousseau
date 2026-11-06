@@ -1,0 +1,276 @@
+{
+ "npm_ledger": {
+  "@sebastienrousseau/biome-config": {
+   "as_of": "2026-11-06",
+   "closed": 436,
+   "closed_through": "2026-10-04",
+   "recent": 238,
+   "total": 677
+  },
+  "@sebastienrousseau/browserslist-config": {
+   "as_of": "2026-11-06",
+   "closed": 464,
+   "closed_through": "2026-10-04",
+   "recent": 246,
+   "total": 713
+  },
+  "@sebastienrousseau/c-config": {
+   "as_of": "2026-11-06",
+   "closed": 319,
+   "closed_through": "2026-10-04",
+   "recent": 27,
+   "total": 347
+  },
+  "@sebastienrousseau/c8-config": {
+   "as_of": "2026-11-06",
+   "closed": 3048,
+   "closed_through": "2026-10-04",
+   "recent": 774,
+   "total": 3878
+  },
+  "@sebastienrousseau/cloudcdn-mcp": {
+   "as_of": "2026-11-06",
+   "closed": 0,
+   "closed_through": "2026-10-22",
+   "recent": 254,
+   "total": 254
+  },
+  "@sebastienrousseau/commitlint-config": {
+   "as_of": "2026-11-06",
+   "closed": 437,
+   "closed_through": "2026-10-04",
+   "recent": 246,
+   "total": 685
+  },
+  "@sebastienrousseau/config": {
+   "as_of": "2026-11-06",
+   "closed": 42,
+   "closed_through": "2026-10-04",
+   "recent": 108,
+   "total": 151
+  },
+  "@sebastienrousseau/config-kit": {
+   "as_of": "2026-11-06",
+   "closed": 11588,
+   "closed_through": "2026-10-04",
+   "recent": 7409,
+   "total": 19140
+  },
+  "@sebastienrousseau/cpp-config": {
+   "as_of": "2026-11-06",
+   "closed": 325,
+   "closed_through": "2026-10-04",
+   "recent": 34,
+   "total": 360
+  },
+  "@sebastienrousseau/crypto-api": {
+   "as_of": "2026-11-06",
+   "closed": 495,
+   "closed_through": "2026-10-04",
+   "recent": 2347,
+   "total": 2848
+  },
+  "@sebastienrousseau/crypto-benchmarks": {
+   "as_of": "2026-11-06",
+   "closed": 489,
+   "closed_through": "2026-10-04",
+   "recent": 2362,
+   "total": 2856
+  },
+  "@sebastienrousseau/crypto-cbom": {
+   "as_of": "2026-11-06",
+   "closed": 783,
+   "closed_through": "2026-10-04",
+   "recent": 2510,
+   "total": 3298
+  },
+  "@sebastienrousseau/crypto-cli": {
+   "as_of": "2026-11-06",
+   "closed": 959,
+   "closed_through": "2026-10-04",
+   "recent": 2462,
+   "total": 3428
+  },
+  "@sebastienrousseau/crypto-edge": {
+   "as_of": "2026-11-06",
+   "closed": 476,
+   "closed_through": "2026-10-04",
+   "recent": 2454,
+   "total": 2934
+  },
+  "@sebastienrousseau/crypto-kms": {
+   "as_of": "2026-11-06",
+   "closed": 483,
+   "closed_through": "2026-10-04",
+   "recent": 2828,
+   "total": 3315
+  },
+  "@sebastienrousseau/crypto-lib": {
+   "as_of": "2026-11-06",
+   "closed": 2609,
+   "closed_through": "2026-10-04",
+   "recent": 4231,
+   "total": 6847
+  },
+  "@sebastienrousseau/crypto-lsp": {
+   "as_of": "2026-11-06",
+   "closed": 483,
+   "closed_through": "2026-10-04",
+   "recent": 2478,
+   "total": 2967
+  },
+  "@sebastienrousseau/crypto-mcp": {
+   "as_of": "2026-11-06",
+   "closed": 619,
+   "closed_through": "2026-10-04",
+   "recent": 2636,
+   "total": 3260
+  },
+  "@sebastienrousseau/crypto-middleware": {
+   "as_of": "2026-11-06",
+   "closed": 470,
+   "closed_through": "2026-10-04",
+   "recent": 2362,
+   "total": 2838
+  },
+  "@sebastienrousseau/crypto-prisma": {
+   "as_of": "2026-11-06",
+   "closed": 443,
+   "closed_through": "2026-10-04",
+   "recent": 2293,
+   "total": 2742
+  },
+  "@sebastienrousseau/crypto-react": {
+   "as_of": "2026-11-06",
+   "closed": 482,
+   "closed_through": "2026-10-04",
+   "recent": 2364,
+   "total": 2853
+  },
+  "@sebastienrousseau/crypto-sdk": {
+   "as_of": "2026-11-06",
+   "closed": 472,
+   "closed_through": "2026-10-04",
+   "recent": 2376,
+   "total": 2851
+  },
+  "@sebastienrousseau/crypto-server": {
+   "as_of": "2026-11-06",
+   "closed": 1655,
+   "closed_through": "2026-10-04",
+   "recent": 2448,
+   "total": 4108
+  }
+ },
+ "sources": {
+  "articles": {
+   "as_of": "2026-11-06",
+   "value": {
+    "items": [
+     {
+      "date": "28 October 2026",
+      "title": "Why the FCA Is Regulating AI Without an AI Rulebook",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-10-28-why-the-fca-is-regulating-ai-without-an-ai-rulebook/"
+     },
+     {
+      "date": "26 October 2026",
+      "title": "The Mystery Seeds Behind NIST's Curves Were Never Hashes, and Claude Found Out in Under Half an Hour",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-10-26-mystery-seeds-behind-nist-curves-were-never-hashes-claude/"
+     },
+     {
+      "date": "25 October 2026",
+      "title": "Agentic AI breaks the assumption behind every task-exposure forecast",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-10-25-agentic-ai-breaks-the-assumption-behind-every-task-exposure-forecast/"
+     }
+    ]
+   }
+  },
+  "crates": {
+   "as_of": "2026-11-06",
+   "value": {
+    "all_time": 52531444,
+    "packages": 66,
+    "recent": 2277819
+   }
+  },
+  "github": {
+   "as_of": "2026-11-06",
+   "value": {
+    "python_repos": [
+     "acmt001",
+     "acmt001-lsp",
+     "acmt001-mcp",
+     "agtmls",
+     "agtmls-scorecard",
+     "agtmls-spec",
+     "akande",
+     "ap2-iso20022",
+     "audiotext",
+     "bankstatementparser",
+     "bankstatementparser-loader-bacs",
+     "bankstatementparser-loader-bai2",
+     "bankstatementparser-loader-camt054",
+     "bankstatementparser-loader-cfonb",
+     "bankstatementparser-loader-mt942",
+     "bankstatementparser-loader-sepa",
+     "bankstatementparser-lsp",
+     "bankstatementparser-mcp",
+     "bankstatementparser-transport-ebics",
+     "bankstatementparser-writer-ofx",
+     "bankstatementparser-writer-qif",
+     "bankstatementparser-writer-swift",
+     "bankstatementparser-writer-xlsx",
+     "camt-exceptions",
+     "camt053",
+     "camt053-loader-mt940",
+     "camt053-loader-mt942",
+     "camt053-lsp",
+     "camt053-mcp",
+     "camt053-writer-xlsx",
+     "inclusio",
+     "iso20022-bank-profile-mcp",
+     "iso20022-evidence-pack-mcp",
+     "iso20022-mcp",
+     "iso20022-readiness-suite-mcp",
+     "northlondonboxingtraining.github.io",
+     "noyalib.github.io",
+     "oxml-json",
+     "oxml-wasm",
+     "pacs008",
+     "pacs008-loader-mt103",
+     "pacs008-mcp",
+     "pain001",
+     "pain001-loader-mt101",
+     "pain001-loader-xlsx",
+     "pain001-lsp",
+     "pain001-mcp",
+     "pain001-mockbank",
+     "pain001-plugin-template",
+     "pain001.github.io",
+     "pulse",
+     "reconcile-mcp",
+     "satellion.github.io",
+     "sebastienrousseau",
+     "standards",
+     "structured-address-fix",
+     "structured-address-fix-mcp",
+     "talkwave",
+     "uon",
+     "wiserone.github.io"
+    ],
+    "stars": 726
+   }
+  },
+  "pypi": {
+   "as_of": "2026-11-06",
+   "value": {
+    "all_time": 390697,
+    "packages": 36,
+    "recent": 69690
+   }
+  }
+ }
+}
