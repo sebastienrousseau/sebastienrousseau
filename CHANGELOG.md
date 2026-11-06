@@ -3,7 +3,21 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.7] - Unreleased
+## [0.0.8] - Unreleased
+
+### Added
+
+- `SECURITY.md` (private reporting through GitHub, scope, and the
+  protections the project relies on), `DEVELOPMENT.md`,
+  `docs/ARCHITECTURE.md`, `AGENTS.md`, `.editorconfig` and
+  `.compliance.yml` (tier L1).
+
+### Changed
+
+- Merged branches delete themselves, and the twelve stale remote
+  branches are gone. Only `main` and `profile-data` remain.
+
+## [0.0.7] - 2026-11-06
 
 ### Fixed
 
