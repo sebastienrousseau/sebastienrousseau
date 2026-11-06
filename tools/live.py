@@ -20,6 +20,7 @@ import datetime as dt
 import json
 import os
 import sys
+import tempfile
 import tomllib
 from collections.abc import Callable
 from pathlib import Path
@@ -124,6 +125,22 @@ def stale(src: dict, today: dt.date) -> list[str]:
     return [n for n, e in src.items() if e is None or today - dt.date.fromisoformat(e["as_of"]) > STALE_AFTER]
 
 
+def save(path: Path, text: str) -> None:
+    """Replace `path` with `text` whole, or leave it untouched.
+
+    A run that dies mid-write must not leave half a state.json behind: the
+    next run could not parse it, and would fail before rendering anything.
+    """
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.")
+    try:
+        with os.fdopen(fd, "w") as f:
+            f.write(text)
+        os.replace(tmp, path)
+    except BaseException:
+        os.unlink(tmp)
+        raise
+
+
 def main(argv: list[str]) -> int:
     out = Path(argv[1]) if len(argv) > 1 else ROOT / ".live"
     cfg = tomllib.loads((ROOT / "profile.toml").read_text())
@@ -138,7 +155,7 @@ def main(argv: list[str]) -> int:
         Path(path).write_text(report)
     out.mkdir(parents=True, exist_ok=True)
     kept = {n: e for n, e in src.items() if e is not None}
-    state_file.write_text(json.dumps({"sources": kept, "npm_ledger": ledger}, indent=1, sort_keys=True) + "\n")
+    save(state_file, json.dumps({"sources": kept, "npm_ledger": ledger}, indent=1, sort_keys=True) + "\n")
     if missing := sorted(set(src) - set(kept)):
         print(f"::error::no value yet for {', '.join(missing)}; panels not rendered")
         return 1
