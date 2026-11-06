@@ -63,6 +63,12 @@ def test_numbers_note_fits_on_one_line():
 def test_hero_honours_reduced_motion():
     svg = panels.hero(THEMES["dark"], CFG["hero"]).render()
     assert svg.index(panels.CLOCK_MARKER) < svg.index("prefers-reduced-motion")
+    rule = panels.REDUCED_MOTION
+    # The seconds sweep and the digit roll pause; the hour and minute hands keep turning.
+    assert ".ss,.roll{animation-play-state:paused!important}" in rule
+    assert "animation:none" not in rule
+    assert ".hh" not in rule
+    assert ".mm" not in rule
 
 
 def test_live_render_writes_both_themes_and_prunes(tmp_path):
