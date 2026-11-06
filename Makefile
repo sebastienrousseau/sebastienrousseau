@@ -1,13 +1,16 @@
 DEPS := --with fonttools==4.68.0 --with brotli==1.2.1
 UV := uv run --no-project $(DEPS)
 OUT ?= .live
-.PHONY: all live check lint test drift
+.PHONY: all live smoke check lint test drift
 
 all:  ## Regenerate the static assets/ and README.md from profile.toml
 	$(UV) tools/build.py
 
 live:  ## Fetch live data and render the numbers and article panels into $(OUT)
 	$(UV) tools/live.py $(OUT)
+
+smoke:  ## Fetch every image README.md shows and check each is a well-formed SVG (networked)
+	uv run --no-project tools/smoke.py
 
 lint:
 	uvx ruff@0.17.4 check --no-cache tools tests

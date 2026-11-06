@@ -36,13 +36,13 @@ def _headers(url: str) -> bytes:
     return b""
 
 
-def _once(url: str, data: str | None) -> tuple[bytes, str, str]:
+def _once(url: str, data: str | None, follow: bool, headers: bytes) -> tuple[bytes, str, str]:
     """One request: (body, HTTP status, Retry-After header)."""
-    cmd = ["curl", "-sSL", "--max-time", str(TIMEOUT), "-A", UA, "-H", "@-"]
+    cmd = ["curl", "-sS", *(["-L"] if follow else []), "--max-time", str(TIMEOUT), "-A", UA, "-H", "@-"]
     cmd += ["-w", "\n%{http_code} %header{retry-after}", url]
     if data is not None:
         cmd += ["--data-binary", data]
-    proc = subprocess.run(cmd, input=_headers(url), capture_output=True, check=False)  # noqa: S603, S607
+    proc = subprocess.run(cmd, input=headers, capture_output=True, check=False)  # noqa: S603, S607
     body, _, tail = proc.stdout.rpartition(b"\n")
     code, _, retry = tail.decode().strip().partition(" ")
     return body, code or "000", retry
@@ -53,11 +53,15 @@ def backoff(attempt: int, retry_after: str) -> float:
     return float(retry_after) if retry_after.isdigit() else 2.0 * 2**attempt
 
 
-def get(url: str, *, data: str | None = None, ok404: bool = False) -> bytes | None:
-    """GET (or POST `data`) and return the body. None on 404 when `ok404`."""
+def get(url: str, *, data: str | None = None, ok404: bool = False, follow: bool = True) -> bytes | None:
+    """GET (or POST `data`) and return the body. None on 404 when `ok404`.
+
+    With `follow=False` a redirect is an error (HTTP 3xx), not followed.
+    """
+    headers = _headers(url)
     waited = 0.0
     for attempt in range(ATTEMPTS):
-        body, code, retry = _once(url, data)
+        body, code, retry = _once(url, data, follow, headers)
         if code not in RETRYABLE:
             break
         pause = backoff(attempt, retry)

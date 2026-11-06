@@ -12,7 +12,7 @@ def replies(monkeypatch):
     """Script the responses curl would give; record the sleeps."""
     script: list[tuple[bytes, str, str]] = []
     sleeps: list[float] = []
-    monkeypatch.setattr(net, "_once", lambda url, data: script.pop(0))
+    monkeypatch.setattr(net, "_once", lambda *_: script.pop(0))
     monkeypatch.setattr(net.time, "sleep", sleeps.append)
     return script, sleeps
 

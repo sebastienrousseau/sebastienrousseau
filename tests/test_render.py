@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import tomllib
 from pathlib import Path
 from xml.parsers import expat
@@ -71,6 +72,18 @@ def test_article_with_quotes_is_well_formed_svg():
     assert seen["svg"] == 'POLICY & RISK. Why "quantum-safe" isn\'t <optional> 4 August 2026.'
 
 
+def test_hero_keeps_the_clock_worker_contract():
+    # The profile-clock Worker (sebastienrousseau.github.io, workers/clock.js,
+    # clockCSS) replaces the marker with rules for exactly these selectors. If
+    # one goes, the live clock freezes with no error, so pin them here.
+    svg = panels.hero(THEMES["dark"], CFG["hero"]).render()
+    assert svg.count(panels.CLOCK_MARKER) == 1
+    classes = set(re.findall(r'class="([^"]+)"', svg))
+    for unit in ("hh", "mm", "ss"):
+        assert f"hand {unit}" in classes
+        assert f".{unit}{{animation-duration:" in svg
+
+
 def test_numbers_note_fits_on_one_line():
     note = f"{CFG['numbers']['note']} Updated 30 September 2026."
     assert width(panels.SANS, note, 14) < panels.W - 160
@@ -92,7 +105,7 @@ def test_live_render_writes_both_themes_and_prunes(tmp_path):
     regs = {"packages": 10, "all_time": 1_234_567, "recent": 8_900}
     items = [{"title": f"T{n}", "topic": "AI", "date": "5 November 2026", "url": "https://x.test"} for n in (1, 2, 3)]
     src = {
-        "github": {"value": {"stars": 700, "python_repos": []}, "as_of": day},
+        "github": {"value": {"stars": 700}, "as_of": day},
         "crates": {"value": regs, "as_of": day},
         "pypi": {"value": regs, "as_of": day},
         "npm": {"value": regs, "as_of": "2026-11-04"},
