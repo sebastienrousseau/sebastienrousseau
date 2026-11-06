@@ -144,8 +144,8 @@
    "as_of": "2026-11-06",
    "closed": 482,
    "closed_through": "2026-10-04",
-   "recent": 2364,
-   "total": 2853
+   "recent": 2371,
+   "total": 2860
   },
   "@sebastienrousseau/crypto-sdk": {
    "as_of": "2026-11-06",
@@ -515,7 +515,7 @@
    "value": {
     "all_time": 52531444,
     "packages": 66,
-    "recent": 2292839
+    "recent": 2295690
    }
   },
   "github": {
@@ -583,15 +583,15 @@
      "uon",
      "wiserone.github.io"
     ],
-    "stars": 726
+    "stars": 727
    }
   },
   "npm": {
    "as_of": "2026-11-06",
    "value": {
-    "all_time": 164910,
+    "all_time": 164917,
     "packages": 69,
-    "recent": 69862
+    "recent": 69869
    }
   },
   "pypi": {
