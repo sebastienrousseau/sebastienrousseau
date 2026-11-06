@@ -137,6 +137,37 @@ def test_dropped_packages_leave_the_ledger(monkeypatch):
     assert list(ledger) == ["a"]
 
 
+def clickpy_replies(monkeypatch, rows: list[list[str]]) -> list[str]:
+    """Script ClickPy's answers (all-time, window); return the requests made."""
+    asked: list[str] = []
+
+    def reply(url, **kw):
+        asked.append(url)
+        return {"data": [rows[len(asked) - 1]]}
+
+    monkeypatch.setattr(metrics, "get_json", reply)
+    return asked
+
+
+def test_clickpy_keeps_the_fullest_answer(monkeypatch):
+    # A replica missing older rows answers low; the complete answer wins, window figure included.
+    rows = [["106555", "9000"], ["169994", "9100"], ["106555", "9000"], ["169994", "9100"]]
+    asked = clickpy_replies(monkeypatch, rows)
+    assert metrics.clickpy("['a']") == (169994, 9100)
+    assert len(asked) == metrics.CLICKPY_TRIES
+
+
+def test_clickpy_all_replicas_agreeing_changes_nothing(monkeypatch):
+    clickpy_replies(monkeypatch, [["390697", "69690"]] * metrics.CLICKPY_TRIES)
+    assert metrics.clickpy("['a']") == (390697, 69690)
+
+
+def test_clickpy_never_prefers_a_larger_window_over_a_fuller_history(monkeypatch):
+    rows = [["295361", "99999"], ["390697", "69690"], ["295361", "99999"], ["295361", "99999"]]
+    clickpy_replies(monkeypatch, rows)
+    assert metrics.clickpy("['a']") == (390697, 69690)
+
+
 def test_compact():
     got = [metrics.compact(n) for n in (999, 1_000, 1_250, 51_200_000, 2_000_000)]
     assert got == ["999", "1K", "1.2K", "51.2M", "2M"]

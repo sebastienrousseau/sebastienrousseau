@@ -3,7 +3,18 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.6] - Unreleased
+## [0.0.7] - Unreleased
+
+### Fixed
+
+- PyPI's all-time downloads no longer dip. ClickPy sometimes answers
+  from a replica that lacks older rows: the same query seconds apart
+  returned 106,555 downloads from 2023-11-08 and 169,994 from
+  2023-03-11. Three refresh runs held the figure at about 295k against
+  391k. The query now runs four times and keeps the fullest answer,
+  since an all-time total only grows.
+
+## [0.0.6] - 2026-11-06
 
 ### Changed
 

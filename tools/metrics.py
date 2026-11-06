@@ -36,6 +36,7 @@ CLICKPY_SQL = (
     " WHERE lower(project) IN {names:Array(String)} FORMAT JSONCompact"
 )
 NPM_EPOCH = dt.date(2015, 1, 10)  # npm's download counts start here
+CLICKPY_TRIES = 4  # ClickPy replicas disagree; see clickpy()
 NPM_SPAN = 539  # npm point and range queries cover at most 540 days
 NPM_SETTLE = 3  # days before an npm daily count is treated as final
 NPM_PACE = 0.3  # seconds between npm requests; api.npmjs.org rate-limits hard
@@ -95,13 +96,26 @@ def _is_ours(name: str) -> bool:
     return any(f"github.com/{USER}/" in u.lower() for u in urls)
 
 
+def clickpy(names: str) -> tuple[int, int]:
+    """(all-time, window) downloads for `names`, from the fullest of CLICKPY_TRIES answers.
+
+    ClickPy sometimes answers from a replica that lacks older rows: the same
+    query seconds apart returned 106,555 downloads from 2023-11-08 and
+    169,994 from 2023-03-11. All-time totals only grow, so the largest
+    answer is the complete one, and its window figure comes with it.
+    """
+    params = urlencode({"user": "demo", "param_names": names, "param_days": WINDOW})
+    answers = [get_json(f"{CLICKPY}?{params}", data=CLICKPY_SQL)["data"][0] for _ in range(CLICKPY_TRIES)]
+    total, recent = max((int(a), int(b)) for a, b in answers)
+    return total, recent
+
+
 def pypi(python_repos: list[str]) -> Counts:
     """Python repos published to PyPI under the same name and linking back here."""
     with ThreadPoolExecutor(8) as pool:
         ours = [n.lower() for n, keep in zip(python_repos, pool.map(_is_ours, python_repos), strict=True) if keep]
     names = "[" + ",".join("'" + n.replace("\\", "\\\\").replace("'", "\\'") + "'" for n in ours) + "]"
-    params = urlencode({"user": "demo", "param_names": names, "param_days": WINDOW})
-    total, recent = (int(v) for v in get_json(f"{CLICKPY}?{params}", data=CLICKPY_SQL)["data"][0])
+    total, recent = clickpy(names)
     return {"packages": len(ours), "all_time": total, "recent": recent}
 
 
