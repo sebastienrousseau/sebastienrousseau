@@ -8,7 +8,7 @@ or `tools/` and regenerate. How the pieces fit is in
 ## Requirements
 
 * [uv](https://docs.astral.sh/uv/), which supplies Python 3.12 or newer and
-  every pinned library.
+  every library and tool, from `uv.lock` with hashes.
 * `make`, `curl`, `git`, `jq` and `shellcheck`.
 * `gh` only for `make live` against real registries and for the refresh
   scripts.
@@ -23,6 +23,8 @@ or `tools/` and regenerate. How the pieces fit is in
 | `make test` | pytest. No network is used. |
 | `make drift` | Rebuild, then fail if `README.md` or `assets/` changed. |
 | `make live OUT=/tmp/live` | Fetch the live numbers and articles and render them into `OUT`. Hits the real registries. |
+| `make smoke` | Fetch every image `README.md` shows and fail unless each is a well-formed SVG, with no redirect from the clock Worker. Networked. |
+| `make audit` | Check every locked dependency against known vulnerabilities with pip-audit. Networked. |
 
 `make check` needs the network only to download the two pinned font files on
 a first run. They are verified by SHA-256 and cached in `.cache/fonts/`.
@@ -39,9 +41,11 @@ a first run. They are verified by SHA-256 and cached in `.cache/fonts/`.
 * **New fonts on the site:** the build stops on a SHA-256 mismatch. Update
   `PINS` in `tools/fonts.py` on purpose, then `make` and commit every
   regenerated SVG.
-* **Dependencies:** versions are pinned in the `Makefile` (`DEPS`, ruff,
-  complexipy, pytest, actionlint-py) and in the workflows (actions by
-  SHA). Move a pin and run `make check`.
+* **Dependencies:** every Python library and tool is a dependency group in
+  `pyproject.toml` (build, test, lint, audit), locked with hashes in
+  `uv.lock`; actions are pinned by SHA in the workflows. Dependabot proposes
+  updates for both. To move a pin by hand, edit `pyproject.toml`, run
+  `uv lock`, then `make check` and `make audit`.
 
 ## Tests
 

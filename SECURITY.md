@@ -27,12 +27,17 @@ owners.
 ## What the project does for you
 
 * Third-party actions are pinned by commit SHA, and Dependabot proposes
-  updates.
+  updates for them and for `uv.lock`.
 * The refresh workflow commits through GitHub's `createCommitOnBranch`
   API, so every commit is signed and shows as Verified, and it writes only
   to `profile-data`. `main` changes through reviewed release pull requests.
 * Source fonts are pinned by SHA-256 and verified before use.
-* Python tools and libraries are pinned to exact versions in the
-  `Makefile`.
+* Python tools and libraries are locked with hashes in `uv.lock`, and a
+  tampered download fails the install. CI runs pip-audit on every pull
+  request and weekly.
+* The refresh's write token never meets third-party code: the job that
+  runs the Python render and the registry calls is read-only, and the job
+  that commits runs only this repository's shell scripts and a
+  standard-library check.
 * The GitHub token reaches `curl` on stdin, never on the command line.
 * CodeQL, secret scanning and push protection are enabled.
