@@ -53,12 +53,14 @@ def backoff(attempt: int, retry_after: str) -> float:
     return float(retry_after) if retry_after.isdigit() else 2.0 * 2**attempt
 
 
-def get(url: str, *, data: str | None = None, ok404: bool = False, follow: bool = True) -> bytes | None:
-    """GET (or POST `data`) and return the body. None on 404 when `ok404`.
+def get(
+    url: str, *, data: str | None = None, ok404: bool = False, follow: bool = True, content_type: str | None = None
+) -> bytes | None:
+    """GET (or POST `data`, as `content_type`) and return the body. None on 404 when `ok404`.
 
     With `follow=False` a redirect is an error (HTTP 3xx), not followed.
     """
-    headers = _headers(url)
+    headers = _headers(url) + (f"Content-Type: {content_type}\n".encode() if content_type else b"")
     waited = 0.0
     for attempt in range(ATTEMPTS):
         body, code, retry = _once(url, data, follow, headers)

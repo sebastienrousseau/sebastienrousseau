@@ -137,6 +137,51 @@ def test_dropped_packages_leave_the_ledger(monkeypatch):
     assert list(ledger) == ["a"]
 
 
+ROLES = (
+    "<?xml version='1.0'?><methodResponse><params><param><value><array><data>"
+    "<value><array><data><value><string>Owner</string></value><value><string>pain001</string></value>"
+    "</data></array></value>"
+    "<value><array><data><value><string>Maintainer</string></value><value><string>Audio_Analyser</string></value>"
+    "</data></array></value>"
+    "</data></array></value></param></params></methodResponse>"
+)
+
+
+def test_pypi_packages_come_from_the_account_that_owns_them(monkeypatch):
+    asked: list[dict] = []
+
+    def get(url, **kw):
+        asked.append({"url": url, **kw})
+        return ROLES.encode()
+
+    monkeypatch.setattr(metrics, "get", get)
+    assert metrics.pypi_packages() == ["audio_analyser", "pain001"]
+    assert asked[0]["url"] == "https://pypi.org/pypi"
+    assert asked[0]["content_type"] == "text/xml"
+    assert f"<string>{metrics.PYPI_USER}</string>" in asked[0]["data"]
+
+
+@pytest.mark.parametrize(
+    ("reply", "error"),
+    [
+        ("<methodResponse><fault><value><string>boom</string></value></fault></methodResponse>", "fault"),
+        ("<methodResponse><params><param><value><array><data></data></array></value></param></params>", "no packages"),
+    ],
+)
+def test_pypi_packages_refuse_a_fault_or_an_empty_answer(monkeypatch, reply, error):
+    monkeypatch.setattr(metrics, "get", lambda url, **kw: reply.encode())
+    with pytest.raises(ValueError, match=error):
+        metrics.pypi_packages()
+
+
+def test_pypi_counts_every_owned_package(monkeypatch):
+    monkeypatch.setattr(metrics, "pypi_packages", lambda: ["pain001", "o'brien"])
+    seen: list[str] = []
+    monkeypatch.setattr(metrics, "clickpy", lambda names: seen.append(names) or (900, 40))
+    assert metrics.pypi() == {"packages": 2, "all_time": 900, "recent": 40}
+    assert seen == ["['pain001','o\\'brien']"]
+
+
 def clickpy_replies(monkeypatch, rows: list[list[str]]) -> list[str]:
     """Script ClickPy's answers (all-time, window); return the requests made."""
     asked: list[str] = []

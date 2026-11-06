@@ -83,14 +83,15 @@ def test_stale_after_two_days():
     assert live.stale(src, TODAY) == ["late", "never"]
 
 
-def test_pypi_failure_follows_a_github_failure(monkeypatch):
+def test_pypi_no_longer_depends_on_github(monkeypatch):
     monkeypatch.setattr(metrics, "github", boom)
-    monkeypatch.setattr(metrics, "crates", lambda: PREV["value"])
-    monkeypatch.setattr(metrics, "npm", lambda ledger: PREV["value"])
+    monkeypatch.setattr(metrics, "crates", lambda: dict(PREV["value"]))
+    monkeypatch.setattr(metrics, "pypi", lambda: dict(PREV["value"]))
+    monkeypatch.setattr(metrics, "npm", lambda ledger: dict(PREV["value"]))
     monkeypatch.setattr(live.articles, "latest", lambda site: [])
     src, status = live.collect("https://example.test", {}, {}, TODAY)
-    assert src["github"] is None and src["pypi"] is None
-    assert status["crates"] == "ok" and status["npm"] == "ok"
+    assert src["github"] is None
+    assert status["pypi"] == status["crates"] == status["npm"] == "ok"
 
 
 def test_numbers_date_is_the_oldest_figure():

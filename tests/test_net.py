@@ -59,3 +59,10 @@ def test_token_goes_to_github_only_and_never_argv(monkeypatch):
     monkeypatch.setenv("GH_TOKEN", "t0k3n")
     assert net._headers("https://api.github.com/users/x") == b"Authorization: Bearer t0k3n\n"
     assert net._headers("https://crates.io/api/v1/users/x") == b""
+
+
+def test_content_type_rides_with_the_headers_on_stdin(monkeypatch):
+    sent: list[bytes] = []
+    monkeypatch.setattr(net, "_once", lambda url, data, follow, headers: sent.append(headers) or (b"ok", "200", ""))
+    assert net.get("https://pypi.org/pypi", data="<x/>", content_type="text/xml") == b"ok"
+    assert sent == [b"Content-Type: text/xml\n"]

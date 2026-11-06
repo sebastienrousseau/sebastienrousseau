@@ -12,6 +12,10 @@ Every figure has named sources and one time window:
 - GitHub stars: every owned, non-fork repository, all pages.
 - Packages published: crates + PyPI projects + npm packages.
 
+PyPI projects are the ones the PyPI account owns or maintains, as PyPI
+itself lists them. Matching GitHub repos by language missed any package
+whose repo GitHub labels as another language.
+
 GitHub Packages is absent: its download counts have no public API.
 Each source is fetched on its own; tools/live.py decides what a failure
 means, so one flaky registry never freezes the others.
@@ -20,14 +24,16 @@ means, so one flaky registry never freezes the others.
 from __future__ import annotations
 
 import datetime as dt
+import html
+import re
 import time
-from concurrent.futures import ThreadPoolExecutor
 from typing import TypedDict
 from urllib.parse import quote, urlencode
 
-from net import FetchError, get_json
+from net import FetchError, get, get_json
 
 USER = "sebastienrousseau"
+PYPI_USER = "wwdseb"  # the PyPI account that owns pain001 and the rest
 WINDOW = 30
 CLICKPY = "https://sql-clickhouse.clickhouse.com/"
 # Names and window are typed query parameters, never spliced into the SQL.
@@ -40,6 +46,13 @@ CLICKPY_TRIES = 4  # ClickPy replicas disagree; see clickpy()
 NPM_SPAN = 539  # npm point and range queries cover at most 540 days
 NPM_SETTLE = 3  # days before an npm daily count is treated as final
 NPM_PACE = 0.3  # seconds between npm requests; api.npmjs.org rate-limits hard
+# PyPI's only listing of an account's projects is the XML-RPC user_packages call.
+PYPI_RPC = "https://pypi.org/pypi"
+USER_PACKAGES = (
+    '<?xml version="1.0"?><methodCall><methodName>user_packages</methodName>'
+    f"<params><param><value><string>{PYPI_USER}</string></value></param></params></methodCall>"
+)
+XML_STRING = re.compile(r"<string>([^<]*)</string>")
 
 
 class Counts(TypedDict):
@@ -53,15 +66,12 @@ def utc_today() -> dt.date:
 
 
 def github() -> dict:
-    """Stars over every owned, non-fork repository, and the Python repo names."""
+    """Stars over every owned, non-fork repository."""
     repos, page = [], 1
     while batch := get_json(f"https://api.github.com/users/{USER}/repos?type=owner&per_page=100&page={page}"):
         repos += [r for r in batch if not r["fork"]]
         page += 1
-    return {
-        "stars": sum(r["stargazers_count"] for r in repos),
-        "python_repos": sorted(r["name"] for r in repos if r["language"] == "Python"),
-    }
+    return {"stars": sum(r["stargazers_count"] for r in repos)}
 
 
 def _crate_listing(uid: int) -> list[dict]:
@@ -88,12 +98,19 @@ def crates() -> Counts:
     return {"packages": len(listing), "all_time": sum(c["downloads"] for c in listing), "recent": recent}
 
 
-def _is_ours(name: str) -> bool:
-    info = get_json(f"https://pypi.org/pypi/{name}/json", ok404=True)
-    if not info:
-        return False
-    urls = [info["info"].get("home_page") or "", *(info["info"].get("project_urls") or {}).values()]
-    return any(f"github.com/{USER}/" in u.lower() for u in urls)
+def pypi_packages() -> list[str]:
+    """Every project PYPI_USER owns or maintains on PyPI, lower-cased and sorted.
+
+    The answer is pairs of (role, project) strings. A fault or an empty list
+    is an error: the account cannot really have no projects.
+    """
+    body = get(PYPI_RPC, data=USER_PACKAGES, content_type="text/xml").decode()
+    if "<fault>" in body:
+        raise ValueError("pypi: user_packages answered with a fault")
+    names = sorted({html.unescape(n).lower() for n in XML_STRING.findall(body)[1::2]})
+    if not names:
+        raise ValueError(f"pypi: user_packages lists no packages for {PYPI_USER}")
+    return names
 
 
 def clickpy(names: str) -> tuple[int, int]:
@@ -110,10 +127,9 @@ def clickpy(names: str) -> tuple[int, int]:
     return total, recent
 
 
-def pypi(python_repos: list[str]) -> Counts:
-    """Python repos published to PyPI under the same name and linking back here."""
-    with ThreadPoolExecutor(8) as pool:
-        ours = [n.lower() for n, keep in zip(python_repos, pool.map(_is_ours, python_repos), strict=True) if keep]
+def pypi() -> Counts:
+    """Downloads of every project the PyPI account owns or maintains."""
+    ours = pypi_packages()
     names = "[" + ",".join("'" + n.replace("\\", "\\\\").replace("'", "\\'") + "'" for n in ours) + "]"
     total, recent = clickpy(names)
     return {"packages": len(ours), "all_time": total, "recent": recent}

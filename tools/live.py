@@ -81,7 +81,7 @@ def collect(site: str, prev: dict, ledger: dict, today: dt.date) -> tuple[dict, 
     plan: list[tuple[str, Callable[[], dict]]] = [
         ("github", metrics.github),
         ("crates", metrics.crates),
-        ("pypi", lambda: metrics.pypi(out["github"]["value"]["python_repos"])),
+        ("pypi", metrics.pypi),
         ("npm", lambda: metrics.npm(ledger)),
         ("articles", lambda: {"items": articles.latest(site)}),
     ]
