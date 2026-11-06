@@ -22,6 +22,7 @@ lint:
 	$(RUN) --group lint ruff check --no-cache tools tests
 	$(RUN) --group lint ruff format --no-cache --check tools tests
 	$(RUN) --group lint complexipy tools tests --max-complexity-allowed 15
+	$(RUN) --group lint python tools/ceilings.py tools tests
 	shellcheck tools/*.sh
 	$(RUN) --group lint actionlint .github/workflows/*.yml
 

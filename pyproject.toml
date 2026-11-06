@@ -2,14 +2,14 @@
 # Makefile runs, with hashes, in uv.lock. version follows the release.
 [project]
 name = "sebastienrousseau"
-version = "0.0.12"
+version = "0.0.13"
 requires-python = ">=3.12"
 dependencies = []
 
 [dependency-groups]
 build = ["fonttools==4.68.0", "brotli==1.2.1"]
-test = ["pytest==9.2.0"]
-lint = ["ruff==0.17.4", "complexipy==8.3.0", "actionlint-py==1.7.12.25"]
+test = ["pytest==9.2.0", "radon==6.0.1"]
+lint = ["ruff==0.17.4", "complexipy==8.3.0", "actionlint-py==1.7.12.25", "radon==6.0.1"]
 audit = ["pip-audit==2.10.1"]
 
 [tool.uv]
