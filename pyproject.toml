@@ -9,7 +9,7 @@ dependencies = []
 
 [dependency-groups]
 build = ["fonttools==4.68.0", "brotli==1.2.1"]
-test = ["pytest==9.2.0", "radon==6.0.1"]
+test = ["pytest==9.2.0", "pytest-cov==7.1.0", "radon==6.0.1"]
 lint = ["ruff==0.17.4", "complexipy==8.3.0", "actionlint-py==1.7.12.25", "radon==6.0.1"]
 audit = ["pip-audit==2.10.1"]
 
@@ -37,3 +37,9 @@ max-complexity = 10
 [tool.ruff.lint.pylint]
 max-statements = 50
 max-branches = 10
+
+# The coverage floor is checked at this precision. With the default (0),
+# pytest-cov rounds the total before comparing, so 86.93% passed a floor of
+# 87 while printing FAIL.
+[tool.coverage.report]
+precision = 1
