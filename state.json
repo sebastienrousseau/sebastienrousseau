@@ -116,29 +116,29 @@
    "as_of": "2026-11-06",
    "closed": 483,
    "closed_through": "2026-10-04",
-   "recent": 2478,
-   "total": 2967
+   "recent": 2487,
+   "total": 2976
   },
   "@sebastienrousseau/crypto-mcp": {
    "as_of": "2026-11-06",
    "closed": 619,
    "closed_through": "2026-10-04",
-   "recent": 2636,
-   "total": 3260
+   "recent": 2645,
+   "total": 3269
   },
   "@sebastienrousseau/crypto-middleware": {
    "as_of": "2026-11-06",
    "closed": 470,
    "closed_through": "2026-10-04",
-   "recent": 2362,
-   "total": 2838
+   "recent": 2368,
+   "total": 2844
   },
   "@sebastienrousseau/crypto-prisma": {
    "as_of": "2026-11-06",
    "closed": 443,
    "closed_through": "2026-10-04",
-   "recent": 2293,
-   "total": 2742
+   "recent": 2297,
+   "total": 2746
   },
   "@sebastienrousseau/crypto-react": {
    "as_of": "2026-11-06",
@@ -515,7 +515,7 @@
    "value": {
     "all_time": 52531444,
     "packages": 66,
-    "recent": 2292837
+    "recent": 2292839
    }
   },
   "github": {
@@ -589,9 +589,9 @@
   "npm": {
    "as_of": "2026-11-06",
    "value": {
-    "all_time": 164882,
+    "all_time": 164910,
     "packages": 69,
-    "recent": 69834
+    "recent": 69862
    }
   },
   "pypi": {
