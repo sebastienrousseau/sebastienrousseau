@@ -3,7 +3,17 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.9] - Unreleased
+## [0.0.10] - Unreleased
+
+### Fixed
+
+- An article whose title contains a double quote no longer breaks its
+  panel. The title went into the SVG's `aria-label` attribute with only
+  `&`, `<` and `>` escaped, so a `"` ended the attribute early and the
+  SVG was malformed, showing as a broken image. Titles come from the
+  live site, so this needed no change on the profile's side to happen.
+
+## [0.0.9] - 2026-11-06
 
 ### Fixed
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import tomllib
 from pathlib import Path
+from xml.parsers import expat
 
 import pytest
 
@@ -53,6 +54,21 @@ def test_readme_takes_live_panels_from_the_data_branch():
         assert f'srcset="{base}/{name}-dark.svg"' in readme
         assert f'src="{base}/{name}-light.svg"' in readme
     assert 'src="assets/numbers' not in readme
+
+
+def test_article_with_quotes_is_well_formed_svg():
+    # Titles come from the live site; a double quote must not end the aria-label attribute.
+    text = index(
+        ("2026-08-04", "Why &quot;quantum-safe&quot; isn&#39;t &lt;optional&gt;", "Policy &amp; Risk"),
+        ("2026-08-03", "Middle", "AI"),
+        ("2026-08-02", "Old", "AI"),
+    )
+    a = articles.parse("https://site.test", text)[0]
+    seen: dict[str, str] = {}
+    parser = expat.ParserCreate()
+    parser.StartElementHandler = lambda tag, attrs: seen.setdefault(tag, attrs.get("aria-label", ""))
+    parser.Parse(panels.article(THEMES["dark"], a).render(), True)  # raises ExpatError if malformed
+    assert seen["svg"] == 'POLICY & RISK. Why "quantum-safe" isn\'t <optional> 4 August 2026.'
 
 
 def test_numbers_note_fits_on_one_line():
