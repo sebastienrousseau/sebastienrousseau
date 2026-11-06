@@ -3,7 +3,15 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.11] - Unreleased
+## [0.0.12] - Unreleased
+
+### Changed
+
+- `audit` (pip-audit over `uv.lock`) is a required check on `main`
+  alongside `check`, so a pull request that locks a dependency with a
+  known vulnerability cannot merge. The docs say so.
+
+## [0.0.11] - 2026-11-06
 
 ### Added
 

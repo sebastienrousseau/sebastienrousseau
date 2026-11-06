@@ -58,7 +58,8 @@ git repository.
 All work for the next version goes on `feat/v<next>`, one pull request at a
 time into `main`, CI green before merge. Versions step by 0.0.1. Add a
 `CHANGELOG.md` entry with each change. `main` is protected: signed commits,
-pull request, and the `check` status required.
+a pull request, and both CI jobs required: `check` (the offline gate) and
+`audit` (pip-audit over `uv.lock`). Both must come from GitHub Actions.
 
 The refresh workflow never writes to `main`. It writes only to the
 `profile-data` branch.
