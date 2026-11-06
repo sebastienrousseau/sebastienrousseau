@@ -165,6 +165,7 @@
    "closed": 482,
    "closed_through": "2026-10-04",
    "recent": 2371,
+   "repo": "crypto-service",
    "total": 2860
   },
   "@sebastienrousseau/crypto-sdk": {
@@ -172,6 +173,7 @@
    "closed": 472,
    "closed_through": "2026-10-04",
    "recent": 2388,
+   "repo": "crypto-service",
    "total": 2863
   },
   "@sebastienrousseau/crypto-server": {
@@ -804,7 +806,7 @@
      }
     },
     "packages": 66,
-    "recent": 2330217
+    "recent": 2330221
    }
   },
   "github": {
@@ -1134,11 +1136,11 @@
      },
      "@sebastienrousseau/crypto-react": {
       "all_time": 2860,
-      "repo": ""
+      "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-sdk": {
       "all_time": 2863,
-      "repo": ""
+      "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
       "all_time": 4116,
