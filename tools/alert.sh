@@ -20,7 +20,7 @@ case ${1:-} in
       gh issue comment "$open" --repo "$GITHUB_REPOSITORY" --body "Still failing: $run"
     else
       gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body \
-        "The profile refresh failed. The profile keeps its last good numbers; see the run summary for which source is stuck and since when: $run"
+        "The profile refresh failed: a source is stale, or the smoke check found an image a visitor would see broken. The profile keeps its last good numbers; see the run for which: $run"
     fi
     ;;
   ok)

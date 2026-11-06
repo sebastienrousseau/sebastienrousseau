@@ -2,6 +2,11 @@ name: refresh
 # Fetch the live numbers and latest articles, render them, and commit them
 # to the profile-data branch, which README.md on main points at. main is
 # never written: it changes only through release pull requests.
+#
+# Two jobs, so third-party code never holds a write token. `fetch` runs the
+# Python render (fontTools, from uv.lock with hashes) and every registry
+# call with read-only permissions. `publish` runs only this repository's
+# shell scripts and the standard-library smoke check, with write access.
 on:
   schedule:
     - cron: "17 */3 * * *"
@@ -13,15 +18,59 @@ on:
         default: false
   push:
     branches: [main]
-    paths: [profile.toml, "tools/**", Makefile, .github/workflows/refresh.yml]
+    paths: [profile.toml, "tools/**", Makefile, pyproject.toml, uv.lock, .github/workflows/refresh.yml]
 permissions: {}
 concurrency:
   group: refresh
   cancel-in-progress: false
 jobs:
-  refresh:
+  fetch:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: read
+    outputs:
+      live: ${{ steps.live.outcome }}
+    env:
+      GH_TOKEN: ${{ github.token }} # read-only here; it only lifts the GitHub API rate limit
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: data
+        run: |
+          if git ls-remote --exit-code --heads origin profile-data >/dev/null; then
+            echo "exists=true" >>"$GITHUB_OUTPUT"
+          fi
+      - if: steps.data.outputs.exists == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: profile-data
+          path: .live
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      # A stale source makes this step fail, but whatever was fetched is
+      # still rendered and published before the run goes red.
+      - id: live
+        run: make live
+        continue-on-error: true
+        env:
+          PROFILE_ACCEPT: ${{ inputs.accept && '1' || '' }}
+      # Only the rendered files travel to publish; .live/.git stays here.
+      - run: |
+          mkdir -p out
+          if [ -d .live ]; then rsync -a --exclude .git .live/ out/; fi
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: live
+          path: out/
+          if-no-files-found: error
+          retention-days: 1
+  publish:
+    needs: fetch
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write # commit to profile-data
       issues: write # open and close the stale-data issue
@@ -31,24 +80,34 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - run: bash tools/commit.sh ensure profile-data
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: got
+        if: needs.fetch.result == 'success'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: live
+          path: out
+      - if: steps.got.outcome == 'success'
+        run: bash tools/commit.sh ensure profile-data
+      - if: steps.got.outcome == 'success'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: profile-data
           path: .live
           persist-credentials: false
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-      # A stale source makes this step fail, but whatever was fetched is
-      # still rendered and published below before the job goes red.
-      - id: live
-        run: make live
-        continue-on-error: true
-        env:
-          PROFILE_ACCEPT: ${{ inputs.accept && '1' || '' }}
-      - run: 'bash tools/commit.sh push .live profile-data "docs: refresh live numbers and articles"'
-      - if: steps.live.outcome == 'failure'
+      # Replace the branch's files with fetch's output, so a panel that
+      # fetch no longer draws is deleted here too.
+      - if: steps.got.outcome == 'success'
         run: |
-          echo "::error::live data is incomplete or stale; see the summary above"
+          find .live -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R out/. .live/
+      - if: steps.got.outcome == 'success'
+        run: 'bash tools/commit.sh push .live profile-data "docs: refresh live numbers and articles"'
+      # What a visitor sees: every README image must be a well-formed SVG,
+      # and the clock Worker must not have fallen back to the stopped clock.
+      - run: make smoke
+      - if: needs.fetch.result != 'success' || needs.fetch.outputs.live == 'failure'
+        run: |
+          echo "::error::live data is incomplete or stale; see the fetch job's summary"
           exit 1
       - if: failure()
         run: bash tools/alert.sh fail
