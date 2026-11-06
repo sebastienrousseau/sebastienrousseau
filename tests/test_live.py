@@ -50,6 +50,8 @@ def test_bands_hold_implausible_drops(new, held):
     entry, status = live.refresh(lambda: new, PREV, TODAY)
     assert (entry is PREV) is held
     assert status.startswith("held (") is held
+    if held:
+        assert f"got packages={new['packages']}, all_time={new['all_time']}, recent={new['recent']}" in status
 
 
 def test_accept_overrides_the_bands(monkeypatch):
