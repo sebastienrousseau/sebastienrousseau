@@ -34,4 +34,5 @@ first. Rules that apply to every change:
 12. **Never send anything outside the machine** without being asked: no
     emails, no issues on other projects, no publishes, no announcements.
 
-The licence for this repository has not been chosen. Do not add one.
+The repository is licensed Apache-2.0 OR MIT (`LICENSE`, `LICENSE-APACHE`,
+`LICENSE-MIT`). Leave the licence texts alone.
