@@ -25,7 +25,7 @@ or `tools/` and regenerate. How the pieces fit is in
 | `make live OUT=/tmp/live` | Fetch the live numbers and articles and render them into `OUT`. Hits the real registries. |
 | `make smoke` | Fetch every image `README.md` shows and fail unless each is a well-formed SVG, with no redirect from the clock Worker. Networked. |
 | `make audit` | Check every locked dependency against known vulnerabilities with pip-audit. Networked. |
-| `make manual` | Build the manual into `_site/` with ssg; needs the version in `.github/ssg-version`, which must be the latest. |
+| `make manual` | Build the manual into `_site/` with ssg and the Lucid theme (`docs-site/themes/lucid`, from the dotfiles repository); needs the version in `.github/ssg-version`, which must be the latest. |
 
 `make check` needs the network only to download the two pinned font files on
 a first run. They are verified by SHA-256 and cached in `.cache/fonts/`.
