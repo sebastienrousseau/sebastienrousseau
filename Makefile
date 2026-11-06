@@ -31,11 +31,11 @@ lint:
 	shellcheck tools/*.sh
 	$(RUN) --group lint actionlint .github/workflows/*.yml
 
-# Coverage floor: 86.9% measured at 0.0.13, checked to one decimal
+# Coverage floor: 88.8%, measured at 0.0.14 (86.9% at 0.0.13), checked to one decimal
 # (pyproject.toml). It may rise, never fall.
 test:
 	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests \
-	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=86.9
+	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=88.8
 
 drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
 	@changed="$$(git status --porcelain -- README.md assets)"; \
