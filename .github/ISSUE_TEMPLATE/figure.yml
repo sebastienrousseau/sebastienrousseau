@@ -1,0 +1,18 @@
+name: A figure is wrong
+description: A download count, star count or package count does not match its source.
+labels: [bug]
+body:
+  - type: input
+    id: figure
+    attributes:
+      label: Which figure
+      description: For example all-time downloads, or the stars on the hsh card.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What it shows, and what the source says
+      description: Link the registry page or API answer you compared it with, and when you looked.
+    validations:
+      required: true

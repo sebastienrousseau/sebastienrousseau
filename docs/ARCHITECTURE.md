@@ -87,8 +87,8 @@ Three sources need care:
 ## Decisions
 
 * **Live data off `main`.** `main` requires a pull request with `check`
-  and `audit` passing, which a bot pushing every few hours cannot meet. Keeping live
-  output on its own branch keeps both properties.
+  and `audit` passing, which a bot pushing every few hours cannot meet.
+  Keeping live output on its own branch keeps both properties.
 * **curl, not an HTTP library.** The site's TLS is negotiated by curl where
   urllib fails. `net.py` is the only place that shells out.
 * **The clock is a contract between two repositories.** The Worker writes

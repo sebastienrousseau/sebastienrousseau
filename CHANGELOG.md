@@ -112,7 +112,8 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - `refresh.yml` is valid YAML again. v0.0.3 shipped it with an unquoted
-  `: ` in a `run:` line, so GitHub rejected the file and no refresh ran.
+  colon and space in a `run:` line, so GitHub rejected the file and no
+  refresh ran.
 
 ### Changed
 

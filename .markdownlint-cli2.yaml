@@ -1,0 +1,24 @@
+# markdownlint for the repository's own documents. CI runs it through
+# DavidAnson/markdownlint-cli2-action (markdownlint-cli2 0.24.0); locally:
+# npx markdownlint-cli2@0.24.0
+config:
+  default: true
+  # Prose wraps near 72-80 columns; tables and code are left whole.
+  MD013:
+    line_length: 80
+    tables: false
+    code_blocks: false
+  # Keep a Changelog repeats Added, Changed and Fixed under every release;
+  # a heading may still not repeat within one release.
+  MD024:
+    siblings_only: true
+globs:
+  - "**/*.md"
+ignores:
+  # Generated: the profile itself is HTML built by tools/build.py, and the
+  # manual's content and output are built by tools/manual.py.
+  - README.md
+  - docs-site/content/**
+  - _site/**
+  - .venv/**
+  - .live/**
