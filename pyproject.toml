@@ -2,7 +2,7 @@
 # Makefile runs, with hashes, in uv.lock. version follows the release.
 [project]
 name = "sebastienrousseau"
-version = "0.0.11"
+version = "0.0.12"
 requires-python = ">=3.12"
 dependencies = []
 
