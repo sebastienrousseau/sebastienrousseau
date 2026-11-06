@@ -515,74 +515,12 @@
    "value": {
     "all_time": 52567932,
     "packages": 66,
-    "recent": 2317822
+    "recent": 2317827
    }
   },
   "github": {
    "as_of": "2026-11-06",
    "value": {
-    "python_repos": [
-     "acmt001",
-     "acmt001-lsp",
-     "acmt001-mcp",
-     "agtmls",
-     "agtmls-scorecard",
-     "agtmls-spec",
-     "akande",
-     "ap2-iso20022",
-     "audiotext",
-     "bankstatementparser",
-     "bankstatementparser-loader-bacs",
-     "bankstatementparser-loader-bai2",
-     "bankstatementparser-loader-camt054",
-     "bankstatementparser-loader-cfonb",
-     "bankstatementparser-loader-mt942",
-     "bankstatementparser-loader-sepa",
-     "bankstatementparser-lsp",
-     "bankstatementparser-mcp",
-     "bankstatementparser-transport-ebics",
-     "bankstatementparser-writer-ofx",
-     "bankstatementparser-writer-qif",
-     "bankstatementparser-writer-swift",
-     "bankstatementparser-writer-xlsx",
-     "camt-exceptions",
-     "camt053",
-     "camt053-loader-mt940",
-     "camt053-loader-mt942",
-     "camt053-lsp",
-     "camt053-mcp",
-     "camt053-writer-xlsx",
-     "inclusio",
-     "iso20022-bank-profile-mcp",
-     "iso20022-evidence-pack-mcp",
-     "iso20022-mcp",
-     "iso20022-readiness-suite-mcp",
-     "northlondonboxingtraining.github.io",
-     "noyalib.github.io",
-     "oxml-json",
-     "oxml-wasm",
-     "pacs008",
-     "pacs008-loader-mt103",
-     "pacs008-mcp",
-     "pain001",
-     "pain001-loader-mt101",
-     "pain001-loader-xlsx",
-     "pain001-lsp",
-     "pain001-mcp",
-     "pain001-mockbank",
-     "pain001-plugin-template",
-     "pain001.github.io",
-     "pulse",
-     "reconcile-mcp",
-     "satellion.github.io",
-     "sebastienrousseau",
-     "standards",
-     "structured-address-fix",
-     "structured-address-fix-mcp",
-     "talkwave",
-     "uon",
-     "wiserone.github.io"
-    ],
     "stars": 726
    }
   },
@@ -597,9 +535,9 @@
   "pypi": {
    "as_of": "2026-11-06",
    "value": {
-    "all_time": 390697,
-    "packages": 36,
-    "recent": 69690
+    "all_time": 409872,
+    "packages": 37,
+    "recent": 69903
    }
   }
  }
