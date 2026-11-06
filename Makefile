@@ -14,6 +14,7 @@ lint:
 	uvx ruff@0.17.4 format --no-cache --check tools tests
 	uvx complexipy@8.3.0 tools tests --max-complexity-allowed 15
 	shellcheck tools/*.sh
+	uvx --from actionlint-py==1.7.12.25 actionlint .github/workflows/*.yml
 
 test:
 	$(UV) --with pytest==9.2.0 python -m pytest -q -p no:cacheprovider tests

@@ -45,7 +45,7 @@ jobs:
         continue-on-error: true
         env:
           PROFILE_ACCEPT: ${{ inputs.accept && '1' || '' }}
-      - run: bash tools/commit.sh push .live profile-data "docs: refresh live numbers and articles"
+      - run: 'bash tools/commit.sh push .live profile-data "docs: refresh live numbers and articles"'
       - if: steps.live.outcome == 'failure'
         run: |
           echo "::error::live data is incomplete or stale; see the summary above"

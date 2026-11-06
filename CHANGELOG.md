@@ -3,7 +3,19 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.3] - Unreleased
+## [0.0.4] - Unreleased
+
+### Fixed
+
+- `refresh.yml` is valid YAML again. v0.0.3 shipped it with an unquoted
+  `: ` in a `run:` line, so GitHub rejected the file and no refresh ran.
+
+### Changed
+
+- `make check` lints the workflow files with actionlint, so a file
+  GitHub would reject fails the gate before it merges.
+
+## [0.0.3] - 2026-11-06
 
 ### Fixed
 
