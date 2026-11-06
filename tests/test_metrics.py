@@ -47,7 +47,7 @@ def test_first_run_walks_history_then_one_range(calls):
     entry, total, recent = metrics.npm_package("pkg", {}, today)
     assert total == downloads(CREATED, today)
     assert recent == 30
-    assert entry == {"closed_through": "2026-10-03", "closed": downloads(CREATED, dt.date(2026, 10, 3))}
+    assert entry == {"closed_through": "2026-10-03", "closed": downloads(CREATED, dt.date(2026, 10, 3)), "repo": ""}
     assert calls[0] == ("point", "2023-01-01:2024-06-23")  # 540 days
     assert [k for k, _ in calls].count("range") == 1
     assert calls[-1][0] == "range" and calls[-1][1].endswith(":2026-11-05")
@@ -74,7 +74,7 @@ def test_young_package_needs_no_point_queries(calls, monkeypatch):
     entry, total, recent = metrics.npm_package("new", {}, dt.date(2026, 11, 5))
     assert calls == [("range", "2026-10-20:2026-11-05")]
     assert total == recent == 17
-    assert entry == {"closed_through": "2026-10-19", "closed": 0}
+    assert entry == {"closed_through": "2026-10-19", "closed": 0, "repo": ""}
 
 
 def test_packages_older_than_npm_counts_start_at_the_epoch(calls, monkeypatch):
@@ -117,6 +117,7 @@ def test_first_failure_stops_npm_and_keeps_progress(registry):
 def test_oldest_first_and_a_throttled_run_still_sums_everything(registry):
     ledger = {"a": cached("2026-11-04"), "b": cached("2026-11-02"), "c": cached("2026-11-03")}
     got = metrics.npm(ledger)
+    got.pop("by")
     assert registry == ["b"]  # the oldest is tried first, and its failure stops the run
     assert got == {"packages": 3, "all_time": 30, "recent": 9, "as_of": "2026-11-02"}
 
@@ -124,6 +125,7 @@ def test_oldest_first_and_a_throttled_run_still_sums_everything(registry):
 def test_rotation_reaches_every_package(registry):
     ledger = {"a": cached("2026-11-01"), "b": cached("2026-11-04"), "c": cached("2026-11-02")}
     got = metrics.npm(ledger)
+    got.pop("by")
     assert registry == ["a", "c", "b"]
     assert got == {"packages": 3, "all_time": 210, "recent": 83, "as_of": "2026-11-04"}
 
@@ -135,7 +137,9 @@ def test_a_package_missing_from_one_search_keeps_its_history(monkeypatch):
     monkeypatch.setattr(metrics, "utc_today", lambda: dt.date(2026, 11, 5))
     monkeypatch.setattr(metrics, "npm_package", lambda name, entry, today: ({"closed": 1}, 2, 1))
     ledger = {"flaky": cached("2026-11-04")}
-    assert metrics.npm(ledger) == {"packages": 2, "all_time": 12, "recent": 4, "as_of": "2026-11-05"}
+    got = metrics.npm(ledger)
+    got.pop("by")
+    assert got == {"packages": 2, "all_time": 12, "recent": 4, "as_of": "2026-11-05"}
     assert ledger["flaky"]["missing"] == 1
     assert ledger["flaky"]["closed"] == 7
 
@@ -157,7 +161,9 @@ def test_dropped_packages_leave_the_ledger_after_the_grace_runs(monkeypatch):
     for _ in range(metrics.NPM_GRACE - 1):
         metrics.npm(ledger)
         assert "gone" in ledger
-    assert metrics.npm(ledger) == {"packages": 1, "all_time": 2, "recent": 1, "as_of": "2026-11-05"}
+    got = metrics.npm(ledger)
+    got.pop("by")
+    assert got == {"packages": 1, "all_time": 2, "recent": 1, "as_of": "2026-11-05"}
     assert list(ledger) == ["a"]
 
 
@@ -200,43 +206,156 @@ def test_pypi_packages_refuse_a_fault_or_an_empty_answer(monkeypatch, reply, err
 
 def test_pypi_counts_every_owned_package(monkeypatch):
     monkeypatch.setattr(metrics, "pypi_packages", lambda: ["pain001", "o'brien"])
+    monkeypatch.setattr(metrics, "_pypi_repo", lambda name: "")
     seen: list[str] = []
-    monkeypatch.setattr(metrics, "clickpy", lambda names: seen.append(names) or (900, 40))
-    assert metrics.pypi() == {"packages": 2, "all_time": 900, "recent": 40}
+    monkeypatch.setattr(metrics, "clickpy", lambda names: seen.append(names) or {"pain001": (900, 40)})
+    got = metrics.pypi()
+    assert (got["packages"], got["all_time"], got["recent"]) == (2, 900, 40)
+    assert got["by"]["o'brien"] == {"repo": "", "all_time": 0}
     assert seen == ["['pain001','o\\'brien']"]
 
 
-def clickpy_replies(monkeypatch, rows: list[list[str]]) -> list[str]:
-    """Script ClickPy's answers (all-time, window); return the requests made."""
+def clickpy_replies(monkeypatch, answers: list[list[list[str]]]) -> list[str]:
+    """Script ClickPy's answers, each a list of [project, all-time, window] rows; return the requests made."""
     asked: list[str] = []
 
     def reply(url, **kw):
         asked.append(url)
-        return {"data": [rows[len(asked) - 1]]}
+        return {"data": answers[len(asked) - 1]}
 
     monkeypatch.setattr(metrics, "get_json", reply)
     return asked
 
 
 def test_clickpy_keeps_the_fullest_answer(monkeypatch):
-    # A replica missing older rows answers low; the complete answer wins, window figure included.
-    rows = [["106555", "9000"], ["169994", "9100"], ["106555", "9000"], ["169994", "9100"]]
-    asked = clickpy_replies(monkeypatch, rows)
-    assert metrics.clickpy("['a']") == (169994, 9100)
+    # A replica missing older rows answers low; the complete answer wins, window figures included.
+    low = [["a", "106555", "9000"]]
+    full = [["a", "169994", "9100"]]
+    asked = clickpy_replies(monkeypatch, [low, full, low, full])
+    assert metrics.clickpy("['a']") == {"a": (169994, 9100)}
     assert len(asked) == metrics.CLICKPY_TRIES
 
 
 def test_clickpy_all_replicas_agreeing_changes_nothing(monkeypatch):
-    clickpy_replies(monkeypatch, [["390697", "69690"]] * metrics.CLICKPY_TRIES)
-    assert metrics.clickpy("['a']") == (390697, 69690)
+    clickpy_replies(monkeypatch, [[["a", "390697", "69690"]]] * metrics.CLICKPY_TRIES)
+    assert metrics.clickpy("['a']") == {"a": (390697, 69690)}
 
 
 def test_clickpy_never_prefers_a_larger_window_over_a_fuller_history(monkeypatch):
-    rows = [["295361", "99999"], ["390697", "69690"], ["295361", "99999"], ["295361", "99999"]]
-    clickpy_replies(monkeypatch, rows)
-    assert metrics.clickpy("['a']") == (390697, 69690)
+    short = [["a", "295361", "99999"]]
+    clickpy_replies(monkeypatch, [short, [["a", "390697", "69690"]], short, short])
+    assert metrics.clickpy("['a']") == {"a": (390697, 69690)}
+
+
+def test_clickpy_judges_fullness_by_the_sum_over_projects(monkeypatch):
+    # A replica can miss one project's rows entirely; the answer with the larger total wins.
+    partial = [["a", "500", "5"]]
+    whole = [["a", "400", "4"], ["b", "300", "3"]]
+    clickpy_replies(monkeypatch, [partial, whole, partial, partial])
+    assert metrics.clickpy("['a','b']") == {"a": (400, 4), "b": (300, 3)}
+
+
+@pytest.mark.parametrize(
+    ("urls", "repo"),
+    [
+        (["git+https://github.com/sebastienrousseau/kyberlib.git"], "kyberlib"),
+        (["https://github.com/SebastienRousseau/Pain001/tree/main", "x"], "pain001"),
+        (["", "https://example.test", "git@github.com:sebastienrousseau/cloudcdn.pro.git"], "cloudcdn.pro"),
+        (["https://github.com/someone-else/kyberlib"], ""),
+        ([], ""),
+    ],
+)
+def test_repo_of_reads_the_first_repository_link_here(urls, repo):
+    assert metrics.repo_of(*urls) == repo
+
+
+def test_crates_name_each_crate_with_its_repo(monkeypatch):
+    listing = [
+        {
+            "id": "kyberlib",
+            "name": "kyberlib",
+            "downloads": 70,
+            "repository": "https://github.com/sebastienrousseau/kyberlib",
+        },
+        {"id": "ssg", "name": "ssg", "downloads": 30, "repository": None},
+    ]
+    daily = {"version_downloads": [], "meta": {"extra_downloads": []}}
+    monkeypatch.setattr(metrics, "get_json", lambda url, **kw: {"user": {"id": 1}} if "/users/" in url else daily)
+    monkeypatch.setattr(metrics, "_crate_listing", lambda uid: listing)
+    monkeypatch.setattr(metrics.time, "sleep", lambda s: None)
+    got = metrics.crates()
+    assert got["by"] == {"kyberlib": {"repo": "kyberlib", "all_time": 70}, "ssg": {"repo": "", "all_time": 30}}
+    assert got["all_time"] == 100
+
+
+def test_pypi_names_each_project_with_its_repo(monkeypatch):
+    monkeypatch.setattr(metrics, "pypi_packages", lambda: ["pain001", "pain001-mcp"])
+    monkeypatch.setattr(metrics, "clickpy", lambda names: {"pain001": (900, 40), "pain001-mcp": (100, 10)})
+    repos = {"pain001": "https://github.com/sebastienrousseau/pain001", "pain001-mcp": "https://pypi.test"}
+    monkeypatch.setattr(metrics, "_pypi_repo", lambda name: metrics.repo_of(repos[name]))
+    got = metrics.pypi()
+    assert got == {
+        "packages": 2,
+        "all_time": 1000,
+        "recent": 50,
+        "by": {"pain001": {"repo": "pain001", "all_time": 900}, "pain001-mcp": {"repo": "", "all_time": 100}},
+    }
+
+
+def test_pypi_repo_reads_the_project_urls(monkeypatch):
+    info = {"info": {"home_page": None, "project_urls": {"Source": "https://github.com/sebastienrousseau/pacs008"}}}
+    monkeypatch.setattr(metrics, "get_json", lambda url, **kw: info)
+    assert metrics._pypi_repo("pacs008") == "pacs008"
+
+
+def test_github_counts_stars_per_repo(monkeypatch):
+    repos = [
+        {"name": "Kyberlib", "fork": False, "stargazers_count": 7},
+        {"name": "x", "fork": True, "stargazers_count": 9},
+    ]
+    pages = [repos, []]
+    monkeypatch.setattr(metrics, "get_json", lambda url, **kw: pages.pop(0))
+    assert metrics.github() == {"stars": 7, "by": {"kyberlib": 7}}
 
 
 def test_compact():
     got = [metrics.compact(n) for n in (999, 1_000, 1_250, 51_200_000, 2_000_000)]
     assert got == ["999", "1K", "1.2K", "51.2M", "2M"]
+
+
+def test_the_repo_comes_from_the_registry_document_already_fetched(calls, monkeypatch):
+    docs: list[str] = []
+    repository = {"url": "git+https://github.com/sebastienrousseau/jspassgen.git"}
+
+    def doc(url, **kw):
+        docs.append(url)
+        return {"time": {"created": f"{CREATED}T10:00:00.000Z"}, "repository": repository}
+
+    monkeypatch.setattr(metrics, "get_json", doc)
+    entry, _, _ = metrics.npm_package("@sebastienrousseau/jspassgen", {}, dt.date(2026, 11, 5))
+    assert entry["repo"] == "jspassgen"
+    again, _, _ = metrics.npm_package("@sebastienrousseau/jspassgen", entry, dt.date(2026, 11, 6))
+    assert again["repo"] == "jspassgen"
+    assert len(docs) == 1  # never asked again
+
+
+def test_an_older_ledger_entry_learns_its_repo_once(calls, monkeypatch):
+    docs: list[str] = []
+    monkeypatch.setattr(
+        metrics,
+        "get_json",
+        lambda url, **kw: docs.append(url) or {"repository": "https://github.com/sebastienrousseau/x"},
+    )
+    entry = {"closed_through": "2026-10-03", "closed": 5}
+    again, _, _ = metrics.npm_package("x", entry, dt.date(2026, 11, 5))
+    assert again["repo"] == "x"
+    assert docs == ["https://registry.npmjs.org/x"]
+    metrics.npm_package("x", again, dt.date(2026, 11, 6))
+    assert len(docs) == 1
+
+
+def test_npm_names_each_package_with_its_repo(monkeypatch):
+    monkeypatch.setattr(metrics, "npm_packages", lambda: ["a"])
+    monkeypatch.setattr(metrics, "utc_today", lambda: dt.date(2026, 11, 5))
+    monkeypatch.setattr(metrics, "npm_package", lambda name, entry, today: ({"closed": 1, "repo": "jspassgen"}, 2, 1))
+    assert metrics.npm({})["by"] == {"a": {"repo": "jspassgen", "all_time": 2}}

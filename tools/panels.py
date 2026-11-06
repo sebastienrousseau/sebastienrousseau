@@ -181,11 +181,21 @@ def section(t: dict, c: dict, index: int) -> Doc:
     return doc
 
 
-def card(t: dict, repo: dict) -> Doc:
+# The right edge of a card's stats line, level with the arrow's tip.
+CARD_STATS_RIGHT = 586
+
+
+def card_alt(repo: dict) -> str:
+    """A card's alt text: fixed copy only, so README.md on main never carries a live figure."""
+    return f"{repo['name']}: {repo['text']} ({repo['lang']})"
+
+
+def card(t: dict, repo: dict, stats: str = "") -> Doc:
+    """A project card. `stats` (stars, downloads) is drawn bottom right when given."""
     lines = wrap(SANS, repo["text"], 21, 540)
     if len(lines) > 2:
         raise ValueError(f"{repo['name']}: blurb wraps to {len(lines)} lines, keep it to 2")
-    doc = Doc(630, 230, f"{repo['name']}: {repo['text']} ({repo['lang']})")
+    doc = Doc(630, 230, card_alt(repo))
     _panel(doc, t["tile"], 26)
     doc.text(44, 76, repo["name"], (SEMI, 30, t["ink"]), tracking=-0.02)
     arrow = f'stroke="{t["accent"]}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"'
@@ -194,6 +204,8 @@ def card(t: dict, repo: dict) -> Doc:
         doc.text(44, 120 + n * 30, line, (SANS, 21, t["mute"]))
     doc.add(f'<circle cx="52" cy="189" r="7" fill="{LANGS[repo["lang"]]}"/>')
     doc.text(68, 195, repo["lang"], (MED, 17, t["ink"]))
+    if stats:
+        doc.text(CARD_STATS_RIGHT, 195, stats, (SANS, 17, t["mute"]), anchor="end")
     return doc
 
 

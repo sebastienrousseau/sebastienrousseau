@@ -2,7 +2,8 @@
 
 make            # or: uv run --no-project --with fonttools==... tools/build.py
 
-The panels that change (numbers, latest articles) are not drawn here:
+The panels that change (numbers, latest articles, project cards with their
+stars and downloads) are not drawn here:
 tools/live.py renders them onto the profile-data branch, and the README
 points there. This build needs no network beyond the pinned fonts, and its
 output is a pure function of profile.toml and tools/, so CI checks that
@@ -38,8 +39,6 @@ def jobs(cfg: dict) -> dict[str, Callable[[dict], Doc]]:
     }
     for n, p in enumerate(cfg["pillars"], 1):
         out[f"section-{p['key']}"] = lambda t, p=p, n=n: panels.section(t, p, n)
-        for r in p["repos"]:
-            out[f"card-{r['name']}"] = lambda t, r=r: panels.card(t, r)
     return out
 
 
@@ -68,7 +67,7 @@ def page(cfg: dict, alts: dict[str, str]) -> str:
         pic("numbers", NUMBERS_ALT, base=live),
     ]
     for p in cfg["pillars"]:
-        cards = [pic(f"card-{r['name']}", alts[f"card-{r['name']}"], f"{gh}/{r['name']}", "49%") for r in p["repos"]]
+        cards = [pic(f"card-{r['name']}", panels.card_alt(r), f"{gh}/{r['name']}", "49%", live) for r in p["repos"]]
         out += [
             pic(f"section-{p['key']}", alts[f"section-{p['key']}"]),
             "<p>\n" + "\n".join(cards) + "\n</p>",

@@ -116,7 +116,74 @@ def test_live_render_writes_both_themes_and_prunes(tmp_path):
     orphan.write_text("<svg/>")
     live.render(CFG, src, tmp_path)
     names = sorted(p.name for p in (tmp_path / "assets").iterdir())
-    assert len(names) == 8 and not orphan.exists()
+    cards = [r["name"] for p in CFG["pillars"] for r in p["repos"]]
+    assert len(names) == 2 * (1 + 3 + len(cards)) and not orphan.exists()
+    assert f"card-{cards[0]}-dark.svg" in names
     numbers = (tmp_path / "assets" / "numbers-light.svg").read_text()
     assert "3.7M All-time downloads" in numbers
     assert "Updated 4 November 2026." in numbers
+
+
+KYBER = "https://github.com/sebastienrousseau/kyberlib"
+
+
+def card_src(github_by: dict | None, crates_by: dict | None) -> dict:
+    day = {"as_of": "2026-11-05"}
+    empty = {"packages": 0, "all_time": 0, "recent": 0}
+    gh = {"stars": 9} | ({"by": github_by} if github_by is not None else {})
+    crates = empty | ({"by": crates_by} if crates_by is not None else {})
+    return {"github": {"value": gh, **day}, "crates": {"value": crates, **day}, "pypi": {"value": empty, **day}}
+
+
+def test_card_stats_sum_every_package_from_the_repo():
+    by = {
+        "kyberlib": {"repo": "kyberlib", "all_time": 41_000},
+        "kyberlib-wasm": {"repo": "kyberlib", "all_time": 2_500},
+        "hsh": {"repo": "hsh", "all_time": 9},
+    }
+    src = card_src({"kyberlib": 1234}, by)
+    assert live.card_stats(src, "kyberlib") == "1.2K stars · 43.5K downloads"
+    assert live.card_stats(src, "KyberLib") == "1.2K stars · 43.5K downloads"
+
+
+def test_card_stats_without_packages_show_stars_alone():
+    assert live.card_stats(card_src({"passmcp": 1}, {}), "passmcp") == "1 star"
+
+
+def test_card_stats_leave_out_a_zero():
+    # A zero is no evidence of anything; the card keeps just its language.
+    assert live.card_stats(card_src({"passmcp": 0}, {}), "passmcp") == ""
+    by = {"kyberlib": {"repo": "kyberlib", "all_time": 255}}
+    assert live.card_stats(card_src({"kyberlib": 0}, by), "kyberlib") == "255 downloads"
+    by0 = {"kyberlib": {"repo": "kyberlib", "all_time": 0}}
+    assert live.card_stats(card_src({"kyberlib": 3}, by0), "kyberlib") == "3 stars"
+
+
+def test_card_stats_survive_state_from_before_per_repo_figures():
+    # The first run after this change starts from state with no "by"; a failed source keeps that.
+    assert live.card_stats(card_src(None, None), "kyberlib") == ""
+    assert live.card_stats(card_src({}, None), "kyberlib") == ""
+
+
+def test_card_stats_fit_beside_the_language_label():
+    # Widest realistic line against the widest language label, with a gap.
+    stats = "88.8K stars · 888.8M downloads"
+    lang = max((r["lang"] for p in CFG["pillars"] for r in p["repos"]), key=lambda x: width(panels.MED, x, 17))
+    left_edge = 68 + width(panels.MED, lang, 17)
+    assert panels.CARD_STATS_RIGHT - width(panels.SANS, stats, 17) > left_edge + 24
+
+
+def test_card_shows_its_stats_and_keeps_its_alt_text():
+    repo = CFG["pillars"][1]["repos"][0]
+    plain = panels.card(THEMES["dark"], repo)
+    live_card = panels.card(THEMES["dark"], repo, "1.2K stars · 43.5K downloads")
+    assert "1.2K stars · 43.5K downloads" in live_card.render()
+    assert live_card.title == plain.title == panels.card_alt(repo)
+
+
+def test_readme_takes_cards_from_the_data_branch():
+    readme = build.page(CFG, {k: k for k in build.jobs(CFG)})
+    name = CFG["pillars"][0]["repos"][0]["name"]
+    assert f'srcset="{CFG["live"]}/card-{name}-dark.svg"' in readme
+    assert f'src="assets/card-{name}' not in readme
+    assert not any(k.startswith("card-") for k in build.jobs(CFG))

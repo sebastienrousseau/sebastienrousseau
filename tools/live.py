@@ -107,11 +107,36 @@ def as_of(src: dict) -> dt.date:
     return min(dt.date.fromisoformat(src[name]["as_of"]) for name in ("github", *REGISTRIES))
 
 
+def card_stats(src: dict, repo: str) -> str:
+    """A card's live line: the repo's stars, and the downloads of every package linking to it.
+
+    Empty when the repo's stars are unknown (state from before per-repo
+    figures). A zero is left out: it is no evidence of anything, and the
+    card then keeps just its language.
+    """
+    stars = ((src.get("github") or {}).get("value") or {}).get("by", {}).get(repo.lower())
+    if stars is None:
+        return ""
+    downloads = sum(
+        p["all_time"]
+        for name in REGISTRIES
+        for p in ((src.get(name) or {}).get("value") or {}).get("by", {}).values()
+        if p["repo"] == repo.lower()
+    )
+    parts = [f"{metrics.compact(stars)} {'star' if stars == 1 else 'stars'}"] if stars else []
+    parts += [f"{metrics.compact(downloads)} downloads"] if downloads else []
+    return " · ".join(parts)
+
+
 def render(cfg: dict, src: dict, out: Path) -> None:
+    """Draw every live panel into `out`/assets: numbers, articles and the project cards."""
     day = f"{as_of(src):%-d %B %Y}"
     todo = {"numbers": lambda t: panels.numbers(t, {**cfg["numbers"], "stats": stats(src), "as_of": day})}
     for n, a in enumerate(src["articles"]["value"]["items"], 1):
         todo[f"article-{n}"] = lambda t, a=a: panels.article(t, a)
+    for repo in (r for p in cfg["pillars"] for r in p["repos"]):
+        line = card_stats(src, repo["name"])
+        todo[f"card-{repo['name']}"] = lambda t, r=repo, s=line: panels.card(t, r, s)
     panels.write(todo, out / "assets")
 
 
