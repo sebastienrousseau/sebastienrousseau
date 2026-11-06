@@ -151,78 +151,78 @@
    "as_of": "2026-11-06",
    "closed": 472,
    "closed_through": "2026-10-04",
-   "recent": 2376,
-   "total": 2851
+   "recent": 2388,
+   "total": 2863
   },
   "@sebastienrousseau/crypto-server": {
    "as_of": "2026-11-06",
    "closed": 1655,
    "closed_through": "2026-10-04",
-   "recent": 2448,
-   "total": 4108
+   "recent": 2456,
+   "total": 4116
   },
   "@sebastienrousseau/crypto-testing": {
    "as_of": "2026-11-06",
    "closed": 484,
    "closed_through": "2026-10-04",
-   "recent": 2333,
-   "total": 2822
+   "recent": 2339,
+   "total": 2828
   },
   "@sebastienrousseau/crypto-typeorm": {
    "as_of": "2026-11-06",
    "closed": 463,
    "closed_through": "2026-10-04",
-   "recent": 2307,
-   "total": 2775
+   "recent": 2311,
+   "total": 2779
   },
   "@sebastienrousseau/crypto-vue": {
    "as_of": "2026-11-06",
    "closed": 467,
    "closed_through": "2026-10-04",
-   "recent": 2317,
-   "total": 2788
+   "recent": 2320,
+   "total": 2791
   },
   "@sebastienrousseau/crypto-wasm": {
    "as_of": "2026-11-06",
    "closed": 689,
    "closed_through": "2026-10-04",
-   "recent": 2442,
-   "total": 3135
+   "recent": 2452,
+   "total": 3145
   },
   "@sebastienrousseau/csharp-config": {
    "as_of": "2026-11-06",
    "closed": 315,
    "closed_through": "2026-10-04",
-   "recent": 32,
-   "total": 348
+   "recent": 34,
+   "total": 350
   },
   "@sebastienrousseau/dart-config": {
    "as_of": "2026-11-06",
    "closed": 305,
    "closed_through": "2026-10-04",
-   "recent": 26,
-   "total": 332
+   "recent": 28,
+   "total": 334
   },
   "@sebastienrousseau/docker-config": {
    "as_of": "2026-11-06",
    "closed": 447,
    "closed_through": "2026-10-04",
-   "recent": 223,
-   "total": 671
+   "recent": 224,
+   "total": 672
   },
   "@sebastienrousseau/dotfiles": {
    "as_of": "2026-11-06",
    "closed": 11823,
    "closed_through": "2026-10-04",
-   "recent": 1980,
-   "total": 13837
+   "recent": 2054,
+   "total": 13911
   },
   "@sebastienrousseau/eslint-config": {
    "as_of": "2026-11-06",
    "closed": 4608,
    "closed_through": "2026-10-04",
-   "recent": 2225,
-   "total": 6956
+   "recent": 2294,
+   "total": 7025
   },
   "@sebastienrousseau/go-config": {
    "as_of": "2026-11-06",
@@ -242,8 +242,8 @@
    "as_of": "2026-11-06",
    "closed": 3740,
    "closed_through": "2026-10-04",
-   "recent": 797,
-   "total": 4602
+   "recent": 798,
+   "total": 4603
   },
   "@sebastienrousseau/jspassgen": {
    "as_of": "2026-11-06",
@@ -256,22 +256,22 @@
    "as_of": "2026-11-06",
    "closed": 426,
    "closed_through": "2026-10-04",
-   "recent": 237,
-   "total": 665
+   "recent": 238,
+   "total": 666
   },
   "@sebastienrousseau/kotlin-config": {
    "as_of": "2026-11-06",
    "closed": 312,
    "closed_through": "2026-10-04",
-   "recent": 27,
-   "total": 340
+   "recent": 31,
+   "total": 344
   },
   "@sebastienrousseau/lefthook-config": {
    "as_of": "2026-11-06",
    "closed": 450,
    "closed_through": "2026-10-04",
-   "recent": 232,
-   "total": 683
+   "recent": 233,
+   "total": 684
   },
   "@sebastienrousseau/lua-config": {
    "as_of": "2026-11-06",
@@ -284,36 +284,36 @@
    "as_of": "2026-11-06",
    "closed": 2653,
    "closed_through": "2026-10-04",
-   "recent": 14,
-   "total": 2671
+   "recent": 17,
+   "total": 2674
   },
   "@sebastienrousseau/markdownlint-config": {
    "as_of": "2026-11-06",
    "closed": 3509,
    "closed_through": "2026-10-04",
-   "recent": 1200,
-   "total": 4771
+   "recent": 1218,
+   "total": 4789
   },
   "@sebastienrousseau/mocha-config": {
    "as_of": "2026-11-06",
    "closed": 3652,
    "closed_through": "2026-10-04",
-   "recent": 929,
-   "total": 4639
+   "recent": 930,
+   "total": 4640
   },
   "@sebastienrousseau/noyalib-mcp": {
    "as_of": "2026-11-06",
    "closed": 5327,
    "closed_through": "2026-10-04",
-   "recent": 763,
-   "total": 6294
+   "recent": 767,
+   "total": 6298
   },
   "@sebastienrousseau/noyalib-wasm": {
    "as_of": "2026-11-06",
    "closed": 4766,
    "closed_through": "2026-10-04",
-   "recent": 856,
-   "total": 5803
+   "recent": 858,
+   "total": 5805
   },
   "@sebastienrousseau/open-sans": {
    "as_of": "2026-11-06",
@@ -326,15 +326,15 @@
    "as_of": "2026-11-06",
    "closed": 443,
    "closed_through": "2026-10-04",
-   "recent": 234,
-   "total": 678
+   "recent": 235,
+   "total": 679
   },
   "@sebastienrousseau/php-config": {
    "as_of": "2026-11-06",
    "closed": 331,
    "closed_through": "2026-10-04",
-   "recent": 35,
-   "total": 367
+   "recent": 38,
+   "total": 370
   },
   "@sebastienrousseau/playwright-config": {
    "as_of": "2026-11-06",
@@ -513,9 +513,9 @@
   "crates": {
    "as_of": "2026-11-06",
    "value": {
-    "all_time": 52531444,
+    "all_time": 52549321,
     "packages": 66,
-    "recent": 2295690
+    "recent": 2303616
    }
   },
   "github": {
@@ -583,15 +583,15 @@
      "uon",
      "wiserone.github.io"
     ],
-    "stars": 727
+    "stars": 726
    }
   },
   "npm": {
    "as_of": "2026-11-06",
    "value": {
-    "all_time": 164917,
+    "all_time": 165147,
     "packages": 69,
-    "recent": 69869
+    "recent": 70099
    }
   },
   "pypi": {
