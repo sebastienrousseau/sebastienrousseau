@@ -3,7 +3,16 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.5] - Unreleased
+## [0.0.6] - Unreleased
+
+### Changed
+
+- A held value now logs everything the source returned (packages,
+  all-time, recent), not only the field that tripped the band. PyPI's
+  all-time figure was held on two runner runs at about 294k against 391k
+  from a laptop, and the summary could not say which part moved.
+
+## [0.0.5] - 2026-11-06
 
 ### Fixed
 

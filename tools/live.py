@@ -48,6 +48,11 @@ def implausible(prev: dict, new: dict) -> str | None:
     return None
 
 
+def _brief(value: dict) -> str:
+    """The numeric fields of a value, for the run summary (never the ledger)."""
+    return ", ".join(f"{k}={v}" for k, v in value.items() if isinstance(v, int))
+
+
 def refresh(fetch: Callable[[], dict], prev: dict | None, today: dt.date) -> tuple[dict | None, str]:
     """(state entry, status) for one source: the new value, or the last good one.
 
@@ -61,7 +66,7 @@ def refresh(fetch: Callable[[], dict], prev: dict | None, today: dt.date) -> tup
         return prev, f"failed ({exc}); {kept}"
     why = implausible(prev["value"], value) if prev and not os.environ.get("PROFILE_ACCEPT") else None
     if why:
-        return prev, f"held ({why}); kept value from {prev['as_of']}"
+        return prev, f"held ({why}; got {_brief(value)}); kept value from {prev['as_of']}"
     day = value.pop("as_of", today.isoformat())
     return {"value": value, "as_of": day}, "ok"
 
