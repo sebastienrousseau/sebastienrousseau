@@ -4,15 +4,15 @@
    "as_of": "2026-11-06",
    "closed": 436,
    "closed_through": "2026-10-04",
-   "recent": 238,
-   "total": 677
+   "recent": 239,
+   "total": 678
   },
   "@sebastienrousseau/browserslist-config": {
    "as_of": "2026-11-06",
    "closed": 464,
    "closed_through": "2026-10-04",
-   "recent": 246,
-   "total": 713
+   "recent": 247,
+   "total": 714
   },
   "@sebastienrousseau/c-config": {
    "as_of": "2026-11-06",
@@ -25,36 +25,36 @@
    "as_of": "2026-11-06",
    "closed": 3048,
    "closed_through": "2026-10-04",
-   "recent": 774,
-   "total": 3878
+   "recent": 775,
+   "total": 3879
   },
   "@sebastienrousseau/cloudcdn-mcp": {
    "as_of": "2026-11-06",
    "closed": 0,
    "closed_through": "2026-10-22",
-   "recent": 254,
-   "total": 254
+   "recent": 255,
+   "total": 255
   },
   "@sebastienrousseau/commitlint-config": {
    "as_of": "2026-11-06",
    "closed": 437,
    "closed_through": "2026-10-04",
-   "recent": 246,
-   "total": 685
+   "recent": 249,
+   "total": 688
   },
   "@sebastienrousseau/config": {
    "as_of": "2026-11-06",
    "closed": 42,
    "closed_through": "2026-10-04",
-   "recent": 108,
-   "total": 151
+   "recent": 109,
+   "total": 152
   },
   "@sebastienrousseau/config-kit": {
    "as_of": "2026-11-06",
    "closed": 11588,
    "closed_through": "2026-10-04",
-   "recent": 7409,
-   "total": 19140
+   "recent": 7706,
+   "total": 19437
   },
   "@sebastienrousseau/cpp-config": {
    "as_of": "2026-11-06",
@@ -67,50 +67,50 @@
    "as_of": "2026-11-06",
    "closed": 495,
    "closed_through": "2026-10-04",
-   "recent": 2347,
-   "total": 2848
+   "recent": 2350,
+   "total": 2851
   },
   "@sebastienrousseau/crypto-benchmarks": {
    "as_of": "2026-11-06",
    "closed": 489,
    "closed_through": "2026-10-04",
-   "recent": 2362,
-   "total": 2856
+   "recent": 2369,
+   "total": 2863
   },
   "@sebastienrousseau/crypto-cbom": {
    "as_of": "2026-11-06",
    "closed": 783,
    "closed_through": "2026-10-04",
-   "recent": 2510,
-   "total": 3298
+   "recent": 2515,
+   "total": 3303
   },
   "@sebastienrousseau/crypto-cli": {
    "as_of": "2026-11-06",
    "closed": 959,
    "closed_through": "2026-10-04",
-   "recent": 2462,
-   "total": 3428
+   "recent": 2469,
+   "total": 3435
   },
   "@sebastienrousseau/crypto-edge": {
    "as_of": "2026-11-06",
    "closed": 476,
    "closed_through": "2026-10-04",
-   "recent": 2454,
-   "total": 2934
+   "recent": 2461,
+   "total": 2941
   },
   "@sebastienrousseau/crypto-kms": {
    "as_of": "2026-11-06",
    "closed": 483,
    "closed_through": "2026-10-04",
-   "recent": 2828,
-   "total": 3315
+   "recent": 2836,
+   "total": 3323
   },
   "@sebastienrousseau/crypto-lib": {
    "as_of": "2026-11-06",
    "closed": 2609,
    "closed_through": "2026-10-04",
-   "recent": 4231,
-   "total": 6847
+   "recent": 4248,
+   "total": 6864
   },
   "@sebastienrousseau/crypto-lsp": {
    "as_of": "2026-11-06",
@@ -454,6 +454,34 @@
    "closed_through": "2026-10-04",
    "recent": 29,
    "total": 331
+  },
+  "@sebastienrousseau/tailwindcss-config": {
+   "as_of": "2026-11-06",
+   "closed": 446,
+   "closed_through": "2026-10-04",
+   "recent": 230,
+   "total": 678
+  },
+  "@sebastienrousseau/tsconfig-config": {
+   "as_of": "2026-11-06",
+   "closed": 447,
+   "closed_through": "2026-10-04",
+   "recent": 237,
+   "total": 685
+  },
+  "@sebastienrousseau/vitest-config": {
+   "as_of": "2026-11-06",
+   "closed": 453,
+   "closed_through": "2026-10-04",
+   "recent": 240,
+   "total": 694
+  },
+  "@sebastienrousseau/zig-config": {
+   "as_of": "2026-11-06",
+   "closed": 299,
+   "closed_through": "2026-10-04",
+   "recent": 32,
+   "total": 332
   }
  },
  "sources": {
@@ -487,7 +515,7 @@
    "value": {
     "all_time": 52531444,
     "packages": 66,
-    "recent": 2287287
+    "recent": 2292837
    }
   },
   "github": {
@@ -556,6 +584,14 @@
      "wiserone.github.io"
     ],
     "stars": 726
+   }
+  },
+  "npm": {
+   "as_of": "2026-11-06",
+   "value": {
+    "all_time": 164882,
+    "packages": 69,
+    "recent": 69834
    }
   },
   "pypi": {
