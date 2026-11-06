@@ -8,3 +8,4 @@ __pycache__/
 _site/
 docs-site/content/
 docs-site/data/
+.coverage
