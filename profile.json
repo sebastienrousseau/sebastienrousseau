@@ -5,12 +5,12 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53174984,
-  "recent_downloads": 2380045,
+  "all_time_downloads": 53174988,
+  "recent_downloads": 2382772,
   "window_days": 30,
   "github_stars": 726,
   "packages": 172,
-  "as_of": "2026-11-06"
+  "as_of": "2026-11-07"
  },
  "pillars": [
   {

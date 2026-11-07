@@ -497,52 +497,59 @@
    "total": 346
   },
   "@sebastienrousseau/stratos": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "closed": 0,
    "closed_through": "2026-10-22",
    "recent": 471,
+   "repo": "stratos",
    "total": 471
   },
   "@sebastienrousseau/stylelint-config": {
-   "as_of": "2026-11-06",
-   "closed": 453,
-   "closed_through": "2026-10-04",
-   "recent": 239,
-   "total": 694
+   "as_of": "2026-11-07",
+   "closed": 454,
+   "closed_through": "2026-10-05",
+   "recent": 231,
+   "repo": "stylelint-config",
+   "total": 696
   },
   "@sebastienrousseau/swift-config": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "closed": 301,
-   "closed_through": "2026-10-04",
-   "recent": 29,
-   "total": 331
+   "closed_through": "2026-10-05",
+   "recent": 30,
+   "repo": "swift-config",
+   "total": 332
   },
   "@sebastienrousseau/tailwindcss-config": {
-   "as_of": "2026-11-06",
-   "closed": 446,
-   "closed_through": "2026-10-04",
-   "recent": 230,
+   "as_of": "2026-11-07",
+   "closed": 447,
+   "closed_through": "2026-10-05",
+   "recent": 220,
+   "repo": "tailwindcss-config",
    "total": 678
   },
   "@sebastienrousseau/tsconfig-config": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "closed": 447,
-   "closed_through": "2026-10-04",
-   "recent": 237,
-   "total": 685
+   "closed_through": "2026-10-05",
+   "recent": 228,
+   "repo": "tsconfig-config",
+   "total": 686
   },
   "@sebastienrousseau/vitest-config": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "closed": 453,
-   "closed_through": "2026-10-04",
-   "recent": 240,
+   "closed_through": "2026-10-05",
+   "recent": 230,
+   "repo": "vitest-config",
    "total": 694
   },
   "@sebastienrousseau/zig-config": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "closed": 299,
-   "closed_through": "2026-10-04",
-   "recent": 32,
+   "closed_through": "2026-10-05",
+   "recent": 30,
+   "repo": "zig-config",
    "total": 332
   }
  },
@@ -846,7 +853,7 @@
      }
     },
     "packages": 66,
-    "recent": 2241585
+    "recent": 2244350
    }
   },
   "github": {
@@ -1091,9 +1098,9 @@
    }
   },
   "npm": {
-   "as_of": "2026-11-06",
+   "as_of": "2026-11-07",
    "value": {
-    "all_time": 168996,
+    "all_time": 169000,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 678,
@@ -1345,35 +1352,35 @@
      },
      "@sebastienrousseau/stratos": {
       "all_time": 471,
-      "repo": ""
+      "repo": "stratos"
      },
      "@sebastienrousseau/stylelint-config": {
-      "all_time": 694,
-      "repo": ""
+      "all_time": 696,
+      "repo": "stylelint-config"
      },
      "@sebastienrousseau/swift-config": {
-      "all_time": 331,
-      "repo": ""
+      "all_time": 332,
+      "repo": "swift-config"
      },
      "@sebastienrousseau/tailwindcss-config": {
       "all_time": 678,
-      "repo": ""
+      "repo": "tailwindcss-config"
      },
      "@sebastienrousseau/tsconfig-config": {
-      "all_time": 685,
-      "repo": ""
+      "all_time": 686,
+      "repo": "tsconfig-config"
      },
      "@sebastienrousseau/vitest-config": {
       "all_time": 694,
-      "repo": ""
+      "repo": "vitest-config"
      },
      "@sebastienrousseau/zig-config": {
       "all_time": 332,
-      "repo": ""
+      "repo": "zig-config"
      }
     },
     "packages": 69,
-    "recent": 67676
+    "recent": 67638
    }
   },
   "pypi": {
