@@ -595,6 +595,10 @@
       "all_time": 0,
       "repo": "agtmls-core"
      },
+     "agtmls-lsp": {
+      "all_time": 0,
+      "repo": "agtmls-lsp"
+     },
      "cclm": {
       "all_time": 4086,
       "repo": "mini-functions"
@@ -843,6 +847,18 @@
       "all_time": 18492,
       "repo": "staticweaver"
      },
+     "staticweaver-async": {
+      "all_time": 0,
+      "repo": "staticweaver"
+     },
+     "staticweaver-cli": {
+      "all_time": 0,
+      "repo": "staticweaver"
+     },
+     "staticweaver-core": {
+      "all_time": 0,
+      "repo": "staticweaver"
+     },
      "vrd": {
       "all_time": 145531,
       "repo": "vrd"
@@ -860,8 +876,8 @@
       "repo": "xtasks"
      }
     },
-    "packages": 68,
-    "recent": 2253273
+    "packages": 72,
+    "recent": 2260925
    }
   },
   "github": {
