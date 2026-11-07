@@ -675,6 +675,10 @@
       "all_time": 24862650,
       "repo": "libyml"
      },
+     "mcp-serve": {
+      "all_time": 0,
+      "repo": "mcp-serve"
+     },
      "mdg": {
       "all_time": 2948,
       "repo": "mini-functions"
@@ -876,8 +880,8 @@
       "repo": "xtasks"
      }
     },
-    "packages": 72,
-    "recent": 2265468
+    "packages": 73,
+    "recent": 2272776
    }
   },
   "github": {
