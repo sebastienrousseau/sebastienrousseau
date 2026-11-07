@@ -1,13 +1,13 @@
-# The manual at https://sebastienrousseau.com/sebastienrousseau/, built by
-# tools/manual.py with the latest ssg (version in .github/ssg-version).
-# content/ and data/ are generated from the repository's own documents on
-# every build; only the templates and the stylesheet live here.
-site_name = "sebastienrousseau"
+# The manual at https://sebastienrousseau.com/sebastienrousseau/, in the
+# format of doc.dotfiles.io/manual/: ssg with the Lucid theme. Built by
+# `make manual` with the latest ssg (version in .github/ssg-version).
+# content/ is generated from the repository's documents on every build.
+site_name = "Profile manual"
 site_title = "Profile manual"
 site_description = "How the GitHub profile at github.com/sebastienrousseau is built: panels from profile.toml, live figures, the clock, and profile.json."
-base_url = "https://sebastienrousseau.com/sebastienrousseau"
+base_url = "https://sebastienrousseau.com/sebastienrousseau/"
 language = "en-GB"
 
 content_dir = "docs-site/content"
-template_dir = "docs-site/templates"
+template_dir = "docs-site/themes/lucid/_layouts"
 output_dir = "_site"

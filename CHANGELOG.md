@@ -3,7 +3,19 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.13] - Unreleased
+## [0.0.14] - Unreleased
+
+### Changed
+
+- The manual takes the format of doc.dotfiles.io/manual/: ssg with the
+  Lucid theme, vendored from the dotfiles repository, with a grouped side
+  navigation, breadcrumbs, an "On this page" list, a pager, a light and
+  dark toggle and the same footer. Headings get anchors, and the build
+  fails on a broken internal link or a dangling fragment.
+- `LICENSE` says what the licence does not cover: the profile's written
+  copy, the name "Sebastien Rousseau" and the panels' visual identity.
+
+## [0.0.13] - 2026-11-06
 
 ### Added
 

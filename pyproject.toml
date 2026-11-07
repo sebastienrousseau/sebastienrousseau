@@ -2,7 +2,7 @@
 # Makefile runs, with hashes, in uv.lock. version follows the release.
 [project]
 name = "sebastienrousseau"
-version = "0.0.13"
+version = "0.0.14"
 requires-python = ">=3.12"
 license = "Apache-2.0 OR MIT"
 dependencies = []

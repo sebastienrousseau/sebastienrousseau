@@ -40,7 +40,7 @@ flowchart TD
 | `tools/articles.py` | Latest articles from the site's `/articles/` index. |
 | `tools/net.py` | The only network code: curl with timeouts, bounded retries, `Retry-After`, token on stdin. |
 | `tools/smoke.py` | After each publish and every 30 minutes: every image `README.md` shows is a well-formed SVG, the clock Worker has not fallen back, and `profile.json` parses. |
-| `tools/manual.py` | The manual: the repository's documents into `docs-site/content/`, then checks ssg's output. |
+| `tools/manual.py` | The manual, in the format of doc.dotfiles.io/manual/: the repository's documents as Lucid pages in `docs-site/content/`, then anchors and checks ssg's output. |
 | `tools/ceilings.py` | The complexity ceilings ruff and complexipy do not check: Halstead difficulty, function and file length. |
 | `tools/panels.py` | Each panel as a function of a theme and config; `write()` also deletes orphan SVGs. |
 | `tools/fonts.py` | Pinned font sources, per-SVG subsetting, text measurement. |
