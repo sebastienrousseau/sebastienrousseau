@@ -585,50 +585,50 @@
   "crates": {
    "as_of": "2026-11-07",
    "value": {
-    "all_time": 52617594,
+    "all_time": 52634174,
     "by": {
      "agtmls-cli": {
-      "all_time": 0,
+      "all_time": 7,
       "repo": "agtmls-core"
      },
      "agtmls-core": {
-      "all_time": 0,
+      "all_time": 22,
       "repo": "agtmls-core"
      },
      "agtmls-lsp": {
-      "all_time": 0,
+      "all_time": 7,
       "repo": "agtmls-lsp"
      },
      "cclm": {
-      "all_time": 4086,
+      "all_time": 4109,
       "repo": "mini-functions"
      },
      "cjwt": {
-      "all_time": 3428,
+      "all_time": 3449,
       "repo": "mini-functions"
      },
      "cmn": {
-      "all_time": 9445,
+      "all_time": 9469,
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 147255,
+      "all_time": 147696,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 24539,
+      "all_time": 25800,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32108,
+      "all_time": 32402,
       "repo": "frontmatter-gen"
      },
      "hsh": {
-      "all_time": 14211,
+      "all_time": 14236,
       "repo": "hsh"
      },
      "hsh-backend-awslc": {
-      "all_time": 143,
+      "all_time": 145,
       "repo": "hsh"
      },
      "hsh-cli": {
@@ -640,23 +640,23 @@
       "repo": "hsh"
      },
      "hsh-kms": {
-      "all_time": 190,
+      "all_time": 192,
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 28509,
+      "all_time": 28865,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 23535,
+      "all_time": 23887,
       "repo": "http-handle"
      },
      "idk": {
-      "all_time": 4154,
+      "all_time": 4177,
       "repo": "mini-functions"
      },
      "kyberlib": {
-      "all_time": 10078,
+      "all_time": 10090,
       "repo": "kyberlib"
      },
      "kyberlib-wasm": {
@@ -664,7 +664,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 18278,
+      "all_time": 18634,
       "repo": "langweave"
      },
      "libmake": {
@@ -672,23 +672,23 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 24859524,
+      "all_time": 24862650,
       "repo": "libyml"
      },
      "mdg": {
-      "all_time": 2932,
+      "all_time": 2948,
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 25636,
+      "all_time": 25993,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 19606,
+      "all_time": 19963,
       "repo": "metadata-gen"
      },
      "mini-functions": {
-      "all_time": 12520,
+      "all_time": 12528,
       "repo": "mini-functions"
      },
      "noya-cli": {
@@ -696,7 +696,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1184486,
+      "all_time": 1187772,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -708,7 +708,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 31399,
+      "all_time": 31623,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -720,7 +720,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 5263,
+      "all_time": 5621,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -728,7 +728,7 @@
       "repo": "oxml-cli"
      },
      "oxml-json": {
-      "all_time": 723,
+      "all_time": 724,
       "repo": "oxml-json"
      },
      "oxml-lsp": {
@@ -752,15 +752,15 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12788,
+      "all_time": 12814,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 127295,
+      "all_time": 127364,
       "repo": "rlg"
      },
      "rlg-cli": {
-      "all_time": 484,
+      "all_time": 486,
       "repo": "rlg"
      },
      "rlg-ebpf": {
@@ -796,55 +796,55 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 25927,
+      "all_time": 26283,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25646328,
+      "all_time": 25649933,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 18623,
+      "all_time": 18979,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42500,
+      "all_time": 42556,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2507,
+      "all_time": 2574,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 2977,
+      "all_time": 3045,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 1666,
+      "all_time": 1733,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
-      "all_time": 148,
+      "all_time": 166,
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 2839,
+      "all_time": 2915,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 2989,
+      "all_time": 3071,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 2759,
+      "all_time": 2827,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 18808,
+      "all_time": 19111,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 18492,
+      "all_time": 18848,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -860,7 +860,7 @@
       "repo": "staticweaver"
      },
      "vrd": {
-      "all_time": 145531,
+      "all_time": 145564,
       "repo": "vrd"
      },
      "wiserone": {
@@ -868,16 +868,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4671,
+      "all_time": 4673,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30316,
+      "all_time": 30325,
       "repo": "xtasks"
      }
     },
     "packages": 72,
-    "recent": 2260925
+    "recent": 2265468
    }
   },
   "github": {
@@ -1004,6 +1004,7 @@
      "lua-config": 0,
      "maccfg": 10,
      "markdownlint-config": 0,
+     "mcp-serve": 0,
      "mdx-gen": 10,
      "metadata-gen": 2,
      "mini-functions": 14,
