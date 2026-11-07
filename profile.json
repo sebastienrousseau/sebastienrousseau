@@ -5,11 +5,11 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53174988,
-  "recent_downloads": 2382772,
+  "all_time_downloads": 53199589,
+  "recent_downloads": 2391969,
   "window_days": 30,
   "github_stars": 726,
-  "packages": 172,
+  "packages": 174,
   "as_of": "2026-11-07"
  },
  "pillars": [
@@ -67,7 +67,7 @@
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
      "stars": 45,
-     "downloads": 10127
+     "downloads": 10130
     },
     {
      "name": "crypto-service",
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 62175
+     "downloads": 62346
     },
     {
      "name": "hsh",
@@ -83,7 +83,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14623
+     "downloads": 14656
     },
     {
      "name": "passmcp",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 60,
-     "downloads": 56331
+     "downloads": 58385
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1180816
+     "downloads": 1184486
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 129449
+     "downloads": 129660
     },
     {
      "name": "libmake",
