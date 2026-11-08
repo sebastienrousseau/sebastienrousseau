@@ -5,12 +5,12 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53245372,
-  "recent_downloads": 2313532,
+  "all_time_downloads": 53255076,
+  "recent_downloads": 2318884,
   "window_days": 30,
   "github_stars": 726,
   "packages": 179,
-  "as_of": "2026-11-07"
+  "as_of": "2026-11-08"
  },
  "pillars": [
   {
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 62434
+     "downloads": 62463
     },
     {
      "name": "hsh",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 60,
-     "downloads": 59651
+     "downloads": 59686
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1192129
+     "downloads": 1193686
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 129753
+     "downloads": 129760
     },
     {
      "name": "libmake",
@@ -157,7 +157,7 @@
      "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
      "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
      "stars": 6,
-     "downloads": 255
+     "downloads": 261
     },
     {
      "name": "dotfiles",
