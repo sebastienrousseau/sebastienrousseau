@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53243239,
-  "recent_downloads": 2306145,
+  "all_time_downloads": 53245047,
+  "recent_downloads": 2308557,
   "window_days": 30,
   "github_stars": 726,
   "packages": 179,
@@ -26,7 +26,7 @@
      "text": "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet.",
      "url": "https://github.com/sebastienrousseau/pain001",
      "stars": 49,
-     "downloads": 85261
+     "downloads": 85739
     },
     {
      "name": "pacs008",
@@ -34,7 +34,7 @@
      "text": "Generate, validate, parse and audit pacs.008 FI-to-FI credit transfers with scheme-aware rules.",
      "url": "https://github.com/sebastienrousseau/pacs008",
      "stars": 4,
-     "downloads": 10632
+     "downloads": 10643
     },
     {
      "name": "bankstatementparser",
@@ -42,7 +42,7 @@
      "text": "Parse CAMT, MT940, OFX, CSV and PDF bank statements into one unified transaction model.",
      "url": "https://github.com/sebastienrousseau/bankstatementparser",
      "stars": 63,
-     "downloads": 34410
+     "downloads": 34472
     },
     {
      "name": "iso20022-mcp",
@@ -50,7 +50,7 @@
      "text": "One MCP gateway to search, validate, generate and parse ISO 20022 across pain, pacs, camt and acmt.",
      "url": "https://github.com/sebastienrousseau/iso20022-mcp",
      "stars": 1,
-     "downloads": 10610
+     "downloads": 10619
     }
    ]
   },
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 62362
+     "downloads": 62434
     },
     {
      "name": "hsh",
@@ -165,7 +165,7 @@
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
      "stars": 82,
-     "downloads": 14111
+     "downloads": 14174
     },
     {
      "name": "jspassgen",
@@ -173,7 +173,7 @@
      "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
      "url": "https://github.com/sebastienrousseau/jspassgen",
      "stars": 26,
-     "downloads": 295
+     "downloads": 296
     }
    ]
   }
