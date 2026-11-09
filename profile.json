@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53309102,
-  "recent_downloads": 2321569,
+  "all_time_downloads": 53309236,
+  "recent_downloads": 2330633,
   "window_days": 30,
   "github_stars": 726,
   "packages": 186,
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 62644
+     "downloads": 62778
     },
     {
      "name": "hsh",
