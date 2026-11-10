@@ -180,41 +180,41 @@
    "as_of": "2026-11-10",
    "closed": 1959,
    "closed_through": "2026-10-08",
-   "recent": 1847,
+   "recent": 1883,
    "repo": "crypto-service",
-   "total": 4771
+   "total": 4807
   },
   "@sebastienrousseau/crypto-testing": {
    "as_of": "2026-11-10",
    "closed": 762,
    "closed_through": "2026-10-08",
-   "recent": 1789,
+   "recent": 1796,
    "repo": "crypto-service",
-   "total": 3463
+   "total": 3470
   },
   "@sebastienrousseau/crypto-typeorm": {
    "as_of": "2026-11-10",
    "closed": 766,
    "closed_through": "2026-10-08",
-   "recent": 1751,
+   "recent": 1757,
    "repo": "crypto-service",
-   "total": 3395
+   "total": 3401
   },
   "@sebastienrousseau/crypto-vue": {
    "as_of": "2026-11-10",
    "closed": 763,
    "closed_through": "2026-10-08",
-   "recent": 1759,
+   "recent": 1766,
    "repo": "crypto-service",
-   "total": 3449
+   "total": 3456
   },
   "@sebastienrousseau/crypto-wasm": {
    "as_of": "2026-11-10",
    "closed": 998,
    "closed_through": "2026-10-08",
-   "recent": 1873,
+   "recent": 1879,
    "repo": "crypto-service",
-   "total": 3812
+   "total": 3818
   },
   "@sebastienrousseau/csharp-config": {
    "as_of": "2026-11-10",
@@ -913,7 +913,7 @@
      }
     },
     "packages": 81,
-    "recent": 2257910
+    "recent": 2269000
    }
   },
   "github": {
@@ -1142,7 +1142,7 @@
      "talkwave": 3,
      "tsconfig-config": 0,
      "tsdev": 0,
-     "tunnelward": 0,
+     "tunnelward": 1,
      "uon": 0,
      "vitest-config": 0,
      "vrd": 5,
@@ -1156,13 +1156,13 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 728
+    "stars": 729
    }
   },
   "npm": {
    "as_of": "2026-11-10",
    "value": {
-    "all_time": 181969,
+    "all_time": 182031,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 767,
@@ -1253,23 +1253,23 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
-      "all_time": 4771,
+      "all_time": 4807,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-testing": {
-      "all_time": 3463,
+      "all_time": 3470,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-typeorm": {
-      "all_time": 3395,
+      "all_time": 3401,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-vue": {
-      "all_time": 3449,
+      "all_time": 3456,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-wasm": {
-      "all_time": 3812,
+      "all_time": 3818,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/csharp-config": {
@@ -1442,7 +1442,7 @@
      }
     },
     "packages": 69,
-    "recent": 60314
+    "recent": 60376
    }
   },
   "pypi": {
