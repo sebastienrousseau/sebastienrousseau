@@ -236,33 +236,33 @@
    "as_of": "2026-11-10",
    "closed": 458,
    "closed_through": "2026-10-08",
-   "recent": 284,
+   "recent": 285,
    "repo": "docker-config",
-   "total": 757
+   "total": 758
   },
   "@sebastienrousseau/dotfiles": {
    "as_of": "2026-11-10",
    "closed": 11892,
    "closed_through": "2026-10-08",
-   "recent": 2339,
+   "recent": 2388,
    "repo": "dotfiles",
-   "total": 14451
+   "total": 14500
   },
   "@sebastienrousseau/eslint-config": {
    "as_of": "2026-11-10",
    "closed": 4778,
    "closed_through": "2026-10-08",
-   "recent": 2341,
+   "recent": 2365,
    "repo": "eslint-config",
-   "total": 7370
+   "total": 7394
   },
   "@sebastienrousseau/go-config": {
    "as_of": "2026-11-10",
    "closed": 308,
    "closed_through": "2026-10-08",
-   "recent": 27,
+   "recent": 28,
    "repo": "go-config",
-   "total": 341
+   "total": 342
   },
   "@sebastienrousseau/java-config": {
    "as_of": "2026-11-10",
@@ -276,9 +276,9 @@
    "as_of": "2026-11-10",
    "closed": 3820,
    "closed_through": "2026-10-08",
-   "recent": 811,
+   "recent": 813,
    "repo": "jsdoc-config",
-   "total": 4766
+   "total": 4768
   },
   "@sebastienrousseau/jspassgen": {
    "as_of": "2026-11-10",
@@ -292,9 +292,9 @@
    "as_of": "2026-11-10",
    "closed": 438,
    "closed_through": "2026-10-08",
-   "recent": 301,
+   "recent": 302,
    "repo": "knip-config",
-   "total": 755
+   "total": 756
   },
   "@sebastienrousseau/kotlin-config": {
    "as_of": "2026-11-10",
@@ -308,73 +308,73 @@
    "as_of": "2026-11-10",
    "closed": 461,
    "closed_through": "2026-10-08",
-   "recent": 292,
+   "recent": 293,
    "repo": "lefthook-config",
-   "total": 770
+   "total": 771
   },
   "@sebastienrousseau/lua-config": {
    "as_of": "2026-11-10",
    "closed": 316,
    "closed_through": "2026-10-08",
-   "recent": 27,
+   "recent": 28,
    "repo": "lua-config",
-   "total": 346
+   "total": 347
   },
   "@sebastienrousseau/maccfg": {
    "as_of": "2026-11-10",
    "closed": 2657,
    "closed_through": "2026-10-08",
-   "recent": 24,
+   "recent": 26,
    "repo": "maccfg",
-   "total": 2684
+   "total": 2686
   },
   "@sebastienrousseau/markdownlint-config": {
    "as_of": "2026-11-10",
    "closed": 3587,
    "closed_through": "2026-10-08",
-   "recent": 1243,
+   "recent": 1250,
    "repo": "markdownlint-config",
-   "total": 4980
+   "total": 4987
   },
   "@sebastienrousseau/mocha-config": {
    "as_of": "2026-11-10",
    "closed": 3725,
    "closed_through": "2026-10-08",
-   "recent": 924,
+   "recent": 927,
    "repo": "mocha-config",
-   "total": 4792
+   "total": 4795
   },
   "@sebastienrousseau/noyalib-mcp": {
    "as_of": "2026-11-10",
    "closed": 5698,
    "closed_through": "2026-10-08",
-   "recent": 388,
+   "recent": 392,
    "repo": "noyalib-mcp",
-   "total": 6334
+   "total": 6338
   },
   "@sebastienrousseau/noyalib-wasm": {
    "as_of": "2026-11-10",
    "closed": 5260,
    "closed_through": "2026-10-08",
-   "recent": 287,
+   "recent": 289,
    "repo": "noyalib-wasm",
-   "total": 5827
+   "total": 5829
   },
   "@sebastienrousseau/open-sans": {
    "as_of": "2026-11-10",
    "closed": 1311,
    "closed_through": "2026-10-08",
-   "recent": 248,
+   "recent": 253,
    "repo": "open-sans.github.io",
-   "total": 1563
+   "total": 1568
   },
   "@sebastienrousseau/oxlint-config": {
    "as_of": "2026-11-10",
    "closed": 456,
    "closed_through": "2026-10-08",
-   "recent": 295,
+   "recent": 300,
    "repo": "oxlint-config",
-   "total": 766
+   "total": 771
   },
   "@sebastienrousseau/php-config": {
    "as_of": "2026-11-10",
@@ -388,25 +388,25 @@
    "as_of": "2026-11-10",
    "closed": 441,
    "closed_through": "2026-10-08",
-   "recent": 293,
+   "recent": 295,
    "repo": "playwright-config",
-   "total": 747
+   "total": 749
   },
   "@sebastienrousseau/pm2md": {
    "as_of": "2026-11-10",
    "closed": 708,
    "closed_through": "2026-10-08",
-   "recent": 5,
+   "recent": 7,
    "repo": "pm2md",
-   "total": 714
+   "total": 716
   },
   "@sebastienrousseau/prettier-config": {
    "as_of": "2026-11-10",
    "closed": 4893,
    "closed_through": "2026-10-08",
-   "recent": 1791,
+   "recent": 1799,
    "repo": "prettier-config",
-   "total": 6854
+   "total": 6862
   },
   "@sebastienrousseau/python-config": {
    "as_of": "2026-11-10",
@@ -428,9 +428,9 @@
    "as_of": "2026-11-10",
    "closed": 3351,
    "closed_through": "2026-10-08",
-   "recent": 125,
+   "recent": 127,
    "repo": "remark-config",
-   "total": 3492
+   "total": 3494
   },
   "@sebastienrousseau/ruby-config": {
    "as_of": "2026-11-10",
@@ -476,17 +476,17 @@
    "as_of": "2026-11-10",
    "closed": 456,
    "closed_through": "2026-10-08",
-   "recent": 294,
+   "recent": 298,
    "repo": "size-limit-config",
-   "total": 765
+   "total": 769
   },
   "@sebastienrousseau/skeletonic-stylus": {
    "as_of": "2026-11-10",
    "closed": 3692,
    "closed_through": "2026-10-08",
-   "recent": 216,
+   "recent": 222,
    "repo": "skeletonic-stylus",
-   "total": 3930
+   "total": 3936
   },
   "@sebastienrousseau/sql-config": {
    "as_of": "2026-11-10",
@@ -508,9 +508,9 @@
    "as_of": "2026-11-10",
    "closed": 465,
    "closed_through": "2026-10-08",
-   "recent": 304,
+   "recent": 309,
    "repo": "stylelint-config",
-   "total": 784
+   "total": 789
   },
   "@sebastienrousseau/swift-config": {
    "as_of": "2026-11-10",
@@ -585,14 +585,14 @@
   "crates": {
    "as_of": "2026-11-10",
    "value": {
-    "all_time": 52819680,
+    "all_time": 52839687,
     "by": {
      "agtmls-cli": {
       "all_time": 8,
       "repo": "agtmls-core"
      },
      "agtmls-core": {
-      "all_time": 24,
+      "all_time": 25,
       "repo": "agtmls-core"
      },
      "agtmls-lsp": {
@@ -612,15 +612,15 @@
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 148388,
+      "all_time": 148433,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 26683,
+      "all_time": 26688,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32722,
+      "all_time": 32727,
       "repo": "frontmatter-gen"
      },
      "hsh": {
@@ -644,11 +644,11 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29182,
+      "all_time": 29185,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24200,
+      "all_time": 24202,
       "repo": "http-handle"
      },
      "idk": {
@@ -656,7 +656,7 @@
       "repo": "mini-functions"
      },
      "kyberlib": {
-      "all_time": 10098,
+      "all_time": 10099,
       "repo": "kyberlib"
      },
      "kyberlib-wasm": {
@@ -664,7 +664,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 18946,
+      "all_time": 18948,
       "repo": "langweave"
      },
      "libmake": {
@@ -672,7 +672,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 24922199,
+      "all_time": 24928732,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -684,11 +684,11 @@
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 26328,
+      "all_time": 26332,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20283,
+      "all_time": 20285,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -696,15 +696,15 @@
       "repo": "mini-functions"
      },
      "noya-cli": {
-      "all_time": 819,
+      "all_time": 820,
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1226296,
+      "all_time": 1230930,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
-      "all_time": 852,
+      "all_time": 854,
       "repo": "noyalib-lsp"
      },
      "noyalib-mcp": {
@@ -712,11 +712,11 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 34850,
+      "all_time": 35271,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
-      "all_time": 647,
+      "all_time": 648,
       "repo": "noyalib-wasm"
      },
      "nucleusflow": {
@@ -724,7 +724,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 6038,
+      "all_time": 6039,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -760,7 +760,7 @@
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 127872,
+      "all_time": 127941,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -800,15 +800,15 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 26597,
+      "all_time": 26601,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25725462,
+      "all_time": 25733544,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19303,
+      "all_time": 19305,
       "repo": "sitemap-gen"
      },
      "ssg": {
@@ -816,15 +816,15 @@
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2766,
+      "all_time": 2767,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3236,
+      "all_time": 3237,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 1923,
+      "all_time": 1924,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -832,23 +832,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3112,
+      "all_time": 3114,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3273,
+      "all_time": 3276,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3022,
+      "all_time": 3023,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19405,
+      "all_time": 19406,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19186,
+      "all_time": 19188,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -864,39 +864,43 @@
       "repo": "staticweaver"
      },
      "tunnelward": {
-      "all_time": 45,
+      "all_time": 48,
+      "repo": "tunnelward"
+     },
+     "tunnelward-audit": {
+      "all_time": 0,
       "repo": "tunnelward"
      },
      "tunnelward-connector": {
-      "all_time": 98,
+      "all_time": 106,
       "repo": "tunnelward"
      },
      "tunnelward-crypto": {
-      "all_time": 130,
+      "all_time": 140,
       "repo": "tunnelward"
      },
      "tunnelward-gateway": {
-      "all_time": 94,
+      "all_time": 102,
       "repo": "tunnelward"
      },
      "tunnelward-identity": {
-      "all_time": 93,
+      "all_time": 101,
       "repo": "tunnelward"
      },
      "tunnelward-mcp": {
-      "all_time": 117,
+      "all_time": 125,
       "repo": "tunnelward"
      },
      "tunnelward-policy": {
-      "all_time": 46,
+      "all_time": 53,
       "repo": "tunnelward"
      },
      "tunnelward-proto": {
-      "all_time": 143,
+      "all_time": 153,
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 146078,
+      "all_time": 146151,
       "repo": "vrd"
      },
      "wiserone": {
@@ -904,16 +908,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4725,
+      "all_time": 4735,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30469,
+      "all_time": 30499,
       "repo": "xtasks"
      }
     },
-    "packages": 81,
-    "recent": 2269000
+    "packages": 82,
+    "recent": 2282048
    }
   },
   "github": {
@@ -1162,7 +1166,7 @@
   "npm": {
    "as_of": "2026-11-10",
    "value": {
-    "all_time": 182031,
+    "all_time": 182168,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 767,
@@ -1281,19 +1285,19 @@
       "repo": "dart-config"
      },
      "@sebastienrousseau/docker-config": {
-      "all_time": 757,
+      "all_time": 758,
       "repo": "docker-config"
      },
      "@sebastienrousseau/dotfiles": {
-      "all_time": 14451,
+      "all_time": 14500,
       "repo": "dotfiles"
      },
      "@sebastienrousseau/eslint-config": {
-      "all_time": 7370,
+      "all_time": 7394,
       "repo": "eslint-config"
      },
      "@sebastienrousseau/go-config": {
-      "all_time": 341,
+      "all_time": 342,
       "repo": "go-config"
      },
      "@sebastienrousseau/java-config": {
@@ -1301,7 +1305,7 @@
       "repo": "java-config"
      },
      "@sebastienrousseau/jsdoc-config": {
-      "all_time": 4766,
+      "all_time": 4768,
       "repo": "jsdoc-config"
      },
      "@sebastienrousseau/jspassgen": {
@@ -1309,7 +1313,7 @@
       "repo": "jspassgen"
      },
      "@sebastienrousseau/knip-config": {
-      "all_time": 755,
+      "all_time": 756,
       "repo": "knip-config"
      },
      "@sebastienrousseau/kotlin-config": {
@@ -1317,39 +1321,39 @@
       "repo": "kotlin-config"
      },
      "@sebastienrousseau/lefthook-config": {
-      "all_time": 770,
+      "all_time": 771,
       "repo": "lefthook-config"
      },
      "@sebastienrousseau/lua-config": {
-      "all_time": 346,
+      "all_time": 347,
       "repo": "lua-config"
      },
      "@sebastienrousseau/maccfg": {
-      "all_time": 2684,
+      "all_time": 2686,
       "repo": "maccfg"
      },
      "@sebastienrousseau/markdownlint-config": {
-      "all_time": 4980,
+      "all_time": 4987,
       "repo": "markdownlint-config"
      },
      "@sebastienrousseau/mocha-config": {
-      "all_time": 4792,
+      "all_time": 4795,
       "repo": "mocha-config"
      },
      "@sebastienrousseau/noyalib-mcp": {
-      "all_time": 6334,
+      "all_time": 6338,
       "repo": "noyalib-mcp"
      },
      "@sebastienrousseau/noyalib-wasm": {
-      "all_time": 5827,
+      "all_time": 5829,
       "repo": "noyalib-wasm"
      },
      "@sebastienrousseau/open-sans": {
-      "all_time": 1563,
+      "all_time": 1568,
       "repo": "open-sans.github.io"
      },
      "@sebastienrousseau/oxlint-config": {
-      "all_time": 766,
+      "all_time": 771,
       "repo": "oxlint-config"
      },
      "@sebastienrousseau/php-config": {
@@ -1357,15 +1361,15 @@
       "repo": "php-config"
      },
      "@sebastienrousseau/playwright-config": {
-      "all_time": 747,
+      "all_time": 749,
       "repo": "playwright-config"
      },
      "@sebastienrousseau/pm2md": {
-      "all_time": 714,
+      "all_time": 716,
       "repo": "pm2md"
      },
      "@sebastienrousseau/prettier-config": {
-      "all_time": 6854,
+      "all_time": 6862,
       "repo": "prettier-config"
      },
      "@sebastienrousseau/python-config": {
@@ -1377,7 +1381,7 @@
       "repo": "r-config"
      },
      "@sebastienrousseau/remark-config": {
-      "all_time": 3492,
+      "all_time": 3494,
       "repo": "remark-config"
      },
      "@sebastienrousseau/ruby-config": {
@@ -1401,11 +1405,11 @@
       "repo": "sine-wave-generator"
      },
      "@sebastienrousseau/size-limit-config": {
-      "all_time": 765,
+      "all_time": 769,
       "repo": "size-limit-config"
      },
      "@sebastienrousseau/skeletonic-stylus": {
-      "all_time": 3930,
+      "all_time": 3936,
       "repo": "skeletonic-stylus"
      },
      "@sebastienrousseau/sql-config": {
@@ -1417,7 +1421,7 @@
       "repo": "stratos"
      },
      "@sebastienrousseau/stylelint-config": {
-      "all_time": 784,
+      "all_time": 789,
       "repo": "stylelint-config"
      },
      "@sebastienrousseau/swift-config": {
@@ -1442,7 +1446,7 @@
      }
     },
     "packages": 69,
-    "recent": 60376
+    "recent": 60513
    }
   },
   "pypi": {
