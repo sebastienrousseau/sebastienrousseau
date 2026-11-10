@@ -489,15 +489,15 @@
    "total": 3930
   },
   "@sebastienrousseau/sql-config": {
-   "as_of": "2026-11-09",
-   "closed": 310,
-   "closed_through": "2026-10-07",
-   "recent": 36,
+   "as_of": "2026-11-10",
+   "closed": 311,
+   "closed_through": "2026-10-08",
+   "recent": 33,
    "repo": "sql-config",
    "total": 348
   },
   "@sebastienrousseau/stratos": {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "closed": 0,
    "closed_through": "2026-10-22",
    "recent": 477,
@@ -505,50 +505,50 @@
    "total": 477
   },
   "@sebastienrousseau/stylelint-config": {
-   "as_of": "2026-11-09",
-   "closed": 455,
-   "closed_through": "2026-10-07",
-   "recent": 234,
+   "as_of": "2026-11-10",
+   "closed": 465,
+   "closed_through": "2026-10-08",
+   "recent": 304,
    "repo": "stylelint-config",
-   "total": 711
+   "total": 784
   },
   "@sebastienrousseau/swift-config": {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "closed": 302,
-   "closed_through": "2026-10-07",
-   "recent": 31,
+   "closed_through": "2026-10-08",
+   "recent": 28,
    "repo": "swift-config",
    "total": 336
   },
   "@sebastienrousseau/tailwindcss-config": {
-   "as_of": "2026-11-09",
-   "closed": 448,
-   "closed_through": "2026-10-07",
-   "recent": 223,
+   "as_of": "2026-11-10",
+   "closed": 458,
+   "closed_through": "2026-10-08",
+   "recent": 295,
    "repo": "tailwindcss-config",
-   "total": 693
+   "total": 768
   },
   "@sebastienrousseau/tsconfig-config": {
-   "as_of": "2026-11-09",
-   "closed": 448,
-   "closed_through": "2026-10-07",
-   "recent": 233,
+   "as_of": "2026-11-10",
+   "closed": 458,
+   "closed_through": "2026-10-08",
+   "recent": 304,
    "repo": "tsconfig-config",
-   "total": 705
+   "total": 779
   },
   "@sebastienrousseau/vitest-config": {
-   "as_of": "2026-11-09",
-   "closed": 454,
-   "closed_through": "2026-10-07",
-   "recent": 232,
+   "as_of": "2026-11-10",
+   "closed": 464,
+   "closed_through": "2026-10-08",
+   "recent": 302,
    "repo": "vitest-config",
-   "total": 708
+   "total": 781
   },
   "@sebastienrousseau/zig-config": {
-   "as_of": "2026-11-09",
-   "closed": 300,
-   "closed_through": "2026-10-07",
-   "recent": 30,
+   "as_of": "2026-11-10",
+   "closed": 302,
+   "closed_through": "2026-10-08",
+   "recent": 28,
    "repo": "zig-config",
    "total": 333
   }
@@ -585,7 +585,7 @@
   "crates": {
    "as_of": "2026-11-10",
    "value": {
-    "all_time": 52780259,
+    "all_time": 52801040,
     "by": {
      "agtmls-cli": {
       "all_time": 8,
@@ -600,7 +600,7 @@
       "repo": "agtmls-lsp"
      },
      "cclm": {
-      "all_time": 4110,
+      "all_time": 4111,
       "repo": "mini-functions"
      },
      "cjwt": {
@@ -608,23 +608,23 @@
       "repo": "mini-functions"
      },
      "cmn": {
-      "all_time": 9469,
+      "all_time": 9471,
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 148272,
+      "all_time": 148333,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 26580,
+      "all_time": 26666,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32681,
+      "all_time": 32715,
       "repo": "frontmatter-gen"
      },
      "hsh": {
-      "all_time": 14237,
+      "all_time": 14238,
       "repo": "hsh"
      },
      "hsh-backend-awslc": {
@@ -644,15 +644,15 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29147,
+      "all_time": 29178,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24166,
+      "all_time": 24197,
       "repo": "http-handle"
      },
      "idk": {
-      "all_time": 4178,
+      "all_time": 4179,
       "repo": "mini-functions"
      },
      "kyberlib": {
@@ -664,7 +664,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 18912,
+      "all_time": 18943,
       "repo": "langweave"
      },
      "libmake": {
@@ -672,7 +672,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 24908495,
+      "all_time": 24916081,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -684,11 +684,11 @@
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 26293,
+      "all_time": 26324,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20249,
+      "all_time": 20279,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -700,7 +700,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1218923,
+      "all_time": 1222179,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -712,7 +712,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 34172,
+      "all_time": 34426,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -724,7 +724,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 5991,
+      "all_time": 6033,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -732,7 +732,7 @@
       "repo": "oxml-cli"
      },
      "oxml-json": {
-      "all_time": 754,
+      "all_time": 757,
       "repo": "oxml-json"
      },
      "oxml-lsp": {
@@ -752,15 +752,15 @@
       "repo": "pain"
      },
      "psph": {
-      "all_time": 2103,
+      "all_time": 2104,
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12824,
+      "all_time": 12825,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 127757,
+      "all_time": 127796,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -800,31 +800,31 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 26563,
+      "all_time": 26594,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25709112,
+      "all_time": 25718063,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19267,
+      "all_time": 19298,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42633,
+      "all_time": 42650,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2747,
+      "all_time": 2764,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3217,
+      "all_time": 3234,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 1905,
+      "all_time": 1921,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -832,23 +832,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3093,
+      "all_time": 3110,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3254,
+      "all_time": 3271,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3003,
+      "all_time": 3020,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19372,
+      "all_time": 19403,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19152,
+      "all_time": 19183,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -868,35 +868,35 @@
       "repo": "tunnelward"
      },
      "tunnelward-connector": {
-      "all_time": 75,
+      "all_time": 76,
       "repo": "tunnelward"
      },
      "tunnelward-crypto": {
-      "all_time": 98,
+      "all_time": 99,
       "repo": "tunnelward"
      },
      "tunnelward-gateway": {
-      "all_time": 72,
+      "all_time": 73,
       "repo": "tunnelward"
      },
      "tunnelward-identity": {
-      "all_time": 66,
+      "all_time": 67,
       "repo": "tunnelward"
      },
      "tunnelward-mcp": {
-      "all_time": 90,
+      "all_time": 91,
       "repo": "tunnelward"
      },
      "tunnelward-policy": {
-      "all_time": 19,
+      "all_time": 20,
       "repo": "tunnelward"
      },
      "tunnelward-proto": {
-      "all_time": 106,
+      "all_time": 107,
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 145970,
+      "all_time": 146009,
       "repo": "vrd"
      },
      "wiserone": {
@@ -904,16 +904,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4715,
+      "all_time": 4722,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30431,
+      "all_time": 30444,
       "repo": "xtasks"
      }
     },
     "packages": 81,
-    "recent": 2230361
+    "recent": 2240336
    }
   },
   "github": {
@@ -1160,9 +1160,9 @@
    }
   },
   "npm": {
-   "as_of": "2026-11-09",
+   "as_of": "2026-11-10",
    "value": {
-    "all_time": 181428,
+    "all_time": 181723,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 765,
@@ -1417,7 +1417,7 @@
       "repo": "stratos"
      },
      "@sebastienrousseau/stylelint-config": {
-      "all_time": 711,
+      "all_time": 784,
       "repo": "stylelint-config"
      },
      "@sebastienrousseau/swift-config": {
@@ -1425,15 +1425,15 @@
       "repo": "swift-config"
      },
      "@sebastienrousseau/tailwindcss-config": {
-      "all_time": 693,
+      "all_time": 768,
       "repo": "tailwindcss-config"
      },
      "@sebastienrousseau/tsconfig-config": {
-      "all_time": 705,
+      "all_time": 779,
       "repo": "tsconfig-config"
      },
      "@sebastienrousseau/vitest-config": {
-      "all_time": 708,
+      "all_time": 781,
       "repo": "vitest-config"
      },
      "@sebastienrousseau/zig-config": {
@@ -1442,7 +1442,7 @@
      }
     },
     "packages": 69,
-    "recent": 59793
+    "recent": 60068
    }
   },
   "pypi": {
