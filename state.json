@@ -585,7 +585,7 @@
   "crates": {
    "as_of": "2026-11-11",
    "value": {
-    "all_time": 52914118,
+    "all_time": 52934179,
     "by": {
      "agtmls-cli": {
       "all_time": 8,
@@ -612,19 +612,19 @@
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 148560,
+      "all_time": 148586,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 26748,
+      "all_time": 26749,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32739,
+      "all_time": 32740,
       "repo": "frontmatter-gen"
      },
      "hsh": {
-      "all_time": 14242,
+      "all_time": 14243,
       "repo": "hsh"
      },
      "hsh-backend-awslc": {
@@ -648,7 +648,7 @@
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24210,
+      "all_time": 24211,
       "repo": "http-handle"
      },
      "idk": {
@@ -672,7 +672,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 24951838,
+      "all_time": 24956838,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -700,7 +700,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1248110,
+      "all_time": 1254553,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -708,11 +708,11 @@
       "repo": "noyalib-lsp"
      },
      "noyalib-mcp": {
-      "all_time": 827,
+      "all_time": 828,
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 37292,
+      "all_time": 38800,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -724,7 +724,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 6067,
+      "all_time": 6068,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -756,11 +756,11 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12833,
+      "all_time": 12834,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 128086,
+      "all_time": 128134,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -804,7 +804,7 @@
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25764762,
+      "all_time": 25771710,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
@@ -864,43 +864,43 @@
       "repo": "staticweaver"
      },
      "tunnelward": {
-      "all_time": 57,
+      "all_time": 58,
       "repo": "tunnelward"
      },
      "tunnelward-audit": {
-      "all_time": 14,
+      "all_time": 15,
       "repo": "tunnelward"
      },
      "tunnelward-connector": {
-      "all_time": 120,
+      "all_time": 121,
       "repo": "tunnelward"
      },
      "tunnelward-crypto": {
-      "all_time": 162,
+      "all_time": 163,
       "repo": "tunnelward"
      },
      "tunnelward-gateway": {
-      "all_time": 115,
+      "all_time": 116,
       "repo": "tunnelward"
      },
      "tunnelward-identity": {
-      "all_time": 117,
+      "all_time": 118,
       "repo": "tunnelward"
      },
      "tunnelward-mcp": {
-      "all_time": 141,
+      "all_time": 142,
       "repo": "tunnelward"
      },
      "tunnelward-policy": {
-      "all_time": 69,
+      "all_time": 70,
       "repo": "tunnelward"
      },
      "tunnelward-proto": {
-      "all_time": 175,
+      "all_time": 176,
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 146289,
+      "all_time": 146337,
       "repo": "vrd"
      },
      "wiserone": {
@@ -908,16 +908,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4747,
+      "all_time": 4749,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30551,
+      "all_time": 30573,
       "repo": "xtasks"
      }
     },
     "packages": 82,
-    "recent": 2291460
+    "recent": 2302748
    }
   },
   "github": {
