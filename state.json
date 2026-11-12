@@ -4,161 +4,161 @@
    "as_of": "2026-11-12",
    "closed": 464,
    "closed_through": "2026-10-10",
-   "recent": 305,
+   "recent": 308,
    "repo": "biome-config",
-   "total": 771
+   "total": 774
   },
   "@sebastienrousseau/browserslist-config": {
    "as_of": "2026-11-12",
    "closed": 490,
    "closed_through": "2026-10-10",
-   "recent": 315,
+   "recent": 319,
    "repo": "browserslist-config",
-   "total": 807
+   "total": 811
   },
   "@sebastienrousseau/c-config": {
    "as_of": "2026-11-12",
    "closed": 322,
    "closed_through": "2026-10-10",
-   "recent": 27,
+   "recent": 30,
    "repo": "c-config",
-   "total": 352
+   "total": 355
   },
   "@sebastienrousseau/c8-config": {
    "as_of": "2026-11-12",
    "closed": 3243,
    "closed_through": "2026-10-10",
-   "recent": 768,
+   "recent": 773,
    "repo": "c8-config",
-   "total": 4034
+   "total": 4039
   },
   "@sebastienrousseau/cloudcdn-mcp": {
    "as_of": "2026-11-12",
    "closed": 0,
    "closed_through": "2026-10-22",
-   "recent": 265,
+   "recent": 267,
    "repo": "cloudcdn.pro",
-   "total": 265
+   "total": 267
   },
   "@sebastienrousseau/commitlint-config": {
    "as_of": "2026-11-12",
    "closed": 461,
    "closed_through": "2026-10-10",
-   "recent": 310,
+   "recent": 313,
    "repo": "commitlint-config",
-   "total": 776
+   "total": 779
   },
   "@sebastienrousseau/config": {
    "as_of": "2026-11-12",
    "closed": 45,
    "closed_through": "2026-10-10",
-   "recent": 426,
+   "recent": 428,
    "repo": "config",
-   "total": 472
+   "total": 474
   },
   "@sebastienrousseau/config-kit": {
    "as_of": "2026-11-12",
    "closed": 11970,
    "closed_through": "2026-10-10",
-   "recent": 7847,
+   "recent": 8157,
    "repo": "config-kit",
-   "total": 20111
+   "total": 20421
   },
   "@sebastienrousseau/cpp-config": {
    "as_of": "2026-11-12",
    "closed": 328,
    "closed_through": "2026-10-10",
-   "recent": 32,
+   "recent": 35,
    "repo": "cpp-config",
-   "total": 363
+   "total": 366
   },
   "@sebastienrousseau/crypto-api": {
    "as_of": "2026-11-12",
    "closed": 1719,
    "closed_through": "2026-10-10",
-   "recent": 1500,
+   "recent": 1520,
    "repo": "crypto-service",
-   "total": 3479
+   "total": 3499
   },
   "@sebastienrousseau/crypto-benchmarks": {
    "as_of": "2026-11-12",
    "closed": 1650,
    "closed_through": "2026-10-10",
-   "recent": 1615,
+   "recent": 1638,
    "repo": "crypto-service",
-   "total": 3542
+   "total": 3565
   },
   "@sebastienrousseau/crypto-cbom": {
    "as_of": "2026-11-12",
    "closed": 2041,
    "closed_through": "2026-10-10",
-   "recent": 1608,
+   "recent": 1629,
    "repo": "crypto-service",
-   "total": 3967
+   "total": 3988
   },
   "@sebastienrousseau/crypto-cli": {
    "as_of": "2026-11-12",
    "closed": 2114,
    "closed_through": "2026-10-10",
-   "recent": 1741,
+   "recent": 1763,
    "repo": "crypto-service",
-   "total": 4142
+   "total": 4164
   },
   "@sebastienrousseau/crypto-edge": {
    "as_of": "2026-11-12",
    "closed": 1684,
    "closed_through": "2026-10-10",
-   "recent": 1670,
+   "recent": 1695,
    "repo": "crypto-service",
-   "total": 3645
+   "total": 3670
   },
   "@sebastienrousseau/crypto-kms": {
    "as_of": "2026-11-12",
    "closed": 1841,
    "closed_through": "2026-10-10",
-   "recent": 1884,
+   "recent": 1905,
    "repo": "crypto-service",
-   "total": 4103
+   "total": 4124
   },
   "@sebastienrousseau/crypto-lib": {
    "as_of": "2026-11-12",
    "closed": 4533,
    "closed_through": "2026-10-10",
-   "recent": 2891,
+   "recent": 2916,
    "repo": "crypto-service",
-   "total": 8075
+   "total": 8100
   },
   "@sebastienrousseau/crypto-lsp": {
    "as_of": "2026-11-12",
    "closed": 1682,
    "closed_through": "2026-10-10",
-   "recent": 1695,
+   "recent": 1721,
    "repo": "crypto-service",
-   "total": 3659
+   "total": 3685
   },
   "@sebastienrousseau/crypto-mcp": {
    "as_of": "2026-11-12",
    "closed": 1847,
    "closed_through": "2026-10-10",
-   "recent": 1865,
+   "recent": 1893,
    "repo": "crypto-service",
-   "total": 4042
+   "total": 4070
   },
   "@sebastienrousseau/crypto-middleware": {
    "as_of": "2026-11-12",
    "closed": 1686,
    "closed_through": "2026-10-10",
-   "recent": 1521,
+   "recent": 1542,
    "repo": "crypto-service",
-   "total": 3485
+   "total": 3506
   },
   "@sebastienrousseau/crypto-prisma": {
    "as_of": "2026-11-12",
    "closed": 1589,
    "closed_through": "2026-10-10",
-   "recent": 1508,
+   "recent": 1529,
    "repo": "crypto-service",
-   "total": 3378
+   "total": 3399
   },
   "@sebastienrousseau/crypto-react": {
    "as_of": "2026-11-12",
@@ -917,7 +917,7 @@
      }
     },
     "packages": 82,
-    "recent": 2257268
+    "recent": 2267086
    }
   },
   "github": {
@@ -1171,86 +1171,86 @@
   "npm": {
    "as_of": "2026-11-12",
    "value": {
-    "all_time": 183039,
+    "all_time": 183627,
     "by": {
      "@sebastienrousseau/biome-config": {
-      "all_time": 771,
+      "all_time": 774,
       "repo": "biome-config"
      },
      "@sebastienrousseau/browserslist-config": {
-      "all_time": 807,
+      "all_time": 811,
       "repo": "browserslist-config"
      },
      "@sebastienrousseau/c-config": {
-      "all_time": 352,
+      "all_time": 355,
       "repo": "c-config"
      },
      "@sebastienrousseau/c8-config": {
-      "all_time": 4034,
+      "all_time": 4039,
       "repo": "c8-config"
      },
      "@sebastienrousseau/cloudcdn-mcp": {
-      "all_time": 265,
+      "all_time": 267,
       "repo": "cloudcdn.pro"
      },
      "@sebastienrousseau/commitlint-config": {
-      "all_time": 776,
+      "all_time": 779,
       "repo": "commitlint-config"
      },
      "@sebastienrousseau/config": {
-      "all_time": 472,
+      "all_time": 474,
       "repo": "config"
      },
      "@sebastienrousseau/config-kit": {
-      "all_time": 20111,
+      "all_time": 20421,
       "repo": "config-kit"
      },
      "@sebastienrousseau/cpp-config": {
-      "all_time": 363,
+      "all_time": 366,
       "repo": "cpp-config"
      },
      "@sebastienrousseau/crypto-api": {
-      "all_time": 3479,
+      "all_time": 3499,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-benchmarks": {
-      "all_time": 3542,
+      "all_time": 3565,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-cbom": {
-      "all_time": 3967,
+      "all_time": 3988,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-cli": {
-      "all_time": 4142,
+      "all_time": 4164,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-edge": {
-      "all_time": 3645,
+      "all_time": 3670,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-kms": {
-      "all_time": 4103,
+      "all_time": 4124,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-lib": {
-      "all_time": 8075,
+      "all_time": 8100,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-lsp": {
-      "all_time": 3659,
+      "all_time": 3685,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-mcp": {
-      "all_time": 4042,
+      "all_time": 4070,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-middleware": {
-      "all_time": 3485,
+      "all_time": 3506,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-prisma": {
-      "all_time": 3378,
+      "all_time": 3399,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
@@ -1451,7 +1451,7 @@
      }
     },
     "packages": 69,
-    "recent": 55824
+    "recent": 56412
    }
   },
   "pypi": {
