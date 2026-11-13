@@ -5,12 +5,12 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53678600,
-  "recent_downloads": 2395194,
+  "all_time_downloads": 53698718,
+  "recent_downloads": 2403468,
   "window_days": 30,
   "github_stars": 736,
   "packages": 188,
-  "as_of": "2026-11-12"
+  "as_of": "2026-11-13"
  },
  "pillars": [
   {
@@ -83,7 +83,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14706
+     "downloads": 14707
     },
     {
      "name": "passmcp",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 60,
-     "downloads": 60406
+     "downloads": 60412
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1281222
+     "downloads": 1285160
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 130970
+     "downloads": 131028
     },
     {
      "name": "libmake",
