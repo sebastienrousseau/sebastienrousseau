@@ -164,17 +164,17 @@
    "as_of": "2026-11-13",
    "closed": 1724,
    "closed_through": "2026-10-11",
-   "recent": 1584,
+   "recent": 1592,
    "repo": "crypto-service",
-   "total": 3550
+   "total": 3558
   },
   "@sebastienrousseau/crypto-sdk": {
    "as_of": "2026-11-13",
    "closed": 1766,
    "closed_through": "2026-10-11",
-   "recent": 1538,
+   "recent": 1542,
    "repo": "crypto-service",
-   "total": 3544
+   "total": 3548
   },
   "@sebastienrousseau/crypto-server": {
    "as_of": "2026-11-13",
@@ -585,26 +585,26 @@
   "crates": {
    "as_of": "2026-11-13",
    "value": {
-    "all_time": 53065570,
+    "all_time": 53082978,
     "by": {
      "agtmls-cli": {
-      "all_time": 8,
+      "all_time": 9,
       "repo": "agtmls-core"
      },
      "agtmls-core": {
-      "all_time": 28,
+      "all_time": 29,
       "repo": "agtmls-core"
      },
      "agtmls-lsp": {
-      "all_time": 8,
+      "all_time": 9,
       "repo": "agtmls-lsp"
      },
      "cclm": {
-      "all_time": 4116,
+      "all_time": 4117,
       "repo": "mini-functions"
      },
      "cjwt": {
-      "all_time": 3454,
+      "all_time": 3455,
       "repo": "mini-functions"
      },
      "cmn": {
@@ -612,19 +612,19 @@
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 149147,
+      "all_time": 149301,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 27225,
+      "all_time": 27236,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32912,
+      "all_time": 32919,
       "repo": "frontmatter-gen"
      },
      "hsh": {
-      "all_time": 14247,
+      "all_time": 14248,
       "repo": "hsh"
      },
      "hsh-backend-awslc": {
@@ -644,15 +644,15 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29364,
+      "all_time": 29371,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24371,
+      "all_time": 24377,
       "repo": "http-handle"
      },
      "idk": {
-      "all_time": 4184,
+      "all_time": 4185,
       "repo": "mini-functions"
      },
      "kyberlib": {
@@ -664,7 +664,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 19117,
+      "all_time": 19123,
       "repo": "langweave"
      },
      "libmake": {
@@ -672,7 +672,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 24996942,
+      "all_time": 25002559,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -680,15 +680,15 @@
       "repo": "mcp-serve"
      },
      "mdg": {
-      "all_time": 2952,
+      "all_time": 2953,
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 26513,
+      "all_time": 26519,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20459,
+      "all_time": 20465,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -700,7 +700,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1285160,
+      "all_time": 1288704,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -712,7 +712,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 41103,
+      "all_time": 41397,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -724,7 +724,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 6254,
+      "all_time": 6261,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -756,11 +756,11 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12844,
+      "all_time": 12846,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 128625,
+      "all_time": 128805,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -800,31 +800,31 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 26778,
+      "all_time": 26787,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25825866,
+      "all_time": 25833121,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19487,
+      "all_time": 19498,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42673,
+      "all_time": 42683,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2794,
+      "all_time": 2800,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3270,
+      "all_time": 3276,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 1951,
+      "all_time": 1957,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -832,23 +832,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3155,
+      "all_time": 3161,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3320,
+      "all_time": 3326,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3056,
+      "all_time": 3062,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19577,
+      "all_time": 19582,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19361,
+      "all_time": 19367,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -900,7 +900,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 146830,
+      "all_time": 147010,
       "repo": "vrd"
      },
      "wiserone": {
@@ -908,16 +908,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4786,
+      "all_time": 4792,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30686,
+      "all_time": 30721,
       "repo": "xtasks"
      }
     },
     "packages": 82,
-    "recent": 2262628
+    "recent": 2271820
    }
   },
   "github": {
@@ -1088,7 +1088,7 @@
      "pain001-sdk-go": 1,
      "pain001-sdk-java": 1,
      "pain001-sdk-rust": 1,
-     "pain001.github.io": 2,
+     "pain001.github.io": 3,
      "passmcp": 0,
      "passmcp-action": 0,
      "passmcp-census": 0,
@@ -1130,8 +1130,8 @@
      "rustlogs.github.io": 0,
      "satellion.github.io": 1,
      "scoop-bucket": 1,
-     "sebastienrousseau": 0,
-     "sebastienrousseau.github.io": 2,
+     "sebastienrousseau": 1,
+     "sebastienrousseau.github.io": 3,
      "semantic-release-config": 0,
      "shell-config": 0,
      "shokunin.github.io": 1,
@@ -1171,13 +1171,13 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 736
+    "stars": 739
    }
   },
   "npm": {
    "as_of": "2026-11-13",
    "value": {
-    "all_time": 184507,
+    "all_time": 184519,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 776,
@@ -1260,11 +1260,11 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
-      "all_time": 3550,
+      "all_time": 3558,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-sdk": {
-      "all_time": 3544,
+      "all_time": 3548,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
@@ -1457,7 +1457,7 @@
      }
     },
     "packages": 69,
-    "recent": 57292
+    "recent": 57304
    }
   },
   "pypi": {
