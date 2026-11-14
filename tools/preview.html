@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holiday themes: preview</title>
+<style>
+  :root{--bg:#ffffff;--fg:#1d1d1f;--mute:#6e6e73;--rule:#d2d2d7;--chip:#f5f5f7;--sel:#1d1d1f;--selfg:#fff}
+  @media (prefers-color-scheme: dark){:root{--bg:#0d1117;--fg:#f5f5f7;--mute:#a1a1a6;--rule:#30363d;--chip:#161b22;--sel:#f5f5f7;--selfg:#0d1117}}
+  body.force-light{--bg:#ffffff;--fg:#1d1d1f;--mute:#6e6e73;--rule:#d2d2d7;--chip:#f5f5f7;--sel:#1d1d1f;--selfg:#fff}
+  body.force-dark{--bg:#0d1117;--fg:#f5f5f7;--mute:#a1a1a6;--rule:#30363d;--chip:#161b22;--sel:#f5f5f7;--selfg:#0d1117}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;transition:background .2s}
+  header{max-width:1280px;margin:0 auto;padding:40px 24px 8px}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  h1{font-size:36px;letter-spacing:-.02em;margin:6px 0 10px;line-height:1.1}
+  p.lede{color:var(--mute);max-width:820px;margin:0 0 18px}
+  .bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+  .bar-in{max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .seg{display:inline-flex;background:var(--chip);border-radius:999px;padding:3px}
+  .seg button{border:0;background:none;color:var(--fg);font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;cursor:pointer}
+  .seg button[aria-pressed=true]{background:var(--sel);color:var(--selfg)}
+  .months{display:flex;gap:2px;flex-wrap:wrap}
+  .months a{color:var(--mute);text-decoration:none;font-size:13px;padding:5px 8px;border-radius:8px}
+  .months a:hover{color:var(--fg);background:var(--chip)}
+  .months a.now{color:var(--fg);font-weight:600}
+  h3.month{font-size:28px;letter-spacing:-.02em;margin:24px 0 -8px;scroll-margin-top:70px}
+  h3.month small{font-size:14px;color:var(--mute);font-weight:400;margin-left:10px;letter-spacing:0}
+  .count{color:var(--mute);font-size:13px;margin-left:auto}
+  main{max-width:1280px;margin:0 auto;padding:20px 24px 60px;display:grid;gap:28px}
+  .card{border-top:1px solid var(--rule);padding-top:16px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:10px}
+  .meta h2{font-size:20px;margin:0;letter-spacing:-.01em}
+  .meta .when{color:var(--mute);font-size:13px}
+  .meta .motif{font-size:13px}
+  .sw{display:inline-flex;gap:4px;margin-left:auto;align-items:center;font-size:12px;color:var(--mute)}
+  .sw i{width:16px;height:16px;border-radius:50%;display:inline-block;border:1px solid var(--rule)}
+  .pics{display:grid;gap:12px}
+  .pics img{width:100%;display:block;border-radius:14px}
+  body.both .pics{grid-template-columns:1fr 1fr}
+  .pics .only-light,.pics .only-dark,.pics .sys{display:none}
+  body.mode-light .pics .only-light, body.mode-dark .pics .only-dark{display:block}
+  body.both .pics .only-light, body.both .pics .only-dark{display:block}
+  body.mode-system .pics .sys{display:block}
+  .mg{display:grid;gap:28px 24px;grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+  body.both .mg{grid-template-columns:1fr}
+  .default{outline:2px dashed var(--rule);outline-offset:8px;border-radius:6px}
+  .notes{max-width:1280px;margin:0 auto;padding:0 24px 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .note{background:var(--chip);border-radius:14px;padding:14px 16px;font-size:14px}
+  .note b{display:block;margin-bottom:4px}
+  .note span{color:var(--mute)}
+</style>
+</head>
+<body class="mode-system">
+<header>
+  <div class="eyebrow">Preview · make preview</div>
+  <h1>Holiday heroes, month by month</h1>
+  <p class="lede">Each preview is a committed <code>assets/hero-&lt;key&gt;-light|dark.svg</code> with the clock running, as the Worker serves it. Every theme keeps the layout, type and animation; it changes the panel tint, the two background glows, the lattice and the hands. All text meets WCAG AA (4.5:1) in both modes.</p>
+</header>
+<div class="notes">
+  <div class="note"><b>What changes per theme</b><span>Panel tint, main glow (behind the clock) and a second glow (lower left), lattice dots as a two-colour gradient, hour hand and hour badge in the main accent, seconds sweep, hub and minute badge ring in the second accent.</span></div>
+  <div class="note"><b>How it ships</b><span><code>make</code> writes <code>hero-&lt;holiday&gt;-light|dark.svg</code> beside the everyday hero, and <code>assets/holidays.json</code>. The profile-clock Worker picks the hero for today's London date, alternating by the hour when holidays overlap, and falls back to the everyday hero.</span></div>
+  <div class="note"><b>Moving feasts</b><span>Lunar, lunisolar and astronomical holidays sit in the month they usually fall in; <code>holidays.toml</code> carries their sourced dates. A year with no sourced date is listed under its theme and has no theme that year.</span></div>
+  <div class="note"><b>Light, dark and system</b><span>Same <code>&lt;picture&gt;</code> switch as today, so GitHub follows the reader's system setting. Use the toggle below to compare.</span></div>
+</div>
+<div class="bar"><div class="bar-in">
+  <div class="seg" role="group" aria-label="Mode">
+    <button data-mode="system" aria-pressed="true">System</button>
+    <button data-mode="light" aria-pressed="false">Light</button>
+    <button data-mode="dark" aria-pressed="false">Dark</button>
+    <button data-mode="both" aria-pressed="false">Side by side</button>
+  </div>
+  <nav class="months" id="months"></nav><span class="count" id="count"></span>
+</div></div>
+<main id="grid"></main>
+<script>
+const DATA = __DATA__;
+const grid = document.getElementById('grid');
+document.getElementById('count').textContent = (DATA.length - 1) + ' holiday themes + everyday';
+const MONTHS = ['Everyday','January','February','March','April','May','June','July','August','September','October','November','December'];
+const nav = document.getElementById('months');
+const thisMonth = new Date().getMonth() + 1;
+for (let m = 0; m <= 12; m++) {
+  const items = DATA.filter(t => t.month === m);
+  if (!items.length) continue;
+  const id = 'm-' + MONTHS[m].toLowerCase();
+  const a = document.createElement('a');
+  a.href = '#' + id; a.textContent = m ? MONTHS[m].slice(0, 3) : 'Everyday';
+  if (m === thisMonth) a.className = 'now';
+  nav.appendChild(a);
+  const h = document.createElement('h3');
+  h.className = 'month'; h.id = id;
+  h.innerHTML = MONTHS[m] + (m ? `<small>${items.length} theme${items.length > 1 ? 's' : ''}</small>` : '');
+  grid.appendChild(h);
+  const mg = document.createElement('div');
+  mg.className = 'mg';
+  grid.appendChild(mg);
+  for (const t of items) {
+    const el = document.createElement('section');
+    el.className = 'card' + (t.key === 'default' ? ' default' : '');
+    el.id = t.key;
+    const dots = (p) => [p.panel, p.accent, p.accent2].map(c => `<i style="background:${c}" title="${c}"></i>`).join('');
+    el.innerHTML = `
+      <div class="meta"><h2>${t.name}</h2><span class="when">${t.when}</span><span class="motif">${t.motif}</span>
+        <span class="sw">light ${dots(t.l)} &nbsp; dark ${dots(t.d)}</span></div>
+      <div class="pics">
+        <picture class="sys"><source media="(prefers-color-scheme: dark)" srcset="heroes/${t.key}-dark.svg"><img loading="lazy" src="heroes/${t.key}-light.svg" alt="${t.name} hero, system theme"></picture>
+        <img class="only-light" loading="lazy" src="heroes/${t.key}-light.svg" alt="${t.name} hero, light">
+        <img class="only-dark" loading="lazy" src="heroes/${t.key}-dark.svg" alt="${t.name} hero, dark">
+      </div>`;
+    mg.appendChild(el);
+  }
+}
+const btns = document.querySelectorAll('.seg button');
+function setMode(m) {
+  document.body.className = m === 'both' ? 'both' : 'mode-' + m;
+  if (m === 'light') document.body.classList.add('force-light');
+  if (m === 'dark') document.body.classList.add('force-dark');
+  btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === m));
+}
+btns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+</script>
+</body>
+</html>

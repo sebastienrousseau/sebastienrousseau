@@ -2,10 +2,13 @@
 # out of step with pyproject.toml. smoke needs only the standard library.
 RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke audit manual check lint test drift icon
+.PHONY: all live smoke audit manual check lint test drift icon preview
 
 all:  ## Regenerate assets/, README.md and CREDITS.md from profile.toml and holidays.toml
 	$(RUN) --group build tools/build.py
+
+preview:  ## Write a gallery of every hero, clocks running, to _preview/index.html
+	$(RUN) --group build tools/preview.py
 
 icon:  ## Sanitise a Noun Project icon: make icon KEY=<key> SVG=<file> CREATOR="<name>" [TITLE= URL=]
 	$(RUN) --group build python tools/icons.py "$(KEY)" "$(SVG)" --creator "$(CREATOR)" --title "$(TITLE)" --url "$(URL)"
