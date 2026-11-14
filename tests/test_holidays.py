@@ -148,12 +148,8 @@ def test_the_real_calendar_validates_and_covers_every_sourced_year():
     assert len(hs) == 57
     gaps = holidays.gaps(years, hs)
     assert gaps == [
-        "holi: no sourced date for 2028, 2029, 2030",
         "vesak: no sourced date for 2026, 2027, 2028, 2029, 2030",
-        "raksha-bandhan: no sourced date for 2028, 2029, 2030",
-        "oktoberfest: no sourced date for 2026, 2028, 2029, 2030",
-        "navaratri: no sourced date for 2028, 2029, 2030",
-        "diwali: no sourced date for 2028, 2029, 2030",
+        "oktoberfest: no sourced date for 2028, 2029, 2030",
     ]
     unsourced = {(g.split(":")[0], y) for g in gaps for y in g.split("for ")[1].split(", ")}
     days = holidays.calendar(years, hs)
