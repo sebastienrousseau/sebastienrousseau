@@ -3,10 +3,14 @@
 from __future__ import annotations
 
 import math
+import re
 from collections.abc import Callable
 from pathlib import Path
 
+from emblems import EMBLEMS
 from fonts import wrap
+from motifs import GLYPHS
+from palette import mix
 from svg import Doc
 from theme import LANGS, THEMES
 
@@ -28,6 +32,42 @@ def _glow(doc: Doc, gid: str, color: str, circle: tuple[float, float, float], al
     doc.add(f'<rect width="{doc.width}" height="{doc.height}" rx="32" fill="url(#{gid})"/>')
 
 
+def _points(doc: Doc, centre: tuple[float, float]) -> list[tuple[str, str, str, str]]:
+    """The lattice points as printed: x, y, radius and opacity, rounded."""
+    cx, cy = centre
+    points = []
+    for i in range(-14, 15):
+        for j in range(-8, 9):
+            x, y = cx + i * 46 + j * 14, cy + i * 9 + j * 44
+            d = math.hypot(x - cx, y - cy)
+            if 20 < x < W - 20 and 20 < y < doc.height - 20 and d < 460:
+                k = 1 - d / 460
+                points.append((f"{x:.1f}", f"{y:.1f}", f"{1.2 + 2.6 * k:.2f}", f"{0.15 + 0.85 * k:.2f}"))
+    return points
+
+
+# A holiday's glyphs shade from accent2 (lower left) to accent (upper right)
+# along this vector from (640, 560), reaching accent at LATTICE_REACH of it.
+LATTICE_FROM, LATTICE_TOWARD, LATTICE_REACH = (640, 560), (600, -500), 0.65
+
+
+def _glyph_lattice(doc: Doc, t: dict, points: list[tuple[str, str, str, str]]) -> str:
+    """The lattice with each point drawn as the holiday's glyph."""
+    doc.defs.append(f'<g id="gl">{GLYPHS[t["glyph"]]}</g>')
+    (fx, fy), (tx, ty) = LATTICE_FROM, LATTICE_TOWARD
+    uses = []
+    for n, (xs, ys, rs, o) in enumerate(points):
+        x, y, r = float(xs), float(ys), float(rs)
+        k = ((x - fx) * tx + (y - fy) * ty) / (tx * tx + ty * ty)
+        colour = mix(t["accent2"], t["accent"], max(0, min(1, k / LATTICE_REACH)))
+        size = r / 6 if t["glyph"] == "dot" else r / 3.1  # the dot glyph is twice the others' radius
+        turn = f" rotate({(n * 47) % 70 - 35})" if t["spin"] else ""
+        uses.append(
+            f'<use href="#gl" transform="translate({xs} {ys}) scale({size:.3f}){turn}" color="{colour}" opacity="{o}"/>'
+        )
+    return f'<g mask="url(#m)">{"".join(uses)}</g>'
+
+
 def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     """A skewed point lattice (a nod to ML-KEM) that fades toward the text."""
     doc.defs.append(
@@ -35,18 +75,25 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
         '<stop offset=".8" stop-color="#fff"/></linearGradient><mask id="m"><rect width="100%"'
         ' height="100%" fill="url(#fade)"/></mask>'
     )
-    cx, cy = centre
-    dots = []
-    for i in range(-14, 15):
-        for j in range(-8, 9):
-            x, y = cx + i * 46 + j * 14, cy + i * 9 + j * 44
-            d = math.hypot(x - cx, y - cy)
-            if 20 < x < W - 20 and 20 < y < doc.height - 20 and d < 460:
-                k = 1 - d / 460
-                dots.append(
-                    f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{1.2 + 2.6 * k:.2f}" opacity="{0.15 + 0.85 * k:.2f}"/>'
-                )
+    points = _points(doc, centre)
+    if "glyph" in t:
+        doc.add(_glyph_lattice(doc, t, points))
+        return
+    dots = [f'<circle cx="{x}" cy="{y}" r="{r}" opacity="{o}"/>' for x, y, r, o in points]
     doc.add(f'<g mask="url(#m)" fill="{t["accent"]}">{"".join(dots)}</g>')
+
+
+def _emblem(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
+    """A holiday's line-art emblem, large and faint, behind the clock."""
+    name = t.get("emblem", "none")
+    if name == "none":
+        return
+    body = re.sub(r'stroke-width="([\d.]+)"', lambda m: f'stroke-width="{float(m[1]) / 2.4:.3f}"', EMBLEMS[name])
+    body = body.replace('fill="none"', 'fill="currentColor" fill-opacity=".14"')
+    cx, cy = centre
+    doc.add(
+        f'<g transform="translate({cx} {cy}) scale(4.4)" color="{t["accent"]}" opacity="{t["emblem_alpha"]}">{body}</g>'
+    )
 
 
 # The lattice clock. The hero's ML-KEM point lattice is the dial: two
@@ -86,7 +133,7 @@ CLOCK_CSS = (
 )
 
 
-def _badge(doc: Doc, t: dict, tip: tuple[float, float], unit: str) -> None:
+def _badge(doc: Doc, t: dict, tip: tuple[float, float], unit: str, ring: str) -> None:
     """A badge at a hand's tip: a clipped strip of numbers rolled by CSS.
 
     The outer group rotates with the hand about the clock centre (class
@@ -98,7 +145,7 @@ def _badge(doc: Doc, t: dict, tip: tuple[float, float], unit: str) -> None:
     cid = f"clip-{unit}"
     doc.defs.append(f'<clipPath id="{cid}"><circle cx="{tx}" cy="{ty}" r="{BADGE - 3}"/></clipPath>')
     doc.add(f'<g class="hand {unit}"><g class="hand {unit} un" style="transform-origin:{tx}px {ty}px">')
-    doc.add(f'<circle cx="{tx}" cy="{ty}" r="{BADGE}" fill="{t["panel"]}" stroke="{t["accent"]}" stroke-width="2"/>')
+    doc.add(f'<circle cx="{tx}" cy="{ty}" r="{BADGE}" fill="{t["panel"]}" stroke="{ring}" stroke-width="2"/>')
     doc.add(f'<g clip-path="url(#{cid})"><g class="hand {unit} roll">')
     for n, label in enumerate(labels):
         doc.text(tx, ty + 8.5 + n * ROW, label, (SEMI, 24, t["ink"]), anchor="middle", tracking=-0.02)
@@ -114,16 +161,18 @@ def _lattice_clock(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.css.append(CLOCK_MARKER)
     doc.css.append(REDUCED_MOTION)
     a = t["accent"]
+    a2 = t.get("accent2", a)  # a holiday's second accent: seconds, hub and minute ring
     line = f'stroke="{a}" stroke-linecap="round"'
     doc.add(
-        f'<g class="hand ss"><path d="M{cx} {cy + 22}V{cy - SECOND_LEN}" {line} stroke-width="1.2" opacity=".45"/>'
-        f'<circle cx="{cx}" cy="{cy - SECOND_LEN}" r="3.5" fill="{a}" opacity=".6"/></g>'
+        f'<g class="hand ss"><path d="M{cx} {cy + 22}V{cy - SECOND_LEN}" stroke="{a2}" stroke-linecap="round"'
+        f' stroke-width="1.2" opacity=".45"/>'
+        f'<circle cx="{cx}" cy="{cy - SECOND_LEN}" r="3.5" fill="{a2}" opacity=".6"/></g>'
     )
     doc.add(f'<path class="hand hh" d="M{cx} {cy}V{cy - HOUR_LEN + BADGE}" {line} stroke-width="3"/>')
     doc.add(f'<path class="hand mm" d="M{cx} {cy}V{cy - MINUTE_LEN + BADGE}" {line} stroke-width="3"/>')
-    _badge(doc, t, (cx, cy - HOUR_LEN), "hh")
-    _badge(doc, t, (cx, cy - MINUTE_LEN), "mm")
-    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{a}"/>')
+    _badge(doc, t, (cx, cy - HOUR_LEN), "hh", a)
+    _badge(doc, t, (cx, cy - MINUTE_LEN), "mm", a2)
+    doc.add(f'<circle cx="{cx}" cy="{cy}" r="7" fill="{a2}"/>')
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="2.6" fill="{t["panel"]}"/>')
 
 
@@ -132,10 +181,14 @@ def hero(t: dict, c: dict) -> Doc:
         W,
         600,
         f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}"
-        " A clock drawn on the lattice shows the time in London.",
+        " A clock drawn on the lattice shows the time in London."
+        + (f" Decorated for {t['name']}." if "name" in t else ""),
     )
     _panel(doc, t["panel"])
-    _glow(doc, "g", t["glow"], (1060, 300, 520), 0.28)
+    if t.get("glow2_alpha", 0) > 0:
+        _glow(doc, "g2", t["glow2"], (140, 600, 640), t["glow2_alpha"])
+    _glow(doc, "g", t["glow"], (1060, 300, 520), t.get("glow_alpha", 0.28))
+    _emblem(doc, t, (1038, 300))
     _lattice(doc, t, (1038, 300))
     _lattice_clock(doc, t, (1038, 300))
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
