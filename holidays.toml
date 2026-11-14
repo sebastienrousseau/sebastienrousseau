@@ -1,0 +1,677 @@
+# Holiday themes for the profile hero, in calendar order. This file is a
+# source: tools/build.py renders a light and a dark hero per entry and
+# writes assets/holidays.json, the calendar the clock Worker reads. Order
+# matters: overlapping holidays alternate by the London hour in this order.
+# docs/HOLIDAYS.md explains the rule grammar and the sources policy.
+
+schema = 1
+years = [2026, 2030]  # inclusive span the calendar must cover
+
+[[holiday]]
+key = "new-year"
+name = "New Year's Day"
+month = 1
+rule = "fixed 01-01"
+motif = "First light: sunrise coral, clear sky"
+accent = { light = "#c2410c", dark = "#ffa07a" }
+accent2 = { light = "#0369a1", dark = "#7cc8f0" }
+glyph = "sparkle"
+emblem = "sun"
+
+[[holiday]]
+key = "epiphany"
+name = "Epiphany"
+month = 1
+rule = "fixed 01-06"
+motif = "Three Kings: royal purple, gold"
+accent = { light = "#5b2a86", dark = "#c9a7ff" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "star"
+emblem = "star"
+
+[[holiday]]
+key = "pongal"
+name = "Pongal / Makar Sankranti"
+month = 1
+rule = "fixed 01-14 2"
+motif = "Sugarcane green, turmeric, kites"
+accent = { light = "#4d7c0f", dark = "#b5e061" }
+accent2 = { light = "#c2410c", dark = "#ffa94d" }
+glyph = "kite"
+spin = true
+emblem = "sun"
+
+[[holiday]]
+key = "burns-night"
+name = "Burns Night"
+month = 1
+rule = "fixed 01-25"
+motif = "Saltire blue, heather"
+accent = { light = "#0057a8", dark = "#82b8ff" }
+accent2 = { light = "#7e3a8c", dark = "#d6a2e8" }
+glyph = "saltire"
+emblem = "none"
+
+[[holiday]]
+key = "australia-day"
+name = "Australia Day"
+month = 1
+rule = "fixed 01-26"
+motif = "Green and gold"
+accent = { light = "#00754a", dark = "#5fd39a" }
+accent2 = { light = "#a16207", dark = "#ffcd00" }
+glyph = "star"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "lunar-new-year"
+name = "Lunar New Year"
+month = 1
+rule = "table 3"
+motif = "Lantern red, lucky gold"
+accent = { light = "#b3001b", dark = "#ff6b6b" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "flower"
+spin = true
+emblem = "lantern"
+
+[[holiday]]
+key = "carnival"
+name = "Carnival"
+month = 2
+rule = "easter -50 4"
+motif = "Feathers: electric green, magenta"
+accent = { light = "#047857", dark = "#4ee6a0" }
+accent2 = { light = "#be185d", dark = "#ff7ac8" }
+glyph = "confetti"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "valentine"
+name = "Valentine's Day"
+month = 2
+rule = "fixed 02-14"
+motif = "Rose, blush"
+accent = { light = "#be185d", dark = "#ff8fb8" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "heart"
+spin = true
+emblem = "heart"
+
+[[holiday]]
+key = "lantern-festival"
+name = "Lantern Festival"
+month = 2
+rule = "table 1"
+motif = "Lantern amber, night indigo"
+accent = { light = "#b45309", dark = "#ffb454" }
+accent2 = { light = "#3730a3", dark = "#a5b4fc" }
+glyph = "lantern"
+emblem = "moon"
+
+[[holiday]]
+key = "womens-day"
+name = "International Women's Day"
+month = 3
+rule = "fixed 03-08"
+motif = "Purple, green, white"
+accent = { light = "#6b21a8", dark = "#d0a6ff" }
+accent2 = { light = "#15803d", dark = "#86e0a0" }
+glyph = "flower"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "mothering-sunday"
+name = "Mothering Sunday"
+month = 3
+rule = "easter -21"
+motif = "Peony pink, sage"
+accent = { light = "#9d174d", dark = "#f9a8d4" }
+accent2 = { light = "#4d7c57", dark = "#a7d7b0" }
+glyph = "tulip"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "st-patrick"
+name = "St. Patrick's Day"
+month = 3
+rule = "fixed 03-17"
+motif = "Shamrock green, gold"
+accent = { light = "#047857", dark = "#5fd3a0" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "shamrock"
+spin = true
+emblem = "shamrock"
+
+[[holiday]]
+key = "holi"
+name = "Holi"
+month = 3
+rule = "table 2"
+motif = "Gulal magenta, marigold, cyan"
+accent = { light = "#be185d", dark = "#ff7ac8" }
+accent2 = { light = "#c2410c", dark = "#ffb347" }
+glyph = "splash"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "nowruz"
+name = "Nowruz"
+month = 3
+rule = "table 1"
+motif = "Sabzeh green, turquoise"
+accent = { light = "#2e7d32", dark = "#9be39f" }
+accent2 = { light = "#00838f", dark = "#5fe0e8" }
+glyph = "leaf"
+spin = true
+emblem = "sun"
+
+[[holiday]]
+key = "eid-al-fitr"
+name = "Eid al-Fitr"
+month = 3
+rule = "table 3"
+motif = "Emerald, crescent gold"
+accent = { light = "#00695c", dark = "#5fe0c4" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "star"
+spin = true
+emblem = "crescent"
+
+[[holiday]]
+key = "april-fools"
+name = "April Fools' Day"
+month = 4
+rule = "fixed 04-01"
+motif = "Jester teal, lemon"
+accent = { light = "#0f766e", dark = "#5eead4" }
+accent2 = { light = "#a16207", dark = "#fde047" }
+glyph = "confetti"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "pesach"
+name = "Pesach"
+month = 4
+rule = "table 8"
+motif = "Wine, matzah wheat"
+accent = { light = "#7b1e3a", dark = "#f08aa6" }
+accent2 = { light = "#a16207", dark = "#e9c46a" }
+glyph = "wheat"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "easter"
+name = "Easter"
+month = 4
+rule = "easter -2 4"
+motif = "Lilac, spring yellow"
+accent = { light = "#6b4fbb", dark = "#c7b8ff" }
+accent2 = { light = "#a16207", dark = "#ffe08a" }
+glyph = "egg"
+spin = true
+emblem = "egg"
+
+[[holiday]]
+key = "songkran"
+name = "Songkran"
+month = 4
+rule = "fixed 04-13 3"
+motif = "Splash cyan, jasmine, orange"
+accent = { light = "#0369a1", dark = "#67d4ff" }
+accent2 = { light = "#c2410c", dark = "#ffa94d" }
+glyph = "drop"
+emblem = "none"
+
+[[holiday]]
+key = "earth-day"
+name = "Earth Day"
+month = 4
+rule = "fixed 04-22"
+motif = "Forest, ocean"
+accent = { light = "#2e7d32", dark = "#7ed99a" }
+accent2 = { light = "#0277bd", dark = "#6ec6ff" }
+glyph = "leaf"
+spin = true
+emblem = "globe"
+
+[[holiday]]
+key = "workers-day"
+name = "International Workers' Day"
+month = 5
+rule = "fixed 05-01"
+motif = "Labour red, lily-of-the-valley green"
+accent = { light = "#b91c1c", dark = "#ff7a7a" }
+accent2 = { light = "#2e7d32", dark = "#8fd694" }
+glyph = "bell"
+spin = true
+emblem = "none"
+
+[[holiday]]
+key = "cinco-de-mayo"
+name = "Cinco de Mayo"
+month = 5
+rule = "fixed 05-05"
+motif = "Verde, rojo"
+accent = { light = "#006847", dark = "#4fd69a" }
+accent2 = { light = "#ce1126", dark = "#ff6b78" }
+glyph = "flower"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "vesak"
+name = "Vesak"
+month = 5
+rule = "table 1"
+motif = "Saffron, Buddhist-flag blue"
+accent = { light = "#b35900", dark = "#ffb35c" }
+accent2 = { light = "#1565c0", dark = "#82b1ff" }
+glyph = "lotus"
+emblem = "moon"
+
+[[holiday]]
+key = "eid-al-adha"
+name = "Eid al-Adha"
+month = 5
+rule = "table 3"
+motif = "Night indigo, lantern gold"
+accent = { light = "#283593", dark = "#9fa8ff" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "crescent"
+spin = true
+emblem = "crescent"
+
+[[holiday]]
+key = "spring-bank-holiday"
+name = "Spring Bank Holiday"
+month = 5
+rule = "nth last mon 05"
+motif = "Bluebell, new leaf"
+accent = { light = "#4338ca", dark = "#a5b4fc" }
+accent2 = { light = "#4d7c0f", dark = "#a3e06a" }
+glyph = "bell"
+spin = true
+emblem = "sun"
+
+[[holiday]]
+key = "dragon-boat"
+name = "Dragon Boat Festival"
+month = 6
+rule = "table 1"
+motif = "Jade, dragon red"
+accent = { light = "#00796b", dark = "#4fd1b5" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "wave"
+emblem = "boat"
+
+[[holiday]]
+key = "juneteenth"
+name = "Juneteenth"
+month = 6
+rule = "fixed 06-19"
+motif = "Flag blue, red, the bursting star"
+accent = { light = "#1e3a8a", dark = "#93b4ff" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "star"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "midsummer"
+name = "Midsummer / Summer Solstice"
+month = 6
+rule = "table 1"
+motif = "Cornflower blue, sun yellow"
+accent = { light = "#1d4ed8", dark = "#93b4ff" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "flower"
+spin = true
+emblem = "sun"
+
+[[holiday]]
+key = "inti-raymi"
+name = "Inti Raymi"
+month = 6
+rule = "fixed 06-24"
+motif = "Inca sun gold, Andean red"
+accent = { light = "#a16207", dark = "#ffc94a" }
+accent2 = { light = "#b91c1c", dark = "#ff7a6b" }
+glyph = "sun"
+emblem = "sun"
+
+[[holiday]]
+key = "canada-day"
+name = "Canada Day"
+month = 7
+rule = "fixed 07-01"
+motif = "Maple red, snow"
+accent = { light = "#d52b1e", dark = "#ff7a70" }
+accent2 = { light = "#64748b", dark = "#e2e8f0" }
+glyph = "maple"
+spin = true
+emblem = "maple"
+
+[[holiday]]
+key = "us-independence"
+name = "Independence Day (US)"
+month = 7
+rule = "fixed 07-04"
+motif = "Old Glory red, navy"
+accent = { light = "#b31942", dark = "#ff7a9a" }
+accent2 = { light = "#0a3161", dark = "#93b4ff" }
+glyph = "star"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "bastille-day"
+name = "Bastille Day"
+month = 7
+rule = "fixed 07-14"
+motif = "Bleu, blanc, rouge"
+accent = { light = "#002395", dark = "#8ca8ff" }
+accent2 = { light = "#c8102e", dark = "#ff6b78" }
+glyph = "burst"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "ashura"
+name = "Ashura"
+month = 7
+rule = "table 1"
+motif = "Quiet: deep green, charcoal"
+quiet = true
+accent = { light = "#14532d", dark = "#86c79c" }
+accent2 = { light = "#475569", dark = "#cbd5e1" }
+glyph = "dot"
+emblem = "none"
+
+[[holiday]]
+key = "raksha-bandhan"
+name = "Raksha Bandhan"
+month = 8
+rule = "table 1"
+motif = "Saffron, rakhi red"
+accent = { light = "#c2410c", dark = "#ff9a5c" }
+accent2 = { light = "#be185d", dark = "#ff7ac8" }
+glyph = "flower"
+spin = true
+emblem = "rangoli"
+
+[[holiday]]
+key = "obon"
+name = "Obon"
+month = 8
+rule = "fixed 08-13 4"
+motif = "Lantern vermilion, yukata indigo"
+accent = { light = "#c2410c", dark = "#ff8a5c" }
+accent2 = { light = "#1e3a8a", dark = "#93b4ff" }
+glyph = "lantern"
+emblem = "moon"
+
+[[holiday]]
+key = "india-pakistan"
+name = "Independence Day (India & Pakistan)"
+month = 8
+rule = "fixed 08-14 2"
+motif = "Green, saffron, white"
+accent = { light = "#01411c", dark = "#6fd38f" }
+accent2 = { light = "#c2410c", dark = "#ff9933" }
+glyph = "kite"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "summer-bank-holiday"
+name = "Summer Bank Holiday"
+month = 8
+rule = "nth last mon 08"
+motif = "Seaside teal, sand"
+accent = { light = "#0e7490", dark = "#67e8f9" }
+accent2 = { light = "#a16207", dark = "#f4d58d" }
+glyph = "wave"
+emblem = "sun"
+
+[[holiday]]
+key = "mid-autumn"
+name = "Mid-Autumn Festival"
+month = 9
+rule = "table 1"
+motif = "Moon gold, night indigo"
+accent = { light = "#a16207", dark = "#ffd166" }
+accent2 = { light = "#3949ab", dark = "#9fa8ff" }
+glyph = "sparkle"
+emblem = "moon"
+
+[[holiday]]
+key = "rosh-hashanah"
+name = "Rosh Hashanah"
+month = 9
+rule = "table 2"
+motif = "Apple red, honey"
+accent = { light = "#b91c1c", dark = "#ff8a80" }
+accent2 = { light = "#a16207", dark = "#ffc94a" }
+glyph = "apple"
+spin = true
+emblem = "apple"
+
+[[holiday]]
+key = "yom-kippur"
+name = "Yom Kippur"
+month = 9
+rule = "table 1"
+motif = "Quiet: white and silver"
+quiet = true
+accent = { light = "#475569", dark = "#cbd5e1" }
+accent2 = { light = "#64748b", dark = "#e2e8f0" }
+glyph = "dot"
+emblem = "none"
+
+[[holiday]]
+key = "autumn-equinox"
+name = "Autumn Equinox"
+month = 9
+rule = "table 1"
+motif = "Amber leaf, dusk violet"
+accent = { light = "#b45309", dark = "#ffb454" }
+accent2 = { light = "#6d28d9", dark = "#c4b5fd" }
+glyph = "leaf"
+spin = true
+emblem = "sun"
+
+[[holiday]]
+key = "oktoberfest"
+name = "Oktoberfest"
+month = 10
+rule = "table"
+motif = "Bavarian blue, lager gold"
+accent = { light = "#0b5fa5", dark = "#7cc0ff" }
+accent2 = { light = "#a16207", dark = "#ffcc4d" }
+glyph = "diamond"
+emblem = "none"
+
+[[holiday]]
+key = "navaratri"
+name = "Navaratri / Dussehra"
+month = 10
+rule = "table 10"
+motif = "Vermilion, peacock blue"
+accent = { light = "#c1272d", dark = "#ff7a7a" }
+accent2 = { light = "#0e7490", dark = "#5ee0f0" }
+glyph = "marigold"
+spin = true
+emblem = "rangoli"
+
+[[holiday]]
+key = "diwali"
+name = "Diwali"
+month = 10
+rule = "table 5"
+motif = "Diya gold, deep maroon"
+accent = { light = "#b45309", dark = "#ffc061" }
+accent2 = { light = "#9f1239", dark = "#ff6f91" }
+glyph = "diya"
+emblem = "rangoli"
+
+[[holiday]]
+key = "halloween"
+name = "Halloween"
+month = 10
+rule = "fixed 10-31"
+motif = "Pumpkin, witching purple"
+accent = { light = "#c2410c", dark = "#ff8c2a" }
+accent2 = { light = "#6b21a8", dark = "#b38cff" }
+glyph = "bat"
+spin = true
+emblem = "pumpkin"
+
+[[holiday]]
+key = "dia-de-muertos"
+name = "D\u00eda de los Muertos"
+month = 11
+rule = "fixed 11-01 2"
+motif = "Papel picado magenta, cempas\u00fachil"
+accent = { light = "#be185d", dark = "#ff6fb5" }
+accent2 = { light = "#c2410c", dark = "#ffa040" }
+glyph = "marigold"
+spin = true
+emblem = "rangoli"
+
+[[holiday]]
+key = "bonfire-night"
+name = "Guy Fawkes / Bonfire Night"
+month = 11
+rule = "fixed 11-05"
+motif = "Ember orange, smoke blue"
+accent = { light = "#c2410c", dark = "#ff9a3c" }
+accent2 = { light = "#334155", dark = "#94a3b8" }
+glyph = "burst"
+spin = true
+emblem = "flame"
+
+[[holiday]]
+key = "remembrance"
+name = "Remembrance Day"
+month = 11
+rule = ["fixed 11-11", "nth 2 sun 11"]
+motif = "Quiet: poppy red, black"
+quiet = true
+accent = { light = "#b91c1c", dark = "#ff6b6b" }
+accent2 = { light = "#1f2937", dark = "#9ca3af" }
+glyph = "poppy"
+spin = true
+emblem = "poppy"
+
+[[holiday]]
+key = "thanksgiving"
+name = "Thanksgiving"
+month = 11
+rule = "nth 4 thu 11"
+motif = "Harvest rust, olive"
+accent = { light = "#9a3412", dark = "#ff9e6b" }
+accent2 = { light = "#65630f", dark = "#d6c25a" }
+glyph = "leaf"
+spin = true
+emblem = "wheat"
+
+[[holiday]]
+key = "bodhi-day"
+name = "Bodhi Day"
+month = 12
+rule = "fixed 12-08"
+motif = "Bodhi-leaf green, saffron"
+accent = { light = "#3f6212", dark = "#a5d66f" }
+accent2 = { light = "#b35900", dark = "#ffb35c" }
+glyph = "leaf"
+spin = true
+emblem = "leaf"
+
+[[holiday]]
+key = "st-lucia"
+name = "St. Lucia Day"
+month = 12
+rule = "fixed 12-13"
+motif = "Candle crown gold, lingonberry sash"
+accent = { light = "#a16207", dark = "#ffd36b" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "candle"
+emblem = "candle"
+
+[[holiday]]
+key = "hanukkah"
+name = "Hanukkah"
+month = 12
+rule = "table 8"
+motif = "Blue, silver, candle gold"
+accent = { light = "#0d47a1", dark = "#82b1ff" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "sparkle"
+emblem = "menorah"
+
+[[holiday]]
+key = "yule"
+name = "Yule / Winter Solstice"
+month = 12
+rule = "table 1"
+motif = "Evergreen, frost blue"
+accent = { light = "#14532d", dark = "#7fd88b" }
+accent2 = { light = "#0e7490", dark = "#7fdbe8" }
+glyph = "snowflake"
+spin = true
+emblem = "wreath"
+
+[[holiday]]
+key = "christmas"
+name = "Christmas"
+month = 12
+rule = "fixed 12-24 2"
+motif = "Holly red, evergreen"
+accent = { light = "#b91c1c", dark = "#ff7070" }
+accent2 = { light = "#15803d", dark = "#6fd08c" }
+glyph = "snowflake"
+spin = true
+emblem = "tree"
+
+[[holiday]]
+key = "boxing-day"
+name = "Boxing Day"
+month = 12
+rule = "fixed 12-26"
+motif = "Plum, ribbon gold"
+accent = { light = "#7e2553", dark = "#e8a0bf" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "gift"
+spin = true
+emblem = "gift"
+
+[[holiday]]
+key = "kwanzaa"
+name = "Kwanzaa"
+month = 12
+rule = "fixed 12-26 7"
+motif = "Red, black, green"
+accent = { light = "#b91c1c", dark = "#ff6b6b" }
+accent2 = { light = "#15803d", dark = "#5fd38d" }
+glyph = "dot"
+emblem = "kinara"
+
+[[holiday]]
+key = "hogmanay"
+name = "Hogmanay / New Year's Eve"
+month = 12
+rule = "fixed 12-31"
+motif = "Midnight, champagne gold"
+accent = { light = "#a16207", dark = "#ffd36b" }
+accent2 = { light = "#4338ca", dark = "#a5b4fc" }
+glyph = "sparkle"
+spin = true
+emblem = "burst"
