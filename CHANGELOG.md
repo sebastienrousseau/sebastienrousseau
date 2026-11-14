@@ -3,7 +3,14 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.14] - 2026-11-07
+## [0.0.15] - Unreleased
+
+### Fixed
+
+- The 0.0.14 entry carries its release date, 2026-11-14, the day
+  `v0.0.14` was tagged, in place of the day it was recorded.
+
+## [0.0.14] - 2026-11-14
 
 ### Changed
 
