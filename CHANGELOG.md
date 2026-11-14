@@ -7,6 +7,11 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Fixed
 
+- Release notes take the layout of the dotfiles releases: each change's
+  title in backticks and a blank line under every heading.
+  `tools/release_notes.py` restyles GitHub's generated notes in
+  `release.yml`, and the notes of v0.0.1 to v0.0.14 are restyled to
+  match, with the pull request numbers dropped from their highlights.
 - The 0.0.14 entry carries its release date, 2026-11-14, the day
   `v0.0.14` was tagged, in place of the day it was recorded.
 
