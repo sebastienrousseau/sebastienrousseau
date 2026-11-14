@@ -68,9 +68,12 @@ TABLE = 'source = "https://example.org/eid"\n'
         (entry("eid", '"fixed 01-02"', emblem="icon"), 'emblem = "icon" but no icon'),
         (entry("eid", '"fixed 01-02"', 'icon = { file = "art/icons/eid.svg" }'), "icon has no sha256 pin"),
         (entry("eid", '"table 3"', 'dates = { 2026 = "2026-03-20", 2027 = "2027-03-10" }'), "needs the https source"),
-        (entry("eid", '"table 3"', TABLE + 'dates = { 2026 = "2026-03-20" }'), "no table date for 2027"),
+        (entry("eid", '"table 3"', 'source = "http://example.org"\ndates = { 2026 = "2026-03-20" }'), "https source"),
         (entry("eid", '"table 3"', TABLE + 'dates = { 2026 = "20 March", 2027 = "2027-03-10" }'), "is not YYYY-MM-DD"),
-        (entry("eid", '"table 3"', TABLE + 'dates = { 2026 = "2027-03-10", 2027 = "2027-03-10" }'), "another year"),
+        (
+            entry("eid", '"table 3"', TABLE + 'dates = { 2026 = "2027-03-10", 2027 = "2027-03-10" }'),
+            "outside its year or the span",
+        ),
         (entry("eid", '"weekly"'), "rule 'weekly' is not fixed"),
     ],
 )
@@ -116,3 +119,52 @@ def test_calendar_json_is_byte_stable_and_carries_its_span(tmp_path):
     doc = json.loads(text)
     assert (doc["schema"], doc["tz"], doc["from"], doc["to"]) == (1, "Europe/London", "2026-01-01", "2028-01-01")
     assert doc["days"]["2026-12-26"] == ["boxing-day", "kwanzaa"]
+
+
+def test_a_year_without_a_sourced_date_is_a_gap_not_a_guess(tmp_path):
+    sources = 'source = ["https://example.org/a", "https://example.org/b"]\n'
+    eid = entry("eid", '"table 3"', sources + 'dates = { 2026 = "2026-03-20" }')
+    vesak = entry("vesak", '"table"', 'source = "https://example.org/v"')
+    years, hs = write(tmp_path, *BASE, eid, vesak)
+    holidays.validate(years, hs, GLYPHS, EMBLEMS)
+    assert hs[5].sources == ("https://example.org/a", "https://example.org/b")
+    assert holidays.gaps(years, hs) == ["eid: no sourced date for 2027", "vesak: no sourced date for 2026, 2027"]
+    days = holidays.calendar(years, hs)
+    assert [d for d, keys in days.items() if "eid" in keys] == ["2026-03-20", "2026-03-21", "2026-03-22"]
+    assert not any("vesak" in keys for keys in days.values())
+
+
+def test_the_real_calendar_validates_and_covers_every_sourced_year():
+    from emblems import EMBLEMS as ART_EMBLEMS
+    from motifs import GLYPHS as ART_GLYPHS
+
+    years, hs = holidays.load()
+    holidays.validate(years, hs, ART_GLYPHS, ART_EMBLEMS)
+    assert len(hs) == 57
+    gaps = holidays.gaps(years, hs)
+    assert gaps == [
+        "holi: no sourced date for 2028, 2029, 2030",
+        "vesak: no sourced date for 2026, 2027, 2028, 2029, 2030",
+        "raksha-bandhan: no sourced date for 2028, 2029, 2030",
+        "oktoberfest: no sourced date for 2026, 2028, 2029, 2030",
+        "navaratri: no sourced date for 2028, 2029, 2030",
+        "diwali: no sourced date for 2028, 2029, 2030",
+    ]
+    unsourced = {(g.split(":")[0], y) for g in gaps for y in g.split("for ")[1].split(", ")}
+    days = holidays.calendar(years, hs)
+    for year in map(str, range(years[0], years[1] + 1)):
+        present = {k for d, keys in days.items() if d.startswith(year) for k in keys}
+        for h in hs:
+            assert h.key in present or (h.key, year) in unsourced, (h.key, year)
+    for keys in days.values():
+        assert len(keys) == len(set(keys))
+    overlaps = {y: sum(len(k) > 1 for d, k in days.items() if d.startswith(str(y))) for y in range(2026, 2031)}
+    print("overlap days per year:", overlaps)
+
+
+def test_the_real_calendar_rotates_known_overlaps_in_file_order():
+    years, hs = holidays.load()
+    days = holidays.calendar(years, hs)
+    assert days["2026-12-26"] == ["boxing-day", "kwanzaa"]
+    assert days["2027-12-25"] == ["hanukkah", "christmas"]  # Hanukkah begins on Christmas Day 2027
+    assert days["2030-09-23"] == ["autumn-equinox"]  # 22 Sep 23:27 UTC is 23 Sep in London

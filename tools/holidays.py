@@ -42,15 +42,23 @@ class Holiday:
     quiet: bool = False
     spin: bool = False
     dates: dict[str, str] = field(default_factory=dict)
-    source: str = ""
+    sources: tuple[str, ...] = ()
     icon: dict[str, str] | None = None
+
+    def is_table(self) -> bool:
+        """True when some of its dates are copied from a published source."""
+        return any(text.split()[0] == "table" for text in self.rules)
+
+
+def _tuple(value: str | list[str]) -> tuple[str, ...]:
+    return tuple(value) if isinstance(value, list) else (value,)
 
 
 def _holiday(raw: dict) -> Holiday:
-    rule = raw.pop("rule")
-    rules = tuple(rule) if isinstance(rule, list) else (rule,)
+    rules = _tuple(raw.pop("rule"))
+    sources = _tuple(raw.pop("source")) if "source" in raw else ()
     dates = {str(year): str(day) for year, day in raw.pop("dates", {}).items()}
-    return Holiday(rules=rules, dates=dates, **raw)
+    return Holiday(rules=rules, dates=dates, sources=sources, **raw)
 
 
 def load(path: Path = SOURCE) -> tuple[list[int], list[Holiday]]:
@@ -82,19 +90,31 @@ def _check_icon(h: Holiday) -> None:
 
 
 def _check_dates(h: Holiday, years: list[int]) -> None:
-    rules = [almanac.parse_rule(text, h.key) for text in h.rules]
-    if not any(r.kind == "table" for r in rules):
+    for text in h.rules:
+        almanac.parse_rule(text, h.key)
+    if not h.is_table():
         return
-    if not h.source.startswith("https://"):
-        _fail(h, "a table rule needs the https source its dates were copied from")
-    missing = [y for y in range(years[0], years[1] + 1) if str(y) not in h.dates]
-    if missing:
-        _fail(h, f"no table date for {', '.join(map(str, missing))}")
+    if not h.sources or not all(s.startswith("https://") for s in h.sources):
+        _fail(h, "a table rule needs the https source(s) its dates were copied from")
     for year, value in h.dates.items():
         if not almanac.RANGE.match(value) and not DATE.match(value):
             _fail(h, f"{year} date {value!r} is not YYYY-MM-DD or YYYY-MM-DD..YYYY-MM-DD")
-        if not value.startswith(year):
-            _fail(h, f"{year} date {value!r} starts in another year")
+        if not value.startswith(year) or not years[0] <= int(year) <= years[1]:
+            _fail(h, f"{year} date {value!r} is outside its year or the span")
+
+
+def gaps(years: list[int], hs: list[Holiday]) -> list[str]:
+    """Each table holiday's years with no sourced date: it has no theme then.
+
+    Dates are never guessed (docs/HOLIDAYS.md); a year whose source could
+    not be opened is left out and listed here, for the build to print.
+    """
+    out = []
+    for h in hs:
+        missing = [str(y) for y in range(years[0], years[1] + 1) if h.is_table() and str(y) not in h.dates]
+        if missing:
+            out.append(f"{h.key}: no sourced date for {', '.join(missing)}")
+    return out
 
 
 def validate(years: list[int], hs: list[Holiday], glyphs: Collection[str], emblems: Collection[str]) -> None:

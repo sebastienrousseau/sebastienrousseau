@@ -75,6 +75,14 @@ accent2 = { light = "#a16207", dark = "#ffd166" }
 glyph = "flower"
 spin = true
 emblem = "lantern"
+dates = { 2026 = "2026-02-17", 2027 = "2027-02-06", 2028 = "2028-01-26", 2029 = "2029-02-13", 2030 = "2030-02-03" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
 
 [[holiday]]
 key = "carnival"
@@ -110,6 +118,14 @@ accent = { light = "#b45309", dark = "#ffb454" }
 accent2 = { light = "#3730a3", dark = "#a5b4fc" }
 glyph = "lantern"
 emblem = "moon"
+dates = { 2026 = "2026-03-03", 2027 = "2027-02-20", 2028 = "2028-02-09", 2029 = "2029-02-27", 2030 = "2030-02-17" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
 
 [[holiday]]
 key = "womens-day"
@@ -158,6 +174,12 @@ accent2 = { light = "#c2410c", dark = "#ffb347" }
 glyph = "splash"
 spin = true
 emblem = "none"
+# Holika Dahan, then the day of colours. 2028 to 2030: no source could be opened.
+dates = { 2026 = "2026-03-03", 2027 = "2027-03-22" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
 
 [[holiday]]
 key = "nowruz"
@@ -170,6 +192,15 @@ accent2 = { light = "#00838f", dark = "#5fe0e8" }
 glyph = "leaf"
 spin = true
 emblem = "sun"
+# March equinox, London date.
+dates = { 2026 = "2026-03-20", 2027 = "2027-03-20", 2028 = "2028-03-20", 2029 = "2029-03-20", 2030 = "2030-03-20" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
 
 [[holiday]]
 key = "eid-al-fitr"
@@ -182,6 +213,12 @@ accent2 = { light = "#a16207", dark = "#f2c94c" }
 glyph = "star"
 spin = true
 emblem = "crescent"
+# 1 Shawwal, Umm al-Qura (calculated); the 3-day window absorbs a sighting day.
+dates = { 2026 = "2026-03-20", 2027 = "2027-03-09", 2028 = "2028-02-26", 2029 = "2029-02-14", 2030 = "2030-02-04" }
+source = [
+  "https://webspace.science.uu.nl/~gent0113/islam/ummalqura_principal.htm",
+  "https://api.aladhan.com/v1/hToG/01-10-1451?calendarMethod=UAQ",
+]
 
 [[holiday]]
 key = "april-fools"
@@ -206,6 +243,15 @@ accent2 = { light = "#a16207", dark = "#e9c46a" }
 glyph = "wheat"
 spin = true
 emblem = "none"
+# Pesach I, 15 Nisan (diaspora).
+dates = { 2026 = "2026-04-02", 2027 = "2027-04-22", 2028 = "2028-04-11", 2029 = "2029-03-31", 2030 = "2030-04-18" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
 
 [[holiday]]
 key = "easter"
@@ -276,6 +322,8 @@ accent = { light = "#b35900", dark = "#ffb35c" }
 accent2 = { light = "#1565c0", dark = "#82b1ff" }
 glyph = "lotus"
 emblem = "moon"
+# The UN names no date per year; every year is unsourced until it does.
+source = "https://www.un.org/en/observances/vesak-day"
 
 [[holiday]]
 key = "eid-al-adha"
@@ -288,6 +336,12 @@ accent2 = { light = "#a16207", dark = "#f2c94c" }
 glyph = "crescent"
 spin = true
 emblem = "crescent"
+# 10 Dhu al-Hijjah, Umm al-Qura (calculated).
+dates = { 2026 = "2026-05-27", 2027 = "2027-05-16", 2028 = "2028-05-05", 2029 = "2029-04-24", 2030 = "2030-04-13" }
+source = [
+  "https://webspace.science.uu.nl/~gent0113/islam/ummalqura_principal.htm",
+  "https://api.aladhan.com/v1/hToG/10-12-1451?calendarMethod=UAQ",
+]
 
 [[holiday]]
 key = "spring-bank-holiday"
@@ -311,6 +365,15 @@ accent = { light = "#00796b", dark = "#4fd1b5" }
 accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
 glyph = "wave"
 emblem = "boat"
+# 2028 has a leap 5th lunar month; the festival is in the regular one.
+dates = { 2026 = "2026-06-19", 2027 = "2027-06-09", 2028 = "2028-05-28", 2029 = "2029-06-16", 2030 = "2030-06-05" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
 
 [[holiday]]
 key = "juneteenth"
@@ -335,6 +398,15 @@ accent2 = { light = "#a16207", dark = "#ffd166" }
 glyph = "flower"
 spin = true
 emblem = "sun"
+# June solstice, London date.
+dates = { 2026 = "2026-06-21", 2027 = "2027-06-21", 2028 = "2028-06-20", 2029 = "2029-06-21", 2030 = "2030-06-21" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
 
 [[holiday]]
 key = "inti-raymi"
@@ -394,6 +466,15 @@ accent = { light = "#14532d", dark = "#86c79c" }
 accent2 = { light = "#475569", dark = "#cbd5e1" }
 glyph = "dot"
 emblem = "none"
+# 10 Muharram, Umm al-Qura (calculated).
+dates = { 2026 = "2026-06-25", 2027 = "2027-06-15", 2028 = "2028-06-03", 2029 = "2029-05-23", 2030 = "2030-05-12" }
+source = [
+  "https://api.aladhan.com/v1/hToG/10-01-1448?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1449?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1450?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1451?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1452?calendarMethod=UAQ",
+]
 
 [[holiday]]
 key = "raksha-bandhan"
@@ -406,6 +487,12 @@ accent2 = { light = "#be185d", dark = "#ff7ac8" }
 glyph = "flower"
 spin = true
 emblem = "rangoli"
+# 2028 to 2030: no source could be opened.
+dates = { 2026 = "2026-08-28", 2027 = "2027-08-17" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
 
 [[holiday]]
 key = "obon"
@@ -451,6 +538,14 @@ accent = { light = "#a16207", dark = "#ffd166" }
 accent2 = { light = "#3949ab", dark = "#9fa8ff" }
 glyph = "sparkle"
 emblem = "moon"
+dates = { 2026 = "2026-09-25", 2027 = "2027-09-15", 2028 = "2028-10-03", 2029 = "2029-09-22", 2030 = "2030-09-12" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
 
 [[holiday]]
 key = "rosh-hashanah"
@@ -463,6 +558,15 @@ accent2 = { light = "#a16207", dark = "#ffc94a" }
 glyph = "apple"
 spin = true
 emblem = "apple"
+# 1 Tishrei, the first full day.
+dates = { 2026 = "2026-09-12", 2027 = "2027-10-02", 2028 = "2028-09-21", 2029 = "2029-09-10", 2030 = "2030-09-28" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
 
 [[holiday]]
 key = "yom-kippur"
@@ -475,6 +579,15 @@ accent = { light = "#475569", dark = "#cbd5e1" }
 accent2 = { light = "#64748b", dark = "#e2e8f0" }
 glyph = "dot"
 emblem = "none"
+# 10 Tishrei.
+dates = { 2026 = "2026-09-21", 2027 = "2027-10-11", 2028 = "2028-09-30", 2029 = "2029-09-19", 2030 = "2030-10-07" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
 
 [[holiday]]
 key = "autumn-equinox"
@@ -487,6 +600,15 @@ accent2 = { light = "#6d28d9", dark = "#c4b5fd" }
 glyph = "leaf"
 spin = true
 emblem = "sun"
+# September equinox, London date: 2030 is 22 Sep 23:27 UTC, 23 Sep in London.
+dates = { 2026 = "2026-09-23", 2027 = "2027-09-23", 2028 = "2028-09-22", 2029 = "2029-09-22", 2030 = "2030-09-23" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
 
 [[holiday]]
 key = "oktoberfest"
@@ -498,29 +620,47 @@ accent = { light = "#0b5fa5", dark = "#7cc0ff" }
 accent2 = { light = "#a16207", dark = "#ffcc4d" }
 glyph = "diamond"
 emblem = "none"
+# Only 2027 is published; 2026 was not confirmed from an opened page.
+dates = { 2027 = "2027-09-18..2027-10-03" }
+source = [
+  "https://www.oktoberfest.de/en",
+  "https://www.muenchen.de/int/en/events/oktoberfest.html",
+]
 
 [[holiday]]
 key = "navaratri"
 name = "Navaratri / Dussehra"
 month = 10
-rule = "table 10"
+rule = "table 1"
 motif = "Vermilion, peacock blue"
 accent = { light = "#c1272d", dark = "#ff7a7a" }
 accent2 = { light = "#0e7490", dark = "#5ee0f0" }
 glyph = "marigold"
 spin = true
 emblem = "rangoli"
+# Dussehra only: no source opened gives Navaratri's first day. 2028 to 2030 likewise unsourced.
+dates = { 2026 = "2026-10-20", 2027 = "2027-10-09" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
 
 [[holiday]]
 key = "diwali"
 name = "Diwali"
 month = 10
-rule = "table 5"
+rule = "table"
 motif = "Diya gold, deep maroon"
 accent = { light = "#b45309", dark = "#ffc061" }
 accent2 = { light = "#9f1239", dark = "#ff6f91" }
 glyph = "diya"
 emblem = "rangoli"
+# Diwali to Bhai Dooj; Dhanteras is not in the sources. 2028 to 2030 unsourced.
+dates = { 2026 = "2026-11-08..2026-11-11", 2027 = "2027-10-29..2027-10-31" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
 
 [[holiday]]
 key = "halloween"
@@ -616,6 +756,15 @@ accent = { light = "#0d47a1", dark = "#82b1ff" }
 accent2 = { light = "#a16207", dark = "#ffd166" }
 glyph = "sparkle"
 emblem = "menorah"
+# 25 Kislev, the first full day; the first candle is lit the evening before.
+dates = { 2026 = "2026-12-05", 2027 = "2027-12-25", 2028 = "2028-12-13", 2029 = "2029-12-02", 2030 = "2030-12-21" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
 
 [[holiday]]
 key = "yule"
@@ -628,6 +777,15 @@ accent2 = { light = "#0e7490", dark = "#7fdbe8" }
 glyph = "snowflake"
 spin = true
 emblem = "wreath"
+# December solstice, London date.
+dates = { 2026 = "2026-12-21", 2027 = "2027-12-22", 2028 = "2028-12-21", 2029 = "2029-12-21", 2030 = "2030-12-21" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
 
 [[holiday]]
 key = "christmas"
