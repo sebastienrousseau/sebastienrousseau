@@ -50,6 +50,7 @@ PAGES = (
     ("docs/index.md", "", "Start"),
     ("docs/ARCHITECTURE.md", "architecture", "Reference"),
     ("docs/DATA.md", "data", "Reference"),
+    ("docs/HOLIDAYS.md", "holidays", "Reference"),
     ("DEVELOPMENT.md", "development", "Contributing"),
     ("SECURITY.md", "security", "Contributing"),
     ("CHANGELOG.md", "changelog", "Contributing"),

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import datetime as dt
 from pathlib import Path
 
 import pytest
@@ -12,6 +13,15 @@ import smoke
 ROOT = Path(__file__).resolve().parent.parent
 GOOD = b'<svg xmlns="http://www.w3.org/2000/svg"><title>x</title></svg>'
 DATA = b'{"schema": 1}'
+TODAY = dt.date(2026, 11, 14)
+CALENDAR = b'{"schema": 1, "tz": "Europe/London", "from": "2026-01-01", "to": "2031-01-01", "days": {}}'
+
+
+def reply(url: str) -> bytes:
+    """What a healthy deployment serves for url."""
+    if url.endswith("/holidays.json"):
+        return CALENDAR
+    return DATA if url.endswith(".json") else GOOD
 
 
 def test_svg_error_accepts_svg_and_names_the_fault():
@@ -29,10 +39,8 @@ def test_every_committed_asset_is_well_formed():
 
 def test_readme_images_pass_when_every_url_serves_svg(monkeypatch):
     asked: list[tuple[str, bool]] = []
-    monkeypatch.setattr(
-        smoke, "get", lambda url, follow=True: asked.append((url, follow)) or (DATA if url.endswith(".json") else GOOD)
-    )
-    assert smoke.main() == 0
+    monkeypatch.setattr(smoke, "get", lambda url, follow=True: asked.append((url, follow)) or reply(url))
+    assert smoke.main(TODAY) == 0
     assert asked and all(follow is False for _, follow in asked)
     assert any("/api/clock/hero-" in url for url, _ in asked)
     assert any("/profile-data/" in url for url, _ in asked)
@@ -42,19 +50,17 @@ def test_a_redirect_or_bad_svg_fails_the_check(monkeypatch, capsys):
     def get(url, follow=True):
         if "/api/clock/" in url:
             raise net.FetchError(f"{url} returned HTTP 302")
-        if url.endswith(".json"):
-            return DATA
-        return b"<svg" if "article-2" in url else GOOD
+        return b"<svg" if "article-2" in url else reply(url)
 
     monkeypatch.setattr(smoke, "get", get)
-    assert smoke.main() == 1
+    assert smoke.main(TODAY) == 1
     out = capsys.readouterr().out
     assert out.count("::error::") == 4  # two clock themes, two article-2 themes
     assert "returned HTTP 302" in out and "malformed SVG" in out
 
 
 def test_a_missing_local_asset_fails(tmp_path):
-    assert smoke.check("assets/no-such-panel-dark.svg") == "missing: assets/no-such-panel-dark.svg"
+    assert smoke.check("assets/no-such-panel-dark.svg", TODAY) == "missing: assets/no-such-panel-dark.svg"
 
 
 @pytest.mark.parametrize(("follow", "flag"), [(True, True), (False, False)])
@@ -72,9 +78,9 @@ def test_net_follows_redirects_only_when_asked(monkeypatch, follow, flag):
 def test_profile_json_must_parse_with_a_schema(monkeypatch):
     replies = {"good": b'{"schema": 1}', "html": b"<html>Not found</html>", "bare": b"[1, 2]"}
     monkeypatch.setattr(smoke, "get", lambda url, follow=True: replies[url.split("/")[-2]])
-    assert smoke.check("https://x.test/good/profile.json") is None
-    assert smoke.check("https://x.test/html/profile.json").startswith("not JSON")
-    assert smoke.check("https://x.test/bare/profile.json") == "no schema field"
+    assert smoke.check("https://x.test/good/profile.json", TODAY) is None
+    assert smoke.check("https://x.test/html/profile.json", TODAY).startswith("not JSON")
+    assert smoke.check("https://x.test/bare/profile.json", TODAY) == "no schema field"
 
 
 def test_the_readme_links_profile_json_and_the_smoke_check_reads_it(monkeypatch):
@@ -82,8 +88,36 @@ def test_the_readme_links_profile_json_and_the_smoke_check_reads_it(monkeypatch)
 
     def get(url, follow=True):
         asked.append(url)
-        return b'{"schema": 1}' if url.endswith(".json") else GOOD
+        return reply(url)
 
     monkeypatch.setattr(smoke, "get", get)
-    assert smoke.main() == 0
+    assert smoke.main(TODAY) == 0
     assert any(url.endswith("/profile-data/profile.json") for url in asked)
+    assert smoke.CALENDAR in asked
+
+
+@pytest.mark.parametrize(("days", "ok"), [(181, True), (180, True), (179, False)])
+def test_the_calendar_must_run_at_least_180_days_ahead(days, ok):
+    last = TODAY + dt.timedelta(days=days)
+    data = f'{{"schema": 1, "to": "{last}"}}'.encode()
+    why = smoke.calendar_error(data, TODAY)
+    assert (why is None) is ok
+    if not ok:
+        assert why == f"the holiday calendar ends {last}, 179 days away: extend holidays.toml"
+
+
+@pytest.mark.parametrize(
+    ("data", "why"),
+    [(b"<html>404</html>", "not a holiday calendar"), (b'{"schema": 2, "to": "2031-01-01"}', "schema is not 1")],
+)
+def test_a_broken_calendar_fails(data, why):
+    assert why in smoke.calendar_error(data, TODAY)
+
+
+def test_the_committed_calendar_passes_the_horizon_today():
+    assert smoke.calendar_error((ROOT / "assets" / "holidays.json").read_bytes(), TODAY) is None
+
+
+def test_main_dates_the_check_in_utc_by_default(monkeypatch):
+    monkeypatch.setattr(smoke, "get", lambda url, follow=True: reply(url))
+    assert smoke.main() == 0

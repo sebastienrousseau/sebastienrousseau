@@ -1,0 +1,2264 @@
+[
+ {
+  "month": 0,
+  "key": "default",
+  "name": "Everyday (current)",
+  "when": "All other days",
+  "motif": "ML-KEM blue",
+  "modes": {
+   "light": {
+    "panel": "#f5f5f7",
+    "glow": "#4f8dff",
+    "accent": "#0043a5",
+    "ink": "#1d1d1f",
+    "mute": "#6e6e73",
+    "accent2": "#0043a5",
+    "glow2": "#4f8dff",
+    "glow2_alpha": 0,
+    "contrast": {
+     "accent": 8.22,
+     "mute": 4.66,
+     "ink": 15.46
+    }
+   },
+   "dark": {
+    "panel": "#000000",
+    "glow": "#2f6fe0",
+    "accent": "#8cc0ff",
+    "ink": "#f5f5f7",
+    "mute": "#a1a1a6",
+    "accent2": "#8cc0ff",
+    "glow2": "#2f6fe0",
+    "glow2_alpha": 0,
+    "contrast": {
+     "accent": 11.1,
+     "mute": 8.16,
+     "ink": 19.29
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "new-year",
+  "name": "New Year's Day",
+  "when": "1 Jan",
+  "motif": "First light: sunrise coral, clear sky",
+  "modes": {
+   "light": {
+    "panel": "#f7f1f0",
+    "ink": "#1d1d1f",
+    "accent": "#c2410c",
+    "accent2": "#0369a1",
+    "glow": "#ff804d",
+    "glow2": "#4dc0ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.63,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#150e0d",
+    "ink": "#f5f5f7",
+    "accent": "#ffa07a",
+    "accent2": "#7cc8f0",
+    "glow": "#e1612d",
+    "glow2": "#2da3e1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.6,
+     "mute": 7.42,
+     "ink": 17.53
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "epiphany",
+  "name": "Epiphany",
+  "when": "6 Jan",
+  "motif": "Three Kings: royal purple, gold",
+  "modes": {
+   "light": {
+    "panel": "#f2f0f6",
+    "ink": "#1d1d1f",
+    "accent": "#5b2a86",
+    "accent2": "#a16207",
+    "glow": "#ac4dff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 8.76,
+     "mute": 4.62,
+     "ink": 14.88
+    }
+   },
+   "dark": {
+    "panel": "#110e16",
+    "ink": "#f5f5f7",
+    "accent": "#c9a7ff",
+    "accent2": "#f2c94c",
+    "glow": "#732de1",
+    "glow2": "#e1b52d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.52,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "pongal",
+  "name": "Pongal / Makar Sankranti",
+  "when": "14 to 15 Jan",
+  "motif": "Sugarcane green, turmeric, kites",
+  "modes": {
+   "light": {
+    "panel": "#f1f3f0",
+    "ink": "#1d1d1f",
+    "accent": "#4b7a0f",
+    "accent2": "#c2410c",
+    "glow": "#b2ff4d",
+    "glow2": "#ff804d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.6,
+     "mute": 4.54,
+     "ink": 15.08
+    }
+   },
+   "dark": {
+    "panel": "#0f120b",
+    "ink": "#f5f5f7",
+    "accent": "#b5e061",
+    "accent2": "#ffa94d",
+    "glow": "#a4e12d",
+    "glow2": "#e18a2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.41,
+     "mute": 7.34,
+     "ink": 17.35
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "burns-night",
+  "name": "Burns Night",
+  "when": "25 Jan",
+  "motif": "Saltire blue, heather",
+  "modes": {
+   "light": {
+    "panel": "#eef2f7",
+    "ink": "#1d1d1f",
+    "accent": "#0057a8",
+    "accent2": "#7e3a8c",
+    "glow": "#4da9ff",
+    "glow2": "#e14dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 6.38,
+     "mute": 4.51,
+     "ink": 14.97
+    }
+   },
+   "dark": {
+    "panel": "#0c1016",
+    "ink": "#f5f5f7",
+    "accent": "#82b8ff",
+    "accent2": "#d6a2e8",
+    "glow": "#2d7be1",
+    "glow2": "#b32de1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.31,
+     "mute": 7.41,
+     "ink": 17.51
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "australia-day",
+  "name": "Australia Day",
+  "when": "26 Jan",
+  "motif": "Green and gold",
+  "modes": {
+   "light": {
+    "panel": "#eef3f3",
+    "ink": "#1d1d1f",
+    "accent": "#00754a",
+    "accent2": "#a16207",
+    "glow": "#4dffbd",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.15,
+     "mute": 4.53,
+     "ink": 15.03
+    }
+   },
+   "dark": {
+    "panel": "#09120f",
+    "ink": "#f5f5f7",
+    "accent": "#5fd39a",
+    "accent2": "#ffcd00",
+    "glow": "#2de189",
+    "glow2": "#e1be2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.2,
+     "mute": 7.39,
+     "ink": 17.45
+    }
+   }
+  }
+ },
+ {
+  "month": 1,
+  "key": "lunar-new-year",
+  "name": "Lunar New Year",
+  "when": "Late Jan to mid Feb (lunar)",
+  "motif": "Lantern red, lucky gold",
+  "modes": {
+   "light": {
+    "panel": "#f6eef1",
+    "ink": "#1d1d1f",
+    "accent": "#b3001b",
+    "accent2": "#a16207",
+    "glow": "#ff4d67",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 6.28,
+     "mute": 4.58,
+     "ink": 14.76
+    }
+   },
+   "dark": {
+    "panel": "#150a0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff6b6b",
+    "accent2": "#ffd166",
+    "glow": "#e12d2d",
+    "glow2": "#e1ab2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.0,
+     "mute": 7.55,
+     "ink": 17.85
+    }
+   }
+  }
+ },
+ {
+  "month": 2,
+  "key": "carnival",
+  "name": "Carnival",
+  "when": "Days before Ash Wednesday",
+  "motif": "Feathers: electric green, magenta",
+  "modes": {
+   "light": {
+    "panel": "#eef3f4",
+    "ink": "#1d1d1f",
+    "accent": "#047857",
+    "accent2": "#be185d",
+    "glow": "#4dffcc",
+    "glow2": "#ff4d97",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.9,
+     "mute": 4.53,
+     "ink": 15.04
+    }
+   },
+   "dark": {
+    "panel": "#081310",
+    "ink": "#f5f5f7",
+    "accent": "#4ee6a0",
+    "accent2": "#ff7ac8",
+    "glow": "#2de18e",
+    "glow2": "#e12d97",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.84,
+     "mute": 7.35,
+     "ink": 17.36
+    }
+   }
+  }
+ },
+ {
+  "month": 2,
+  "key": "valentine",
+  "name": "Valentine's Day",
+  "when": "14 Feb",
+  "motif": "Rose, blush",
+  "modes": {
+   "light": {
+    "panel": "#f6eff4",
+    "ink": "#1d1d1f",
+    "accent": "#be185d",
+    "accent2": "#b91c1c",
+    "glow": "#ff4d97",
+    "glow2": "#ff4d4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.34,
+     "mute": 4.62,
+     "ink": 14.88
+    }
+   },
+   "dark": {
+    "panel": "#150d12",
+    "ink": "#f5f5f7",
+    "accent": "#ff8fb8",
+    "accent2": "#ff7a7a",
+    "glow": "#e12d6f",
+    "glow2": "#e12d2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.99,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 2,
+  "key": "lantern-festival",
+  "name": "Lantern Festival",
+  "when": "15th day, 1st lunar month",
+  "motif": "Lantern amber, night indigo",
+  "modes": {
+   "light": {
+    "panel": "#f6f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#b45309",
+    "accent2": "#3730a3",
+    "glow": "#ff9a4d",
+    "glow2": "#574dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.51,
+     "mute": 4.56,
+     "ink": 15.13
+    }
+   },
+   "dark": {
+    "panel": "#150f0b",
+    "ink": "#f5f5f7",
+    "accent": "#ffb454",
+    "accent2": "#a5b4fc",
+    "glow": "#e1922d",
+    "glow2": "#2d4ce1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.78,
+     "mute": 7.39,
+     "ink": 17.45
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "womens-day",
+  "name": "International Women's Day",
+  "when": "8 Mar",
+  "motif": "Purple, green, white",
+  "modes": {
+   "light": {
+    "panel": "#f3eff7",
+    "ink": "#1d1d1f",
+    "accent": "#6b21a8",
+    "accent2": "#15803d",
+    "glow": "#ae4dff",
+    "glow2": "#4dff8f",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 7.68,
+     "mute": 4.6,
+     "ink": 14.83
+    }
+   },
+   "dark": {
+    "panel": "#110e16",
+    "ink": "#f5f5f7",
+    "accent": "#d0a6ff",
+    "accent2": "#86e0a0",
+    "glow": "#822de1",
+    "glow2": "#2de161",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.63,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "mothering-sunday",
+  "name": "Mothering Sunday",
+  "when": "4th Sunday of Lent",
+  "motif": "Peony pink, sage",
+  "modes": {
+   "light": {
+    "panel": "#f5eff3",
+    "ink": "#1d1d1f",
+    "accent": "#9d174d",
+    "accent2": "#4d7c57",
+    "glow": "#ff4d94",
+    "glow2": "#84c793",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 6.95,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#140f13",
+    "ink": "#f5f5f7",
+    "accent": "#f9a8d4",
+    "accent2": "#a7d7b0",
+    "glow": "#e12d8f",
+    "glow2": "#2de14f",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.46,
+     "mute": 7.37,
+     "ink": 17.41
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "st-patrick",
+  "name": "St. Patrick's Day",
+  "when": "17 Mar",
+  "motif": "Shamrock green, gold",
+  "modes": {
+   "light": {
+    "panel": "#eef3f4",
+    "ink": "#1d1d1f",
+    "accent": "#047857",
+    "accent2": "#a16207",
+    "glow": "#4dffcc",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.9,
+     "mute": 4.53,
+     "ink": 15.04
+    }
+   },
+   "dark": {
+    "panel": "#091210",
+    "ink": "#f5f5f7",
+    "accent": "#5fd3a0",
+    "accent2": "#f2c94c",
+    "glow": "#2de192",
+    "glow2": "#e1b52d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.23,
+     "mute": 7.38,
+     "ink": 17.44
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "holi",
+  "name": "Holi",
+  "when": "Phalguna full moon",
+  "motif": "Gulal magenta, marigold, cyan",
+  "modes": {
+   "light": {
+    "panel": "#f6eff4",
+    "ink": "#1d1d1f",
+    "accent": "#be185d",
+    "accent2": "#c2410c",
+    "glow": "#ff4d97",
+    "glow2": "#ff804d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.34,
+     "mute": 4.62,
+     "ink": 14.88
+    }
+   },
+   "dark": {
+    "panel": "#150b13",
+    "ink": "#f5f5f7",
+    "accent": "#ff7ac8",
+    "accent2": "#ffb347",
+    "glow": "#e12d97",
+    "glow2": "#e1972d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.14,
+     "mute": 7.5,
+     "ink": 17.71
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "nowruz",
+  "name": "Nowruz",
+  "when": "20/21 Mar (equinox)",
+  "motif": "Sabzeh green, turquoise",
+  "modes": {
+   "light": {
+    "panel": "#f0f3f2",
+    "ink": "#1d1d1f",
+    "accent": "#2e7d32",
+    "accent2": "#00838f",
+    "glow": "#4dff56",
+    "glow2": "#4df0ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.59,
+     "mute": 4.54,
+     "ink": 15.07
+    }
+   },
+   "dark": {
+    "panel": "#0e1310",
+    "ink": "#f5f5f7",
+    "accent": "#9be39f",
+    "accent2": "#5fe0e8",
+    "glow": "#2de137",
+    "glow2": "#2dd7e1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.4,
+     "mute": 7.29,
+     "ink": 17.23
+    }
+   }
+  }
+ },
+ {
+  "month": 3,
+  "key": "eid-al-fitr",
+  "name": "Eid al-Fitr *",
+  "when": "1 Shawwal (moves ~11 days earlier each year)",
+  "motif": "Emerald, crescent gold",
+  "modes": {
+   "light": {
+    "panel": "#eef3f4",
+    "ink": "#1d1d1f",
+    "accent": "#00695c",
+    "accent2": "#a16207",
+    "glow": "#4dffe9",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.91,
+     "mute": 4.53,
+     "ink": 15.04
+    }
+   },
+   "dark": {
+    "panel": "#091212",
+    "ink": "#f5f5f7",
+    "accent": "#5fe0c4",
+    "accent2": "#f2c94c",
+    "glow": "#2de1ba",
+    "glow2": "#e1b52d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.7,
+     "mute": 7.38,
+     "ink": 17.42
+    }
+   }
+  }
+ },
+ {
+  "month": 4,
+  "key": "april-fools",
+  "name": "April Fools' Day",
+  "when": "1 Apr",
+  "motif": "Jester teal, lemon",
+  "modes": {
+   "light": {
+    "panel": "#eef3f5",
+    "ink": "#1d1d1f",
+    "accent": "#0f766e",
+    "accent2": "#a16207",
+    "glow": "#4dfff1",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.89,
+     "mute": 4.53,
+     "ink": 15.05
+    }
+   },
+   "dark": {
+    "panel": "#091313",
+    "ink": "#f5f5f7",
+    "accent": "#5eead4",
+    "accent2": "#fde047",
+    "glow": "#2de1c5",
+    "glow2": "#e1c42d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.74,
+     "mute": 7.33,
+     "ink": 17.31
+    }
+   }
+  }
+ },
+ {
+  "month": 4,
+  "key": "pesach",
+  "name": "Pesach",
+  "when": "15 Nisan (Mar/Apr)",
+  "motif": "Wine, matzah wheat",
+  "modes": {
+   "light": {
+    "panel": "#f3eff2",
+    "ink": "#1d1d1f",
+    "accent": "#7b1e3a",
+    "accent2": "#a16207",
+    "glow": "#ff4d82",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 8.83,
+     "mute": 4.59,
+     "ink": 14.78
+    }
+   },
+   "dark": {
+    "panel": "#140c10",
+    "ink": "#f5f5f7",
+    "accent": "#f08aa6",
+    "accent2": "#e9c46a",
+    "glow": "#e12d5f",
+    "glow2": "#e1ad2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.16,
+     "mute": 7.49,
+     "ink": 17.7
+    }
+   }
+  }
+ },
+ {
+  "month": 4,
+  "key": "easter",
+  "name": "Easter",
+  "when": "Computus (Mar/Apr)",
+  "motif": "Lilac, spring yellow",
+  "modes": {
+   "light": {
+    "panel": "#f3f1f8",
+    "ink": "#1d1d1f",
+    "accent": "#6b4fbb",
+    "accent2": "#a16207",
+    "glow": "#7b4dff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.42,
+     "mute": 4.53,
+     "ink": 15.03
+    }
+   },
+   "dark": {
+    "panel": "#111016",
+    "ink": "#f5f5f7",
+    "accent": "#c7b8ff",
+    "accent2": "#ffe08a",
+    "glow": "#532de1",
+    "glow2": "#e1b12d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.57,
+     "mute": 7.36,
+     "ink": 17.38
+    }
+   }
+  }
+ },
+ {
+  "month": 4,
+  "key": "songkran",
+  "name": "Songkran",
+  "when": "13 to 15 Apr",
+  "motif": "Splash cyan, jasmine, orange",
+  "modes": {
+   "light": {
+    "panel": "#eef3f7",
+    "ink": "#1d1d1f",
+    "accent": "#0369a1",
+    "accent2": "#c2410c",
+    "glow": "#4dc0ff",
+    "glow2": "#ff804d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.31,
+     "mute": 4.54,
+     "ink": 15.07
+    }
+   },
+   "dark": {
+    "panel": "#0a1216",
+    "ink": "#f5f5f7",
+    "accent": "#67d4ff",
+    "accent2": "#ffa94d",
+    "glow": "#2daee1",
+    "glow2": "#e18a2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.2,
+     "mute": 7.35,
+     "ink": 17.36
+    }
+   }
+  }
+ },
+ {
+  "month": 4,
+  "key": "earth-day",
+  "name": "Earth Day",
+  "when": "22 Apr",
+  "motif": "Forest, ocean",
+  "modes": {
+   "light": {
+    "panel": "#f0f3f2",
+    "ink": "#1d1d1f",
+    "accent": "#2e7d32",
+    "accent2": "#0277bd",
+    "glow": "#4dff56",
+    "glow2": "#4dbcff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.59,
+     "mute": 4.54,
+     "ink": 15.07
+    }
+   },
+   "dark": {
+    "panel": "#0c120f",
+    "ink": "#f5f5f7",
+    "accent": "#7ed99a",
+    "accent2": "#6ec6ff",
+    "glow": "#2de165",
+    "glow2": "#2d9ae1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.07,
+     "mute": 7.36,
+     "ink": 17.39
+    }
+   }
+  }
+ },
+ {
+  "month": 5,
+  "key": "workers-day",
+  "name": "International Workers' Day",
+  "when": "1 May",
+  "motif": "Labour red, lily-of-the-valley green",
+  "modes": {
+   "light": {
+    "panel": "#f6eff1",
+    "ink": "#1d1d1f",
+    "accent": "#b91c1c",
+    "accent2": "#2e7d32",
+    "glow": "#ff4d4d",
+    "glow2": "#4dff56",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.71,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#150b0d",
+    "ink": "#f5f5f7",
+    "accent": "#ff7a7a",
+    "accent2": "#8fd694",
+    "glow": "#e12d2d",
+    "glow2": "#2de13a",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.66,
+     "mute": 7.52,
+     "ink": 17.77
+    }
+   }
+  }
+ },
+ {
+  "month": 5,
+  "key": "cinco-de-mayo",
+  "name": "Cinco de Mayo",
+  "when": "5 May",
+  "motif": "Verde, rojo",
+  "modes": {
+   "light": {
+    "panel": "#eef2f3",
+    "ink": "#1d1d1f",
+    "accent": "#006847",
+    "accent2": "#ce1126",
+    "glow": "#4dffc6",
+    "glow2": "#ff4d60",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 6.07,
+     "mute": 4.63,
+     "ink": 14.93
+    }
+   },
+   "dark": {
+    "panel": "#08120f",
+    "ink": "#f5f5f7",
+    "accent": "#4fd69a",
+    "accent2": "#ff6b78",
+    "glow": "#2de191",
+    "glow2": "#e12d3d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.34,
+     "mute": 7.4,
+     "ink": 17.47
+    }
+   }
+  }
+ },
+ {
+  "month": 5,
+  "key": "vesak",
+  "name": "Vesak",
+  "when": "Vaisakha full moon",
+  "motif": "Saffron, Buddhist-flag blue",
+  "modes": {
+   "light": {
+    "panel": "#f6f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#af5700",
+    "accent2": "#1565c0",
+    "glow": "#ffa54d",
+    "glow2": "#4da0ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.51,
+     "mute": 4.56,
+     "ink": 15.13
+    }
+   },
+   "dark": {
+    "panel": "#150f0b",
+    "ink": "#f5f5f7",
+    "accent": "#ffb35c",
+    "accent2": "#82b1ff",
+    "glow": "#e18d2d",
+    "glow2": "#2d71e1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.73,
+     "mute": 7.39,
+     "ink": 17.45
+    }
+   }
+  }
+ },
+ {
+  "month": 5,
+  "key": "eid-al-adha",
+  "name": "Eid al-Adha *",
+  "when": "10 Dhu al-Hijjah (moves ~11 days earlier each year)",
+  "motif": "Night indigo, lantern gold",
+  "modes": {
+   "light": {
+    "panel": "#f0f0f6",
+    "ink": "#1d1d1f",
+    "accent": "#283593",
+    "accent2": "#a16207",
+    "glow": "#4d62ff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 9.15,
+     "mute": 4.6,
+     "ink": 14.83
+    }
+   },
+   "dark": {
+    "panel": "#0e0f16",
+    "ink": "#f5f5f7",
+    "accent": "#9fa8ff",
+    "accent2": "#f2c94c",
+    "glow": "#2d3ee1",
+    "glow2": "#e1b52d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.66,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 5,
+  "key": "spring-bank-holiday",
+  "name": "Spring Bank Holiday",
+  "when": "Last Monday of May",
+  "motif": "Bluebell, new leaf",
+  "modes": {
+   "light": {
+    "panel": "#f1f0f9",
+    "ink": "#1d1d1f",
+    "accent": "#4338ca",
+    "accent2": "#4d7c0f",
+    "glow": "#5a4dff",
+    "glow2": "#b2ff4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 6.99,
+     "mute": 4.62,
+     "ink": 14.88
+    }
+   },
+   "dark": {
+    "panel": "#0e0f16",
+    "ink": "#f5f5f7",
+    "accent": "#a5b4fc",
+    "accent2": "#a3e06a",
+    "glow": "#2d4ce1",
+    "glow2": "#84e12d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.59,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 6,
+  "key": "dragon-boat",
+  "name": "Dragon Boat Festival",
+  "when": "5th day, 5th lunar month",
+  "motif": "Jade, dragon red",
+  "modes": {
+   "light": {
+    "panel": "#eef3f5",
+    "ink": "#1d1d1f",
+    "accent": "#00796b",
+    "accent2": "#b91c1c",
+    "glow": "#4dffea",
+    "glow2": "#ff4d4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.76,
+     "mute": 4.53,
+     "ink": 15.05
+    }
+   },
+   "dark": {
+    "panel": "#081111",
+    "ink": "#f5f5f7",
+    "accent": "#4fd1b5",
+    "accent2": "#ff7a7a",
+    "glow": "#2de1ba",
+    "glow2": "#e12d2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.12,
+     "mute": 7.43,
+     "ink": 17.56
+    }
+   }
+  }
+ },
+ {
+  "month": 6,
+  "key": "juneteenth",
+  "name": "Juneteenth",
+  "when": "19 Jun",
+  "motif": "Flag blue, red, the bursting star",
+  "modes": {
+   "light": {
+    "panel": "#eff0f6",
+    "ink": "#1d1d1f",
+    "accent": "#1e3a8a",
+    "accent2": "#b91c1c",
+    "glow": "#4d7bff",
+    "glow2": "#ff4d4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 9.11,
+     "mute": 4.59,
+     "ink": 14.8
+    }
+   },
+   "dark": {
+    "panel": "#0d0f16",
+    "ink": "#f5f5f7",
+    "accent": "#93b4ff",
+    "accent2": "#ff7a7a",
+    "glow": "#2d64e1",
+    "glow2": "#e12d2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.31,
+     "mute": 7.44,
+     "ink": 17.58
+    }
+   }
+  }
+ },
+ {
+  "month": 6,
+  "key": "midsummer",
+  "name": "Midsummer / Summer Solstice",
+  "when": "Around 20 to 24 Jun",
+  "motif": "Cornflower blue, sun yellow",
+  "modes": {
+   "light": {
+    "panel": "#eff1f9",
+    "ink": "#1d1d1f",
+    "accent": "#1d4ed8",
+    "accent2": "#a16207",
+    "glow": "#4d7bff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.94,
+     "mute": 4.63,
+     "ink": 14.92
+    }
+   },
+   "dark": {
+    "panel": "#0d0f16",
+    "ink": "#f5f5f7",
+    "accent": "#93b4ff",
+    "accent2": "#ffd166",
+    "glow": "#2d64e1",
+    "glow2": "#e1ab2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.31,
+     "mute": 7.44,
+     "ink": 17.58
+    }
+   }
+  }
+ },
+ {
+  "month": 6,
+  "key": "inti-raymi",
+  "name": "Inti Raymi",
+  "when": "24 Jun",
+  "motif": "Inca sun gold, Andean red",
+  "modes": {
+   "light": {
+    "panel": "#f5f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#9e6007",
+    "accent2": "#b91c1c",
+    "glow": "#ffb64d",
+    "glow2": "#ff4d4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.56,
+     "mute": 4.55,
+     "ink": 15.1
+    }
+   },
+   "dark": {
+    "panel": "#15110a",
+    "ink": "#f5f5f7",
+    "accent": "#ffc94a",
+    "accent2": "#ff7a6b",
+    "glow": "#e1ab2d",
+    "glow2": "#e13f2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.28,
+     "mute": 7.31,
+     "ink": 17.27
+    }
+   }
+  }
+ },
+ {
+  "month": 7,
+  "key": "canada-day",
+  "name": "Canada Day",
+  "when": "1 Jul",
+  "motif": "Maple red, snow",
+  "modes": {
+   "light": {
+    "panel": "#f7f0f1",
+    "ink": "#1d1d1f",
+    "accent": "#d12a1d",
+    "accent2": "#64748b",
+    "glow": "#ff594d",
+    "glow2": "#8ea2bd",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.6,
+     "mute": 4.51,
+     "ink": 14.98
+    }
+   },
+   "dark": {
+    "panel": "#150b0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff7a70",
+    "accent2": "#e2e8f0",
+    "glow": "#e13a2d",
+    "glow2": "#2d7ae1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.62,
+     "mute": 7.52,
+     "ink": 17.77
+    }
+   }
+  }
+ },
+ {
+  "month": 7,
+  "key": "us-independence",
+  "name": "Independence Day (US)",
+  "when": "4 Jul",
+  "motif": "Old Glory red, navy",
+  "modes": {
+   "light": {
+    "panel": "#f6eff3",
+    "ink": "#1d1d1f",
+    "accent": "#b31942",
+    "accent2": "#0a3161",
+    "glow": "#ff4d7c",
+    "glow2": "#4d9dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.92,
+     "mute": 4.62,
+     "ink": 14.87
+    }
+   },
+   "dark": {
+    "panel": "#150b0f",
+    "ink": "#f5f5f7",
+    "accent": "#ff7a9a",
+    "accent2": "#93b4ff",
+    "glow": "#e12d59",
+    "glow2": "#2d64e1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.82,
+     "mute": 7.51,
+     "ink": 17.75
+    }
+   }
+  }
+ },
+ {
+  "month": 7,
+  "key": "bastille-day",
+  "name": "Bastille Day",
+  "when": "14 Jul",
+  "motif": "Bleu, blanc, rouge",
+  "modes": {
+   "light": {
+    "panel": "#eeeff6",
+    "ink": "#1d1d1f",
+    "accent": "#002395",
+    "accent2": "#c8102e",
+    "glow": "#4d76ff",
+    "glow2": "#ff4d6a",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 10.94,
+     "mute": 4.55,
+     "ink": 14.68
+    }
+   },
+   "dark": {
+    "panel": "#0d0f16",
+    "ink": "#f5f5f7",
+    "accent": "#8ca8ff",
+    "accent2": "#ff6b78",
+    "glow": "#2d59e1",
+    "glow2": "#e12d3d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.35,
+     "mute": 7.44,
+     "ink": 17.58
+    }
+   }
+  }
+ },
+ {
+  "month": 7,
+  "key": "ashura",
+  "name": "Ashura",
+  "when": "10 Muharram (moves ~11 days earlier each year)",
+  "motif": "Quiet: deep green, charcoal",
+  "modes": {
+   "light": {
+    "panel": "#eff2f2",
+    "ink": "#1d1d1f",
+    "accent": "#14532d",
+    "accent2": "#475569",
+    "glow": "#4dff93",
+    "glow2": "#8aa1c1",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 8.09,
+     "mute": 4.5,
+     "ink": 14.95
+    }
+   },
+   "dark": {
+    "panel": "#0c1110",
+    "ink": "#f5f5f7",
+    "accent": "#86c79c",
+    "accent2": "#cbd5e1",
+    "glow": "#2de16a",
+    "glow2": "#6184ae",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.66,
+     "mute": 7.4,
+     "ink": 17.48
+    }
+   }
+  }
+ },
+ {
+  "month": 8,
+  "key": "raksha-bandhan",
+  "name": "Raksha Bandhan",
+  "when": "Shravana full moon",
+  "motif": "Saffron, rakhi red",
+  "modes": {
+   "light": {
+    "panel": "#f7f1f0",
+    "ink": "#1d1d1f",
+    "accent": "#c2410c",
+    "accent2": "#be185d",
+    "glow": "#ff804d",
+    "glow2": "#ff4d97",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.63,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#150e0b",
+    "ink": "#f5f5f7",
+    "accent": "#ff9a5c",
+    "accent2": "#ff7ac8",
+    "glow": "#e1722d",
+    "glow2": "#e12d97",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.12,
+     "mute": 7.42,
+     "ink": 17.54
+    }
+   }
+  }
+ },
+ {
+  "month": 8,
+  "key": "obon",
+  "name": "Obon",
+  "when": "Mid Aug (13 to 16)",
+  "motif": "Lantern vermilion, yukata indigo",
+  "modes": {
+   "light": {
+    "panel": "#f7f1f0",
+    "ink": "#1d1d1f",
+    "accent": "#c2410c",
+    "accent2": "#1e3a8a",
+    "glow": "#ff804d",
+    "glow2": "#4d7bff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.63,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#150c0b",
+    "ink": "#f5f5f7",
+    "accent": "#ff8a5c",
+    "accent2": "#93b4ff",
+    "glow": "#e1602d",
+    "glow2": "#2d64e1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.3,
+     "mute": 7.49,
+     "ink": 17.71
+    }
+   }
+  }
+ },
+ {
+  "month": 8,
+  "key": "india-pakistan",
+  "name": "Independence Day (India & Pakistan)",
+  "when": "14 and 15 Aug",
+  "motif": "Green, saffron, white",
+  "modes": {
+   "light": {
+    "panel": "#eef1f1",
+    "ink": "#1d1d1f",
+    "accent": "#01411c",
+    "accent2": "#c2410c",
+    "glow": "#4dff98",
+    "glow2": "#ff804d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 10.42,
+     "mute": 4.6,
+     "ink": 14.82
+    }
+   },
+   "dark": {
+    "panel": "#0b120f",
+    "ink": "#f5f5f7",
+    "accent": "#6fd38f",
+    "accent2": "#ff9933",
+    "glow": "#2de167",
+    "glow2": "#e1872d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.28,
+     "mute": 7.37,
+     "ink": 17.41
+    }
+   }
+  }
+ },
+ {
+  "month": 8,
+  "key": "summer-bank-holiday",
+  "name": "Summer Bank Holiday",
+  "when": "Last Monday of Aug",
+  "motif": "Seaside teal, sand",
+  "modes": {
+   "light": {
+    "panel": "#eef3f6",
+    "ink": "#1d1d1f",
+    "accent": "#0e7490",
+    "accent2": "#a16207",
+    "glow": "#4dd9ff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.79,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#0a1316",
+    "ink": "#f5f5f7",
+    "accent": "#67e8f9",
+    "accent2": "#f4d58d",
+    "glow": "#2dcce1",
+    "glow2": "#e1ab2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.96,
+     "mute": 7.3,
+     "ink": 17.26
+    }
+   }
+  }
+ },
+ {
+  "month": 9,
+  "key": "mid-autumn",
+  "name": "Mid-Autumn Festival",
+  "when": "15th day, 8th lunar month",
+  "motif": "Moon gold, night indigo",
+  "modes": {
+   "light": {
+    "panel": "#f5f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#9e6007",
+    "accent2": "#3949ab",
+    "glow": "#ffb64d",
+    "glow2": "#4d66ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.56,
+     "mute": 4.55,
+     "ink": 15.1
+    }
+   },
+   "dark": {
+    "panel": "#15110c",
+    "ink": "#f5f5f7",
+    "accent": "#ffd166",
+    "accent2": "#9fa8ff",
+    "glow": "#e1ab2d",
+    "glow2": "#2d3ee1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 13.03,
+     "mute": 7.31,
+     "ink": 17.26
+    }
+   }
+  }
+ },
+ {
+  "month": 9,
+  "key": "rosh-hashanah",
+  "name": "Rosh Hashanah",
+  "when": "1 to 2 Tishrei",
+  "motif": "Apple red, honey",
+  "modes": {
+   "light": {
+    "panel": "#f6eff1",
+    "ink": "#1d1d1f",
+    "accent": "#b91c1c",
+    "accent2": "#a16207",
+    "glow": "#ff4d4d",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.71,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#150c0e",
+    "ink": "#f5f5f7",
+    "accent": "#ff8a80",
+    "accent2": "#ffc94a",
+    "glow": "#e13b2d",
+    "glow2": "#e1ab2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.43,
+     "mute": 7.48,
+     "ink": 17.68
+    }
+   }
+  }
+ },
+ {
+  "month": 9,
+  "key": "yom-kippur",
+  "name": "Yom Kippur",
+  "when": "10 Tishrei",
+  "motif": "Quiet: white and silver",
+  "modes": {
+   "light": {
+    "panel": "#f1f2f4",
+    "ink": "#1d1d1f",
+    "accent": "#475569",
+    "accent2": "#64748b",
+    "glow": "#8aa1c1",
+    "glow2": "#8ea2bd",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 6.76,
+     "mute": 4.53,
+     "ink": 15.02
+    }
+   },
+   "dark": {
+    "panel": "#111214",
+    "ink": "#f5f5f7",
+    "accent": "#cbd5e1",
+    "accent2": "#e2e8f0",
+    "glow": "#6184ae",
+    "glow2": "#2d7ae1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 12.62,
+     "mute": 7.29,
+     "ink": 17.21
+    }
+   }
+  }
+ },
+ {
+  "month": 9,
+  "key": "autumn-equinox",
+  "name": "Autumn Equinox",
+  "when": "22/23 Sep",
+  "motif": "Amber leaf, dusk violet",
+  "modes": {
+   "light": {
+    "panel": "#f6f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#b45309",
+    "accent2": "#6d28d9",
+    "glow": "#ff9a4d",
+    "glow2": "#924dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.51,
+     "mute": 4.56,
+     "ink": 15.13
+    }
+   },
+   "dark": {
+    "panel": "#150f0b",
+    "ink": "#f5f5f7",
+    "accent": "#ffb454",
+    "accent2": "#c4b5fd",
+    "glow": "#e1922d",
+    "glow2": "#532de1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.78,
+     "mute": 7.39,
+     "ink": 17.45
+    }
+   }
+  }
+ },
+ {
+  "month": 10,
+  "key": "oktoberfest",
+  "name": "Oktoberfest",
+  "when": "Late Sep to first Sunday of Oct",
+  "motif": "Bavarian blue, lager gold",
+  "modes": {
+   "light": {
+    "panel": "#eef2f7",
+    "ink": "#1d1d1f",
+    "accent": "#0b5fa5",
+    "accent2": "#a16207",
+    "glow": "#4daeff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.85,
+     "mute": 4.51,
+     "ink": 14.97
+    }
+   },
+   "dark": {
+    "panel": "#0b1016",
+    "ink": "#f5f5f7",
+    "accent": "#7cc0ff",
+    "accent2": "#ffcc4d",
+    "glow": "#2d8be1",
+    "glow2": "#e1ae2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.86,
+     "mute": 7.42,
+     "ink": 17.53
+    }
+   }
+  }
+ },
+ {
+  "month": 10,
+  "key": "navaratri",
+  "name": "Navaratri / Dussehra",
+  "when": "Ashvin, nine nights + 10th day",
+  "motif": "Vermilion, peacock blue",
+  "modes": {
+   "light": {
+    "panel": "#f6f0f2",
+    "ink": "#1d1d1f",
+    "accent": "#c1272d",
+    "accent2": "#0e7490",
+    "glow": "#ff4d53",
+    "glow2": "#4dd9ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 5.19,
+     "mute": 4.51,
+     "ink": 14.96
+    }
+   },
+   "dark": {
+    "panel": "#150b0d",
+    "ink": "#f5f5f7",
+    "accent": "#ff7a7a",
+    "accent2": "#5ee0f0",
+    "glow": "#e12d2d",
+    "glow2": "#2dcde1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.66,
+     "mute": 7.52,
+     "ink": 17.77
+    }
+   }
+  }
+ },
+ {
+  "month": 10,
+  "key": "diwali",
+  "name": "Diwali",
+  "when": "Kartika new moon (Oct/Nov)",
+  "motif": "Diya gold, deep maroon",
+  "modes": {
+   "light": {
+    "panel": "#f6f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#b45309",
+    "accent2": "#9f1239",
+    "glow": "#ff9a4d",
+    "glow2": "#ff4d7e",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.51,
+     "mute": 4.56,
+     "ink": 15.13
+    }
+   },
+   "dark": {
+    "panel": "#15100b",
+    "ink": "#f5f5f7",
+    "accent": "#ffc061",
+    "accent2": "#ff6f91",
+    "glow": "#e1992d",
+    "glow2": "#e12d58",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.67,
+     "mute": 7.35,
+     "ink": 17.36
+    }
+   }
+  }
+ },
+ {
+  "month": 10,
+  "key": "halloween",
+  "name": "Halloween",
+  "when": "31 Oct",
+  "motif": "Pumpkin, witching purple",
+  "modes": {
+   "light": {
+    "panel": "#f7f1f0",
+    "ink": "#1d1d1f",
+    "accent": "#c2410c",
+    "accent2": "#6b21a8",
+    "glow": "#ff804d",
+    "glow2": "#ae4dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.63,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#150d08",
+    "ink": "#f5f5f7",
+    "accent": "#ff8c2a",
+    "accent2": "#b38cff",
+    "glow": "#e1802d",
+    "glow2": "#6a2de1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.27,
+     "mute": 7.47,
+     "ink": 17.65
+    }
+   }
+  }
+ },
+ {
+  "month": 11,
+  "key": "dia-de-muertos",
+  "name": "D\u00eda de los Muertos",
+  "when": "1 to 2 Nov",
+  "motif": "Papel picado magenta, cempas\u00fachil",
+  "modes": {
+   "light": {
+    "panel": "#f6eff4",
+    "ink": "#1d1d1f",
+    "accent": "#be185d",
+    "accent2": "#c2410c",
+    "glow": "#ff4d97",
+    "glow2": "#ff804d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.34,
+     "mute": 4.62,
+     "ink": 14.88
+    }
+   },
+   "dark": {
+    "panel": "#150b11",
+    "ink": "#f5f5f7",
+    "accent": "#ff6fb5",
+    "accent2": "#ffa040",
+    "glow": "#e12d85",
+    "glow2": "#e1882d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.53,
+     "mute": 7.5,
+     "ink": 17.73
+    }
+   }
+  }
+ },
+ {
+  "month": 11,
+  "key": "bonfire-night",
+  "name": "Guy Fawkes / Bonfire Night",
+  "when": "5 Nov",
+  "motif": "Ember orange, smoke blue",
+  "modes": {
+   "light": {
+    "panel": "#f7f1f0",
+    "ink": "#1d1d1f",
+    "accent": "#c2410c",
+    "accent2": "#334155",
+    "glow": "#ff804d",
+    "glow2": "#829fc9",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.63,
+     "mute": 4.54,
+     "ink": 15.06
+    }
+   },
+   "dark": {
+    "panel": "#150e09",
+    "ink": "#f5f5f7",
+    "accent": "#ff9a3c",
+    "accent2": "#94a3b8",
+    "glow": "#e1842d",
+    "glow2": "#6a82a4",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.05,
+     "mute": 7.43,
+     "ink": 17.55
+    }
+   }
+  }
+ },
+ {
+  "month": 11,
+  "key": "remembrance",
+  "name": "Remembrance Day",
+  "when": "11 Nov (and Remembrance Sunday)",
+  "motif": "Quiet: poppy red, black",
+  "modes": {
+   "light": {
+    "panel": "#f6eff1",
+    "ink": "#1d1d1f",
+    "accent": "#b91c1c",
+    "accent2": "#1f2937",
+    "glow": "#ff4d4d",
+    "glow2": "#7e9fce",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.71,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#150a0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff6b6b",
+    "accent2": "#9ca3af",
+    "glow": "#e12d2d",
+    "glow2": "#788396",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.0,
+     "mute": 7.55,
+     "ink": 17.85
+    }
+   }
+  }
+ },
+ {
+  "month": 11,
+  "key": "thanksgiving",
+  "name": "Thanksgiving",
+  "when": "4th Thu of Nov (US)",
+  "motif": "Harvest rust, olive",
+  "modes": {
+   "light": {
+    "panel": "#f5f0f1",
+    "ink": "#1d1d1f",
+    "accent": "#9a3412",
+    "accent2": "#65630f",
+    "glow": "#ff794d",
+    "glow2": "#fffb4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 6.48,
+     "mute": 4.63,
+     "ink": 14.92
+    }
+   },
+   "dark": {
+    "panel": "#150e0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff9e6b",
+    "accent2": "#d6c25a",
+    "glow": "#e16b2d",
+    "glow2": "#e1c42d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.41,
+     "mute": 7.42,
+     "ink": 17.53
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "bodhi-day",
+  "name": "Bodhi Day",
+  "when": "8 Dec",
+  "motif": "Bodhi-leaf green, saffron",
+  "modes": {
+   "light": {
+    "panel": "#f1f2f1",
+    "ink": "#1d1d1f",
+    "accent": "#3f6212",
+    "accent2": "#b35900",
+    "glow": "#b1ff4d",
+    "glow2": "#ffa54d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 6.31,
+     "mute": 4.52,
+     "ink": 15.0
+    }
+   },
+   "dark": {
+    "panel": "#0e120c",
+    "ink": "#f5f5f7",
+    "accent": "#a5d66f",
+    "accent2": "#ffb35c",
+    "glow": "#8ce12d",
+    "glow2": "#e18d2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 11.21,
+     "mute": 7.35,
+     "ink": 17.37
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "st-lucia",
+  "name": "St. Lucia Day",
+  "when": "13 Dec",
+  "motif": "Candle crown gold, lingonberry sash",
+  "modes": {
+   "light": {
+    "panel": "#f5f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#9e6007",
+    "accent2": "#b91c1c",
+    "glow": "#ffb64d",
+    "glow2": "#ff4d4d",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.56,
+     "mute": 4.55,
+     "ink": 15.1
+    }
+   },
+   "dark": {
+    "panel": "#15120c",
+    "ink": "#f5f5f7",
+    "accent": "#ffd36b",
+    "accent2": "#ff7a7a",
+    "glow": "#e1ac2d",
+    "glow2": "#e12d2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 13.15,
+     "mute": 7.27,
+     "ink": 17.16
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "hanukkah",
+  "name": "Hanukkah",
+  "when": "25 Kislev, 8 nights",
+  "motif": "Blue, silver, candle gold",
+  "modes": {
+   "light": {
+    "panel": "#eef1f7",
+    "ink": "#1d1d1f",
+    "accent": "#0d47a1",
+    "accent2": "#a16207",
+    "glow": "#4d92ff",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 7.63,
+     "mute": 4.62,
+     "ink": 14.87
+    }
+   },
+   "dark": {
+    "panel": "#0c0f16",
+    "ink": "#f5f5f7",
+    "accent": "#82b1ff",
+    "accent2": "#ffd166",
+    "glow": "#2d71e1",
+    "glow2": "#e1ab2d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 8.84,
+     "mute": 7.45,
+     "ink": 17.6
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "yule",
+  "name": "Yule / Winter Solstice",
+  "when": "21/22 Dec",
+  "motif": "Evergreen, frost blue",
+  "modes": {
+   "light": {
+    "panel": "#eff2f2",
+    "ink": "#1d1d1f",
+    "accent": "#14532d",
+    "accent2": "#0e7490",
+    "glow": "#4dff93",
+    "glow2": "#4dd9ff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 8.09,
+     "mute": 4.5,
+     "ink": 14.95
+    }
+   },
+   "dark": {
+    "panel": "#0c120e",
+    "ink": "#f5f5f7",
+    "accent": "#7fd88b",
+    "accent2": "#7fdbe8",
+    "glow": "#2de146",
+    "glow2": "#2dcbe1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 10.91,
+     "mute": 7.36,
+     "ink": 17.4
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "christmas",
+  "name": "Christmas",
+  "when": "24 to 25 Dec",
+  "motif": "Holly red, evergreen",
+  "modes": {
+   "light": {
+    "panel": "#f6eff1",
+    "ink": "#1d1d1f",
+    "accent": "#b91c1c",
+    "accent2": "#15803d",
+    "glow": "#ff4d4d",
+    "glow2": "#4dff8f",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.71,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#150b0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff7070",
+    "accent2": "#6fd08c",
+    "glow": "#e12d2d",
+    "glow2": "#2de163",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.19,
+     "mute": 7.52,
+     "ink": 17.77
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "boxing-day",
+  "name": "Boxing Day",
+  "when": "26 Dec",
+  "motif": "Plum, ribbon gold",
+  "modes": {
+   "light": {
+    "panel": "#f3eff3",
+    "ink": "#1d1d1f",
+    "accent": "#7e2553",
+    "accent2": "#a16207",
+    "glow": "#ff4da9",
+    "glow2": "#ffb64d",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 8.1,
+     "mute": 4.59,
+     "ink": 14.79
+    }
+   },
+   "dark": {
+    "panel": "#130e12",
+    "ink": "#f5f5f7",
+    "accent": "#e8a0bf",
+    "accent2": "#f2c94c",
+    "glow": "#e12d7b",
+    "glow2": "#e1b52d",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 9.29,
+     "mute": 7.43,
+     "ink": 17.55
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "kwanzaa",
+  "name": "Kwanzaa",
+  "when": "26 Dec to 1 Jan",
+  "motif": "Red, black, green",
+  "modes": {
+   "light": {
+    "panel": "#f6eff1",
+    "ink": "#1d1d1f",
+    "accent": "#b91c1c",
+    "accent2": "#15803d",
+    "glow": "#ff4d4d",
+    "glow2": "#4dff8f",
+    "glow2_alpha": 0.16,
+    "mute": "#6c6c71",
+    "contrast": {
+     "accent": 5.71,
+     "mute": 4.61,
+     "ink": 14.85
+    }
+   },
+   "dark": {
+    "panel": "#150a0c",
+    "ink": "#f5f5f7",
+    "accent": "#ff6b6b",
+    "accent2": "#5fd38d",
+    "glow": "#e12d2d",
+    "glow2": "#2de175",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 7.0,
+     "mute": 7.55,
+     "ink": 17.85
+    }
+   }
+  }
+ },
+ {
+  "month": 12,
+  "key": "hogmanay",
+  "name": "Hogmanay / New Year's Eve",
+  "when": "31 Dec",
+  "motif": "Midnight, champagne gold",
+  "modes": {
+   "light": {
+    "panel": "#f5f2f0",
+    "ink": "#1d1d1f",
+    "accent": "#9e6007",
+    "accent2": "#4338ca",
+    "glow": "#ffb64d",
+    "glow2": "#5a4dff",
+    "glow2_alpha": 0.16,
+    "mute": "#6e6e73",
+    "contrast": {
+     "accent": 4.56,
+     "mute": 4.55,
+     "ink": 15.1
+    }
+   },
+   "dark": {
+    "panel": "#15120c",
+    "ink": "#f5f5f7",
+    "accent": "#ffd36b",
+    "accent2": "#a5b4fc",
+    "glow": "#e1ac2d",
+    "glow2": "#2d4ce1",
+    "glow2_alpha": 0.2,
+    "mute": "#a1a1a6",
+    "contrast": {
+     "accent": 13.15,
+     "mute": 7.27,
+     "ink": 17.16
+    }
+   }
+  }
+ }
+]

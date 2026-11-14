@@ -1,0 +1,890 @@
+# Holiday themes for the profile hero, in calendar order. This file is a
+# source: tools/build.py renders a light and a dark hero per entry and
+# writes assets/holidays.json, the calendar the clock Worker reads. Order
+# matters: overlapping holidays alternate by the London hour in this order.
+# docs/HOLIDAYS.md explains the rule grammar and the sources policy.
+# emblem is the geometric placeholder from tools/emblems.py; an icon, when
+# present, takes its place (art/icons/, pinned by sha256: make icon).
+
+schema = 1
+years = [2026, 2030]  # inclusive span the calendar must cover
+
+[[holiday]]
+key = "new-year"
+name = "New Year's Day"
+month = 1
+rule = "fixed 01-01"
+motif = "First light: sunrise coral, clear sky"
+accent = { light = "#c2410c", dark = "#ffa07a" }
+accent2 = { light = "#0369a1", dark = "#7cc8f0" }
+glyph = "sparkle"
+emblem = "sun"
+icon = { file = "art/icons/new-year.svg", id = "6927225", title = "sunrise", creator = "Kharisma Mulyana", url = "https://thenounproject.com/icon/sunrise-6927225/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c88fc53c4e91c92e6c79837eced9ca32ff8a22df4826decb3ee562ed516814bd" }
+
+[[holiday]]
+key = "epiphany"
+name = "Epiphany"
+month = 1
+rule = "fixed 01-06"
+motif = "Three Kings: royal purple, gold"
+accent = { light = "#5b2a86", dark = "#c9a7ff" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "star"
+emblem = "star"
+icon = { file = "art/icons/epiphany.svg", id = "1559843", title = "Crown", creator = "Alfa Design", url = "https://thenounproject.com/icon/crown-1559843/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "d073d69c4fd9f2b60d9e4557ab055a7e49637c848c6c9ce560e3af4c6af2857c" }
+
+[[holiday]]
+key = "pongal"
+name = "Pongal / Makar Sankranti"
+month = 1
+rule = "fixed 01-14 2"
+motif = "Sugarcane green, turmeric, kites"
+accent = { light = "#4d7c0f", dark = "#b5e061" }
+accent2 = { light = "#c2410c", dark = "#ffa94d" }
+glyph = "kite"
+spin = true
+emblem = "sun"
+icon = { file = "art/icons/pongal.svg", id = "2365458", title = "pot", creator = "Flatart", url = "https://thenounproject.com/icon/pot-2365458/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "15ce4b88241e60cd2d9b3e5a411977c8b2f8178665242a2698bcfea7a7b22a8b" }
+
+[[holiday]]
+key = "burns-night"
+name = "Burns Night"
+month = 1
+rule = "fixed 01-25"
+motif = "Saltire blue, heather"
+accent = { light = "#0057a8", dark = "#82b8ff" }
+accent2 = { light = "#7e3a8c", dark = "#d6a2e8" }
+glyph = "saltire"
+emblem = "none"
+icon = { file = "art/icons/burns-night.svg", id = "6869533", title = "thistle", creator = "Alan Davis", url = "https://thenounproject.com/icon/thistle-6869533/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "11b4083e4640c02707d1c1af436df6673008b559b2f8c903cf71b059b3851bb9" }
+
+[[holiday]]
+key = "australia-day"
+name = "Australia Day"
+month = 1
+rule = "fixed 01-26"
+motif = "Green and gold"
+accent = { light = "#00754a", dark = "#5fd39a" }
+accent2 = { light = "#a16207", dark = "#ffcd00" }
+glyph = "star"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/australia-day.svg", id = "1977871", title = "Southern cross", creator = "Made x Made", url = "https://thenounproject.com/icon/southern-cross-1977871/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "6b2be3df9e1e123bd6009e1215fad6db036a2dead7fea37b3d22eda9ee7cfd9a" }
+
+[[holiday]]
+key = "lunar-new-year"
+name = "Lunar New Year"
+month = 1
+rule = "table 3"
+motif = "Lantern red, lucky gold"
+accent = { light = "#b3001b", dark = "#ff6b6b" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "flower"
+spin = true
+emblem = "lantern"
+icon = { file = "art/icons/lunar-new-year.svg", id = "8516749", title = "Chinese Lantern", creator = "BEARicons", url = "https://thenounproject.com/icon/chinese-lantern-8516749/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "f76c7a418eabcef00e75411ff0c79f8a47d513db0a58864fbe3b702df61e2732" }
+dates = { 2026 = "2026-02-17", 2027 = "2027-02-06", 2028 = "2028-01-26", 2029 = "2029-02-13", 2030 = "2030-02-03" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
+
+[[holiday]]
+key = "carnival"
+name = "Carnival"
+month = 2
+rule = "easter -50 4"
+motif = "Feathers: electric green, magenta"
+accent = { light = "#047857", dark = "#4ee6a0" }
+accent2 = { light = "#be185d", dark = "#ff7ac8" }
+glyph = "confetti"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/carnival.svg", id = "7883313", title = "Carnival Mask", creator = "YANDI RS", url = "https://thenounproject.com/icon/carnival-mask-7883313/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "13cb2df335a79870ba1ab0b7e61081e47ef6dabe8fa2bac672939c93a56c8276" }
+
+[[holiday]]
+key = "valentine"
+name = "Valentine's Day"
+month = 2
+rule = "fixed 02-14"
+motif = "Rose, blush"
+accent = { light = "#be185d", dark = "#ff8fb8" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "heart"
+spin = true
+emblem = "heart"
+icon = { file = "art/icons/valentine.svg", id = "4635773", title = "Heart", creator = "BUSAIRI", url = "https://thenounproject.com/icon/heart-4635773/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "be7cd26ee89b239c318f4fd535661c264907e7a6aedfd6e25b70b141bfc54df0" }
+
+[[holiday]]
+key = "lantern-festival"
+name = "Lantern Festival"
+month = 2
+rule = "table 1"
+motif = "Lantern amber, night indigo"
+accent = { light = "#b45309", dark = "#ffb454" }
+accent2 = { light = "#3730a3", dark = "#a5b4fc" }
+glyph = "lantern"
+emblem = "moon"
+icon = { file = "art/icons/lantern-festival.svg", id = "8047144", title = "sky lantern", creator = "WR Graphic Garage", url = "https://thenounproject.com/icon/sky-lantern-8047144/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "678791b004f625dc936f7cd423a4be623608dabbe6914a406e5ee341669fd47c" }
+dates = { 2026 = "2026-03-03", 2027 = "2027-02-20", 2028 = "2028-02-09", 2029 = "2029-02-27", 2030 = "2030-02-17" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
+
+[[holiday]]
+key = "womens-day"
+name = "International Women's Day"
+month = 3
+rule = "fixed 03-08"
+motif = "Purple, green, white"
+accent = { light = "#6b21a8", dark = "#d0a6ff" }
+accent2 = { light = "#15803d", dark = "#86e0a0" }
+glyph = "flower"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/womens-day.svg", id = "8329289", title = "women day", creator = "IMG visuals icons", url = "https://thenounproject.com/icon/women-day-8329289/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "24d44635dc229db70889aeba97a51df4913582114b80a588c573676b32cf46d9" }
+
+[[holiday]]
+key = "mothering-sunday"
+name = "Mothering Sunday"
+month = 3
+rule = "easter -21"
+motif = "Peony pink, sage"
+accent = { light = "#9d174d", dark = "#f9a8d4" }
+accent2 = { light = "#4d7c57", dark = "#a7d7b0" }
+glyph = "tulip"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/mothering-sunday.svg", id = "8281811", title = "tulip bouquet", creator = "Pong Pong", url = "https://thenounproject.com/icon/tulip-bouquet-8281811/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "bb8e1171fd0342e3c161afb34fe6706a90cd5d8597d82d5122a4703e41b4797f" }
+
+[[holiday]]
+key = "st-patrick"
+name = "St. Patrick's Day"
+month = 3
+rule = "fixed 03-17"
+motif = "Shamrock green, gold"
+accent = { light = "#047857", dark = "#5fd3a0" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "shamrock"
+spin = true
+emblem = "shamrock"
+icon = { file = "art/icons/st-patrick.svg", id = "7342037", title = "Shamrock", creator = "Gregor Cresnar", url = "https://thenounproject.com/icon/shamrock-7342037/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c4fd4b8e227a24717ce208af263f166a1b793f618bb9b826d84a6aabf73d2bc4" }
+
+[[holiday]]
+key = "holi"
+name = "Holi"
+month = 3
+rule = "table 2"
+motif = "Gulal magenta, marigold, cyan"
+accent = { light = "#be185d", dark = "#ff7ac8" }
+accent2 = { light = "#c2410c", dark = "#ffb347" }
+glyph = "splash"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/holi.svg", id = "8171987", title = "Holi", creator = "Icon From Us", url = "https://thenounproject.com/icon/holi-8171987/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "acabb60596fc4a7b3a4c4434c1a2fddc868052571d2fab3b231fcffce8253edd" }
+# Holika Dahan, then the day of colours. 2028 to 2030: no source could be opened.
+dates = { 2026 = "2026-03-03", 2027 = "2027-03-22" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
+
+[[holiday]]
+key = "nowruz"
+name = "Nowruz"
+month = 3
+rule = "table 1"
+motif = "Sabzeh green, turquoise"
+accent = { light = "#2e7d32", dark = "#9be39f" }
+accent2 = { light = "#00838f", dark = "#5fe0e8" }
+glyph = "leaf"
+spin = true
+emblem = "sun"
+icon = { file = "art/icons/nowruz.svg", id = "7924957", title = "Nowruz", creator = "Walle", url = "https://thenounproject.com/icon/nowruz-7924957/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "e285b4c874c2ed6dca03e3875aa7321f2b977a57422b526ce324f4bc09d66153" }
+# March equinox, London date.
+dates = { 2026 = "2026-03-20", 2027 = "2027-03-20", 2028 = "2028-03-20", 2029 = "2029-03-20", 2030 = "2030-03-20" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
+
+[[holiday]]
+key = "eid-al-fitr"
+name = "Eid al-Fitr"
+month = 3
+rule = "table 3"
+motif = "Emerald, crescent gold"
+accent = { light = "#00695c", dark = "#5fe0c4" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "star"
+spin = true
+emblem = "crescent"
+icon = { file = "art/icons/eid-al-fitr.svg", id = "6748519", title = "Ramadan", creator = "Muhammad Riza", url = "https://thenounproject.com/icon/ramadan-6748519/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "28fae734a080e4819edae4634d24c9401d69e5d4373539ce58f62b857dc2b361" }
+# 1 Shawwal, Umm al-Qura (calculated); the 3-day window absorbs a sighting day.
+dates = { 2026 = "2026-03-20", 2027 = "2027-03-09", 2028 = "2028-02-26", 2029 = "2029-02-14", 2030 = "2030-02-04" }
+source = [
+  "https://webspace.science.uu.nl/~gent0113/islam/ummalqura_principal.htm",
+  "https://api.aladhan.com/v1/hToG/01-10-1451?calendarMethod=UAQ",
+]
+
+[[holiday]]
+key = "april-fools"
+name = "April Fools' Day"
+month = 4
+rule = "fixed 04-01"
+motif = "Jester teal, lemon"
+accent = { light = "#0f766e", dark = "#5eead4" }
+accent2 = { light = "#a16207", dark = "#fde047" }
+glyph = "confetti"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/april-fools.svg", id = "8456125", title = "Jester Hat", creator = "Sentya Irma", url = "https://thenounproject.com/icon/jester-hat-8456125/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "16d3ec23e03de2c8d730e52051493dbaa1ba18edea2f85fd7a9b07bdb4992582" }
+
+[[holiday]]
+key = "pesach"
+name = "Pesach"
+month = 4
+rule = "table 8"
+motif = "Wine, matzah wheat"
+accent = { light = "#7b1e3a", dark = "#f08aa6" }
+accent2 = { light = "#a16207", dark = "#e9c46a" }
+glyph = "wheat"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/pesach.svg", id = "6550441", title = "seder plate", creator = "Pronto Illustration", url = "https://thenounproject.com/icon/seder-plate-6550441/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "1d4609eb6aad325e339b0d361a85ddf4aa6b5b4af65c197a3a6b632eb577e87c" }
+# Pesach I, 15 Nisan (diaspora).
+dates = { 2026 = "2026-04-02", 2027 = "2027-04-22", 2028 = "2028-04-11", 2029 = "2029-03-31", 2030 = "2030-04-18" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
+
+[[holiday]]
+key = "easter"
+name = "Easter"
+month = 4
+rule = "easter -2 4"
+motif = "Lilac, spring yellow"
+accent = { light = "#6b4fbb", dark = "#c7b8ff" }
+accent2 = { light = "#a16207", dark = "#ffe08a" }
+glyph = "egg"
+spin = true
+emblem = "egg"
+icon = { file = "art/icons/easter.svg", id = "3544817", title = "Egg", creator = "Taylan Sentürk", url = "https://thenounproject.com/icon/egg-3544817/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "d095b8ad0f1bfefd246dfd57e11b4a251284aeeeb513e18887552474f1d1895d" }
+
+[[holiday]]
+key = "songkran"
+name = "Songkran"
+month = 4
+rule = "fixed 04-13 3"
+motif = "Splash cyan, jasmine, orange"
+accent = { light = "#0369a1", dark = "#67d4ff" }
+accent2 = { light = "#c2410c", dark = "#ffa94d" }
+glyph = "drop"
+emblem = "none"
+icon = { file = "art/icons/songkran.svg", id = "7924961", title = "Songkran", creator = "Walle", url = "https://thenounproject.com/icon/songkran-7924961/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "2a98b1cfd8c806ad9be883e73218fec52b5942874b4b05dfac7cc13cb871ee4b" }
+
+[[holiday]]
+key = "earth-day"
+name = "Earth Day"
+month = 4
+rule = "fixed 04-22"
+motif = "Forest, ocean"
+accent = { light = "#2e7d32", dark = "#7ed99a" }
+accent2 = { light = "#0277bd", dark = "#6ec6ff" }
+glyph = "leaf"
+spin = true
+emblem = "globe"
+icon = { file = "art/icons/earth-day.svg", id = "7872649", title = "world ecology", creator = "Yon ten", url = "https://thenounproject.com/icon/world-ecology-7872649/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "14dddb4873b34abbe60c657df8afcddcb94e9c98bbb94348ad0478e121f2684d" }
+
+[[holiday]]
+key = "workers-day"
+name = "International Workers' Day"
+month = 5
+rule = "fixed 05-01"
+motif = "Labour red, lily-of-the-valley green"
+accent = { light = "#b91c1c", dark = "#ff7a7a" }
+accent2 = { light = "#2e7d32", dark = "#8fd694" }
+glyph = "bell"
+spin = true
+emblem = "none"
+icon = { file = "art/icons/workers-day.svg", id = "8341356", title = "Lily of the Valley", creator = "Laymik", url = "https://thenounproject.com/icon/lily-of-the-valley-8341356/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "6b04b30e6b98e424fd319d2da8e31bbdb349b7c759427dd429ef70006e9cee30" }
+
+[[holiday]]
+key = "cinco-de-mayo"
+name = "Cinco de Mayo"
+month = 5
+rule = "fixed 05-05"
+motif = "Verde, rojo"
+accent = { light = "#006847", dark = "#4fd69a" }
+accent2 = { light = "#ce1126", dark = "#ff6b78" }
+glyph = "flower"
+spin = true
+emblem = "burst"
+icon = { file = "art/icons/cinco-de-mayo.svg", id = "7225544", title = "Papel Picado", creator = "Yasa Design Studio", url = "https://thenounproject.com/icon/papel-picado-7225544/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "907d18ec38f9a17c4f024dc201febdd5dd23b0e0afb418fa279974e793dce4ee" }
+
+[[holiday]]
+key = "vesak"
+name = "Vesak"
+month = 5
+rule = "table 1"
+motif = "Saffron, Buddhist-flag blue"
+accent = { light = "#b35900", dark = "#ffb35c" }
+accent2 = { light = "#1565c0", dark = "#82b1ff" }
+glyph = "lotus"
+emblem = "moon"
+icon = { file = "art/icons/vesak.svg", id = "4886624", title = "Lotus", creator = "YANDI RS", url = "https://thenounproject.com/icon/lotus-4886624/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "b04576df558e21643dca97a27053d349934739ee45322402ad7573f481a84d3d" }
+# The UN names no date per year; every year is unsourced until it does.
+source = "https://www.un.org/en/observances/vesak-day"
+
+[[holiday]]
+key = "eid-al-adha"
+name = "Eid al-Adha"
+month = 5
+rule = "table 3"
+motif = "Night indigo, lantern gold"
+accent = { light = "#283593", dark = "#9fa8ff" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "crescent"
+spin = true
+emblem = "crescent"
+icon = { file = "art/icons/eid-al-adha.svg", id = "8386824", title = "mosque crescent", creator = "c_ART_o", url = "https://thenounproject.com/icon/mosque-crescent-8386824/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "91d55dfe2b795f79943790154ae42175af0d4067c1a0d4f7685fbe5349e51067" }
+# 10 Dhu al-Hijjah, Umm al-Qura (calculated).
+dates = { 2026 = "2026-05-27", 2027 = "2027-05-16", 2028 = "2028-05-05", 2029 = "2029-04-24", 2030 = "2030-04-13" }
+source = [
+  "https://webspace.science.uu.nl/~gent0113/islam/ummalqura_principal.htm",
+  "https://api.aladhan.com/v1/hToG/10-12-1451?calendarMethod=UAQ",
+]
+
+[[holiday]]
+key = "spring-bank-holiday"
+name = "Spring Bank Holiday"
+month = 5
+rule = "nth last mon 05"
+motif = "Bluebell, new leaf"
+accent = { light = "#4338ca", dark = "#a5b4fc" }
+accent2 = { light = "#4d7c0f", dark = "#a3e06a" }
+glyph = "bell"
+spin = true
+emblem = "sun"
+icon = { file = "art/icons/spring-bank-holiday.svg", id = "8490289", title = "Bluebell", creator = "Designing Hub", url = "https://thenounproject.com/icon/bluebell-8490289/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "fcbc2368577d60adf9886fe7aa6868b34699912724f3a9adc24baf44d5dc5415" }
+
+[[holiday]]
+key = "dragon-boat"
+name = "Dragon Boat Festival"
+month = 6
+rule = "table 1"
+motif = "Jade, dragon red"
+accent = { light = "#00796b", dark = "#4fd1b5" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "wave"
+emblem = "boat"
+icon = { file = "art/icons/dragon-boat.svg", id = "8040959", title = "dragon boat", creator = "Icon Market", url = "https://thenounproject.com/icon/dragon-boat-8040959/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "bca7712a36ec2ce2f2744dd7aefbc4aaf877402506b8bc5b956a3a576a13a4ed" }
+# 2028 has a leap 5th lunar month; the festival is in the regular one.
+dates = { 2026 = "2026-06-19", 2027 = "2027-06-09", 2028 = "2028-05-28", 2029 = "2029-06-16", 2030 = "2030-06-05" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
+
+[[holiday]]
+key = "juneteenth"
+name = "Juneteenth"
+month = 6
+rule = "fixed 06-19"
+motif = "Flag blue, red, the bursting star"
+accent = { light = "#1e3a8a", dark = "#93b4ff" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "star"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "midsummer"
+name = "Midsummer / Summer Solstice"
+month = 6
+rule = "table 1"
+motif = "Cornflower blue, sun yellow"
+accent = { light = "#1d4ed8", dark = "#93b4ff" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "flower"
+spin = true
+emblem = "sun"
+icon = { file = "art/icons/midsummer.svg", id = "1722245", title = "maypole", creator = "P Thanga Vignesh", url = "https://thenounproject.com/icon/maypole-1722245/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "0433b58149e6166b0ea09e00418f7f1412030b66589f34c8520ea87e6456759b" }
+# June solstice, London date.
+dates = { 2026 = "2026-06-21", 2027 = "2027-06-21", 2028 = "2028-06-20", 2029 = "2029-06-21", 2030 = "2030-06-21" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
+
+[[holiday]]
+key = "inti-raymi"
+name = "Inti Raymi"
+month = 6
+rule = "fixed 06-24"
+motif = "Inca sun gold, Andean red"
+accent = { light = "#a16207", dark = "#ffc94a" }
+accent2 = { light = "#b91c1c", dark = "#ff7a6b" }
+glyph = "sun"
+emblem = "sun"
+icon = { file = "art/icons/inti-raymi.svg", id = "6332137", title = "inti raymi", creator = "gravisio", url = "https://thenounproject.com/icon/inti-raymi-6332137/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "ea15f0f0f207bb4dd8f8732146a34b48a29b855de29b395f4c41d2dbe529c693" }
+
+[[holiday]]
+key = "canada-day"
+name = "Canada Day"
+month = 7
+rule = "fixed 07-01"
+motif = "Maple red, snow"
+accent = { light = "#d52b1e", dark = "#ff7a70" }
+accent2 = { light = "#64748b", dark = "#e2e8f0" }
+glyph = "maple"
+spin = true
+emblem = "maple"
+icon = { file = "art/icons/canada-day.svg", id = "2447474", title = "Canada", creator = "Flatart", url = "https://thenounproject.com/icon/canada-2447474/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "875a31605a7f07f98d9a54f81514e0052d9115fb99b31dc74efc54e83eba8924" }
+
+[[holiday]]
+key = "us-independence"
+name = "Independence Day (US)"
+month = 7
+rule = "fixed 07-04"
+motif = "Old Glory red, navy"
+accent = { light = "#b31942", dark = "#ff7a9a" }
+accent2 = { light = "#0a3161", dark = "#93b4ff" }
+glyph = "star"
+spin = true
+emblem = "burst"
+icon = { file = "art/icons/us-independence.svg", id = "8140379", title = "Fireworks", creator = "Icon Market", url = "https://thenounproject.com/icon/fireworks-8140379/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "f1cdeb5b06365870fe04c022c33ca1c07cd5cd0e4c741085a9ab8d338c1a9486" }
+
+[[holiday]]
+key = "bastille-day"
+name = "Bastille Day"
+month = 7
+rule = "fixed 07-14"
+motif = "Bleu, blanc, rouge"
+accent = { light = "#002395", dark = "#8ca8ff" }
+accent2 = { light = "#c8102e", dark = "#ff6b78" }
+glyph = "burst"
+spin = true
+emblem = "burst"
+
+[[holiday]]
+key = "ashura"
+name = "Ashura"
+month = 7
+rule = "table 1"
+motif = "Quiet: deep green, charcoal"
+quiet = true
+accent = { light = "#14532d", dark = "#86c79c" }
+accent2 = { light = "#475569", dark = "#cbd5e1" }
+glyph = "dot"
+emblem = "none"
+icon = { file = "art/icons/ashura.svg", id = "3267282", title = "Moon", creator = "Larea", url = "https://thenounproject.com/icon/moon-3267282/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "d75144b85f44220f57466646dde2cee1648dc3883e4553be309cb5f229cbf83f" }
+# 10 Muharram, Umm al-Qura (calculated).
+dates = { 2026 = "2026-06-25", 2027 = "2027-06-15", 2028 = "2028-06-03", 2029 = "2029-05-23", 2030 = "2030-05-12" }
+source = [
+  "https://api.aladhan.com/v1/hToG/10-01-1448?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1449?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1450?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1451?calendarMethod=UAQ",
+  "https://api.aladhan.com/v1/hToG/10-01-1452?calendarMethod=UAQ",
+]
+
+[[holiday]]
+key = "raksha-bandhan"
+name = "Raksha Bandhan"
+month = 8
+rule = "table 1"
+motif = "Saffron, rakhi red"
+accent = { light = "#c2410c", dark = "#ff9a5c" }
+accent2 = { light = "#be185d", dark = "#ff7ac8" }
+glyph = "flower"
+spin = true
+emblem = "rangoli"
+# 2028 to 2030: no source could be opened.
+dates = { 2026 = "2026-08-28", 2027 = "2027-08-17" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
+
+[[holiday]]
+key = "obon"
+name = "Obon"
+month = 8
+rule = "fixed 08-13 4"
+motif = "Lantern vermilion, yukata indigo"
+accent = { light = "#c2410c", dark = "#ff8a5c" }
+accent2 = { light = "#1e3a8a", dark = "#93b4ff" }
+glyph = "lantern"
+emblem = "moon"
+icon = { file = "art/icons/obon.svg", id = "3789787", title = "Lantern", creator = "Made by Made", url = "https://thenounproject.com/icon/lantern-3789787/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "29631acb2f8e393a721223b2a614d0b9b930ab3af698c52861682d40b8fed027" }
+
+[[holiday]]
+key = "india-pakistan"
+name = "Independence Day (India & Pakistan)"
+month = 8
+rule = "fixed 08-14 2"
+motif = "Green, saffron, white"
+accent = { light = "#01411c", dark = "#6fd38f" }
+accent2 = { light = "#c2410c", dark = "#ff9933" }
+glyph = "kite"
+spin = true
+emblem = "burst"
+icon = { file = "art/icons/india-pakistan.svg", id = "8144389", title = "fly a kite", creator = "Alzam", url = "https://thenounproject.com/icon/fly-a-kite-8144389/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "7b6ef42d41ff06f19123642533819fe0616aa32ffe8b7f2d167e5b99b4c85bd5" }
+
+[[holiday]]
+key = "summer-bank-holiday"
+name = "Summer Bank Holiday"
+month = 8
+rule = "nth last mon 08"
+motif = "Seaside teal, sand"
+accent = { light = "#0e7490", dark = "#67e8f9" }
+accent2 = { light = "#a16207", dark = "#f4d58d" }
+glyph = "wave"
+emblem = "sun"
+icon = { file = "art/icons/summer-bank-holiday.svg", id = "2128264", title = "sunshade", creator = "ProSymbols", url = "https://thenounproject.com/icon/sunshade-2128264/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "f84eef8165fb129b681be0b6a58036ae4d2f3e61f1b13db5cc745023b8cb9007" }
+
+[[holiday]]
+key = "mid-autumn"
+name = "Mid-Autumn Festival"
+month = 9
+rule = "table 1"
+motif = "Moon gold, night indigo"
+accent = { light = "#a16207", dark = "#ffd166" }
+accent2 = { light = "#3949ab", dark = "#9fa8ff" }
+glyph = "sparkle"
+emblem = "moon"
+icon = { file = "art/icons/mid-autumn.svg", id = "8355546", title = "Mooncake", creator = "Andi Nur Abdillah", url = "https://thenounproject.com/icon/mooncake-8355546/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c609a3661d667f3093b60c8f2b925140eed7ce15c6be4b9d6a9c6927a47e1183" }
+dates = { 2026 = "2026-09-25", 2027 = "2027-09-15", 2028 = "2028-10-03", 2029 = "2029-09-22", 2030 = "2030-09-12" }
+source = [
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2027e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2028e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2029e.txt",
+  "https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2030e.txt",
+]
+
+[[holiday]]
+key = "rosh-hashanah"
+name = "Rosh Hashanah"
+month = 9
+rule = "table 2"
+motif = "Apple red, honey"
+accent = { light = "#b91c1c", dark = "#ff8a80" }
+accent2 = { light = "#a16207", dark = "#ffc94a" }
+glyph = "apple"
+spin = true
+emblem = "apple"
+icon = { file = "art/icons/rosh-hashanah.svg", id = "1261406", title = "rosh hashana", creator = "Eynav Raphael", url = "https://thenounproject.com/icon/rosh-hashana-1261406/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "b33251f3246c185435f4fbc062daa8add3903c976aa9e777058f5aa5780d2026" }
+# 1 Tishrei, the first full day.
+dates = { 2026 = "2026-09-12", 2027 = "2027-10-02", 2028 = "2028-09-21", 2029 = "2029-09-10", 2030 = "2030-09-28" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
+
+[[holiday]]
+key = "yom-kippur"
+name = "Yom Kippur"
+month = 9
+rule = "table 1"
+motif = "Quiet: white and silver"
+quiet = true
+accent = { light = "#475569", dark = "#cbd5e1" }
+accent2 = { light = "#64748b", dark = "#e2e8f0" }
+glyph = "dot"
+emblem = "none"
+icon = { file = "art/icons/yom-kippur.svg", id = "3819306", title = "Shofar", creator = "Olena Panasovska", url = "https://thenounproject.com/icon/shofar-3819306/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "6a4e449da7f6be1f906d790b275eb742aa0eef821b4007a7d69ad553378e6aa7" }
+# 10 Tishrei.
+dates = { 2026 = "2026-09-21", 2027 = "2027-10-11", 2028 = "2028-09-30", 2029 = "2029-09-19", 2030 = "2030-10-07" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
+
+[[holiday]]
+key = "autumn-equinox"
+name = "Autumn Equinox"
+month = 9
+rule = "table 1"
+motif = "Amber leaf, dusk violet"
+accent = { light = "#b45309", dark = "#ffb454" }
+accent2 = { light = "#6d28d9", dark = "#c4b5fd" }
+glyph = "leaf"
+spin = true
+emblem = "sun"
+icon = { file = "art/icons/autumn-equinox.svg", id = "2795692", title = "autumn leaf", creator = "Maria Zamchy", url = "https://thenounproject.com/icon/autumn-leaf-2795692/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "2bf84806d1b5e9859b3272a164e1abdfcd16f3b62b578e576d6721a1c5ce84cf" }
+# September equinox, London date: 2030 is 22 Sep 23:27 UTC, 23 Sep in London.
+dates = { 2026 = "2026-09-23", 2027 = "2027-09-23", 2028 = "2028-09-22", 2029 = "2029-09-22", 2030 = "2030-09-23" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
+
+[[holiday]]
+key = "oktoberfest"
+name = "Oktoberfest"
+month = 10
+rule = "table"
+motif = "Bavarian blue, lager gold"
+accent = { light = "#0b5fa5", dark = "#7cc0ff" }
+accent2 = { light = "#a16207", dark = "#ffcc4d" }
+glyph = "diamond"
+emblem = "none"
+icon = { file = "art/icons/oktoberfest.svg", id = "2727503", title = "Pretzel", creator = "@w@n !cons", url = "https://thenounproject.com/icon/pretzel-2727503/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "5cf9017257d445f4d6edab8acb9adad9a8c7eaa3399eb89528e9513ed7cb7ec8" }
+# Only 2027 is published; 2026 was not confirmed from an opened page.
+dates = { 2027 = "2027-09-18..2027-10-03" }
+source = [
+  "https://www.oktoberfest.de/en",
+  "https://www.muenchen.de/int/en/events/oktoberfest.html",
+]
+
+[[holiday]]
+key = "navaratri"
+name = "Navaratri / Dussehra"
+month = 10
+rule = "table 1"
+motif = "Vermilion, peacock blue"
+accent = { light = "#c1272d", dark = "#ff7a7a" }
+accent2 = { light = "#0e7490", dark = "#5ee0f0" }
+glyph = "marigold"
+spin = true
+emblem = "rangoli"
+icon = { file = "art/icons/navaratri.svg", id = "8514734", title = "rangoli", creator = "Ivar Jenner", url = "https://thenounproject.com/icon/rangoli-8514734/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "a5988c5afffe18f488452c1a1519831608f433c572c16f23aa905d38dff8d6c2" }
+# Dussehra only: no source opened gives Navaratri's first day. 2028 to 2030 likewise unsourced.
+dates = { 2026 = "2026-10-20", 2027 = "2027-10-09" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
+
+[[holiday]]
+key = "diwali"
+name = "Diwali"
+month = 10
+rule = "table"
+motif = "Diya gold, deep maroon"
+accent = { light = "#b45309", dark = "#ffc061" }
+accent2 = { light = "#9f1239", dark = "#ff6f91" }
+glyph = "diya"
+emblem = "rangoli"
+icon = { file = "art/icons/diwali.svg", id = "8258078", title = "diya", creator = "Colourcreatype", url = "https://thenounproject.com/icon/diya-8258078/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "2945066bcbec49eb855b26578b1ff5ad9aa766eba9fc287bed62dcacee254090" }
+# Diwali to Bhai Dooj; Dhanteras is not in the sources. 2028 to 2030 unsourced.
+dates = { 2026 = "2026-11-08..2026-11-11", 2027 = "2027-10-29..2027-10-31" }
+source = [
+  "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
+  "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+]
+
+[[holiday]]
+key = "halloween"
+name = "Halloween"
+month = 10
+rule = "fixed 10-31"
+motif = "Pumpkin, witching purple"
+accent = { light = "#c2410c", dark = "#ff8c2a" }
+accent2 = { light = "#6b21a8", dark = "#b38cff" }
+glyph = "bat"
+spin = true
+emblem = "pumpkin"
+icon = { file = "art/icons/halloween.svg", id = "1320975", title = "Jack-o'-lantern", creator = "Mooms", url = "https://thenounproject.com/icon/jack-o-lantern-1320975/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "6c76413e07e4a950c53f502a86b5c29a9b2cfee6f0401dc366c5511efdc951de" }
+
+[[holiday]]
+key = "dia-de-muertos"
+name = "D\u00eda de los Muertos"
+month = 11
+rule = "fixed 11-01 2"
+motif = "Papel picado magenta, cempas\u00fachil"
+accent = { light = "#be185d", dark = "#ff6fb5" }
+accent2 = { light = "#c2410c", dark = "#ffa040" }
+glyph = "marigold"
+spin = true
+emblem = "rangoli"
+icon = { file = "art/icons/dia-de-muertos.svg", id = "8126123", title = "Marigold", creator = "Icon From Us", url = "https://thenounproject.com/icon/marigold-8126123/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c7dbd9f97f5b24c8612ceb5afff22389615847cdd68521225abccc554b6a4127" }
+
+[[holiday]]
+key = "bonfire-night"
+name = "Guy Fawkes / Bonfire Night"
+month = 11
+rule = "fixed 11-05"
+motif = "Ember orange, smoke blue"
+accent = { light = "#c2410c", dark = "#ff9a3c" }
+accent2 = { light = "#334155", dark = "#94a3b8" }
+glyph = "burst"
+spin = true
+emblem = "flame"
+icon = { file = "art/icons/bonfire-night.svg", id = "8517434", title = "bonfire", creator = "zafdesign", url = "https://thenounproject.com/icon/bonfire-8517434/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "cf3e0041fad7d92c0aa42e9816cad89c5568c58390392999e6af3345dda2972a" }
+
+[[holiday]]
+key = "remembrance"
+name = "Remembrance Day"
+month = 11
+rule = ["fixed 11-11", "nth 2 sun 11"]
+motif = "Quiet: poppy red, black"
+quiet = true
+accent = { light = "#b91c1c", dark = "#ff6b6b" }
+accent2 = { light = "#1f2937", dark = "#9ca3af" }
+glyph = "poppy"
+spin = true
+emblem = "poppy"
+icon = { file = "art/icons/remembrance.svg", id = "6371407", title = "poppy", creator = "moon studio", url = "https://thenounproject.com/icon/poppy-6371407/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "1ec76d443a177332863be5750009e418f5576e095a5584b2166fdbebd9523359" }
+
+[[holiday]]
+key = "thanksgiving"
+name = "Thanksgiving"
+month = 11
+rule = "nth 4 thu 11"
+motif = "Harvest rust, olive"
+accent = { light = "#9a3412", dark = "#ff9e6b" }
+accent2 = { light = "#65630f", dark = "#d6c25a" }
+glyph = "leaf"
+spin = true
+emblem = "wheat"
+icon = { file = "art/icons/thanksgiving.svg", id = "5262957", title = "Cornucopia", creator = "Supanut Piyakanont", url = "https://thenounproject.com/icon/cornucopia-5262957/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c931024c24e9e09a40bf59ab760ba0a632994cab51fd1e62714cc169def32bbd" }
+
+[[holiday]]
+key = "bodhi-day"
+name = "Bodhi Day"
+month = 12
+rule = "fixed 12-08"
+motif = "Bodhi-leaf green, saffron"
+accent = { light = "#3f6212", dark = "#a5d66f" }
+accent2 = { light = "#b35900", dark = "#ffb35c" }
+glyph = "leaf"
+spin = true
+emblem = "leaf"
+icon = { file = "art/icons/bodhi-day.svg", id = "1955917", title = "bo leaf", creator = "Eucalyp", url = "https://thenounproject.com/icon/bo-leaf-1955917/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "d1cff5b93ca4c7fdf0251aaa239a28add0927ca395a8e0c8e792bfa896587817" }
+
+[[holiday]]
+key = "st-lucia"
+name = "St. Lucia Day"
+month = 12
+rule = "fixed 12-13"
+motif = "Candle crown gold, lingonberry sash"
+accent = { light = "#a16207", dark = "#ffd36b" }
+accent2 = { light = "#b91c1c", dark = "#ff7a7a" }
+glyph = "candle"
+emblem = "candle"
+icon = { file = "art/icons/st-lucia.svg", id = "5328580", title = "Candle", creator = "Andre Buand", url = "https://thenounproject.com/icon/candle-5328580/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "98dafa4abf42f63bf32ba4356e4c28fa361583f84e541e02d43abebaf3d994cd" }
+
+[[holiday]]
+key = "hanukkah"
+name = "Hanukkah"
+month = 12
+rule = "table 8"
+motif = "Blue, silver, candle gold"
+accent = { light = "#0d47a1", dark = "#82b1ff" }
+accent2 = { light = "#a16207", dark = "#ffd166" }
+glyph = "sparkle"
+emblem = "menorah"
+icon = { file = "art/icons/hanukkah.svg", id = "8153342", title = "Menorah", creator = "ZAK", url = "https://thenounproject.com/icon/menorah-8153342/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "cc6cba2ea935bb9c40f7f3c459e6127ea7625c1986d7d14afede22217e0e9028" }
+# 25 Kislev, the first full day; the first candle is lit the evening before.
+dates = { 2026 = "2026-12-05", 2027 = "2027-12-25", 2028 = "2028-12-13", 2029 = "2029-12-02", 2030 = "2030-12-21" }
+source = [
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2026&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2027&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2028&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2029&i=off",
+  "https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&year=2030&i=off",
+]
+
+[[holiday]]
+key = "yule"
+name = "Yule / Winter Solstice"
+month = 12
+rule = "table 1"
+motif = "Evergreen, frost blue"
+accent = { light = "#14532d", dark = "#7fd88b" }
+accent2 = { light = "#0e7490", dark = "#7fdbe8" }
+glyph = "snowflake"
+spin = true
+emblem = "wreath"
+# December solstice, London date.
+dates = { 2026 = "2026-12-21", 2027 = "2027-12-22", 2028 = "2028-12-21", 2029 = "2029-12-21", 2030 = "2030-12-21" }
+source = [
+  "https://aa.usno.navy.mil/calculated/seasons?year=2026&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2027&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2028&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2029&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+  "https://aa.usno.navy.mil/calculated/seasons?year=2030&tz=0&tz_sign=-1&tz_label=false&dst=false&submit=Get+Data",
+]
+
+[[holiday]]
+key = "christmas"
+name = "Christmas"
+month = 12
+rule = "fixed 12-24 2"
+motif = "Holly red, evergreen"
+accent = { light = "#b91c1c", dark = "#ff7070" }
+accent2 = { light = "#15803d", dark = "#6fd08c" }
+glyph = "snowflake"
+spin = true
+emblem = "tree"
+icon = { file = "art/icons/christmas.svg", id = "7489615", title = "Christmas tree", creator = "Mustiana Kartika", url = "https://thenounproject.com/icon/christmas-tree-7489615/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "c6fae1d652cd14440bcd02f6177c50b9028427fc4074a4a29498d362085db0e7" }
+
+[[holiday]]
+key = "boxing-day"
+name = "Boxing Day"
+month = 12
+rule = "fixed 12-26"
+motif = "Plum, ribbon gold"
+accent = { light = "#7e2553", dark = "#e8a0bf" }
+accent2 = { light = "#a16207", dark = "#f2c94c" }
+glyph = "gift"
+spin = true
+emblem = "gift"
+icon = { file = "art/icons/boxing-day.svg", id = "8213169", title = "Gift", creator = "Viktor Turchyn", url = "https://thenounproject.com/icon/gift-8213169/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "3caffe8a3d3701c61c81253cd54db415a98a9734725462da33a0d793dd630e2f" }
+
+[[holiday]]
+key = "kwanzaa"
+name = "Kwanzaa"
+month = 12
+rule = "fixed 12-26 7"
+motif = "Red, black, green"
+accent = { light = "#b91c1c", dark = "#ff6b6b" }
+accent2 = { light = "#15803d", dark = "#5fd38d" }
+glyph = "dot"
+emblem = "kinara"
+icon = { file = "art/icons/kwanzaa.svg", id = "7584275", title = "kinara", creator = "Chuck Penzone", url = "https://thenounproject.com/icon/kinara-7584275/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "da3eb9aa5b650b3375f781c7eba4a995ffb4f2dbe56d2d28da24232b2b726cda" }
+
+[[holiday]]
+key = "hogmanay"
+name = "Hogmanay / New Year's Eve"
+month = 12
+rule = "fixed 12-31"
+motif = "Midnight, champagne gold"
+accent = { light = "#a16207", dark = "#ffd36b" }
+accent2 = { light = "#4338ca", dark = "#a5b4fc" }
+glyph = "sparkle"
+spin = true
+emblem = "burst"
+icon = { file = "art/icons/hogmanay.svg", id = "8508722", title = "Fireworks", creator = "Roat Studio", url = "https://thenounproject.com/icon/fireworks-8508722/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "63687449da4091329fed8e9171c10c302c5afaaef50c1adc931cddffc2ff9cdf" }

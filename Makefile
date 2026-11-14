@@ -2,10 +2,16 @@
 # out of step with pyproject.toml. smoke needs only the standard library.
 RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke audit manual check lint test drift
+.PHONY: all live smoke audit manual check lint test drift icon preview
 
-all:  ## Regenerate the static assets/ and README.md from profile.toml
+all:  ## Regenerate assets/, README.md and CREDITS.md from profile.toml and holidays.toml
 	$(RUN) --group build tools/build.py
+
+preview:  ## Write a gallery of every hero, clocks running, to _preview/index.html
+	$(RUN) --group build tools/preview.py
+
+icon:  ## Sanitise a Noun Project icon: make icon KEY=<key> SVG=<file> CREATOR="<name>" [TITLE= URL=]
+	$(RUN) --group build python tools/icons.py "$(KEY)" "$(SVG)" --creator "$(CREATOR)" --title "$(TITLE)" --url "$(URL)"
 
 live:  ## Fetch live data and render the numbers and article panels into $(OUT)
 	$(RUN) --group build tools/live.py $(OUT)
@@ -31,14 +37,14 @@ lint:
 	shellcheck tools/*.sh
 	$(RUN) --group lint actionlint .github/workflows/*.yml
 
-# Coverage floor: 88.8%, measured at 0.0.14 (86.9% at 0.0.13), checked to one decimal
+# Coverage floor: 92.1%, measured at 0.0.16 (88.8% at 0.0.14), checked to one decimal
 # (pyproject.toml). It may rise, never fall.
 test:
 	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests \
-	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=88.8
+	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=92.1
 
-drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
-	@changed="$$(git status --porcelain -- README.md assets)"; \
+drift: all  ## Fail when the committed README.md, CREDITS.md or assets/ differ from a fresh build
+	@changed="$$(git status --porcelain -- README.md CREDITS.md assets)"; \
 	if [ -n "$$changed" ]; then echo "Out of date; run make and commit:"; echo "$$changed"; exit 1; fi
 
 check: lint test drift  ## The single gate CI runs

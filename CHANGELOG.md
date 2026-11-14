@@ -3,6 +3,33 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.16] - Unreleased
+
+### Added
+
+- Holiday themes for the profile hero: on 57 holidays the hero takes the
+  holiday's colours, its lattice points become a small motif, and an icon
+  sits behind the clock. Layout, copy and the clock do not change. Each
+  holiday is a table in `holidays.toml`; `make` renders a light and a dark
+  hero for each, `assets/hero-<key>-<mode>.svg`.
+- `assets/holidays.json`: the London calendar of holidays from 2026 to
+  2030, which the clock Worker will read to choose the hero, alternating
+  by the hour when holidays overlap. Moving dates are copied from
+  published sources; years no source gives are left out and listed by
+  `make`.
+- 53 Noun Project icons, sanitised and pinned by hash in `art/icons/`, and
+  `CREDITS.md`, which names every creator. The README gains one credit
+  line.
+- `make preview` (a gallery of every hero) and `make icon` (icon intake).
+- The smoke check fails once fewer than 180 days of calendar are left.
+- `docs/HOLIDAYS.md`, in the manual.
+
+### Changed
+
+- `panels.hero()` takes optional holiday keys (glyph, emblem or icon,
+  second accent and glow); without them the everyday hero is unchanged.
+- The test coverage floor rises from 88.8% to 92.1%.
+
 ## [0.0.15] - 2026-11-14
 
 ### Fixed

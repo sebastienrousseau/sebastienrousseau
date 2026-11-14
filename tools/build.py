@@ -13,12 +13,19 @@ the committed files match it.
 from __future__ import annotations
 
 import html
+import sys
 import tomllib
 from collections.abc import Callable
 from pathlib import Path
 
 import articles
+import credits
+import holidays
+import icons
+import palette
 import panels
+from emblems import EMBLEMS
+from motifs import GLYPHS
 from svg import Doc
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,7 +36,17 @@ NUMBERS_ALT = (
 )
 
 
-def jobs(cfg: dict) -> dict[str, Callable[[dict], Doc]]:
+def themed(h: holidays.Holiday, mode: str) -> dict:
+    """The theme a holiday hero is drawn in, with its pinned icon if it has one."""
+    t = palette.style(h, mode)
+    if h.icon:
+        icon = h.icon
+        t["icon_svg"] = icons.load(icon, ROOT)
+        t["icon_credit"] = f"Icon: {icon['title']} by {icon['creator']}, {icon['licence']}, recoloured."
+    return t
+
+
+def jobs(cfg: dict, hs: list[holidays.Holiday] = ()) -> dict[str, Callable[[dict], Doc]]:
     """Every static asset name mapped to the panel that draws it for a theme."""
     out: dict[str, Callable[[dict], Doc]] = {
         "hero": lambda t: panels.hero(t, cfg["hero"]),
@@ -39,6 +56,8 @@ def jobs(cfg: dict) -> dict[str, Callable[[dict], Doc]]:
     }
     for n, p in enumerate(cfg["pillars"], 1):
         out[f"section-{p['key']}"] = lambda t, p=p, n=n: panels.section(t, p, n)
+    for h in hs:
+        out[f"hero-{h.key}"] = lambda t, h=h: panels.hero(themed(h, t["mode"]), cfg["hero"])
     return out
 
 
@@ -50,7 +69,7 @@ def pic(name: str, alt: str, url: str | None = None, width: str = "100%", base: 
     return f'<a href="{html.escape(url)}">{img}</a>' if url else img
 
 
-def page(cfg: dict, alts: dict[str, str]) -> str:
+def page(cfg: dict, alts: dict[str, str], creators: int = 0) -> str:
     gh, site, live = cfg["github"], cfg["site"], cfg["live"]
     links = " &nbsp;·&nbsp; ".join(
         f'<a href="{html.escape(x["url"])}">{html.escape(x["label"])}</a>' for x in cfg["finale"]["links"]
@@ -88,13 +107,24 @@ def page(cfg: dict, alts: dict[str, str]) -> str:
         f' and colours of <a href="{site}">sebastienrousseau.com</a>.'
         f' Live data: <a href="{live.removesuffix("/assets")}/profile.json">profile.json</a>.</sub></p>',
     ]
+    if creators:
+        out.append(
+            f'<p align="center"><sub>Holiday icons from <a href="https://thenounproject.com/">Noun Project</a>'
+            f' by {creators} creators, recoloured: <a href="CREDITS.md">credits</a>.</sub></p>'
+        )
     return "\n\n".join(out) + "\n"
 
 
 def main() -> None:
     cfg = tomllib.loads((ROOT / "profile.toml").read_text())
-    alts = panels.write(jobs(cfg), ASSETS)
-    (ROOT / "README.md").write_text(page(cfg, alts))
+    years, hs = holidays.load()
+    holidays.validate(years, hs, GLYPHS, EMBLEMS)
+    for gap in holidays.gaps(years, hs):
+        print(f"holidays.toml: {gap} (left out, never guessed)", file=sys.stderr)
+    alts = panels.write(jobs(cfg, hs), ASSETS)
+    (ASSETS / "holidays.json").write_text(holidays.calendar_json(years, hs))
+    (ROOT / "CREDITS.md").write_text(credits.markdown(hs))
+    (ROOT / "README.md").write_text(page(cfg, alts, credits.creator_count(hs)))
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 # Development
 
-This repository generates a GitHub profile: `README.md` and the SVG panels
-in `assets/`, from `profile.toml`. Both are generated, so edit `profile.toml`
-or `tools/` and regenerate. How the pieces fit is in
+This repository generates a GitHub profile: `README.md`, `CREDITS.md` and the
+SVG panels in `assets/`, from `profile.toml` and `holidays.toml`. All are
+generated, so edit those or `tools/` and regenerate. How the pieces fit is in
 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Requirements
@@ -17,11 +17,13 @@ or `tools/` and regenerate. How the pieces fit is in
 
 | Command | What it does |
 | --- | --- |
-| `make` | Rebuild `README.md` and `assets/` from `profile.toml`. |
+| `make` | Rebuild `README.md`, `CREDITS.md` and `assets/` from `profile.toml` and `holidays.toml`. |
+| `make preview` | Write `_preview/index.html`, a gallery of every hero with its clock running. |
+| `make icon KEY= SVG= CREATOR=` | Sanitise a Noun Project icon into `art/icons/` and print its pin. |
 | `make check` | The single gate CI runs: lint, tests, and a check that the committed files match a fresh build. |
 | `make lint` | ruff, ruff format, complexipy (ceiling 15), `tools/ceilings.py` (Halstead 30, 60 lines per function, 500 per file), shellcheck, actionlint. |
 | `make test` | pytest with coverage of `tools/`, failing below the floor in the `Makefile`. No network is used. |
-| `make drift` | Rebuild, then fail if `README.md` or `assets/` changed. |
+| `make drift` | Rebuild, then fail if `README.md`, `CREDITS.md` or `assets/` changed. |
 | `make live OUT=/tmp/live` | Fetch the live numbers and articles and render them into `OUT`. Hits the real registries. |
 | `make smoke` | Fetch every image `README.md` shows and fail unless each is a well-formed SVG, with no redirect from the clock Worker. Networked. |
 | `make audit` | Check every locked dependency against known vulnerabilities with pip-audit. Networked. |
@@ -34,6 +36,9 @@ a first run. They are verified by SHA-256 and cached in `.cache/fonts/`.
 
 * **Copy, cards, links:** edit `profile.toml`, run `make`, commit the
   regenerated `README.md` and `assets/` with it. CI fails if they disagree.
+* **A holiday, its dates or its icon:** `holidays.toml`, then `make` and
+  `make preview`; see [docs/HOLIDAYS.md](docs/HOLIDAYS.md). Table dates
+  come from a published source, never a guess.
 * **A panel's layout:** `tools/panels.py`. Text is measured with the real
   font metrics in `tools/fonts.py`, so wrapping is exact.
 * **A new data source:** add a function to `tools/metrics.py` that returns
