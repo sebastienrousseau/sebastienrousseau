@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53785159,
-  "recent_downloads": 2379629,
+  "all_time_downloads": 53785576,
+  "recent_downloads": 2385855,
   "window_days": 30,
   "github_stars": 739,
   "packages": 188,
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 72148
+     "downloads": 72470
     },
     {
      "name": "hsh",
@@ -157,7 +157,7 @@
      "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
      "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
      "stars": 6,
-     "downloads": 267
+     "downloads": 269
     },
     {
      "name": "dotfiles",
