@@ -189,11 +189,16 @@ glyph = "splash"
 spin = true
 emblem = "none"
 icon = { file = "art/icons/holi.svg", id = "8171987", title = "Holi", creator = "Icon From Us", url = "https://thenounproject.com/icon/holi-8171987/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "acabb60596fc4a7b3a4c4434c1a2fddc868052571d2fab3b231fcffce8253edd" }
-# Holika Dahan, then the day of colours. 2028 to 2030: no source could be opened.
-dates = { 2026 = "2026-03-03", 2027 = "2027-03-22" }
+# Holika Dahan, then the day of colours. 2026 and 2027: India's government lists. 2028 to 2030: dekhopanchang
+# (Holika Dahan) and timeanddate (Holi); they differ by a day in 2029 and 2030, so the window covers both.
+dates = { 2026 = "2026-03-03", 2027 = "2027-03-22", 2028 = "2028-03-10", 2029 = "2029-02-27..2029-03-01", 2030 = "2030-03-18..2030-03-20" }
 source = [
   "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
   "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+  "https://www.timeanddate.com/holidays/india/holi",
+  "https://dekhopanchang.com/en/festivals/holika-dahan/2028",
+  "https://dekhopanchang.com/en/festivals/holika-dahan/2029",
+  "https://dekhopanchang.com/en/festivals/holika-dahan/2030",
 ]
 
 [[holiday]]
@@ -520,11 +525,12 @@ accent2 = { light = "#be185d", dark = "#ff7ac8" }
 glyph = "flower"
 spin = true
 emblem = "rangoli"
-# 2028 to 2030: no source could be opened.
-dates = { 2026 = "2026-08-28", 2027 = "2027-08-17" }
+# 2026 and 2027: India's government lists; 2028 to 2030: timeanddate, which agrees with them for 2026 and 2027.
+dates = { 2026 = "2026-08-28", 2027 = "2027-08-17", 2028 = "2028-08-05", 2029 = "2029-08-23", 2030 = "2030-08-13" }
 source = [
   "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
   "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+  "https://www.timeanddate.com/holidays/india/raksha-bandhan",
 ]
 
 [[holiday]]
@@ -661,9 +667,10 @@ accent2 = { light = "#a16207", dark = "#ffcc4d" }
 glyph = "diamond"
 emblem = "none"
 icon = { file = "art/icons/oktoberfest.svg", id = "2727503", title = "Pretzel", creator = "@w@n !cons", url = "https://thenounproject.com/icon/pretzel-2727503/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "5cf9017257d445f4d6edab8acb9adad9a8c7eaa3399eb89528e9513ed7cb7ec8" }
-# Only 2027 is published; 2026 was not confirmed from an opened page.
-dates = { 2027 = "2027-09-18..2027-10-03" }
+# 2026: Munich's media calendar; 2027: oktoberfest.de. 2028 to 2030 are not published yet.
+dates = { 2026 = "2026-09-19..2026-10-04", 2027 = "2027-09-18..2027-10-03" }
 source = [
+  "https://stadt.muenchen.de/dam/jcr:e90c1b04-37f7-46e5-95cd-da4dd3ec5605/01_Dates%20for%20media.pdf",
   "https://www.oktoberfest.de/en",
   "https://www.muenchen.de/int/en/events/oktoberfest.html",
 ]
@@ -672,7 +679,7 @@ source = [
 key = "navaratri"
 name = "Navaratri / Dussehra"
 month = 10
-rule = "table 1"
+rule = "table"
 motif = "Vermilion, peacock blue"
 accent = { light = "#c1272d", dark = "#ff7a7a" }
 accent2 = { light = "#0e7490", dark = "#5ee0f0" }
@@ -680,11 +687,14 @@ glyph = "marigold"
 spin = true
 emblem = "rangoli"
 icon = { file = "art/icons/navaratri.svg", id = "8514734", title = "rangoli", creator = "Ivar Jenner", url = "https://thenounproject.com/icon/rangoli-8514734/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "a5988c5afffe18f488452c1a1519831608f433c572c16f23aa905d38dff8d6c2" }
-# Dussehra only: no source opened gives Navaratri's first day. 2028 to 2030 likewise unsourced.
-dates = { 2026 = "2026-10-20", 2027 = "2027-10-09" }
+# Sharad Navratri's first day (timeanddate) to Dussehra (India's government lists for 2026 and 2027,
+# timeanddate after, which agrees with them).
+dates = { 2026 = "2026-10-11..2026-10-20", 2027 = "2027-09-30..2027-10-09", 2028 = "2028-09-19..2028-09-27", 2029 = "2029-10-08..2029-10-16", 2030 = "2030-09-28..2030-10-06" }
 source = [
   "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
   "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+  "https://www.timeanddate.com/holidays/india/navratri",
+  "https://www.timeanddate.com/holidays/india/dussehra",
 ]
 
 [[holiday]]
@@ -698,11 +708,21 @@ accent2 = { light = "#9f1239", dark = "#ff6f91" }
 glyph = "diya"
 emblem = "rangoli"
 icon = { file = "art/icons/diwali.svg", id = "8258078", title = "diya", creator = "Colourcreatype", url = "https://thenounproject.com/icon/diya-8258078/", licence = "Noun Project, royalty-free (NounPro)", sha256 = "2945066bcbec49eb855b26578b1ff5ad9aa766eba9fc287bed62dcacee254090" }
-# Diwali to Bhai Dooj; Dhanteras is not in the sources. 2028 to 2030 unsourced.
-dates = { 2026 = "2026-11-08..2026-11-11", 2027 = "2027-10-29..2027-10-31" }
+# Dhanteras (dekhopanchang) to Bhai Dooj (India's government lists for 2026 and 2027, dekhopanchang after);
+# the Diwali day itself matches timeanddate in every year.
+dates = { 2026 = "2026-11-06..2026-11-11", 2027 = "2027-10-27..2027-10-31", 2028 = "2028-10-15..2028-10-19", 2029 = "2029-11-04..2029-11-07", 2030 = "2030-10-24..2030-10-28" }
 source = [
   "https://www.gconnect.in/gc22/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf",
   "https://www.gconnect.in/gc22/wp-content/uploads/2026/07/Holiday-list-2027.pdf",
+  "https://dekhopanchang.com/en/festivals/dhanteras/2026",
+  "https://dekhopanchang.com/en/festivals/dhanteras/2027",
+  "https://dekhopanchang.com/en/festivals/dhanteras/2028",
+  "https://dekhopanchang.com/en/festivals/dhanteras/2029",
+  "https://dekhopanchang.com/en/festivals/dhanteras/2030",
+  "https://dekhopanchang.com/en/festivals/bhai-dooj/2028",
+  "https://dekhopanchang.com/en/festivals/bhai-dooj/2029",
+  "https://dekhopanchang.com/en/festivals/bhai-dooj/2030",
+  "https://www.timeanddate.com/holidays/india/diwali",
 ]
 
 [[holiday]]

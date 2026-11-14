@@ -67,9 +67,9 @@ guessed. Each holiday names its source page or pages in `source`.
 | Chinese lunisolar | Hong Kong Observatory Gregorian-lunar tables |
 | Hebrew | hebcal.com, diaspora |
 | Islamic | Umm al-Qura calendar (R.H. van Gent's table, Aladhan's converter) |
-| Hindu | Government of India holiday lists |
+| Hindu | Government of India holiday lists; past them, timeanddate.com and dekhopanchang.com |
 | Equinoxes and solstices | US Naval Observatory, converted to the London date |
-| Events | The organiser's own site |
+| Events | The organiser's own site or the city's press calendar |
 
 When no source can be opened for a year, that year is left out: the
 holiday has no theme then, and `make` prints the gap. Islamic dates follow

@@ -3,6 +3,19 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.17] - Unreleased
+
+### Fixed
+
+- The holiday calendar fills every year it can from opened sources: Holi,
+  Raksha Bandhan, Navaratri and Diwali for 2028 to 2030 (timeanddate.com
+  and dekhopanchang.com, past India's government lists), and Oktoberfest
+  2026 (Munich's media calendar). Navaratri now runs from its first day
+  to Dussehra and Diwali from Dhanteras to Bhai Dooj, where they covered
+  only Dussehra and Diwali to Bhai Dooj. Where two sources differ by a
+  day (Holi 2029 and 2030) the window covers both. Still unsourced:
+  Vesak (the UN names no date per year) and Oktoberfest 2028 to 2030.
+
 ## [0.0.16] - 2026-11-14
 
 ### Added
