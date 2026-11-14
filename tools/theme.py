@@ -4,6 +4,7 @@ from __future__ import annotations
 
 THEMES = {
     "light": {
+        "mode": "light",
         "page": "#ffffff",
         "panel": "#f5f5f7",
         "tile": "#f5f5f7",
@@ -26,6 +27,7 @@ THEMES = {
         "deep_accent": "#8cc0ff",
     },
     "dark": {
+        "mode": "dark",
         "page": "#0d1117",
         "panel": "#000000",
         "tile": "#161617",
