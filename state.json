@@ -321,164 +321,164 @@
    "total": 353
   },
   "@sebastienrousseau/maccfg": {
-   "as_of": "2026-11-13",
-   "closed": 2660,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 2661,
+   "closed_through": "2026-10-12",
    "recent": 27,
    "repo": "maccfg",
    "total": 2688
   },
   "@sebastienrousseau/markdownlint-config": {
-   "as_of": "2026-11-13",
-   "closed": 3737,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 3755,
+   "closed_through": "2026-10-12",
    "recent": 1245,
    "repo": "markdownlint-config",
    "total": 5023
   },
   "@sebastienrousseau/mocha-config": {
-   "as_of": "2026-11-13",
-   "closed": 3868,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 3941,
+   "closed_through": "2026-10-12",
    "recent": 880,
    "repo": "mocha-config",
    "total": 4827
   },
   "@sebastienrousseau/noyalib-mcp": {
-   "as_of": "2026-11-13",
-   "closed": 5946,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 5956,
+   "closed_through": "2026-10-12",
    "recent": 605,
    "repo": "noyalib-mcp",
    "total": 6573
   },
   "@sebastienrousseau/noyalib-wasm": {
-   "as_of": "2026-11-13",
-   "closed": 5540,
-   "closed_through": "2026-10-11",
-   "recent": 675,
+   "as_of": "2026-11-14",
+   "closed": 5547,
+   "closed_through": "2026-10-12",
+   "recent": 684,
    "repo": "noyalib-wasm",
-   "total": 6228
+   "total": 6237
   },
   "@sebastienrousseau/open-sans": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 1315,
-   "closed_through": "2026-10-11",
-   "recent": 256,
+   "closed_through": "2026-10-12",
+   "recent": 258,
    "repo": "open-sans.github.io",
-   "total": 1571
+   "total": 1573
   },
   "@sebastienrousseau/oxlint-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 471,
-   "closed_through": "2026-10-11",
-   "recent": 306,
+   "closed_through": "2026-10-12",
+   "recent": 308,
    "repo": "oxlint-config",
-   "total": 777
+   "total": 779
   },
   "@sebastienrousseau/php-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 338,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 40,
    "repo": "php-config",
    "total": 378
   },
   "@sebastienrousseau/playwright-config": {
-   "as_of": "2026-11-13",
-   "closed": 454,
-   "closed_through": "2026-10-11",
-   "recent": 297,
+   "as_of": "2026-11-14",
+   "closed": 456,
+   "closed_through": "2026-10-12",
+   "recent": 298,
    "repo": "playwright-config",
-   "total": 753
+   "total": 754
   },
   "@sebastienrousseau/pm2md": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 709,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 8,
    "repo": "pm2md",
    "total": 717
   },
   "@sebastienrousseau/prettier-config": {
-   "as_of": "2026-11-13",
-   "closed": 5063,
-   "closed_through": "2026-10-11",
-   "recent": 1808,
+   "as_of": "2026-11-14",
+   "closed": 5080,
+   "closed_through": "2026-10-12",
+   "recent": 1819,
    "repo": "prettier-config",
-   "total": 6909
+   "total": 6920
   },
   "@sebastienrousseau/python-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 313,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 36,
    "repo": "python-config",
    "total": 350
   },
   "@sebastienrousseau/r-config": {
-   "as_of": "2026-11-13",
-   "closed": 322,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 323,
+   "closed_through": "2026-10-12",
    "recent": 39,
    "repo": "r-config",
    "total": 362
   },
   "@sebastienrousseau/remark-config": {
-   "as_of": "2026-11-13",
-   "closed": 3367,
-   "closed_through": "2026-10-11",
-   "recent": 117,
+   "as_of": "2026-11-14",
+   "closed": 3369,
+   "closed_through": "2026-10-12",
+   "recent": 123,
    "repo": "remark-config",
-   "total": 3499
+   "total": 3505
   },
   "@sebastienrousseau/ruby-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 299,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 27,
    "repo": "ruby-config",
    "total": 326
   },
   "@sebastienrousseau/rust-config": {
-   "as_of": "2026-11-13",
-   "closed": 297,
-   "closed_through": "2026-10-11",
+   "as_of": "2026-11-14",
+   "closed": 298,
+   "closed_through": "2026-10-12",
    "recent": 28,
    "repo": "rust-config",
    "total": 326
   },
   "@sebastienrousseau/semantic-release-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 486,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 72,
    "repo": "semantic-release-config",
    "total": 559
   },
   "@sebastienrousseau/shell-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 332,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 26,
    "repo": "shell-config",
    "total": 361
   },
   "@sebastienrousseau/sine-wave-generator": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 802,
-   "closed_through": "2026-10-11",
+   "closed_through": "2026-10-12",
    "recent": 40,
    "repo": "sine-wave-generator",
    "total": 842
   },
   "@sebastienrousseau/size-limit-config": {
-   "as_of": "2026-11-13",
+   "as_of": "2026-11-14",
    "closed": 471,
-   "closed_through": "2026-10-11",
-   "recent": 301,
+   "closed_through": "2026-10-12",
+   "recent": 302,
    "repo": "size-limit-config",
-   "total": 773
+   "total": 774
   },
   "@sebastienrousseau/skeletonic-stylus": {
    "as_of": "2026-11-13",
@@ -917,7 +917,7 @@
      }
     },
     "packages": 82,
-    "recent": 2212096
+    "recent": 2218108
    }
   },
   "github": {
@@ -1177,7 +1177,7 @@
   "npm": {
    "as_of": "2026-11-13",
    "value": {
-    "all_time": 184855,
+    "all_time": 184887,
     "by": {
      "@sebastienrousseau/biome-config": {
       "all_time": 776,
@@ -1356,15 +1356,15 @@
       "repo": "noyalib-mcp"
      },
      "@sebastienrousseau/noyalib-wasm": {
-      "all_time": 6228,
+      "all_time": 6237,
       "repo": "noyalib-wasm"
      },
      "@sebastienrousseau/open-sans": {
-      "all_time": 1571,
+      "all_time": 1573,
       "repo": "open-sans.github.io"
      },
      "@sebastienrousseau/oxlint-config": {
-      "all_time": 777,
+      "all_time": 779,
       "repo": "oxlint-config"
      },
      "@sebastienrousseau/php-config": {
@@ -1372,7 +1372,7 @@
       "repo": "php-config"
      },
      "@sebastienrousseau/playwright-config": {
-      "all_time": 753,
+      "all_time": 754,
       "repo": "playwright-config"
      },
      "@sebastienrousseau/pm2md": {
@@ -1380,7 +1380,7 @@
       "repo": "pm2md"
      },
      "@sebastienrousseau/prettier-config": {
-      "all_time": 6909,
+      "all_time": 6920,
       "repo": "prettier-config"
      },
      "@sebastienrousseau/python-config": {
@@ -1392,7 +1392,7 @@
       "repo": "r-config"
      },
      "@sebastienrousseau/remark-config": {
-      "all_time": 3499,
+      "all_time": 3505,
       "repo": "remark-config"
      },
      "@sebastienrousseau/ruby-config": {
@@ -1416,7 +1416,7 @@
       "repo": "sine-wave-generator"
      },
      "@sebastienrousseau/size-limit-config": {
-      "all_time": 773,
+      "all_time": 774,
       "repo": "size-limit-config"
      },
      "@sebastienrousseau/skeletonic-stylus": {
@@ -1457,7 +1457,7 @@
      }
     },
     "packages": 69,
-    "recent": 57640
+    "recent": 57672
    }
   },
   "pypi": {
