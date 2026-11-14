@@ -84,12 +84,16 @@ def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
 
 
 def _emblem(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
-    """A holiday's line-art emblem, large and faint, behind the clock."""
+    """A holiday's emblem, large and faint, behind the clock: its icon if it has one."""
     name = t.get("emblem", "none")
-    if name == "none":
+    if "icon_svg" in t:
+        body = t["icon_svg"]  # a filled shape in currentColor (icons.sanitise)
+        doc.desc = t["icon_credit"]
+    elif name == "none":
         return
-    body = re.sub(r'stroke-width="([\d.]+)"', lambda m: f'stroke-width="{float(m[1]) / 2.4:.3f}"', EMBLEMS[name])
-    body = body.replace('fill="none"', 'fill="currentColor" fill-opacity=".14"')
+    else:
+        body = re.sub(r'stroke-width="([\d.]+)"', lambda m: f'stroke-width="{float(m[1]) / 2.4:.3f}"', EMBLEMS[name])
+        body = body.replace('fill="none"', 'fill="currentColor" fill-opacity=".14"')
     cx, cy = centre
     doc.add(
         f'<g transform="translate({cx} {cy}) scale(4.4)" color="{t["accent"]}" opacity="{t["emblem_alpha"]}">{body}</g>'

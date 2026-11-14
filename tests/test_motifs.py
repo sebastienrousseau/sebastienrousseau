@@ -31,12 +31,12 @@ def test_art_is_well_formed_and_paints_only_with_current_color(kind, key, markup
 def test_every_glyph_and_emblem_named_by_a_holiday_exists():
     for h in HOLIDAYS:
         assert h.glyph in GLYPHS, h.key
-        assert h.emblem in EMBLEMS or h.emblem in {"none", "icon"}, h.key
+        assert h.emblem in EMBLEMS or h.emblem == "none", h.key
 
 
 def test_every_glyph_and_emblem_in_the_library_is_used():
     assert {h.glyph for h in HOLIDAYS} | {"dot"} == set(GLYPHS)
-    assert {h.emblem for h in HOLIDAYS} - {"none", "icon"} == set(EMBLEMS)
+    assert {h.emblem for h in HOLIDAYS} - {"none"} == set(EMBLEMS)
 
 
 def test_star_alternates_outer_and_inner_points_from_the_top():

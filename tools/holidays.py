@@ -75,7 +75,7 @@ def _fail(h: Holiday, why: str) -> NoReturn:
 def _check_art(h: Holiday, glyphs: Collection[str], emblems: Collection[str]) -> None:
     if h.glyph not in glyphs:
         _fail(h, f"unknown glyph {h.glyph!r}")
-    if h.emblem not in emblems and h.emblem not in {"none", "icon"}:
+    if h.emblem not in emblems and h.emblem != "none":
         _fail(h, f"unknown emblem {h.emblem!r}")
     for name, pair in (("accent", h.accent), ("accent2", h.accent2)):
         if set(pair) != {"light", "dark"} or not all(HEX.match(v) for v in pair.values()):
@@ -83,8 +83,6 @@ def _check_art(h: Holiday, glyphs: Collection[str], emblems: Collection[str]) ->
 
 
 def _check_icon(h: Holiday) -> None:
-    if h.emblem == "icon" and h.icon is None:
-        _fail(h, 'emblem = "icon" but no icon')
     if h.icon is not None and not SHA256.match(str(h.icon.get("sha256", ""))):
         _fail(h, "icon has no sha256 pin")
 

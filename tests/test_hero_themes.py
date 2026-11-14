@@ -9,6 +9,7 @@ from xml.parsers import expat
 
 import pytest
 
+import build
 import holidays
 import palette
 import panels
@@ -23,7 +24,7 @@ MODES = ("light", "dark")
 
 def hero(key: str, mode: str) -> str:
     h = next(h for h in HOLIDAYS if h.key == key)
-    return panels.hero(palette.style(h, mode), CFG["hero"]).render()
+    return panels.hero(build.themed(h, mode), CFG["hero"]).render()  # with its icon, as built
 
 
 @pytest.mark.parametrize("mode", MODES)
@@ -75,6 +76,10 @@ def test_quiet_and_emblemless_themes():
     assert 'id="g2"' not in quiet  # no second glow
     assert 'opacity="0.35"' in quiet  # dimmed emblem
     assert 'id="g2"' in hero("christmas", "dark")
-    plain = hero("burns-night", "light")  # emblem = "none"
-    assert "scale(4.4)" not in plain
-    assert "scale(4.4)" in hero("christmas", "light")
+    plain = hero("burns-night", "light")  # emblem = "none" and an icon
+    assert "<desc>Icon: thistle by Alan Davis" in plain
+    assert "<desc>" not in hero("juneteenth", "light")  # the placeholder burst, no icon
+    assert "scale(4.4)" in hero("juneteenth", "light")
+    t = palette.style(next(h for h in HOLIDAYS if h.key == "ashura"), "light")
+    assert "scale(4.4)" not in panels.hero(t, CFG["hero"]).render()  # without its icon, "none" draws nothing
+    assert "scale(4.4)" in hero("ashura", "light")  # with it, the icon is drawn

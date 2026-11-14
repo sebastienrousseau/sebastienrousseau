@@ -2,10 +2,13 @@
 # out of step with pyproject.toml. smoke needs only the standard library.
 RUN := uv run --locked
 OUT ?= .live
-.PHONY: all live smoke audit manual check lint test drift
+.PHONY: all live smoke audit manual check lint test drift icon
 
-all:  ## Regenerate the static assets/ and README.md from profile.toml
+all:  ## Regenerate assets/, README.md and CREDITS.md from profile.toml and holidays.toml
 	$(RUN) --group build tools/build.py
+
+icon:  ## Sanitise a Noun Project icon: make icon KEY=<key> SVG=<file> CREATOR="<name>" [TITLE= URL=]
+	$(RUN) --group build python tools/icons.py "$(KEY)" "$(SVG)" --creator "$(CREATOR)" --title "$(TITLE)" --url "$(URL)"
 
 live:  ## Fetch live data and render the numbers and article panels into $(OUT)
 	$(RUN) --group build tools/live.py $(OUT)
@@ -37,8 +40,8 @@ test:
 	$(RUN) --group build --group test python -m pytest -q -p no:cacheprovider tests \
 	  --cov=tools --cov-report=term-missing:skip-covered --cov-fail-under=88.8
 
-drift: all  ## Fail when the committed README.md or assets/ differ from a fresh build
-	@changed="$$(git status --porcelain -- README.md assets)"; \
+drift: all  ## Fail when the committed README.md, CREDITS.md or assets/ differ from a fresh build
+	@changed="$$(git status --porcelain -- README.md CREDITS.md assets)"; \
 	if [ -n "$$changed" ]; then echo "Out of date; run make and commit:"; echo "$$changed"; exit 1; fi
 
 check: lint test drift  ## The single gate CI runs

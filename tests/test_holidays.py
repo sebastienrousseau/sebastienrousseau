@@ -65,7 +65,6 @@ TABLE = 'source = "https://example.org/eid"\n'
         (entry("eid", '"fixed 01-02"', glyph="comet"), "unknown glyph 'comet'"),
         (entry("eid", '"fixed 01-02"', emblem="comet"), "unknown emblem 'comet'"),
         (entry("eid", '"fixed 01-02"').replace("#b91c1c", "red"), "accent needs a #rrggbb"),
-        (entry("eid", '"fixed 01-02"', emblem="icon"), 'emblem = "icon" but no icon'),
         (entry("eid", '"fixed 01-02"', 'icon = { file = "art/icons/eid.svg" }'), "icon has no sha256 pin"),
         (entry("eid", '"table 3"', 'dates = { 2026 = "2026-03-20", 2027 = "2027-03-10" }'), "needs the https source"),
         (entry("eid", '"table 3"', 'source = "http://example.org"\ndates = { 2026 = "2026-03-20" }'), "https source"),
@@ -134,6 +133,12 @@ def test_a_year_without_a_sourced_date_is_a_gap_not_a_guess(tmp_path):
     assert not any("vesak" in keys for keys in days.values())
 
 
+def missing_in(days: dict[str, list[str]], hs, year: str) -> set[str]:
+    """The keys with no day at all in year."""
+    present = {k for d, keys in days.items() if d.startswith(year) for k in keys}
+    return {h.key for h in hs} - present
+
+
 def test_the_real_calendar_validates_and_covers_every_sourced_year():
     from emblems import EMBLEMS as ART_EMBLEMS
     from motifs import GLYPHS as ART_GLYPHS
@@ -153,11 +158,8 @@ def test_the_real_calendar_validates_and_covers_every_sourced_year():
     unsourced = {(g.split(":")[0], y) for g in gaps for y in g.split("for ")[1].split(", ")}
     days = holidays.calendar(years, hs)
     for year in map(str, range(years[0], years[1] + 1)):
-        present = {k for d, keys in days.items() if d.startswith(year) for k in keys}
-        for h in hs:
-            assert h.key in present or (h.key, year) in unsourced, (h.key, year)
-    for keys in days.values():
-        assert len(keys) == len(set(keys))
+        assert missing_in(days, hs, year) <= {k for k, y in unsourced if y == year}, year
+    assert all(len(keys) == len(set(keys)) for keys in days.values())
     overlaps = {y: sum(len(k) > 1 for d, k in days.items() if d.startswith(str(y))) for y in range(2026, 2031)}
     print("overlap days per year:", overlaps)
 
