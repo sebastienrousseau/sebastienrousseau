@@ -3,7 +3,7 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.14] - Unreleased
+## [0.0.14] - 2026-11-07
 
 ### Changed
 
@@ -12,8 +12,12 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   navigation, breadcrumbs, an "On this page" list, a pager, a light and
   dark toggle and the same footer. Headings get anchors, and the build
   fails on a broken internal link or a dangling fragment.
+- The manual is built with ssg 0.0.75, the latest release, up from
+  0.0.72 (`.github/ssg-version`).
 - `LICENSE` says what the licence does not cover: the profile's written
   copy, the name "Sebastien Rousseau" and the panels' visual identity.
+- The test coverage floor rises from 86.9% to 88.8%, measured at this
+  version.
 
 ## [0.0.13] - 2026-11-06
 
