@@ -1,6 +1,7 @@
 name: release
 # On a v* tag: check the tag, rebuild, and open a draft release in the
-# workspace format (~/Code/AGENTS.md section 3), with README.md and every
+# workspace format (~/Code/AGENTS.md section 3, laid out as the dotfiles
+# releases are, through tools/release_notes.py), with README.md and every
 # asset attached and their SHA-256 listed. The maintainer writes the
 # Highlights and publishes; nothing is published unseen.
 on:
@@ -47,7 +48,8 @@ jobs:
           (cd dist && sha256sum -- * >../SHA256SUMS)
           prev="$(git describe --tags --abbrev=0 "$TAG^" 2>/dev/null || true)"
           notes="$(gh api "repos/$GITHUB_REPOSITORY/releases/generate-notes" -f tag_name="$TAG" \
-            ${prev:+-f previous_tag_name="$prev"} --jq .body | grep -v '^\*\*Full Changelog')"
+            ${prev:+-f previous_tag_name="$prev"} --jq .body | grep -v '^\*\*Full Changelog' \
+            | python3 tools/release_notes.py)"
           compare="https://github.com/$GITHUB_REPOSITORY/compare/$prev...$TAG"
           [ -n "$prev" ] || compare="https://github.com/$GITHUB_REPOSITORY/commits/$TAG"
           {

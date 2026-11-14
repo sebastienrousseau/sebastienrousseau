@@ -3,12 +3,22 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.0.15] - Unreleased
+## [0.0.15] - 2026-11-14
 
 ### Fixed
 
+- Release notes take the layout of the dotfiles releases: each change's
+  title in backticks and a blank line under every heading.
+  `tools/release_notes.py` restyles GitHub's generated notes in
+  `release.yml`, and the notes of v0.0.1 to v0.0.14 are restyled to
+  match, with the pull request numbers dropped from their highlights.
 - The 0.0.14 entry carries its release date, 2026-11-14, the day
   `v0.0.14` was tagged, in place of the day it was recorded.
+- The v0.0.9 release lists between 0.0.8 and 0.0.10. GitHub orders
+  releases by tag date, and the v0.0.9 tag was signed before v0.0.1 to
+  v0.0.8 were; it is re-signed with a date after v0.0.8's, on the same
+  commit with the same message, and its release keeps its notes and
+  assets.
 
 ## [0.0.14] - 2026-11-14
 
