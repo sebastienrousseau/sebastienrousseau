@@ -2,12 +2,14 @@
 
 ## What it makes
 
-`profile.toml` is the single source of truth for the profile. Two pipelines
-turn it into what visitors see.
+`profile.toml` is the single source of truth for the profile, and
+`holidays.toml` for its holiday themes. Two pipelines turn them into what
+visitors see.
 
 ```mermaid
 flowchart TD
   T["profile.toml"] --> B["tools/build.py"]
+  HT["holidays.toml"] --> B
   B --> M["main: README.md + assets/*.svg (static panels)"]
   R["crates.io, PyPI via ClickPy, npm, GitHub, site articles"] --> L["tools/live.py"]
   L --> D["profile-data: assets/numbers, card-*, article-N SVGs, profile.json, state.json"]
@@ -29,6 +31,10 @@ flowchart TD
   the sebastienrousseau.github.io repository, `workers/clock.js`). It
   replaces the `/*clock*/` marker in the committed hero SVG with CSS that
   sets London time, and redirects to the static SVG if anything fails.
+* **Holiday heroes** are static panels too: `make` renders
+  `assets/hero-<key>-<mode>.svg` per holiday and `assets/holidays.json`,
+  the London calendar. The Worker picks the hero for today from that file
+  (docs/HOLIDAYS.md); the build decides nothing about today's date.
 
 ## Modules
 
@@ -45,6 +51,11 @@ flowchart TD
 | `tools/panels.py` | Each panel as a function of a theme and config; `write()` also deletes orphan SVGs. |
 | `tools/fonts.py` | Pinned font sources, per-SVG subsetting, text measurement. |
 | `tools/svg.py`, `tools/theme.py` | SVG builder and colour tokens. |
+| `tools/holidays.py`, `tools/almanac.py` | `holidays.toml` loaded and validated; date rules expanded into the calendar. |
+| `tools/palette.py` | A holiday's colours, derived from two accents and held to WCAG contrast. |
+| `tools/motifs.py`, `tools/emblems.py` | Holiday glyphs and placeholder emblems, in `currentColor`. |
+| `tools/icons.py`, `tools/credits.py` | Noun Project icons sanitised and pinned in `art/icons/`; `CREDITS.md`. |
+| `tools/preview.py` | `make preview`: a local gallery of every hero. |
 | `tools/commit.sh` | Signed commits through the GraphQL API; creates `profile-data` on first run. |
 | `tools/alert.sh` | Opens or closes the "profile data is stale" issue. |
 
@@ -107,6 +118,14 @@ Three sources need care:
   rules for `.hand`, `.hh`, `.mm` and `.ss` in place of the `/*clock*/`
   marker. A test pins those selectors and the single marker, because
   renaming one would freeze the live clock without an error.
+* **The holiday calendar is computed here, not in the Worker.** Lunar and
+  astronomical dates come from published tables with their sources; one
+  Python owner of that data, tested offline, keeps two calendars from
+  drifting apart. The Worker reads `holidays.json` and takes from it only
+  keys matching `[a-z0-9-]{1,40}`.
+* **One SVG per theme, not one with every theme.** An `<img>` SVG cannot
+  learn the date, and 58 themes in one file would make every view download
+  all of them. The heroes add about 5.4 MB to `main`.
 * **Fonts embedded, subsetted per SVG.** An SVG shown through an `<img>`
   tag cannot load external resources, so each panel carries only the glyphs
   it draws, as base64 WOFF2. Panels render in the site's typefaces

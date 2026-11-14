@@ -880,7 +880,7 @@ wheels = [
 
 [[package]]
 name = "sebastienrousseau"
-version = "0.0.15"
+version = "0.0.16"
 source = { virtual = "." }
 default-groups = []
 
