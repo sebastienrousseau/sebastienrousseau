@@ -585,14 +585,14 @@
   "crates": {
    "as_of": "2026-11-15",
    "value": {
-    "all_time": 53196650,
+    "all_time": 53215144,
     "by": {
      "agtmls-cli": {
       "all_time": 10,
       "repo": "agtmls-core"
      },
      "agtmls-core": {
-      "all_time": 40,
+      "all_time": 42,
       "repo": "agtmls-core"
      },
      "agtmls-lsp": {
@@ -612,15 +612,15 @@
       "repo": "cmn"
      },
      "dtt": {
-      "all_time": 149665,
+      "all_time": 149681,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 27364,
+      "all_time": 27374,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 32987,
+      "all_time": 32992,
       "repo": "frontmatter-gen"
      },
      "hsh": {
@@ -644,11 +644,11 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29426,
+      "all_time": 29432,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24430,
+      "all_time": 24437,
       "repo": "http-handle"
      },
      "idk": {
@@ -664,7 +664,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 19168,
+      "all_time": 19174,
       "repo": "langweave"
      },
      "libmake": {
@@ -672,7 +672,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 25037061,
+      "all_time": 25040784,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -684,11 +684,11 @@
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 26574,
+      "all_time": 26580,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20518,
+      "all_time": 20524,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -700,7 +700,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1317030,
+      "all_time": 1326892,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -712,7 +712,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 45215,
+      "all_time": 45519,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -724,7 +724,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 6346,
+      "all_time": 6355,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -732,11 +732,11 @@
       "repo": "oxml-cli"
      },
      "oxml-json": {
-      "all_time": 774,
+      "all_time": 775,
       "repo": "oxml-json"
      },
      "oxml-lsp": {
-      "all_time": 154,
+      "all_time": 155,
       "repo": "oxml-lsp"
      },
      "oxml-mcp": {
@@ -760,11 +760,11 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12860,
+      "all_time": 12862,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 129230,
+      "all_time": 129240,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -804,31 +804,31 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 26851,
+      "all_time": 26859,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 25876828,
+      "all_time": 25881253,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19552,
+      "all_time": 19558,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42781,
+      "all_time": 42785,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2864,
+      "all_time": 2871,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3347,
+      "all_time": 3354,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 2010,
+      "all_time": 2017,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -836,23 +836,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3228,
+      "all_time": 3235,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3393,
+      "all_time": 3400,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3129,
+      "all_time": 3136,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19655,
+      "all_time": 19661,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19419,
+      "all_time": 19425,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -904,7 +904,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 147436,
+      "all_time": 147449,
       "repo": "vrd"
      },
      "wiserone": {
@@ -912,16 +912,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4851,
+      "all_time": 4858,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 30841,
+      "all_time": 30842,
       "repo": "xtasks"
      }
     },
     "packages": 83,
-    "recent": 2198813
+    "recent": 2205042
    }
   },
   "github": {
@@ -992,12 +992,12 @@
      "corrallib.github.io": 0,
      "cpp-config": 0,
      "crypto-service": 9,
-     "crypto-service-sdk-cpp": 0,
-     "crypto-service-sdk-dotnet": 0,
-     "crypto-service-sdk-go": 0,
-     "crypto-service-sdk-java": 0,
-     "crypto-service-sdk-python": 0,
-     "crypto-service-sdk-rust": 0,
+     "crypto-service-sdk-cpp": 1,
+     "crypto-service-sdk-dotnet": 1,
+     "crypto-service-sdk-go": 1,
+     "crypto-service-sdk-java": 1,
+     "crypto-service-sdk-python": 1,
+     "crypto-service-sdk-rust": 1,
      "crypto-service.github.io": 1,
      "cs50x": 3,
      "cs50x.github.io": 1,
@@ -1076,9 +1076,9 @@
      "oxml": 3,
      "oxml-cli": 0,
      "oxml-json": 0,
-     "oxml-lsp": 0,
-     "oxml-mcp": 0,
-     "oxml-wasm": 1,
+     "oxml-lsp": 1,
+     "oxml-mcp": 1,
+     "oxml-wasm": 2,
      "oxmllib.github.io": 0,
      "pacs008": 4,
      "pacs008-loader-mt103": 0,
@@ -1086,7 +1086,7 @@
      "pacs008.github.io": 0,
      "pain": 3,
      "pain001": 49,
-     "pain001-fast": 0,
+     "pain001-fast": 1,
      "pain001-loader-mt101": 1,
      "pain001-loader-xlsx": 1,
      "pain001-lsp": 1,
@@ -1140,7 +1140,7 @@
      "rustlogs.github.io": 0,
      "satellion.github.io": 1,
      "scoop-bucket": 1,
-     "sebastienrousseau": 1,
+     "sebastienrousseau": 2,
      "sebastienrousseau.github.io": 3,
      "semantic-release-config": 0,
      "shell-config": 0,
@@ -1181,7 +1181,7 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 740
+    "stars": 751
    }
   },
   "npm": {
