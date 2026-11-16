@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53920807,
-  "recent_downloads": 2393104,
+  "all_time_downloads": 53944602,
+  "recent_downloads": 2402635,
   "window_days": 30,
   "github_stars": 754,
   "packages": 191,
@@ -67,7 +67,7 @@
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
      "stars": 47,
-     "downloads": 10179
+     "downloads": 10181
     },
     {
      "name": "crypto-service",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61030
+     "downloads": 61063
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1357326
+     "downloads": 1368920
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 131913
+     "downloads": 131931
     },
     {
      "name": "libmake",
