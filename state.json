@@ -161,178 +161,178 @@
    "total": 3512
   },
   "@sebastienrousseau/crypto-prisma": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 1870,
-   "closed_through": "2026-10-13",
-   "recent": 1502,
+   "closed_through": "2026-10-14",
+   "recent": 1495,
    "repo": "crypto-service",
    "total": 3431
   },
   "@sebastienrousseau/crypto-react": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 1966,
-   "closed_through": "2026-10-13",
-   "recent": 1561,
+   "closed_through": "2026-10-14",
+   "recent": 1557,
    "repo": "crypto-service",
-   "total": 3562
+   "total": 3566
   },
   "@sebastienrousseau/crypto-sdk": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 2006,
-   "closed_through": "2026-10-13",
-   "recent": 1515,
+   "closed_through": "2026-10-14",
+   "recent": 1511,
    "repo": "crypto-service",
-   "total": 3553
+   "total": 3555
   },
   "@sebastienrousseau/crypto-server": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 3169,
-   "closed_through": "2026-10-13",
-   "recent": 1686,
+   "closed_through": "2026-10-14",
+   "recent": 1688,
    "repo": "crypto-service",
-   "total": 4888
+   "total": 4898
   },
   "@sebastienrousseau/crypto-testing": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 1897,
-   "closed_through": "2026-10-13",
-   "recent": 1583,
+   "closed_through": "2026-10-14",
+   "recent": 1574,
    "repo": "crypto-service",
-   "total": 3519
+   "total": 3520
   },
   "@sebastienrousseau/crypto-typeorm": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 1887,
-   "closed_through": "2026-10-13",
-   "recent": 1509,
+   "closed_through": "2026-10-14",
+   "recent": 1493,
    "repo": "crypto-service",
-   "total": 3430
+   "total": 3432
   },
   "@sebastienrousseau/crypto-vue": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 1936,
-   "closed_through": "2026-10-13",
-   "recent": 1523,
+   "closed_through": "2026-10-14",
+   "recent": 1520,
    "repo": "crypto-service",
-   "total": 3491
+   "total": 3494
   },
   "@sebastienrousseau/crypto-wasm": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 2205,
-   "closed_through": "2026-10-13",
-   "recent": 1624,
+   "closed_through": "2026-10-14",
+   "recent": 1619,
    "repo": "crypto-service",
-   "total": 3863
+   "total": 3866
   },
   "@sebastienrousseau/csharp-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 323,
-   "closed_through": "2026-10-13",
-   "recent": 35,
+   "closed_through": "2026-10-14",
+   "recent": 34,
    "repo": "csharp-config",
    "total": 358
   },
   "@sebastienrousseau/dart-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 313,
-   "closed_through": "2026-10-13",
+   "closed_through": "2026-10-14",
    "recent": 29,
    "repo": "dart-config",
    "total": 343
   },
   "@sebastienrousseau/docker-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 474,
-   "closed_through": "2026-10-13",
-   "recent": 295,
+   "closed_through": "2026-10-14",
+   "recent": 286,
    "repo": "docker-config",
-   "total": 770
+   "total": 780
   },
   "@sebastienrousseau/dotfiles": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 12459,
-   "closed_through": "2026-10-13",
-   "recent": 2489,
+   "closed_through": "2026-10-14",
+   "recent": 2507,
    "repo": "dotfiles",
-   "total": 14974
+   "total": 15203
   },
   "@sebastienrousseau/eslint-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 5122,
-   "closed_through": "2026-10-13",
-   "recent": 2392,
+   "closed_through": "2026-10-14",
+   "recent": 2351,
    "repo": "eslint-config",
-   "total": 7608
+   "total": 7644
   },
   "@sebastienrousseau/go-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 315,
-   "closed_through": "2026-10-13",
-   "recent": 34,
+   "closed_through": "2026-10-14",
+   "recent": 32,
    "repo": "go-config",
    "total": 349
   },
   "@sebastienrousseau/java-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 314,
-   "closed_through": "2026-10-13",
-   "recent": 28,
+   "closed_through": "2026-10-14",
+   "recent": 27,
    "repo": "java-config",
    "total": 342
   },
   "@sebastienrousseau/jsdoc-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 3986,
-   "closed_through": "2026-10-13",
-   "recent": 770,
+   "closed_through": "2026-10-14",
+   "recent": 755,
    "repo": "jsdoc-config",
-   "total": 4830
+   "total": 4840
   },
   "@sebastienrousseau/jspassgen": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 0,
    "closed_through": "2026-10-22",
-   "recent": 307,
+   "recent": 313,
    "repo": "jspassgen",
-   "total": 307
+   "total": 313
   },
   "@sebastienrousseau/knip-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 455,
-   "closed_through": "2026-10-13",
-   "recent": 309,
+   "closed_through": "2026-10-14",
+   "recent": 299,
    "repo": "knip-config",
-   "total": 765
+   "total": 775
   },
   "@sebastienrousseau/kotlin-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 320,
-   "closed_through": "2026-10-13",
-   "recent": 43,
+   "closed_through": "2026-10-14",
+   "recent": 41,
    "repo": "kotlin-config",
    "total": 363
   },
   "@sebastienrousseau/lefthook-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 478,
-   "closed_through": "2026-10-13",
-   "recent": 302,
+   "closed_through": "2026-10-14",
+   "recent": 294,
    "repo": "lefthook-config",
-   "total": 783
+   "total": 793
   },
   "@sebastienrousseau/lua-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 321,
-   "closed_through": "2026-10-13",
-   "recent": 34,
+   "closed_through": "2026-10-14",
+   "recent": 33,
    "repo": "lua-config",
    "total": 355
   },
   "@sebastienrousseau/maccfg": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 2661,
-   "closed_through": "2026-10-13",
-   "recent": 29,
+   "closed_through": "2026-10-14",
+   "recent": 28,
    "repo": "maccfg",
    "total": 2690
   },
@@ -929,7 +929,7 @@
      }
     },
     "packages": 83,
-    "recent": 2183399
+    "recent": 2194912
    }
   },
   "github": {
@@ -1014,7 +1014,7 @@
      "devkit": 0,
      "docker-config": 0,
      "dot-top": 0,
-     "dotfiles": 82,
+     "dotfiles": 83,
      "dotfiles.github.io": 26,
      "draft": 3,
      "draftlib.github.io": 1,
@@ -1051,7 +1051,7 @@
      "knip-config": 1,
      "kotlin-config": 0,
      "kotlindev": 0,
-     "kyberlib": 46,
+     "kyberlib": 47,
      "kyberlib.github.io": 1,
      "l90s.github.io": 0,
      "langdev": 0,
@@ -1162,7 +1162,7 @@
      "sql-config": 0,
      "ssg-themes.github.io": 1,
      "standards": 1,
-     "static-site-generator": 60,
+     "static-site-generator": 61,
      "staticdatagen": 3,
      "staticweaver": 4,
      "stratos": 1,
@@ -1189,13 +1189,13 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 751
+    "stars": 754
    }
   },
   "npm": {
    "as_of": "2026-11-15",
    "value": {
-    "all_time": 186036,
+    "all_time": 186372,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
       "all_time": 0,
@@ -1282,31 +1282,31 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
-      "all_time": 3562,
+      "all_time": 3566,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-sdk": {
-      "all_time": 3553,
+      "all_time": 3555,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
-      "all_time": 4888,
+      "all_time": 4898,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-testing": {
-      "all_time": 3519,
+      "all_time": 3520,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-typeorm": {
-      "all_time": 3430,
+      "all_time": 3432,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-vue": {
-      "all_time": 3491,
+      "all_time": 3494,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-wasm": {
-      "all_time": 3863,
+      "all_time": 3866,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/csharp-config": {
@@ -1318,15 +1318,15 @@
       "repo": "dart-config"
      },
      "@sebastienrousseau/docker-config": {
-      "all_time": 770,
+      "all_time": 780,
       "repo": "docker-config"
      },
      "@sebastienrousseau/dotfiles": {
-      "all_time": 14974,
+      "all_time": 15203,
       "repo": "dotfiles"
      },
      "@sebastienrousseau/eslint-config": {
-      "all_time": 7608,
+      "all_time": 7644,
       "repo": "eslint-config"
      },
      "@sebastienrousseau/go-config": {
@@ -1338,15 +1338,15 @@
       "repo": "java-config"
      },
      "@sebastienrousseau/jsdoc-config": {
-      "all_time": 4830,
+      "all_time": 4840,
       "repo": "jsdoc-config"
      },
      "@sebastienrousseau/jspassgen": {
-      "all_time": 307,
+      "all_time": 313,
       "repo": "jspassgen"
      },
      "@sebastienrousseau/knip-config": {
-      "all_time": 765,
+      "all_time": 775,
       "repo": "knip-config"
      },
      "@sebastienrousseau/kotlin-config": {
@@ -1354,7 +1354,7 @@
       "repo": "kotlin-config"
      },
      "@sebastienrousseau/lefthook-config": {
-      "all_time": 783,
+      "all_time": 793,
       "repo": "lefthook-config"
      },
      "@sebastienrousseau/lua-config": {
@@ -1479,7 +1479,7 @@
      }
     },
     "packages": 70,
-    "recent": 56881
+    "recent": 56768
    }
   },
   "pypi": {

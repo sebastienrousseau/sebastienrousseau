@@ -5,10 +5,10 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53890649,
-  "recent_downloads": 2339926,
+  "all_time_downloads": 53890985,
+  "recent_downloads": 2351326,
   "window_days": 30,
-  "github_stars": 751,
+  "github_stars": 754,
   "packages": 191,
   "as_of": "2026-11-15"
  },
@@ -66,7 +66,7 @@
      "lang": "Rust",
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
-     "stars": 46,
+     "stars": 47,
      "downloads": 10179
     },
     {
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 72565
+     "downloads": 72590
     },
     {
      "name": "hsh",
@@ -107,7 +107,7 @@
      "lang": "Rust",
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
-     "stars": 60,
+     "stars": 61,
      "downloads": 61030
     },
     {
@@ -164,8 +164,8 @@
      "lang": "Shell",
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
-     "stars": 82,
-     "downloads": 14974
+     "stars": 83,
+     "downloads": 15203
     },
     {
      "name": "jspassgen",
@@ -173,7 +173,7 @@
      "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
      "url": "https://github.com/sebastienrousseau/jspassgen",
      "stars": 26,
-     "downloads": 307
+     "downloads": 313
     }
    ]
   }
