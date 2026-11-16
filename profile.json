@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53890985,
-  "recent_downloads": 2351326,
+  "all_time_downloads": 53917806,
+  "recent_downloads": 2370603,
   "window_days": 30,
   "github_stars": 754,
   "packages": 191,
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1340391
+     "downloads": 1357047
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 131799
+     "downloads": 131858
     },
     {
      "name": "libmake",
