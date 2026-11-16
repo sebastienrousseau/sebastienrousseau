@@ -929,7 +929,7 @@
      }
     },
     "packages": 83,
-    "recent": 2244789
+    "recent": 2257202
    }
   },
   "github": {
@@ -1004,7 +1004,7 @@
      "crypto-service-sdk-dotnet": 1,
      "crypto-service-sdk-go": 1,
      "crypto-service-sdk-java": 1,
-     "crypto-service-sdk-python": 1,
+     "crypto-service-sdk-python": 2,
      "crypto-service-sdk-rust": 1,
      "crypto-service.github.io": 1,
      "cs50x": 3,
@@ -1095,7 +1095,7 @@
      "pain": 3,
      "pain001": 49,
      "pain001-fast": 1,
-     "pain001-loader-mt101": 1,
+     "pain001-loader-mt101": 2,
      "pain001-loader-xlsx": 1,
      "pain001-lsp": 1,
      "pain001-mcp": 1,
@@ -1189,7 +1189,7 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 754
+    "stars": 756
    }
   },
   "npm": {
