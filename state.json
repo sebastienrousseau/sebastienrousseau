@@ -4,41 +4,41 @@
    "as_of": "2026-11-16",
    "closed": 0,
    "closed_through": "2026-11-14",
-   "recent": 0,
+   "recent": 518,
    "repo": "agtmls-wasm",
-   "total": 0
+   "total": 518
   },
   "@sebastienrousseau/biome-config": {
    "as_of": "2026-11-16",
    "closed": 466,
    "closed_through": "2026-10-14",
-   "recent": 303,
+   "recent": 314,
    "repo": "biome-config",
-   "total": 789
+   "total": 800
   },
   "@sebastienrousseau/browserslist-config": {
    "as_of": "2026-11-16",
    "closed": 492,
    "closed_through": "2026-10-14",
-   "recent": 311,
+   "recent": 322,
    "repo": "browserslist-config",
-   "total": 825
+   "total": 836
   },
   "@sebastienrousseau/c-config": {
    "as_of": "2026-11-16",
    "closed": 325,
    "closed_through": "2026-10-14",
-   "recent": 30,
+   "recent": 31,
    "repo": "c-config",
-   "total": 357
+   "total": 358
   },
   "@sebastienrousseau/c8-config": {
    "as_of": "2026-11-16",
    "closed": 3266,
    "closed_through": "2026-10-14",
-   "recent": 752,
+   "recent": 809,
    "repo": "c8-config",
-   "total": 4111
+   "total": 4168
   },
   "@sebastienrousseau/cloudcdn-mcp": {
    "as_of": "2026-11-16",
@@ -52,49 +52,49 @@
    "as_of": "2026-11-16",
    "closed": 466,
    "closed_through": "2026-10-14",
-   "recent": 305,
+   "recent": 316,
    "repo": "commitlint-config",
-   "total": 794
+   "total": 805
   },
   "@sebastienrousseau/config": {
    "as_of": "2026-11-16",
    "closed": 46,
    "closed_through": "2026-10-14",
-   "recent": 429,
+   "recent": 430,
    "repo": "config",
-   "total": 478
+   "total": 479
   },
   "@sebastienrousseau/config-kit": {
    "as_of": "2026-11-16",
    "closed": 12264,
    "closed_through": "2026-10-14",
-   "recent": 7995,
+   "recent": 8694,
    "repo": "config-kit",
-   "total": 20492
+   "total": 21191
   },
   "@sebastienrousseau/cpp-config": {
    "as_of": "2026-11-16",
    "closed": 331,
    "closed_through": "2026-10-14",
-   "recent": 33,
+   "recent": 34,
    "repo": "cpp-config",
-   "total": 368
+   "total": 369
   },
   "@sebastienrousseau/crypto-api": {
    "as_of": "2026-11-16",
    "closed": 1979,
    "closed_through": "2026-10-14",
-   "recent": 1487,
+   "recent": 1490,
    "repo": "crypto-service",
-   "total": 3508
+   "total": 3511
   },
   "@sebastienrousseau/crypto-benchmarks": {
    "as_of": "2026-11-16",
    "closed": 1927,
    "closed_through": "2026-10-14",
-   "recent": 1840,
+   "recent": 1845,
    "repo": "crypto-service",
-   "total": 3810
+   "total": 3815
   },
   "@sebastienrousseau/crypto-cbom": {
    "as_of": "2026-11-16",
@@ -497,68 +497,68 @@
    "total": 3949
   },
   "@sebastienrousseau/sql-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 317,
-   "closed_through": "2026-10-13",
-   "recent": 37,
+   "closed_through": "2026-10-14",
+   "recent": 35,
    "repo": "sql-config",
-   "total": 355
+   "total": 356
   },
   "@sebastienrousseau/stratos": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 0,
    "closed_through": "2026-10-22",
-   "recent": 483,
+   "recent": 484,
    "repo": "stratos",
-   "total": 483
+   "total": 484
   },
   "@sebastienrousseau/stylelint-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 482,
-   "closed_through": "2026-10-13",
-   "recent": 323,
+   "closed_through": "2026-10-14",
+   "recent": 316,
    "repo": "stylelint-config",
-   "total": 807
+   "total": 820
   },
   "@sebastienrousseau/swift-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 309,
-   "closed_through": "2026-10-13",
-   "recent": 32,
+   "closed_through": "2026-10-14",
+   "recent": 31,
    "repo": "swift-config",
-   "total": 341
+   "total": 342
   },
   "@sebastienrousseau/tailwindcss-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 475,
-   "closed_through": "2026-10-13",
-   "recent": 310,
+   "closed_through": "2026-10-14",
+   "recent": 304,
    "repo": "tailwindcss-config",
-   "total": 787
+   "total": 800
   },
   "@sebastienrousseau/tsconfig-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 476,
-   "closed_through": "2026-10-13",
-   "recent": 325,
+   "closed_through": "2026-10-14",
+   "recent": 319,
    "repo": "tsconfig-config",
-   "total": 803
+   "total": 816
   },
   "@sebastienrousseau/vitest-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 479,
-   "closed_through": "2026-10-13",
-   "recent": 324,
+   "closed_through": "2026-10-14",
+   "recent": 318,
    "repo": "vitest-config",
-   "total": 805
+   "total": 818
   },
   "@sebastienrousseau/zig-config": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "closed": 306,
-   "closed_through": "2026-10-13",
-   "recent": 34,
+   "closed_through": "2026-10-14",
+   "recent": 32,
    "repo": "zig-config",
-   "total": 340
+   "total": 341
   }
  },
  "sources": {
@@ -929,7 +929,7 @@
      }
     },
     "packages": 83,
-    "recent": 2214095
+    "recent": 2222212
    }
   },
   "github": {
@@ -1193,28 +1193,28 @@
    }
   },
   "npm": {
-   "as_of": "2026-11-15",
+   "as_of": "2026-11-16",
    "value": {
-    "all_time": 186724,
+    "all_time": 188098,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
-      "all_time": 0,
+      "all_time": 518,
       "repo": "agtmls-wasm"
      },
      "@sebastienrousseau/biome-config": {
-      "all_time": 789,
+      "all_time": 800,
       "repo": "biome-config"
      },
      "@sebastienrousseau/browserslist-config": {
-      "all_time": 825,
+      "all_time": 836,
       "repo": "browserslist-config"
      },
      "@sebastienrousseau/c-config": {
-      "all_time": 357,
+      "all_time": 358,
       "repo": "c-config"
      },
      "@sebastienrousseau/c8-config": {
-      "all_time": 4111,
+      "all_time": 4168,
       "repo": "c8-config"
      },
      "@sebastienrousseau/cloudcdn-mcp": {
@@ -1222,27 +1222,27 @@
       "repo": "cloudcdn.pro"
      },
      "@sebastienrousseau/commitlint-config": {
-      "all_time": 794,
+      "all_time": 805,
       "repo": "commitlint-config"
      },
      "@sebastienrousseau/config": {
-      "all_time": 478,
+      "all_time": 479,
       "repo": "config"
      },
      "@sebastienrousseau/config-kit": {
-      "all_time": 20492,
+      "all_time": 21191,
       "repo": "config-kit"
      },
      "@sebastienrousseau/cpp-config": {
-      "all_time": 368,
+      "all_time": 369,
       "repo": "cpp-config"
      },
      "@sebastienrousseau/crypto-api": {
-      "all_time": 3508,
+      "all_time": 3511,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-benchmarks": {
-      "all_time": 3810,
+      "all_time": 3815,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-cbom": {
@@ -1446,40 +1446,40 @@
       "repo": "skeletonic-stylus"
      },
      "@sebastienrousseau/sql-config": {
-      "all_time": 355,
+      "all_time": 356,
       "repo": "sql-config"
      },
      "@sebastienrousseau/stratos": {
-      "all_time": 483,
+      "all_time": 484,
       "repo": "stratos"
      },
      "@sebastienrousseau/stylelint-config": {
-      "all_time": 807,
+      "all_time": 820,
       "repo": "stylelint-config"
      },
      "@sebastienrousseau/swift-config": {
-      "all_time": 341,
+      "all_time": 342,
       "repo": "swift-config"
      },
      "@sebastienrousseau/tailwindcss-config": {
-      "all_time": 787,
+      "all_time": 800,
       "repo": "tailwindcss-config"
      },
      "@sebastienrousseau/tsconfig-config": {
-      "all_time": 803,
+      "all_time": 816,
       "repo": "tsconfig-config"
      },
      "@sebastienrousseau/vitest-config": {
-      "all_time": 805,
+      "all_time": 818,
       "repo": "vitest-config"
      },
      "@sebastienrousseau/zig-config": {
-      "all_time": 340,
+      "all_time": 341,
       "repo": "zig-config"
      }
     },
     "packages": 70,
-    "recent": 56862
+    "recent": 58151
    }
   },
   "pypi": {
