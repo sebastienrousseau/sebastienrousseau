@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 53998240,
-  "recent_downloads": 2410982,
+  "all_time_downloads": 54015784,
+  "recent_downloads": 2430919,
   "window_days": 30,
   "github_stars": 756,
   "packages": 191,
@@ -26,7 +26,7 @@
      "text": "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet.",
      "url": "https://github.com/sebastienrousseau/pain001",
      "stars": 49,
-     "downloads": 94730
+     "downloads": 95728
     },
     {
      "name": "pacs008",
@@ -34,7 +34,7 @@
      "text": "Generate, validate, parse and audit pacs.008 FI-to-FI credit transfers with scheme-aware rules.",
      "url": "https://github.com/sebastienrousseau/pacs008",
      "stars": 4,
-     "downloads": 10979
+     "downloads": 11058
     },
     {
      "name": "bankstatementparser",
@@ -42,7 +42,7 @@
      "text": "Parse CAMT, MT940, OFX, CSV and PDF bank statements into one unified transaction model.",
      "url": "https://github.com/sebastienrousseau/bankstatementparser",
      "stars": 64,
-     "downloads": 35458
+     "downloads": 35572
     },
     {
      "name": "iso20022-mcp",
@@ -50,7 +50,7 @@
      "text": "One MCP gateway to search, validate, generate and parse ISO 20022 across pain, pacs, camt and acmt.",
      "url": "https://github.com/sebastienrousseau/iso20022-mcp",
      "stars": 1,
-     "downloads": 11000
+     "downloads": 11035
     }
    ]
   },
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 72665
+     "downloads": 72694
     },
     {
      "name": "hsh",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61183
+     "downloads": 61204
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1387931
+     "downloads": 1387940
     },
     {
      "name": "rlg",
@@ -165,7 +165,7 @@
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
      "stars": 83,
-     "downloads": 15203
+     "downloads": 15442
     },
     {
      "name": "jspassgen",
@@ -173,12 +173,19 @@
      "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
      "url": "https://github.com/sebastienrousseau/jspassgen",
      "stars": 26,
-     "downloads": 313
+     "downloads": 317
     }
    ]
   }
  ],
  "articles": [
+  {
+   "title": "From Awareness to Action: What Quantum-Safe Readiness Requires Now",
+   "topic": "PAYMENTS & MONEY",
+   "date": "16 November 2026",
+   "published": "2026-11-16",
+   "url": "https://sebastienrousseau.com/2026-11-16-quantum-safe-readiness-epaa/"
+  },
   {
    "title": "Why the FCA Is Regulating AI Without an AI Rulebook",
    "topic": "APPLIED AI",
@@ -192,13 +199,6 @@
    "date": "26 October 2026",
    "published": "2026-10-26",
    "url": "https://sebastienrousseau.com/2026-10-26-mystery-seeds-behind-nist-curves-were-never-hashes-claude/"
-  },
-  {
-   "title": "Agentic AI breaks the assumption behind every task-exposure forecast",
-   "topic": "APPLIED AI",
-   "date": "25 October 2026",
-   "published": "2026-10-25",
-   "url": "https://sebastienrousseau.com/2026-10-25-agentic-ai-breaks-the-assumption-behind-every-task-exposure-forecast/"
   }
  ],
  "links": [
