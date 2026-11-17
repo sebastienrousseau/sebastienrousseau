@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54059490,
-  "recent_downloads": 2469074,
+  "all_time_downloads": 54061847,
+  "recent_downloads": 2483244,
   "window_days": 30,
   "github_stars": 756,
   "packages": 193,
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 72765
+     "downloads": 72789
     },
     {
      "name": "hsh",
@@ -165,7 +165,7 @@
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
      "stars": 83,
-     "downloads": 15442
+     "downloads": 15490
     },
     {
      "name": "jspassgen",
@@ -173,7 +173,7 @@
      "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
      "url": "https://github.com/sebastienrousseau/jspassgen",
      "stars": 26,
-     "downloads": 317
+     "downloads": 322
     }
    ]
   }
