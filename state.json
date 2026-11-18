@@ -937,7 +937,7 @@
      }
     },
     "packages": 85,
-    "recent": 2307196
+    "recent": 2320824
    }
   },
   "github": {
@@ -961,7 +961,7 @@
      "alienstudio.github.io": 1,
      "amandakaye.github.io": 0,
      "ap2-iso20022": 1,
-     "askiso": 0,
+     "askiso": 1,
      "audioanalyser.github.io": 6,
      "audiotext": 0,
      "audiowavelib": 6,
@@ -1205,7 +1205,7 @@
      "zig-config": 0,
      "zwift": 0
     },
-    "stars": 756
+    "stars": 757
    }
   },
   "npm": {
