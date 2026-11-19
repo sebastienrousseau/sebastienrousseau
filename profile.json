@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54270064,
-  "recent_downloads": 2522095,
+  "all_time_downloads": 54291869,
+  "recent_downloads": 2540972,
   "window_days": 30,
   "github_stars": 757,
   "packages": 199,
@@ -67,7 +67,7 @@
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
      "stars": 47,
-     "downloads": 10187
+     "downloads": 10189
     },
     {
      "name": "crypto-service",
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 76182
+     "downloads": 76257
     },
     {
      "name": "hsh",
@@ -83,7 +83,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14746
+     "downloads": 14747
     },
     {
      "name": "passmcp",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 11,
-     "downloads": 1441041
+     "downloads": 1446865
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 132735
+     "downloads": 132805
     },
     {
      "name": "libmake",
@@ -165,7 +165,7 @@
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
      "stars": 83,
-     "downloads": 15688
+     "downloads": 15728
     },
     {
      "name": "jspassgen",
@@ -173,7 +173,7 @@
      "text": "A fast, open-source password generator built on a zero-dependency hexagonal core.",
      "url": "https://github.com/sebastienrousseau/jspassgen",
      "stars": 26,
-     "downloads": 325
+     "downloads": 807
     }
    ]
   }
