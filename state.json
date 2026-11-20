@@ -164,9 +164,9 @@
    "as_of": "2026-11-20",
    "closed": 1948,
    "closed_through": "2026-10-18",
-   "recent": 1247,
+   "recent": 1254,
    "repo": "crypto-service",
-   "total": 3606
+   "total": 3613
   },
   "@sebastienrousseau/crypto-react": {
    "as_of": "2026-11-20",
@@ -965,7 +965,7 @@
      }
     },
     "packages": 86,
-    "recent": 2310261
+    "recent": 2322272
    }
   },
   "github": {
@@ -1239,7 +1239,7 @@
   "npm": {
    "as_of": "2026-11-20",
    "value": {
-    "all_time": 208135,
+    "all_time": 208142,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
       "all_time": 796,
@@ -1322,7 +1322,7 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-prisma": {
-      "all_time": 3606,
+      "all_time": 3613,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
@@ -1535,7 +1535,7 @@
      }
     },
     "packages": 73,
-    "recent": 66875
+    "recent": 66882
    }
   },
   "pypi": {
