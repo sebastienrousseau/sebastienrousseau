@@ -172,25 +172,25 @@
    "as_of": "2026-11-20",
    "closed": 2022,
    "closed_through": "2026-10-18",
-   "recent": 1293,
+   "recent": 1300,
    "repo": "crypto-service",
-   "total": 3745
+   "total": 3752
   },
   "@sebastienrousseau/crypto-sdk": {
    "as_of": "2026-11-20",
    "closed": 2056,
    "closed_through": "2026-10-18",
-   "recent": 1246,
+   "recent": 1253,
    "repo": "crypto-service",
-   "total": 3756
+   "total": 3763
   },
   "@sebastienrousseau/crypto-server": {
    "as_of": "2026-11-20",
    "closed": 3224,
    "closed_through": "2026-10-18",
-   "recent": 1460,
+   "recent": 1471,
    "repo": "crypto-service",
-   "total": 5121
+   "total": 5132
   },
   "@sebastienrousseau/crypto-testing": {
    "as_of": "2026-11-20",
@@ -617,7 +617,7 @@
   "crates": {
    "as_of": "2026-11-20",
    "value": {
-    "all_time": 53665944,
+    "all_time": 53686664,
     "by": {
      "agtmls-cli": {
       "all_time": 40,
@@ -652,15 +652,15 @@
       "repo": "crypto-service-sdk-rust"
      },
      "dtt": {
-      "all_time": 150812,
+      "all_time": 150859,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 28132,
+      "all_time": 28134,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 33278,
+      "all_time": 33281,
       "repo": "frontmatter-gen"
      },
      "hsh": {
@@ -700,7 +700,7 @@
       "repo": "jspassgen-sdk-rust"
      },
      "kyberlib": {
-      "all_time": 10136,
+      "all_time": 10138,
       "repo": "kyberlib"
      },
      "kyberlib-wasm": {
@@ -716,7 +716,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 25172333,
+      "all_time": 25178484,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -740,27 +740,27 @@
       "repo": "mini-functions"
      },
      "noya-cli": {
-      "all_time": 903,
+      "all_time": 904,
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1462015,
+      "all_time": 1468157,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
-      "all_time": 929,
+      "all_time": 930,
       "repo": "noyalib-lsp"
      },
      "noyalib-mcp": {
-      "all_time": 904,
+      "all_time": 905,
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 52916,
+      "all_time": 53190,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
-      "all_time": 719,
+      "all_time": 720,
       "repo": "noyalib-wasm"
      },
      "nucleusflow": {
@@ -768,7 +768,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 6838,
+      "all_time": 6861,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -808,7 +808,7 @@
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 130521,
+      "all_time": 130590,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -852,7 +852,7 @@
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 26049617,
+      "all_time": 26057518,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
@@ -948,7 +948,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 148754,
+      "all_time": 148823,
       "repo": "vrd"
      },
      "wiserone": {
@@ -956,16 +956,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 4957,
+      "all_time": 4967,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 31262,
+      "all_time": 31285,
       "repo": "xtasks"
      }
     },
     "packages": 86,
-    "recent": 2322272
+    "recent": 2337826
    }
   },
   "github": {
@@ -1239,7 +1239,7 @@
   "npm": {
    "as_of": "2026-11-20",
    "value": {
-    "all_time": 208142,
+    "all_time": 208167,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
       "all_time": 796,
@@ -1326,15 +1326,15 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
-      "all_time": 3745,
+      "all_time": 3752,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-sdk": {
-      "all_time": 3756,
+      "all_time": 3763,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
-      "all_time": 5121,
+      "all_time": 5132,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-testing": {
@@ -1535,7 +1535,7 @@
      }
     },
     "packages": 73,
-    "recent": 66882
+    "recent": 66907
    }
   },
   "pypi": {
