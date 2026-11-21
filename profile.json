@@ -5,10 +5,10 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54445056,
-  "recent_downloads": 2498704,
+  "all_time_downloads": 54454496,
+  "recent_downloads": 2503287,
   "window_days": 30,
-  "github_stars": 759,
+  "github_stars": 760,
   "packages": 199,
   "as_of": "2026-11-21"
  },
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61386
+     "downloads": 61428
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1482431
+     "downloads": 1484502
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 133239
+     "downloads": 133250
     },
     {
      "name": "libmake",
@@ -132,7 +132,7 @@
      "text": "A code generator that removes the repetitive work of building high-quality Rust libraries.",
      "url": "https://github.com/sebastienrousseau/libmake",
      "stars": 30,
-     "downloads": 30958
+     "downloads": 30959
     }
    ]
   },
