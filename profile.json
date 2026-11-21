@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54431605,
-  "recent_downloads": 2483307,
+  "all_time_downloads": 54432063,
+  "recent_downloads": 2489262,
   "window_days": 30,
   "github_stars": 759,
   "packages": 199,
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 76446
+     "downloads": 76573
     },
     {
      "name": "hsh",
@@ -157,7 +157,7 @@
      "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
      "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
      "stars": 6,
-     "downloads": 275
+     "downloads": 276
     },
     {
      "name": "dotfiles",
@@ -180,25 +180,25 @@
  ],
  "articles": [
   {
-   "title": "From Awareness to Action: What Quantum-Safe Readiness Requires Now",
+   "title": "Moving Off Quantum-Vulnerable Signatures: What NIST IR 8547 Says",
+   "topic": "INFRA & CRYPTOGRAPHY",
+   "date": "19 November 2026",
+   "published": "2026-11-19",
+   "url": "https://sebastienrousseau.com/2026-11-19-nist-ir-8547-quantum-vulnerable-signatures/"
+  },
+  {
+   "title": "Verifying Agent Actions Before They Run: JevAct's Decision-Model Gate",
+   "topic": "APPLIED AI",
+   "date": "18 November 2026",
+   "published": "2026-11-18",
+   "url": "https://sebastienrousseau.com/2026-11-18-jevact-verifying-agent-actions/"
+  },
+  {
+   "title": "Liquidity Reimagined: Why Treasury Automation Is Still Only Half Done",
    "topic": "PAYMENTS & MONEY",
-   "date": "16 November 2026",
-   "published": "2026-11-16",
-   "url": "https://sebastienrousseau.com/2026-11-16-quantum-safe-readiness-epaa/"
-  },
-  {
-   "title": "Why the FCA Is Regulating AI Without an AI Rulebook",
-   "topic": "APPLIED AI",
-   "date": "28 October 2026",
-   "published": "2026-10-28",
-   "url": "https://sebastienrousseau.com/2026-10-28-why-the-fca-is-regulating-ai-without-an-ai-rulebook/"
-  },
-  {
-   "title": "The Mystery Seeds Behind NIST's Curves Were Never Hashes, and Claude Found Out in Under Half an Hour",
-   "topic": "APPLIED AI",
-   "date": "26 October 2026",
-   "published": "2026-10-26",
-   "url": "https://sebastienrousseau.com/2026-10-26-mystery-seeds-behind-nist-curves-were-never-hashes-claude/"
+   "date": "17 November 2026",
+   "published": "2026-11-17",
+   "url": "https://sebastienrousseau.com/2026-11-17-treasury-automation-half-done/"
   }
  ],
  "links": [
