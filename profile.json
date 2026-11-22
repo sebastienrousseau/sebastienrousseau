@@ -5,8 +5,8 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54494866,
-  "recent_downloads": 2462512,
+  "all_time_downloads": 54507700,
+  "recent_downloads": 2470196,
   "window_days": 30,
   "github_stars": 760,
   "packages": 199,
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61452
+     "downloads": 61459
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1493285
+     "downloads": 1496167
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 133314
+     "downloads": 133353
     },
     {
      "name": "libmake",
@@ -180,25 +180,25 @@
  ],
  "articles": [
   {
+   "title": "Third-Party AI Is Now the Governance Problem for UK Financial Firms",
+   "topic": "APPLIED AI",
+   "date": "21 November 2026",
+   "published": "2026-11-21",
+   "url": "https://sebastienrousseau.com/2026-11-21-third-party-ai-governance-uk-firms/"
+  },
+  {
+   "title": "AI in UK Finance: Broad Use, Cautious Agents, Third-Party Reliance",
+   "topic": "APPLIED AI",
+   "date": "20 November 2026",
+   "published": "2026-11-20",
+   "url": "https://sebastienrousseau.com/2026-11-20-ai-adoption-uk-financial-services-2026/"
+  },
+  {
    "title": "Moving Off Quantum-Vulnerable Signatures: What NIST IR 8547 Says",
    "topic": "INFRA & CRYPTOGRAPHY",
    "date": "19 November 2026",
    "published": "2026-11-19",
    "url": "https://sebastienrousseau.com/2026-11-19-nist-ir-8547-quantum-vulnerable-signatures/"
-  },
-  {
-   "title": "Verifying Agent Actions Before They Run: JevAct's Decision-Model Gate",
-   "topic": "APPLIED AI",
-   "date": "18 November 2026",
-   "published": "2026-11-18",
-   "url": "https://sebastienrousseau.com/2026-11-18-jevact-verifying-agent-actions/"
-  },
-  {
-   "title": "Liquidity Reimagined: Why Treasury Automation Is Still Only Half Done",
-   "topic": "PAYMENTS & MONEY",
-   "date": "17 November 2026",
-   "published": "2026-11-17",
-   "url": "https://sebastienrousseau.com/2026-11-17-treasury-automation-half-done/"
   }
  ],
  "links": [

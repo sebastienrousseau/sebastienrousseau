@@ -591,25 +591,25 @@
    "value": {
     "items": [
      {
+      "date": "21 November 2026",
+      "published": "2026-11-21",
+      "title": "Third-Party AI Is Now the Governance Problem for UK Financial Firms",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-11-21-third-party-ai-governance-uk-firms/"
+     },
+     {
+      "date": "20 November 2026",
+      "published": "2026-11-20",
+      "title": "AI in UK Finance: Broad Use, Cautious Agents, Third-Party Reliance",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-11-20-ai-adoption-uk-financial-services-2026/"
+     },
+     {
       "date": "19 November 2026",
       "published": "2026-11-19",
       "title": "Moving Off Quantum-Vulnerable Signatures: What NIST IR 8547 Says",
       "topic": "INFRA & CRYPTOGRAPHY",
       "url": "https://sebastienrousseau.com/2026-11-19-nist-ir-8547-quantum-vulnerable-signatures/"
-     },
-     {
-      "date": "18 November 2026",
-      "published": "2026-11-18",
-      "title": "Verifying Agent Actions Before They Run: JevAct's Decision-Model Gate",
-      "topic": "APPLIED AI",
-      "url": "https://sebastienrousseau.com/2026-11-18-jevact-verifying-agent-actions/"
-     },
-     {
-      "date": "17 November 2026",
-      "published": "2026-11-17",
-      "title": "Liquidity Reimagined: Why Treasury Automation Is Still Only Half Done",
-      "topic": "PAYMENTS & MONEY",
-      "url": "https://sebastienrousseau.com/2026-11-17-treasury-automation-half-done/"
      }
     ]
    }
@@ -617,7 +617,7 @@
   "crates": {
    "as_of": "2026-11-22",
    "value": {
-    "all_time": 53788549,
+    "all_time": 53801383,
     "by": {
      "agtmls-cli": {
       "all_time": 40,
@@ -652,15 +652,15 @@
       "repo": "crypto-service-sdk-rust"
      },
      "dtt": {
-      "all_time": 151058,
+      "all_time": 151103,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 28257,
+      "all_time": 28266,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 33346,
+      "all_time": 33357,
       "repo": "frontmatter-gen"
      },
      "hsh": {
@@ -684,15 +684,15 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29672,
+      "all_time": 29676,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24684,
+      "all_time": 24688,
       "repo": "http-handle"
      },
      "idk": {
-      "all_time": 4196,
+      "all_time": 4197,
       "repo": "mini-functions"
      },
      "jspassgen": {
@@ -708,7 +708,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 19393,
+      "all_time": 19396,
       "repo": "langweave"
      },
      "libmake": {
@@ -716,7 +716,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 25211471,
+      "all_time": 25215792,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -728,11 +728,11 @@
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 26858,
+      "all_time": 26862,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20760,
+      "all_time": 20763,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -744,7 +744,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1493285,
+      "all_time": 1496167,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -756,7 +756,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 54086,
+      "all_time": 54146,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -768,7 +768,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 7154,
+      "all_time": 7218,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -776,7 +776,7 @@
       "repo": "oxml-cli"
      },
      "oxml-json": {
-      "all_time": 805,
+      "all_time": 831,
       "repo": "oxml-json"
      },
      "oxml-lsp": {
@@ -804,11 +804,11 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12917,
+      "all_time": 12918,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 130790,
+      "all_time": 130829,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -848,31 +848,31 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 27116,
+      "all_time": 27119,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 26098492,
+      "all_time": 26103786,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19799,
+      "all_time": 19802,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42840,
+      "all_time": 42841,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2936,
+      "all_time": 2937,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3419,
+      "all_time": 3420,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 2068,
+      "all_time": 2069,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -880,23 +880,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3303,
+      "all_time": 3304,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3471,
+      "all_time": 3472,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3201,
+      "all_time": 3202,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19866,
+      "all_time": 19869,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19648,
+      "all_time": 19651,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -948,7 +948,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 149036,
+      "all_time": 149076,
       "repo": "vrd"
      },
      "wiserone": {
@@ -956,7 +956,7 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 5177,
+      "all_time": 5181,
       "repo": "xmlschema"
      },
      "xtasks": {
@@ -965,7 +965,7 @@
      }
     },
     "packages": 86,
-    "recent": 2279315
+    "recent": 2286999
    }
   },
   "github": {
