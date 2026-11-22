@@ -5,12 +5,12 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54468819,
-  "recent_downloads": 2434214,
+  "all_time_downloads": 54479529,
+  "recent_downloads": 2441618,
   "window_days": 30,
   "github_stars": 760,
   "packages": 199,
-  "as_of": "2026-11-21"
+  "as_of": "2026-11-22"
  },
  "pillars": [
   {
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1486233
+     "downloads": 1489438
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 133272
+     "downloads": 133307
     },
     {
      "name": "libmake",
@@ -157,7 +157,7 @@
      "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
      "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
      "stars": 6,
-     "downloads": 276
+     "downloads": 279
     },
     {
      "name": "dotfiles",
