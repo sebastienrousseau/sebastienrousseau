@@ -161,172 +161,172 @@
    "total": 3721
   },
   "@sebastienrousseau/crypto-prisma": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 1948,
-   "closed_through": "2026-10-19",
-   "recent": 1216,
+   "closed_through": "2026-10-20",
+   "recent": 1033,
    "repo": "crypto-service",
    "total": 3620
   },
   "@sebastienrousseau/crypto-react": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 2022,
-   "closed_through": "2026-10-19",
-   "recent": 1257,
+   "closed_through": "2026-10-20",
+   "recent": 1096,
    "repo": "crypto-service",
-   "total": 3752
+   "total": 3762
   },
   "@sebastienrousseau/crypto-sdk": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 2056,
-   "closed_through": "2026-10-19",
-   "recent": 1204,
+   "closed_through": "2026-10-20",
+   "recent": 1032,
    "repo": "crypto-service",
-   "total": 3763
+   "total": 3772
   },
   "@sebastienrousseau/crypto-server": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 3224,
-   "closed_through": "2026-10-19",
-   "recent": 1418,
+   "closed_through": "2026-10-20",
+   "recent": 1238,
    "repo": "crypto-service",
-   "total": 5132
+   "total": 5142
   },
   "@sebastienrousseau/crypto-testing": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 1959,
-   "closed_through": "2026-10-19",
-   "recent": 1262,
+   "closed_through": "2026-10-20",
+   "recent": 1089,
    "repo": "crypto-service",
-   "total": 3709
+   "total": 3720
   },
   "@sebastienrousseau/crypto-typeorm": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 1951,
-   "closed_through": "2026-10-19",
-   "recent": 1191,
+   "closed_through": "2026-10-20",
+   "recent": 1024,
    "repo": "crypto-service",
-   "total": 3620
+   "total": 3627
   },
   "@sebastienrousseau/crypto-vue": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 1987,
-   "closed_through": "2026-10-19",
-   "recent": 1220,
+   "closed_through": "2026-10-20",
+   "recent": 1043,
    "repo": "crypto-service",
-   "total": 3692
+   "total": 3702
   },
   "@sebastienrousseau/crypto-wasm": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 2261,
-   "closed_through": "2026-10-19",
-   "recent": 1307,
+   "closed_through": "2026-10-20",
+   "recent": 1129,
    "repo": "crypto-service",
-   "total": 4071
+   "total": 4080
   },
   "@sebastienrousseau/csharp-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 325,
-   "closed_through": "2026-10-19",
+   "closed_through": "2026-10-20",
    "recent": 220,
    "repo": "csharp-config",
-   "total": 546
+   "total": 548
   },
   "@sebastienrousseau/dart-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 314,
-   "closed_through": "2026-10-19",
-   "recent": 236,
+   "closed_through": "2026-10-20",
+   "recent": 244,
    "repo": "dart-config",
-   "total": 551
+   "total": 560
   },
   "@sebastienrousseau/docker-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 504,
-   "closed_through": "2026-10-19",
-   "recent": 558,
+   "closed_through": "2026-10-20",
+   "recent": 556,
    "repo": "docker-config",
-   "total": 1142
+   "total": 1145
   },
   "@sebastienrousseau/dotfiles": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 12730,
-   "closed_through": "2026-10-19",
-   "recent": 2990,
+   "closed_through": "2026-10-20",
+   "recent": 3014,
    "repo": "dotfiles",
-   "total": 15759
+   "total": 15954
   },
   "@sebastienrousseau/eslint-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 5373,
-   "closed_through": "2026-10-19",
-   "recent": 3381,
+   "closed_through": "2026-10-20",
+   "recent": 3285,
    "repo": "eslint-config",
-   "total": 8908
+   "total": 9054
   },
   "@sebastienrousseau/go-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 317,
-   "closed_through": "2026-10-19",
-   "recent": 224,
+   "closed_through": "2026-10-20",
+   "recent": 225,
    "repo": "go-config",
-   "total": 541
+   "total": 543
   },
   "@sebastienrousseau/java-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 315,
-   "closed_through": "2026-10-19",
-   "recent": 239,
+   "closed_through": "2026-10-20",
+   "recent": 240,
    "repo": "java-config",
-   "total": 554
+   "total": 556
   },
   "@sebastienrousseau/jsdoc-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 4100,
-   "closed_through": "2026-10-19",
-   "recent": 1317,
+   "closed_through": "2026-10-20",
+   "recent": 1191,
    "repo": "jsdoc-config",
-   "total": 5511
+   "total": 5603
   },
   "@sebastienrousseau/jspassgen": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 0,
    "closed_through": "2026-10-22",
-   "recent": 872,
+   "recent": 981,
    "repo": "jspassgen",
-   "total": 872
+   "total": 1162
   },
   "@sebastienrousseau/jspassgen-cli": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 0,
    "closed_through": "2026-11-17",
-   "recent": 196,
+   "recent": 390,
    "repo": "jspassgen-cli",
-   "total": 196
+   "total": 390
   },
   "@sebastienrousseau/jspassgen-lsp": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 0,
    "closed_through": "2026-11-17",
-   "recent": 191,
+   "recent": 392,
    "repo": "jspassgen-lsp",
-   "total": 191
+   "total": 392
   },
   "@sebastienrousseau/jspassgen-mcp": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 0,
    "closed_through": "2026-11-17",
-   "recent": 209,
+   "recent": 410,
    "repo": "jspassgen-mcp",
-   "total": 209
+   "total": 410
   },
   "@sebastienrousseau/knip-config": {
-   "as_of": "2026-11-21",
+   "as_of": "2026-11-22",
    "closed": 485,
-   "closed_through": "2026-10-19",
-   "recent": 565,
+   "closed_through": "2026-10-20",
+   "recent": 561,
    "repo": "knip-config",
-   "total": 1133
+   "total": 1136
   },
   "@sebastienrousseau/kotlin-config": {
    "as_of": "2026-11-21",
@@ -617,7 +617,7 @@
   "crates": {
    "as_of": "2026-11-22",
    "value": {
-    "all_time": 53762947,
+    "all_time": 53762957,
     "by": {
      "agtmls-cli": {
       "all_time": 40,
@@ -656,7 +656,7 @@
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 28207,
+      "all_time": 28208,
       "repo": "commons"
      },
      "frontmatter-gen": {
@@ -744,7 +744,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1486229,
+      "all_time": 1486233,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -756,7 +756,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 53879,
+      "all_time": 53883,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -808,7 +808,7 @@
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 130747,
+      "all_time": 130748,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -965,7 +965,7 @@
      }
     },
     "packages": 86,
-    "recent": 2240868
+    "recent": 2245878
    }
   },
   "github": {
@@ -1239,7 +1239,7 @@
   "npm": {
    "as_of": "2026-11-21",
    "value": {
-    "all_time": 210837,
+    "all_time": 212243,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
       "all_time": 809,
@@ -1326,83 +1326,83 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
-      "all_time": 3752,
+      "all_time": 3762,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-sdk": {
-      "all_time": 3763,
+      "all_time": 3772,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-server": {
-      "all_time": 5132,
+      "all_time": 5142,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-testing": {
-      "all_time": 3709,
+      "all_time": 3720,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-typeorm": {
-      "all_time": 3620,
+      "all_time": 3627,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-vue": {
-      "all_time": 3692,
+      "all_time": 3702,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-wasm": {
-      "all_time": 4071,
+      "all_time": 4080,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/csharp-config": {
-      "all_time": 546,
+      "all_time": 548,
       "repo": "csharp-config"
      },
      "@sebastienrousseau/dart-config": {
-      "all_time": 551,
+      "all_time": 560,
       "repo": "dart-config"
      },
      "@sebastienrousseau/docker-config": {
-      "all_time": 1142,
+      "all_time": 1145,
       "repo": "docker-config"
      },
      "@sebastienrousseau/dotfiles": {
-      "all_time": 15759,
+      "all_time": 15954,
       "repo": "dotfiles"
      },
      "@sebastienrousseau/eslint-config": {
-      "all_time": 8908,
+      "all_time": 9054,
       "repo": "eslint-config"
      },
      "@sebastienrousseau/go-config": {
-      "all_time": 541,
+      "all_time": 543,
       "repo": "go-config"
      },
      "@sebastienrousseau/java-config": {
-      "all_time": 554,
+      "all_time": 556,
       "repo": "java-config"
      },
      "@sebastienrousseau/jsdoc-config": {
-      "all_time": 5511,
+      "all_time": 5603,
       "repo": "jsdoc-config"
      },
      "@sebastienrousseau/jspassgen": {
-      "all_time": 872,
+      "all_time": 1162,
       "repo": "jspassgen"
      },
      "@sebastienrousseau/jspassgen-cli": {
-      "all_time": 196,
+      "all_time": 390,
       "repo": "jspassgen-cli"
      },
      "@sebastienrousseau/jspassgen-lsp": {
-      "all_time": 191,
+      "all_time": 392,
       "repo": "jspassgen-lsp"
      },
      "@sebastienrousseau/jspassgen-mcp": {
-      "all_time": 209,
+      "all_time": 410,
       "repo": "jspassgen-mcp"
      },
      "@sebastienrousseau/knip-config": {
-      "all_time": 1133,
+      "all_time": 1136,
       "repo": "knip-config"
      },
      "@sebastienrousseau/kotlin-config": {
@@ -1535,16 +1535,16 @@
      }
     },
     "packages": 73,
-    "recent": 65731
+    "recent": 64851
    }
   },
   "pypi": {
    "as_of": "2026-11-22",
    "value": {
-    "all_time": 492309,
+    "all_time": 492728,
     "by": {
      "acmt001": {
-      "all_time": 9834,
+      "all_time": 9837,
       "repo": "acmt001"
      },
      "acmt001-lsp": {
@@ -1552,23 +1552,23 @@
       "repo": "acmt001-lsp"
      },
      "acmt001-mcp": {
-      "all_time": 9863,
+      "all_time": 9872,
       "repo": "acmt001-mcp"
      },
      "agtmls": {
-      "all_time": 14021,
+      "all_time": 14033,
       "repo": "agtmls"
      },
      "agtmls-scorecard": {
-      "all_time": 764,
+      "all_time": 769,
       "repo": "agtmls-scorecard"
      },
      "akande": {
-      "all_time": 19178,
+      "all_time": 19179,
       "repo": "akande"
      },
      "ap2-iso20022": {
-      "all_time": 4858,
+      "all_time": 4861,
       "repo": "ap2-iso20022"
      },
      "audioanalyser": {
@@ -1576,39 +1576,39 @@
       "repo": ""
      },
      "bankstatementparser": {
-      "all_time": 39057,
+      "all_time": 39087,
       "repo": "bankstatementparser"
      },
      "bankstatementparser-loader-bai2": {
-      "all_time": 8083,
+      "all_time": 8098,
       "repo": "bankstatementparser-loader-bai2"
      },
      "bankstatementparser-loader-mt942": {
-      "all_time": 8049,
+      "all_time": 8065,
       "repo": "bankstatementparser-loader-mt942"
      },
      "bankstatementparser-lsp": {
-      "all_time": 7238,
+      "all_time": 7251,
       "repo": "bankstatementparser-lsp"
      },
      "bankstatementparser-mcp": {
-      "all_time": 10590,
+      "all_time": 10607,
       "repo": "bankstatementparser-mcp"
      },
      "bankstatementparser-writer-xlsx": {
-      "all_time": 7377,
+      "all_time": 7388,
       "repo": "bankstatementparser-writer-xlsx"
      },
      "camt-exceptions": {
-      "all_time": 7567,
+      "all_time": 7568,
       "repo": "camt-exceptions"
      },
      "camt053": {
-      "all_time": 22209,
+      "all_time": 22222,
       "repo": "camt053"
      },
      "camt053-loader-mt940": {
-      "all_time": 10173,
+      "all_time": 10178,
       "repo": "camt053-loader-mt940"
      },
      "camt053-loader-mt942": {
@@ -1616,87 +1616,87 @@
       "repo": "camt053-loader-mt942"
      },
      "camt053-lsp": {
-      "all_time": 11959,
+      "all_time": 11960,
       "repo": "camt053-lsp"
      },
      "camt053-mcp": {
-      "all_time": 17273,
+      "all_time": 17275,
       "repo": "camt053-mcp"
      },
      "camt053-writer-xlsx": {
-      "all_time": 7144,
+      "all_time": 7151,
       "repo": "camt053-writer-xlsx"
      },
      "crypto-service-sdk-python": {
-      "all_time": 420,
+      "all_time": 423,
       "repo": "crypto-service-sdk-python"
      },
      "inclusio": {
-      "all_time": 4483,
+      "all_time": 4488,
       "repo": "inclusio"
      },
      "iso20022-bank-profile-mcp": {
-      "all_time": 5379,
+      "all_time": 5387,
       "repo": "iso20022-bank-profile-mcp"
      },
      "iso20022-evidence-pack-mcp": {
-      "all_time": 4879,
+      "all_time": 4882,
       "repo": "iso20022-evidence-pack-mcp"
      },
      "iso20022-mcp": {
-      "all_time": 11327,
+      "all_time": 11331,
       "repo": "iso20022-mcp"
      },
      "iso20022-readiness-suite-mcp": {
-      "all_time": 4845,
+      "all_time": 4846,
       "repo": "iso20022-readiness-suite-mcp"
      },
      "jspassgen": {
-      "all_time": 973,
+      "all_time": 1049,
       "repo": "jspassgen-sdk-python"
      },
      "pacs008": {
-      "all_time": 11183,
+      "all_time": 11193,
       "repo": "pacs008"
      },
      "pacs008-loader-mt103": {
-      "all_time": 5094,
+      "all_time": 5096,
       "repo": "pacs008-loader-mt103"
      },
      "pacs008-mcp": {
-      "all_time": 8514,
+      "all_time": 8524,
       "repo": "pacs008-mcp"
      },
      "pain001": {
-      "all_time": 96961,
+      "all_time": 96994,
       "repo": "pain001"
      },
      "pain001-loader-mt101": {
-      "all_time": 17808,
+      "all_time": 17827,
       "repo": "pain001-loader-mt101"
      },
      "pain001-loader-xlsx": {
-      "all_time": 13938,
+      "all_time": 13962,
       "repo": "pain001-loader-xlsx"
      },
      "pain001-lsp": {
-      "all_time": 15016,
+      "all_time": 15033,
       "repo": "pain001-lsp"
      },
      "pain001-mcp": {
-      "all_time": 19934,
+      "all_time": 19963,
       "repo": "pain001-mcp"
      },
      "reconcile-mcp": {
-      "all_time": 5254,
+      "all_time": 5262,
       "repo": "reconcile-mcp"
      },
      "structured-address-fix": {
-      "all_time": 3651,
+      "all_time": 3652,
       "repo": "structured-address-fix"
      },
      "structured-address-fix-mcp": {
-      "all_time": 4627,
+      "all_time": 4629,
       "repo": "structured-address-fix-mcp"
      },
      "talkwave": {
@@ -1705,7 +1705,7 @@
      }
     },
     "packages": 40,
-    "recent": 117543
+    "recent": 117962
    }
   }
  }
