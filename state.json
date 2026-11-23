@@ -164,9 +164,9 @@
    "as_of": "2026-11-23",
    "closed": 2359,
    "closed_through": "2026-10-21",
-   "recent": 843,
+   "recent": 855,
    "repo": "crypto-service",
-   "total": 3623
+   "total": 3635
   },
   "@sebastienrousseau/crypto-react": {
    "as_of": "2026-11-23",
@@ -617,14 +617,14 @@
   "crates": {
    "as_of": "2026-11-23",
    "value": {
-    "all_time": 53833859,
+    "all_time": 53856367,
     "by": {
      "agtmls-cli": {
       "all_time": 40,
       "repo": "agtmls-core"
      },
      "agtmls-core": {
-      "all_time": 142,
+      "all_time": 143,
       "repo": "agtmls-core"
      },
      "agtmls-lsp": {
@@ -644,23 +644,23 @@
       "repo": "mini-functions"
      },
      "cmn": {
-      "all_time": 9496,
+      "all_time": 9497,
       "repo": "cmn"
      },
      "crypto-service-sdk": {
-      "all_time": 21,
+      "all_time": 24,
       "repo": "crypto-service-sdk-rust"
      },
      "dtt": {
-      "all_time": 151452,
+      "all_time": 151604,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 28797,
+      "all_time": 29135,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 33451,
+      "all_time": 33493,
       "repo": "frontmatter-gen"
      },
      "hsh": {
@@ -684,11 +684,11 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29807,
+      "all_time": 29894,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24821,
+      "all_time": 24902,
       "repo": "http-handle"
      },
      "idk": {
@@ -700,7 +700,7 @@
       "repo": "jspassgen-sdk-rust"
      },
      "kyberlib": {
-      "all_time": 10141,
+      "all_time": 10145,
       "repo": "kyberlib"
      },
      "kyberlib-wasm": {
@@ -708,7 +708,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 19526,
+      "all_time": 19609,
       "repo": "langweave"
      },
      "libmake": {
@@ -716,7 +716,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 25225812,
+      "all_time": 25232577,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -728,11 +728,11 @@
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 27028,
+      "all_time": 27151,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 20901,
+      "all_time": 21009,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -744,7 +744,7 @@
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1503345,
+      "all_time": 1508697,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -756,7 +756,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 54495,
+      "all_time": 54824,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -768,7 +768,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 7590,
+      "all_time": 8041,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -804,15 +804,15 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12921,
+      "all_time": 12922,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 131009,
+      "all_time": 131068,
       "repo": "rlg"
      },
      "rlg-cli": {
-      "all_time": 511,
+      "all_time": 513,
       "repo": "rlg"
      },
      "rlg-ebpf": {
@@ -820,59 +820,59 @@
       "repo": "rlg"
      },
      "rlg-mcp": {
-      "all_time": 302,
+      "all_time": 304,
       "repo": "rlg"
      },
      "rlg-otlp": {
-      "all_time": 264,
-      "repo": "rlg"
-     },
-     "rlg-redact": {
-      "all_time": 268,
-      "repo": "rlg"
-     },
-     "rlg-report": {
-      "all_time": 269,
-      "repo": "rlg"
-     },
-     "rlg-test": {
-      "all_time": 270,
-      "repo": "rlg"
-     },
-     "rlg-tower": {
-      "all_time": 276,
-      "repo": "rlg"
-     },
-     "rlg-wasm": {
       "all_time": 266,
       "repo": "rlg"
      },
+     "rlg-redact": {
+      "all_time": 270,
+      "repo": "rlg"
+     },
+     "rlg-report": {
+      "all_time": 271,
+      "repo": "rlg"
+     },
+     "rlg-test": {
+      "all_time": 272,
+      "repo": "rlg"
+     },
+     "rlg-tower": {
+      "all_time": 278,
+      "repo": "rlg"
+     },
+     "rlg-wasm": {
+      "all_time": 268,
+      "repo": "rlg"
+     },
      "rss-gen": {
-      "all_time": 27251,
+      "all_time": 27339,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 26115750,
+      "all_time": 26123873,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 19934,
+      "all_time": 20023,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42847,
+      "all_time": 42848,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2943,
+      "all_time": 2944,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3426,
+      "all_time": 3427,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 2075,
+      "all_time": 2076,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -880,23 +880,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3310,
+      "all_time": 3311,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3478,
+      "all_time": 3479,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3208,
+      "all_time": 3209,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 19954,
+      "all_time": 19995,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19781,
+      "all_time": 19864,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -948,7 +948,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 149242,
+      "all_time": 149299,
       "repo": "vrd"
      },
      "wiserone": {
@@ -956,16 +956,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 5193,
+      "all_time": 5194,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 31370,
+      "all_time": 31393,
       "repo": "xtasks"
      }
     },
     "packages": 86,
-    "recent": 2288778
+    "recent": 2300279
    }
   },
   "github": {
@@ -1239,7 +1239,7 @@
   "npm": {
    "as_of": "2026-11-23",
    "value": {
-    "all_time": 215266,
+    "all_time": 215278,
     "by": {
      "@sebastienrousseau/agtmls-wasm": {
       "all_time": 817,
@@ -1322,7 +1322,7 @@
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-prisma": {
-      "all_time": 3623,
+      "all_time": 3635,
       "repo": "crypto-service"
      },
      "@sebastienrousseau/crypto-react": {
@@ -1535,7 +1535,7 @@
      }
     },
     "packages": 73,
-    "recent": 62433
+    "recent": 62445
    }
   },
   "pypi": {
