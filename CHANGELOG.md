@@ -3,6 +3,20 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.0.18] - 2026-11-24
+
+### Changed
+
+- The hero reads "Twenty years in banking", where it said "Nineteen", to
+  agree with sebastienrousseau.com ("More than 20 years in payments,
+  banking and digital technology"). `profile.toml` changes; `make`
+  regenerates `README.md` and the 116 hero SVGs, whose embedded font
+  subsets gain the new letters.
+- Dependencies: ruff 0.17.4 to 0.17.6 and complexipy 8.3.0 to 9.0.0 in
+  the lint group, and cargo-binstall 1.26.2 to 1.27.0 in the Pages
+  workflow (Dependabot #30, #31 and #32; ruff goes one release past #31).
+  `uv.lock` is regenerated; `make check` passes with complexipy 9.
+
 ## [0.0.17] - 2026-11-14
 
 ### Fixed
