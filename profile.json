@@ -5,10 +5,10 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54592162,
-  "recent_downloads": 2509625,
+  "all_time_downloads": 54617267,
+  "recent_downloads": 2470826,
   "window_days": 30,
-  "github_stars": 761,
+  "github_stars": 760,
   "packages": 199,
   "as_of": "2026-11-23"
  },
@@ -83,7 +83,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14750
+     "downloads": 14751
     },
     {
      "name": "passmcp",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1516099
+     "downloads": 1523285
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 133699
+     "downloads": 133711
     },
     {
      "name": "libmake",
