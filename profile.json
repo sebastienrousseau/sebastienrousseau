@@ -5,12 +5,12 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54622255,
-  "recent_downloads": 2490561,
+  "all_time_downloads": 54642193,
+  "recent_downloads": 2500271,
   "window_days": 30,
   "github_stars": 761,
   "packages": 199,
-  "as_of": "2026-11-23"
+  "as_of": "2026-11-24"
  },
  "pillars": [
   {
@@ -67,7 +67,7 @@
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
      "stars": 48,
-     "downloads": 10200
+     "downloads": 10201
     },
     {
      "name": "crypto-service",
@@ -83,7 +83,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14755
+     "downloads": 14756
     },
     {
      "name": "passmcp",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1523354
+     "downloads": 1528777
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 133711
+     "downloads": 133763
     },
     {
      "name": "libmake",
