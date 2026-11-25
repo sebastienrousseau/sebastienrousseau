@@ -6,10 +6,10 @@
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
   "all_time_downloads": 54765076,
-  "recent_downloads": 2543473,
+  "recent_downloads": 2554332,
   "window_days": 30,
-  "github_stars": 757,
-  "packages": 199,
+  "github_stars": 758,
+  "packages": 200,
   "as_of": "2026-11-25"
  },
  "pillars": [
@@ -25,7 +25,7 @@
      "lang": "Python",
      "text": "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet.",
      "url": "https://github.com/sebastienrousseau/pain001",
-     "stars": 49,
+     "stars": 50,
      "downloads": 97891
     },
     {
@@ -180,6 +180,13 @@
  ],
  "articles": [
   {
+   "title": "Shor on Cat Qubits: RSA-2048 in 1.25 Hours on 611,000 Qubits",
+   "topic": "INFRA & CRYPTOGRAPHY",
+   "date": "25 November 2026",
+   "published": "2026-11-25",
+   "url": "https://sebastienrousseau.com/2026-11-25-shor-rsa-2048-cat-qubits/"
+  },
+  {
    "title": "Super-agents: why one session per task stops scaling",
    "topic": "APPLIED AI",
    "date": "24 November 2026",
@@ -192,13 +199,6 @@
    "date": "23 November 2026",
    "published": "2026-11-23",
    "url": "https://sebastienrousseau.com/2026-11-23-composite-ml-dsa-rfc-10073/"
-  },
-  {
-   "title": "Firms Buy Their Most Material AI and Govern It Through the Vendor",
-   "topic": "APPLIED AI",
-   "date": "22 November 2026",
-   "published": "2026-11-22",
-   "url": "https://sebastienrousseau.com/2026-11-22-firms-buy-ai-govern-through-vendor/"
   }
  ],
  "links": [
