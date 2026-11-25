@@ -617,7 +617,7 @@
   "crates": {
    "as_of": "2026-11-25",
    "value": {
-    "all_time": 54026591,
+    "all_time": 54048150,
     "by": {
      "agtmls-cli": {
       "all_time": 40,
@@ -636,15 +636,15 @@
       "repo": "agtmls-mcp"
      },
      "cclm": {
-      "all_time": 4132,
+      "all_time": 4133,
       "repo": "mini-functions"
      },
      "cjwt": {
-      "all_time": 3466,
+      "all_time": 3467,
       "repo": "mini-functions"
      },
      "cmn": {
-      "all_time": 9498,
+      "all_time": 9499,
       "repo": "cmn"
      },
      "crypto-service-sdk": {
@@ -652,19 +652,19 @@
       "repo": "crypto-service-sdk-rust"
      },
      "dtt": {
-      "all_time": 152066,
+      "all_time": 152250,
       "repo": "dtt"
      },
      "euxis-commons": {
-      "all_time": 29353,
+      "all_time": 29626,
       "repo": "commons"
      },
      "frontmatter-gen": {
-      "all_time": 33573,
+      "all_time": 33633,
       "repo": "frontmatter-gen"
      },
      "hsh": {
-      "all_time": 14273,
+      "all_time": 14274,
       "repo": "hsh"
      },
      "hsh-backend-awslc": {
@@ -684,15 +684,15 @@
       "repo": "hsh"
      },
      "html-generator": {
-      "all_time": 29957,
+      "all_time": 30056,
       "repo": "html-generator"
      },
      "http-handle": {
-      "all_time": 24964,
+      "all_time": 25065,
       "repo": "http-handle"
      },
      "idk": {
-      "all_time": 4201,
+      "all_time": 4202,
       "repo": "mini-functions"
      },
      "jspassgen": {
@@ -700,7 +700,7 @@
       "repo": "jspassgen-sdk-rust"
      },
      "kyberlib": {
-      "all_time": 10149,
+      "all_time": 10151,
       "repo": "kyberlib"
      },
      "kyberlib-wasm": {
@@ -708,7 +708,7 @@
       "repo": "kyberlib"
      },
      "langweave": {
-      "all_time": 19667,
+      "all_time": 19764,
       "repo": "langweave"
      },
      "libmake": {
@@ -716,7 +716,7 @@
       "repo": "libmake"
      },
      "libyml": {
-      "all_time": 25285228,
+      "all_time": 25291694,
       "repo": "libyml"
      },
      "mcp-serve": {
@@ -724,15 +724,15 @@
       "repo": "mcp-serve"
      },
      "mdg": {
-      "all_time": 2961,
+      "all_time": 2962,
       "repo": "mini-functions"
      },
      "mdx-gen": {
-      "all_time": 27217,
+      "all_time": 27340,
       "repo": "mdx-gen"
      },
      "metadata-gen": {
-      "all_time": 21097,
+      "all_time": 21215,
       "repo": "metadata-gen"
      },
      "mini-functions": {
@@ -740,11 +740,11 @@
       "repo": "mini-functions"
      },
      "noya-cli": {
-      "all_time": 909,
+      "all_time": 910,
       "repo": "noya-cli"
      },
      "noyalib": {
-      "all_time": 1553668,
+      "all_time": 1558550,
       "repo": "noyalib"
      },
      "noyalib-lsp": {
@@ -756,7 +756,7 @@
       "repo": "noyalib-mcp"
      },
      "noyalib-serde-yaml": {
-      "all_time": 56449,
+      "all_time": 56622,
       "repo": "noyalib-serde-yaml"
      },
      "noyalib-wasm": {
@@ -768,7 +768,7 @@
       "repo": "nucleusflow"
      },
      "oxml": {
-      "all_time": 8623,
+      "all_time": 8969,
       "repo": "oxml"
      },
      "oxml-cli": {
@@ -796,7 +796,7 @@
       "repo": "pain"
      },
      "pain001-sdk": {
-      "all_time": 49,
+      "all_time": 51,
       "repo": "pain001-sdk-rust"
      },
      "psph": {
@@ -804,11 +804,11 @@
       "repo": "mini-functions"
      },
      "qrc": {
-      "all_time": 12938,
+      "all_time": 12942,
       "repo": "qrc"
      },
      "rlg": {
-      "all_time": 131569,
+      "all_time": 131664,
       "repo": "rlg"
      },
      "rlg-cli": {
@@ -848,31 +848,31 @@
       "repo": "rlg"
      },
      "rss-gen": {
-      "all_time": 27401,
+      "all_time": 27499,
       "repo": "rssgen"
      },
      "serde_yml": {
-      "all_time": 26191626,
+      "all_time": 26199611,
       "repo": "serde_yml"
      },
      "sitemap-gen": {
-      "all_time": 20084,
+      "all_time": 20182,
       "repo": "sitemap-gen"
      },
      "ssg": {
-      "all_time": 42853,
+      "all_time": 42858,
       "repo": "static-site-generator"
      },
      "ssg-a11y": {
-      "all_time": 2950,
+      "all_time": 2955,
       "repo": "static-site-generator"
      },
      "ssg-core": {
-      "all_time": 3433,
+      "all_time": 3438,
       "repo": "static-site-generator"
      },
      "ssg-i18n": {
-      "all_time": 2082,
+      "all_time": 2087,
       "repo": "static-site-generator"
      },
      "ssg-mcp": {
@@ -880,23 +880,23 @@
       "repo": "static-site-generator"
      },
      "ssg-rpc": {
-      "all_time": 3318,
+      "all_time": 3323,
       "repo": "static-site-generator"
      },
      "ssg-rpc-macro": {
-      "all_time": 3486,
+      "all_time": 3491,
       "repo": "static-site-generator"
      },
      "ssg-search": {
-      "all_time": 3215,
+      "all_time": 3220,
       "repo": "static-site-generator"
      },
      "staticdatagen": {
-      "all_time": 20054,
+      "all_time": 20106,
       "repo": "staticdatagen"
      },
      "staticweaver": {
-      "all_time": 19923,
+      "all_time": 20020,
       "repo": "staticweaver"
      },
      "staticweaver-async": {
@@ -948,7 +948,7 @@
       "repo": "tunnelward"
      },
      "vrd": {
-      "all_time": 149790,
+      "all_time": 149887,
       "repo": "vrd"
      },
      "wiserone": {
@@ -956,16 +956,16 @@
       "repo": "wiserone"
      },
      "xmlschema": {
-      "all_time": 5249,
+      "all_time": 5289,
       "repo": "xmlschema"
      },
      "xtasks": {
-      "all_time": 31512,
+      "all_time": 31537,
       "repo": "xtasks"
      }
     },
     "packages": 86,
-    "recent": 2358388
+    "recent": 2369350
    }
   },
   "github": {
