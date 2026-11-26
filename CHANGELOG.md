@@ -16,6 +16,11 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   one clock in one design, holidays included. The clocks keep the
   Worker's `/*clock*/` contract, and the test that pins it now covers
   them. They add about 4.5 MB to `main`.
+- `profile.json` gains `numbers.display`: the four figures as the
+  numbers panel prints them (`3.7M`, `26.7K`), so the website can show
+  exactly the profile's numbers. The panel and `display` take their
+  strings from one function, `live.display()`, so they cannot disagree.
+  `schema` stays `1`.
 
 ## [0.0.18] - 2026-11-24
 

@@ -84,7 +84,9 @@ touches the tools or `profile.toml`, and on demand.
    the same check every 30 minutes; it can open the issue but never closes
    it, since only a refresh also vouches for the data.
 6. Each refresh writes `profile.json` beside the panels: the same figures as
-   data, described in [DATA.md](DATA.md).
+   data, described in [DATA.md](DATA.md), and under `numbers.display` the
+   exact strings the numbers panel prints, so the website shows the same
+   figures as the profile.
 
 A project card's downloads are those of every package whose own metadata
 links to its repository: crates.io's `repository`, npm's
