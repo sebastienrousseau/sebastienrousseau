@@ -3,7 +3,7 @@
 All notable changes to this project are documented here. The format is
 based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.0.19] - Unreleased
 
 ### Added
 
@@ -21,6 +21,15 @@ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   exactly the profile's numbers. The panel and `display` take their
   strings from one function, `live.display()`, so they cannot disagree.
   `schema` stays `1`.
+
+### Changed
+
+- The manual is built with ssg 0.0.77, the latest release, up from
+  0.0.76 (`.github/ssg-version`). The Pages workflow fails while the pin
+  trails the latest ssg, and it failed on `main` once 0.0.77 shipped.
+- GitHub Actions: DavidAnson/markdownlint-cli2-action 25.0.0 to 25.1.0,
+  cargo-bins/cargo-binstall 1.27.0 to 1.28.0 and astral-sh/setup-uv
+  10.3.3 to 10.4.0 (Dependabot #34, #35 and #36, folded into #37).
 
 ## [0.0.18] - 2026-11-24
 
