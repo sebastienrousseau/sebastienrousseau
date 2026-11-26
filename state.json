@@ -973,7 +973,7 @@
      }
     },
     "packages": 88,
-    "recent": 2373309
+    "recent": 2376049
    }
   },
   "github": {
@@ -1586,9 +1586,21 @@
       "all_time": 39500,
       "repo": "bankstatementparser"
      },
+     "bankstatementparser-loader-bacs": {
+      "all_time": 0,
+      "repo": "bankstatementparser-loader-bacs"
+     },
      "bankstatementparser-loader-bai2": {
       "all_time": 8303,
       "repo": "bankstatementparser-loader-bai2"
+     },
+     "bankstatementparser-loader-camt054": {
+      "all_time": 0,
+      "repo": "bankstatementparser-loader-camt054"
+     },
+     "bankstatementparser-loader-cfonb": {
+      "all_time": 0,
+      "repo": "bankstatementparser-loader-cfonb"
      },
      "bankstatementparser-loader-mt942": {
       "all_time": 8257,
@@ -1715,7 +1727,7 @@
       "repo": "talkwave"
      }
     },
-    "packages": 41,
+    "packages": 44,
     "recent": 119945
    }
   }
