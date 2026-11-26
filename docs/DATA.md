@@ -32,6 +32,14 @@ rest.
 | `github_stars` | integer | Stars over every owned, non-fork repository. |
 | `packages` | integer | Crates, PyPI projects and npm packages published. |
 | `as_of` | string | The ISO date of the oldest figure above. |
+| `display` | object | The four figures as the numbers panel prints them, below. |
+
+`display` has the keys `all_time_downloads`, `recent_downloads`,
+`github_stars` and `packages`. Each value is the string drawn on the
+numbers panel, byte for byte: the downloads and stars in compact form
+(`3.7M`, `26.7K`, `700`), the package count in full (`30`). Print them
+as they are to show the same figures as the profile; use the integers
+for anything else.
 
 ### pillars
 

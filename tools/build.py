@@ -50,6 +50,7 @@ def jobs(cfg: dict, hs: list[holidays.Holiday] = ()) -> dict[str, Callable[[dict
     """Every static asset name mapped to the panel that draws it for a theme."""
     out: dict[str, Callable[[dict], Doc]] = {
         "hero": lambda t: panels.hero(t, cfg["hero"]),
+        "clock": panels.clock,
         "paper": lambda t: panels.paper(t, cfg["paper"]),
         "desk": lambda t: panels.header(t, "Latest", "From the desk."),
         "finale": lambda t: panels.finale(t, cfg["finale"]),
@@ -58,6 +59,7 @@ def jobs(cfg: dict, hs: list[holidays.Holiday] = ()) -> dict[str, Callable[[dict
         out[f"section-{p['key']}"] = lambda t, p=p, n=n: panels.section(t, p, n)
     for h in hs:
         out[f"hero-{h.key}"] = lambda t, h=h: panels.hero(themed(h, t["mode"]), cfg["hero"])
+        out[f"clock-{h.key}"] = lambda t, h=h: panels.clock(themed(h, t["mode"]))
     return out
 
 

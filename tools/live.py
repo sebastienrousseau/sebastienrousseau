@@ -92,14 +92,34 @@ def collect(site: str, prev: dict, ledger: dict, today: dt.date) -> tuple[dict, 
     return out, status
 
 
-def stats(src: dict) -> list[dict]:
+# The numbers panel's four figures, in panel order: profile.json key, label.
+FIGURES = {
+    "all_time_downloads": "All-time downloads",
+    "recent_downloads": f"Downloads, last {metrics.WINDOW} days",
+    "github_stars": "GitHub stars",
+    "packages": "Packages published",
+}
+
+
+def figures(src: dict) -> dict[str, int]:
+    """The numbers panel's figures as numbers, keyed as in profile.json."""
     regs = [src[name]["value"] for name in REGISTRIES]
-    return [
-        {"value": metrics.compact(sum(r["all_time"] for r in regs)), "label": "All-time downloads"},
-        {"value": metrics.compact(sum(r["recent"] for r in regs)), "label": f"Downloads, last {metrics.WINDOW} days"},
-        {"value": metrics.compact(src["github"]["value"]["stars"]), "label": "GitHub stars"},
-        {"value": str(sum(r["packages"] for r in regs)), "label": "Packages published"},
-    ]
+    return {
+        "all_time_downloads": sum(r["all_time"] for r in regs),
+        "recent_downloads": sum(r["recent"] for r in regs),
+        "github_stars": src["github"]["value"]["stars"],
+        "packages": sum(r["packages"] for r in regs),
+    }
+
+
+def display(src: dict) -> dict[str, str]:
+    """The figures as the numbers panel prints them: compact, except the package count."""
+    return {k: str(v) if k == "packages" else metrics.compact(v) for k, v in figures(src).items()}
+
+
+def stats(src: dict) -> list[dict]:
+    shown = display(src)
+    return [{"value": shown[key], "label": label} for key, label in FIGURES.items()]
 
 
 def as_of(src: dict) -> dt.date:
@@ -140,7 +160,6 @@ def profile_json(cfg: dict, src: dict) -> dict:
     Published as profile.json on profile-data. `schema` changes only when a
     field is renamed or removed; new fields may appear at any time.
     """
-    regs = [src[name]["value"] for name in REGISTRIES]
     pillars = []
     for p in cfg["pillars"]:
         repos = []
@@ -154,14 +173,8 @@ def profile_json(cfg: dict, src: dict) -> dict:
         "headline": " ".join(cfg["hero"]["headline"]),
         "site": cfg["site"],
         "github": cfg["github"],
-        "numbers": {
-            "all_time_downloads": sum(r["all_time"] for r in regs),
-            "recent_downloads": sum(r["recent"] for r in regs),
-            "window_days": metrics.WINDOW,
-            "github_stars": src["github"]["value"]["stars"],
-            "packages": sum(r["packages"] for r in regs),
-            "as_of": as_of(src).isoformat(),
-        },
+        "numbers": figures(src)
+        | {"window_days": metrics.WINDOW, "as_of": as_of(src).isoformat(), "display": display(src)},
         "pillars": pillars,
         "articles": src["articles"]["value"]["items"],
         "links": cfg["finale"]["links"],

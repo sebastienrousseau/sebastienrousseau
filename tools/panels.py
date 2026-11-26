@@ -69,11 +69,16 @@ def _glyph_lattice(doc: Doc, t: dict, points: list[tuple[str, str, str, str]]) -
 
 
 def _lattice(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
-    """A skewed point lattice (a nod to ML-KEM) that fades toward the text."""
+    """A skewed point lattice (a nod to ML-KEM) that fades toward the text.
+
+    The fade spans the whole canvas. A cropped doc names the canvas size,
+    since "100%" would mean the crop and move the fade.
+    """
+    size = f'width="{doc.width}" height="{doc.height}"' if doc.crop else 'width="100%" height="100%"'
     doc.defs.append(
         '<linearGradient id="fade" x1="0" x2="1"><stop offset=".5" stop-color="#fff" stop-opacity="0"/>'
-        '<stop offset=".8" stop-color="#fff"/></linearGradient><mask id="m"><rect width="100%"'
-        ' height="100%" fill="url(#fade)"/></mask>'
+        f'<stop offset=".8" stop-color="#fff"/></linearGradient><mask id="m"><rect {size}'
+        ' fill="url(#fade)"/></mask>'
     )
     points = _points(doc, centre)
     if "glyph" in t:
@@ -180,26 +185,47 @@ def _lattice_clock(doc: Doc, t: dict, centre: tuple[float, float]) -> None:
     doc.add(f'<circle cx="{cx}" cy="{cy}" r="2.6" fill="{t["panel"]}"/>')
 
 
-def hero(t: dict, c: dict) -> Doc:
-    doc = Doc(
-        W,
-        600,
-        f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])}"
-        " A clock drawn on the lattice shows the time in London."
-        + (f" Decorated for {t['name']}." if "name" in t else ""),
+def _clock_alt(t: dict) -> str:
+    return "A clock drawn on the lattice shows the time in London." + (
+        f" Decorated for {t['name']}." if "name" in t else ""
     )
-    _panel(doc, t["panel"])
-    if t.get("glow2_alpha", 0) > 0:
-        _glow(doc, "g2", t["glow2"], (140, 600, 640), t["glow2_alpha"])
+
+
+def _art(doc: Doc, t: dict) -> None:
+    """The hero's right side: main glow, emblem, lattice and lattice clock."""
     _glow(doc, "g", t["glow"], (1060, 300, 520), t.get("glow_alpha", 0.28))
     _emblem(doc, t, (1038, 300))
     _lattice(doc, t, (1038, 300))
     _lattice_clock(doc, t, (1038, 300))
+
+
+def hero(t: dict, c: dict) -> Doc:
+    doc = Doc(W, 600, f"{c['eyebrow']}. {' '.join(c['headline'])} {' '.join(c['lede'])} {_clock_alt(t)}")
+    _panel(doc, t["panel"])
+    if t.get("glow2_alpha", 0) > 0:
+        _glow(doc, "g2", t["glow2"], (140, 600, 640), t["glow2_alpha"])
+    _art(doc, t)
     doc.text(88, 168, c["eyebrow"], (SEMI, 18, t["accent"]), tracking=0.14, upper=True)
     for n, line in enumerate(c["headline"]):
         doc.text(84, 268 + n * 88, line, (BOLD, 80, t["ink"]), tracking=-0.032)
     for n, line in enumerate(c["lede"]):
         doc.text(88, 450 + n * 38, line, (SANS, 25, t["mute"]), tracking=-0.01)
+    return doc
+
+
+# The hero's right half, where all of its art sits: the lattice is masked
+# out left of x 640 and nothing else reaches past it.
+CLOCK_CROP = (640, 0, 640, 600)
+
+
+def clock(t: dict) -> Doc:
+    """The hero's art alone, with no text and no panel, for another page's hero.
+
+    Drawn on the hero's canvas with the same calls, then cropped to its
+    right half, so it matches the hero exactly and keeps the clock contract.
+    """
+    doc = Doc(W, 600, _clock_alt(t), crop=CLOCK_CROP)
+    _art(doc, t)
     return doc
 
 

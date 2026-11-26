@@ -74,16 +74,27 @@ def test_article_with_quotes_is_well_formed_svg():
     assert seen["svg"] == 'POLICY & RISK. Why "quantum-safe" isn\'t <optional> 4 August 2026.'
 
 
-def test_hero_keeps_the_clock_worker_contract():
+CLOCK_PANELS = {
+    "hero": lambda t: panels.hero(t, CFG["hero"]),
+    "clock": lambda t: panels.clock(t),
+}
+
+
+@pytest.mark.parametrize("draw", CLOCK_PANELS.values(), ids=CLOCK_PANELS)
+@pytest.mark.parametrize("mode", ["light", "dark"])
+def test_clock_panels_keep_the_clock_worker_contract(draw, mode):
     # The profile-clock Worker (sebastienrousseau.github.io, workers/clock.js,
     # clockCSS) replaces the marker with rules for exactly these selectors. If
     # one goes, the live clock freezes with no error, so pin them here.
-    svg = panels.hero(THEMES["dark"], CFG["hero"]).render()
+    svg = draw(THEMES[mode]).render()
     assert svg.count(panels.CLOCK_MARKER) == 1
+    assert svg.index(panels.CLOCK_MARKER) < svg.index(panels.REDUCED_MOTION)
     classes = set(re.findall(r'class="([^"]+)"', svg))
     for unit in ("hh", "mm", "ss"):
         assert f"hand {unit}" in classes
         assert f".{unit}{{animation-duration:" in svg
+    assert {f"hand {u} un" for u in ("hh", "mm")} | {f"hand {u} roll" for u in ("hh", "mm")} <= classes
+    assert ".un{animation-name:unspin}" in svg and ".hand{transform-box:view-box;" in svg
 
 
 def test_numbers_note_fits_on_one_line():
@@ -219,6 +230,12 @@ def test_profile_json_carries_the_live_figures_as_numbers():
         "github_stars": 700,
         "packages": 30,
         "as_of": "2026-11-04",
+        "display": {
+            "all_time_downloads": "3.7M",
+            "recent_downloads": "26.7K",
+            "github_stars": "700",
+            "packages": "30",
+        },
     }
     repos = {r["name"]: r for p in doc["pillars"] for r in p["repos"]}
     assert repos["kyberlib"]["stars"] == 45 and repos["kyberlib"]["downloads"] == 41_000
@@ -244,3 +261,18 @@ def test_articles_carry_an_iso_date_for_machines():
 def test_readme_points_agents_at_profile_json():
     readme = build.page(CFG, {k: k for k in build.jobs(CFG)})
     assert f"{CFG['live'].removesuffix('/assets')}/profile.json" in readme
+
+
+@pytest.mark.parametrize("stars", [999, 1_000, 12_345, 2_500_000])
+def test_profile_json_display_is_what_the_numbers_panel_prints(tmp_path, stars):
+    # The site prints numbers.display verbatim beside the profile, so each
+    # string must be the one drawn on the numbers panel, byte for byte.
+    src = full_src()
+    src["github"]["value"]["stars"] = stars
+    display = live.profile_json(CFG, src)["numbers"]["display"]
+    assert list(display) == ["all_time_downloads", "recent_downloads", "github_stars", "packages"]
+    assert list(display.values()) == [s["value"] for s in live.stats(src)]
+    live.render(CFG, src, tmp_path)
+    svg = (tmp_path / "assets" / "numbers-dark.svg").read_text()
+    drawn = re.findall(r'font-size="70" fill="url\(#n\)"[^>]*>([^<]+)</text>', svg)
+    assert drawn == list(display.values())

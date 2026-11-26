@@ -37,7 +37,7 @@ jobs:
           [ "$verified" = true ] || { echo "::error::GitHub does not verify the signature on $TAG"; exit 1; }
           version="$(sed -n 's/^version = "\(.*\)"$/\1/p' pyproject.toml)"
           [ "v$version" = "$TAG" ] || { echo "::error::pyproject.toml says $version"; exit 1; }
-      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
       # The attached files are the committed ones, so they must match a build.
       - name: Rebuild and check for drift
         run: make drift
