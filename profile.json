@@ -5,10 +5,10 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54831294,
-  "recent_downloads": 2521016,
+  "all_time_downloads": 54845574,
+  "recent_downloads": 2529831,
   "window_days": 30,
-  "github_stars": 758,
+  "github_stars": 759,
   "packages": 200,
   "as_of": "2026-11-26"
  },
@@ -75,7 +75,7 @@
      "text": "50+ classical and post-quantum algorithms, including ML-KEM, ML-DSA and SLH-DSA.",
      "url": "https://github.com/sebastienrousseau/crypto-service",
      "stars": 9,
-     "downloads": 77653
+     "downloads": 77667
     },
     {
      "name": "hsh",
@@ -108,7 +108,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61622
+     "downloads": 61635
     },
     {
      "name": "noyalib",
@@ -116,7 +116,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1572704
+     "downloads": 1575947
     },
     {
      "name": "rlg",
@@ -124,7 +124,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 134413
+     "downloads": 134437
     },
     {
      "name": "libmake",
@@ -132,7 +132,7 @@
      "text": "A code generator that removes the repetitive work of building high-quality Rust libraries.",
      "url": "https://github.com/sebastienrousseau/libmake",
      "stars": 30,
-     "downloads": 30973
+     "downloads": 30976
     }
    ]
   },
@@ -164,7 +164,7 @@
      "lang": "Shell",
      "text": "A cross-platform workstation control plane on chezmoi, with adaptive themes and AI CLI workflows.",
      "url": "https://github.com/sebastienrousseau/dotfiles",
-     "stars": 83,
+     "stars": 84,
      "downloads": 16838
     },
     {
