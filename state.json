@@ -915,6 +915,10 @@
       "all_time": 70,
       "repo": "tunnelward"
      },
+     "tunnelward-attest": {
+      "all_time": 0,
+      "repo": "tunnelward"
+     },
      "tunnelward-audit": {
       "all_time": 22,
       "repo": "tunnelward"
@@ -964,8 +968,8 @@
       "repo": "xtasks"
      }
     },
-    "packages": 86,
-    "recent": 2357318
+    "packages": 87,
+    "recent": 2367690
    }
   },
   "github": {
