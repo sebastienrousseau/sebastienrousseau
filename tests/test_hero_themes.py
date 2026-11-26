@@ -83,3 +83,65 @@ def test_quiet_and_emblemless_themes():
     t = palette.style(next(h for h in HOLIDAYS if h.key == "ashura"), "light")
     assert "scale(4.4)" not in panels.hero(t, CFG["hero"]).render()  # without its icon, "none" draws nothing
     assert "scale(4.4)" in hero("ashura", "light")  # with it, the icon is drawn
+
+
+def clock(key: str, mode: str) -> str:
+    h = next(h for h in HOLIDAYS if h.key == key)
+    return panels.clock(build.themed(h, mode)).render()
+
+
+@pytest.mark.parametrize("mode", MODES)
+def test_the_everyday_clock_is_the_committed_one(mode):
+    committed = (ROOT / "assets" / f"clock-{mode}.svg").read_text()
+    assert panels.clock(THEMES[mode]).render() == committed
+
+
+@pytest.mark.parametrize("key", [h.key for h in HOLIDAYS])
+def test_every_holiday_clock_keeps_the_contract(key):
+    for mode in MODES:
+        svg = clock(key, mode)
+        expat.ParserCreate().Parse(svg, True)
+        assert svg.count(panels.CLOCK_MARKER) == 1
+        assert svg.index(panels.CLOCK_MARKER) < svg.index(panels.REDUCED_MOTION)
+        for selector in ('class="hand ss"', 'class="hand hh"', 'class="hand mm"'):
+            assert selector in svg
+        assert set(re.findall(r"https?://[^\"' )]+", svg)) == {"http://www.w3.org/2000/svg"}
+        assert len(svg.encode()) <= LIMIT, f"{key}-{mode}: {len(svg.encode())} bytes"
+
+
+@pytest.mark.parametrize("key", ["", "christmas", "remembrance", "burns-night"])
+def test_the_clock_is_the_heros_art_without_text_or_panel(key):
+    for mode in MODES:
+        if key:
+            t = build.themed(next(h for h in HOLIDAYS if h.key == key), mode)
+        else:
+            t = THEMES[mode]
+        hero_doc, clock_doc = panels.hero(t, CFG["hero"]), panels.clock(t)
+        # Same elements in the same order at the same coordinates: the
+        # clock's body is the hero's from the main glow up to its text.
+        art = hero_doc.body[hero_doc.body.index(clock_doc.body[0]) :][: len(clock_doc.body)]
+        assert clock_doc.body == art
+        svg = clock_doc.render()
+        assert 'viewBox="640 0 640 600"' in svg and 'width="640" height="600"' in svg
+        assert 'fill="url(#g2)"' not in svg and f'rx="32" fill="{t["panel"]}"' not in svg
+        assert CFG["hero"]["eyebrow"] not in svg
+        texts = re.findall(r"<text [^>]*>([^<]*)</text>", svg)
+        assert texts and all(s.isdigit() for s in texts)  # only the badges' digits
+
+
+def test_a_clock_says_what_it_shows_and_what_it_is_decorated_for():
+    everyday = panels.clock(THEMES["light"])
+    assert everyday.title == "A clock drawn on the lattice shows the time in London."
+    holiday = panels.clock(build.themed(next(h for h in HOLIDAYS if h.key == "christmas"), "light"))
+    assert holiday.title == "A clock drawn on the lattice shows the time in London. Decorated for Christmas."
+    assert 'aria-label="A clock drawn on the lattice shows the time in London. Decorated for Christmas."' in (
+        holiday.render()
+    )
+
+
+def test_the_clock_keeps_the_lattice_fade_across_the_whole_hero():
+    # The fade runs over the hero's full width, so the cropped clock fades
+    # exactly as the hero does: its mask must not shrink to the crop.
+    svg = panels.clock(THEMES["dark"]).render()
+    assert f'<mask id="m"><rect width="{panels.W}" height="600" fill="url(#fade)"/></mask>' in svg
+    assert '<rect width="1280" height="600" rx="32" fill="url(#g)"/>' in svg

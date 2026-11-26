@@ -18,6 +18,9 @@ class Doc:
     css: list[str] = field(default_factory=list)
     glyphs: Glyphs = field(default_factory=Glyphs)
     desc: str = ""  # optional <desc>, e.g. a third-party credit that travels with the file
+    # Optional (x, y, width, height): draw on the full canvas, publish only
+    # this region of it, at its own size.
+    crop: tuple[int, int, int, int] | None = None
 
     def add(self, markup: str) -> None:
         self.body.append(markup)
@@ -37,9 +40,10 @@ class Doc:
         )
 
     def render(self) -> str:
+        x, y, w, h = self.crop or (0, 0, self.width, self.height)
         return (
-            f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.width}" height="{self.height}"'
-            f' viewBox="0 0 {self.width} {self.height}" role="img" aria-label={quoteattr(self.title)}>'
+            f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}"'
+            f' viewBox="{x} {y} {w} {h}" role="img" aria-label={quoteattr(self.title)}>'
             f"<title>{escape(self.title)}</title>"
             + (f"<desc>{escape(self.desc)}</desc>" if self.desc else "")
             + f"<defs><style>{self.glyphs.css()}\ntext{{font-kerning:normal}}{''.join(self.css)}</style>"

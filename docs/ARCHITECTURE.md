@@ -31,6 +31,12 @@ flowchart TD
   the sebastienrousseau.github.io repository, `workers/clock.js`). It
   replaces the `/*clock*/` marker in the committed hero SVG with CSS that
   sets London time, and redirects to the static SVG if anything fails.
+  `make` also writes the clock alone, `assets/clock-<mode>.svg` and
+  `assets/clock-<key>-<mode>.svg` per holiday: the hero's glow, emblem,
+  lattice and clock, drawn by the same code and cropped to the hero's
+  right half (640 by 600), with no text and no panel. The website's hero
+  embeds it through the same Worker, so both show one clock in one
+  design.
 * **Holiday heroes** are static panels too: `make` renders
   `assets/hero-<key>-<mode>.svg` per holiday and `assets/holidays.json`,
   the London calendar. The Worker picks the hero for today from that file
@@ -48,9 +54,9 @@ flowchart TD
 | `tools/smoke.py` | After each publish and every 30 minutes: every image `README.md` shows is a well-formed SVG, the clock Worker has not fallen back, and `profile.json` parses. |
 | `tools/manual.py` | The manual, in the format of doc.dotfiles.io/manual/: the repository's documents as Lucid pages in `docs-site/content/`, then anchors and checks ssg's output. |
 | `tools/ceilings.py` | The complexity ceilings ruff and complexipy do not check: Halstead difficulty, function and file length. |
-| `tools/panels.py` | Each panel as a function of a theme and config; `write()` also deletes orphan SVGs. |
+| `tools/panels.py` | Each panel as a function of a theme and config, including `clock()`, the hero's art alone; `write()` also deletes orphan SVGs. |
 | `tools/fonts.py` | Pinned font sources, per-SVG subsetting, text measurement. |
-| `tools/svg.py`, `tools/theme.py` | SVG builder and colour tokens. |
+| `tools/svg.py`, `tools/theme.py` | SVG builder (with an optional crop of the canvas) and colour tokens. |
 | `tools/holidays.py`, `tools/almanac.py` | `holidays.toml` loaded and validated; date rules expanded into the calendar. |
 | `tools/palette.py` | A holiday's colours, derived from two accents and held to WCAG contrast. |
 | `tools/motifs.py`, `tools/emblems.py` | Holiday glyphs and placeholder emblems, in `currentColor`. |
@@ -116,8 +122,9 @@ Three sources need care:
   urllib fails. `net.py` is the only place that shells out.
 * **The clock is a contract between two repositories.** The Worker writes
   rules for `.hand`, `.hh`, `.mm` and `.ss` in place of the `/*clock*/`
-  marker. A test pins those selectors and the single marker, because
-  renaming one would freeze the live clock without an error.
+  marker. A test pins those selectors and the single marker in every hero
+  and clock SVG, because renaming one would freeze the live clock without
+  an error.
 * **The holiday calendar is computed here, not in the Worker.** Lunar and
   astronomical dates come from published tables with their sources; one
   Python owner of that data, tested offline, keeps two calendars from
@@ -125,7 +132,8 @@ Three sources need care:
   keys matching `[a-z0-9-]{1,40}`.
 * **One SVG per theme, not one with every theme.** An `<img>` SVG cannot
   learn the date, and 58 themes in one file would make every view download
-  all of them. The heroes add about 5.4 MB to `main`.
+  all of them. The heroes add about 5.7 MB to `main` and the clocks about
+  4.5 MB.
 * **Fonts embedded, subsetted per SVG.** An SVG shown through an `<img>`
   tag cannot load external resources, so each panel carries only the glyphs
   it draws, as base64 WOFF2. Panels render in the site's typefaces

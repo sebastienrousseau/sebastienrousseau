@@ -11,7 +11,9 @@ change the calendar.
 `assets/hero-<key>-<mode>.svg`, beside the everyday `hero-light.svg` and
 `hero-dark.svg`, and writes `assets/holidays.json`: every London calendar
 day from 1 January of the first year to the end of the last holiday, with
-the keys of the holidays on that day.
+the keys of the holidays on that day. Each hero has a matching clock,
+`assets/clock-<key>-<mode>.svg` (everyday: `clock-<mode>.svg`): its art
+without the text, for the website's hero.
 
 The profile-clock Worker, from the release that reads the calendar (until
 then it serves the everyday hero every day), reads that file. It takes today's

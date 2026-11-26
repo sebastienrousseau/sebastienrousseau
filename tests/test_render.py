@@ -74,16 +74,27 @@ def test_article_with_quotes_is_well_formed_svg():
     assert seen["svg"] == 'POLICY & RISK. Why "quantum-safe" isn\'t <optional> 4 August 2026.'
 
 
-def test_hero_keeps_the_clock_worker_contract():
+CLOCK_PANELS = {
+    "hero": lambda t: panels.hero(t, CFG["hero"]),
+    "clock": lambda t: panels.clock(t),
+}
+
+
+@pytest.mark.parametrize("draw", CLOCK_PANELS.values(), ids=CLOCK_PANELS)
+@pytest.mark.parametrize("mode", ["light", "dark"])
+def test_clock_panels_keep_the_clock_worker_contract(draw, mode):
     # The profile-clock Worker (sebastienrousseau.github.io, workers/clock.js,
     # clockCSS) replaces the marker with rules for exactly these selectors. If
     # one goes, the live clock freezes with no error, so pin them here.
-    svg = panels.hero(THEMES["dark"], CFG["hero"]).render()
+    svg = draw(THEMES[mode]).render()
     assert svg.count(panels.CLOCK_MARKER) == 1
+    assert svg.index(panels.CLOCK_MARKER) < svg.index(panels.REDUCED_MOTION)
     classes = set(re.findall(r'class="([^"]+)"', svg))
     for unit in ("hh", "mm", "ss"):
         assert f"hand {unit}" in classes
         assert f".{unit}{{animation-duration:" in svg
+    assert {f"hand {u} un" for u in ("hh", "mm")} | {f"hand {u} roll" for u in ("hh", "mm")} <= classes
+    assert ".un{animation-name:unspin}" in svg and ".hand{transform-box:view-box;" in svg
 
 
 def test_numbers_note_fits_on_one_line():

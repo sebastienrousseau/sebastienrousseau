@@ -29,6 +29,23 @@ def test_every_holiday_gets_a_hero_job_in_both_modes():
     assert len(list((ROOT / "assets").glob("hero-*.svg"))) == 2 * (len(HOLIDAYS) + 1)
 
 
+def test_every_holiday_gets_a_clock_beside_its_hero():
+    jobs = build.jobs(CFG, HOLIDAYS)
+    assert {"clock"} | {f"clock-{h.key}" for h in HOLIDAYS} <= set(jobs)
+    heroes = {p.name.removeprefix("hero-") for p in (ROOT / "assets").glob("hero-*.svg")}
+    clocks = {p.name.removeprefix("clock-") for p in (ROOT / "assets").glob("clock-*.svg")}
+    assert clocks == heroes and len(clocks) == 2 * (len(HOLIDAYS) + 1)
+
+
+def test_a_dropped_holiday_takes_its_clocks_with_it(tmp_path):
+    keep, drop = HOLIDAYS[0], HOLIDAYS[1]
+    names = [f"clock-{h.key}" for h in (keep, drop)]
+    panels.write({n: build.jobs(CFG, [keep, drop])[n] for n in names}, tmp_path)
+    assert (tmp_path / f"clock-{drop.key}-light.svg").exists()
+    panels.write({names[0]: build.jobs(CFG, [keep])[names[0]]}, tmp_path)
+    assert sorted(p.name for p in tmp_path.iterdir()) == [f"clock-{keep.key}-dark.svg", f"clock-{keep.key}-light.svg"]
+
+
 def test_credits_list_exactly_the_icons_in_use():
     text = credits.markdown(HOLIDAYS)
     with_icon = [h for h in HOLIDAYS if h.icon]
