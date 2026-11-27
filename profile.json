@@ -5,17 +5,17 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54889441,
-  "recent_downloads": 2483842,
+  "all_time_downloads": 54909661,
+  "recent_downloads": 2499051,
   "github_stars": 759,
-  "packages": 210,
+  "packages": 211,
   "window_days": 30,
-  "as_of": "2026-11-26",
+  "as_of": "2026-11-27",
   "display": {
    "all_time_downloads": "54.9M",
    "recent_downloads": "2.5M",
    "github_stars": "759",
-   "packages": "210"
+   "packages": "211"
   }
  },
  "pillars": [
@@ -89,7 +89,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14787
+     "downloads": 14788
     },
     {
      "name": "passmcp",
@@ -122,7 +122,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1585641
+     "downloads": 1589608
     },
     {
      "name": "rlg",
@@ -130,7 +130,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 134555
+     "downloads": 134584
     },
     {
      "name": "libmake",
@@ -163,7 +163,7 @@
      "text": "A multi-tenant, AI-native CDN you can read end to end and deploy yourself.",
      "url": "https://github.com/sebastienrousseau/cloudcdn.pro",
      "stars": 6,
-     "downloads": 291
+     "downloads": 293
     },
     {
      "name": "dotfiles",
