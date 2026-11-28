@@ -6,7 +6,7 @@
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
   "all_time_downloads": 55005458,
-  "recent_downloads": 2502387,
+  "recent_downloads": 2509175,
   "github_stars": 762,
   "packages": 213,
   "window_days": 30,
@@ -186,6 +186,13 @@
  ],
  "articles": [
   {
+   "title": "Proving Signal Correct at the Machine-Code Level with AlphaProof Code",
+   "topic": "APPLIED AI",
+   "date": "28 November 2026",
+   "published": "2026-11-28",
+   "url": "https://sebastienrousseau.com/2026-11-28-alphaproof-code-signal-machine-code-verification/"
+  },
+  {
    "title": "Quantum Risk Is a Programme, Not an Algorithm Swap, Say UK Regulators",
    "topic": "INFRA & CRYPTOGRAPHY",
    "date": "27 November 2026",
@@ -198,13 +205,6 @@
    "date": "26 November 2026",
    "published": "2026-11-26",
    "url": "https://sebastienrousseau.com/2026-11-26-celestial-holography-soft-physics/"
-  },
-  {
-   "title": "Shor on Cat Qubits: RSA-2048 in 1.25 Hours on 611,000 Qubits",
-   "topic": "INFRA & CRYPTOGRAPHY",
-   "date": "25 November 2026",
-   "published": "2026-11-25",
-   "url": "https://sebastienrousseau.com/2026-11-25-shor-rsa-2048-cat-qubits/"
   }
  ],
  "links": [

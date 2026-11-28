@@ -591,6 +591,13 @@
    "value": {
     "items": [
      {
+      "date": "28 November 2026",
+      "published": "2026-11-28",
+      "title": "Proving Signal Correct at the Machine-Code Level with AlphaProof Code",
+      "topic": "APPLIED AI",
+      "url": "https://sebastienrousseau.com/2026-11-28-alphaproof-code-signal-machine-code-verification/"
+     },
+     {
       "date": "27 November 2026",
       "published": "2026-11-27",
       "title": "Quantum Risk Is a Programme, Not an Algorithm Swap, Say UK Regulators",
@@ -603,13 +610,6 @@
       "title": "Celestial Holography: Symmetry Turns Soft Physics into a Dual Theory",
       "topic": "BANKING LEADERSHIP",
       "url": "https://sebastienrousseau.com/2026-11-26-celestial-holography-soft-physics/"
-     },
-     {
-      "date": "25 November 2026",
-      "published": "2026-11-25",
-      "title": "Shor on Cat Qubits: RSA-2048 in 1.25 Hours on 611,000 Qubits",
-      "topic": "INFRA & CRYPTOGRAPHY",
-      "url": "https://sebastienrousseau.com/2026-11-25-shor-rsa-2048-cat-qubits/"
      }
     ]
    }
@@ -985,7 +985,7 @@
      }
     },
     "packages": 91,
-    "recent": 2311017
+    "recent": 2317805
    }
   },
   "github": {
