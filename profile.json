@@ -5,14 +5,14 @@
  "site": "https://sebastienrousseau.com",
  "github": "https://github.com/sebastienrousseau",
  "numbers": {
-  "all_time_downloads": 54942867,
-  "recent_downloads": 2533637,
+  "all_time_downloads": 54962627,
+  "recent_downloads": 2452745,
   "github_stars": 760,
   "packages": 212,
   "window_days": 30,
   "as_of": "2026-11-27",
   "display": {
-   "all_time_downloads": "54.9M",
+   "all_time_downloads": "55M",
    "recent_downloads": "2.5M",
    "github_stars": "760",
    "packages": "212"
@@ -32,7 +32,7 @@
      "text": "Generate and validate ISO 20022 pain.001 payment files from CSV, SQLite, JSON or Parquet.",
      "url": "https://github.com/sebastienrousseau/pain001",
      "stars": 50,
-     "downloads": 98959
+     "downloads": 99016
     },
     {
      "name": "pacs008",
@@ -40,7 +40,7 @@
      "text": "Generate, validate, parse and audit pacs.008 FI-to-FI credit transfers with scheme-aware rules.",
      "url": "https://github.com/sebastienrousseau/pacs008",
      "stars": 4,
-     "downloads": 11439
+     "downloads": 11441
     },
     {
      "name": "bankstatementparser",
@@ -48,7 +48,7 @@
      "text": "Parse CAMT, MT940, OFX, CSV and PDF bank statements into one unified transaction model.",
      "url": "https://github.com/sebastienrousseau/bankstatementparser",
      "stars": 64,
-     "downloads": 40306
+     "downloads": 40784
     },
     {
      "name": "iso20022-mcp",
@@ -56,7 +56,7 @@
      "text": "One MCP gateway to search, validate, generate and parse ISO 20022 across pain, pacs, camt and acmt.",
      "url": "https://github.com/sebastienrousseau/iso20022-mcp",
      "stars": 1,
-     "downloads": 11668
+     "downloads": 11682
     }
    ]
   },
@@ -73,7 +73,7 @@
      "text": "FIPS 203 ML-KEM for Rust. Pure Rust, no_std, ACVP 180/180 and KyberSlash-clean.",
      "url": "https://github.com/sebastienrousseau/kyberlib",
      "stars": 48,
-     "downloads": 10211
+     "downloads": 10242
     },
     {
      "name": "crypto-service",
@@ -89,7 +89,7 @@
      "text": "Multi-algorithm password hashing with a typed policy, PHC storage and auto-rehash on drift.",
      "url": "https://github.com/sebastienrousseau/hsh",
      "stars": 22,
-     "downloads": 14789
+     "downloads": 14795
     },
     {
      "name": "passmcp",
@@ -114,7 +114,7 @@
      "text": "Secure-by-default static sites with WCAG 2.2 AA validation and CSP and SRI hardening.",
      "url": "https://github.com/sebastienrousseau/static-site-generator",
      "stars": 61,
-     "downloads": 61774
+     "downloads": 61788
     },
     {
      "name": "noyalib",
@@ -122,7 +122,7 @@
      "text": "YAML 1.2 for Rust: zero unsafe, full serde, lossless CST editing and JSON Schema.",
      "url": "https://github.com/sebastienrousseau/noyalib",
      "stars": 13,
-     "downloads": 1599309
+     "downloads": 1603304
     },
     {
      "name": "rlg",
@@ -130,7 +130,7 @@
      "text": "Near-lock-free structured logging with OTLP export and a built-in MCP server.",
      "url": "https://github.com/sebastienrousseau/rlg",
      "stars": 6,
-     "downloads": 134745
+     "downloads": 135219
     },
     {
      "name": "libmake",
@@ -186,6 +186,13 @@
  ],
  "articles": [
   {
+   "title": "Quantum Risk Is a Programme, Not an Algorithm Swap, Say UK Regulators",
+   "topic": "INFRA & CRYPTOGRAPHY",
+   "date": "27 November 2026",
+   "published": "2026-11-27",
+   "url": "https://sebastienrousseau.com/2026-11-27-uk-regulators-quantum-risk-programme/"
+  },
+  {
    "title": "Celestial Holography: Symmetry Turns Soft Physics into a Dual Theory",
    "topic": "BANKING LEADERSHIP",
    "date": "26 November 2026",
@@ -198,13 +205,6 @@
    "date": "25 November 2026",
    "published": "2026-11-25",
    "url": "https://sebastienrousseau.com/2026-11-25-shor-rsa-2048-cat-qubits/"
-  },
-  {
-   "title": "Super-agents: why one session per task stops scaling",
-   "topic": "APPLIED AI",
-   "date": "24 November 2026",
-   "published": "2026-11-24",
-   "url": "https://sebastienrousseau.com/2026-11-24-super-agents-one-session-per-task/"
   }
  ],
  "links": [
